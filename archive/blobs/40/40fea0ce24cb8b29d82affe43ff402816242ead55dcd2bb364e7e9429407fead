@@ -1,0 +1,2040 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-gb" xml:lang="en-gb">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="content-language" content="en-gb" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="resource-type" content="document" />
+ 
+    	<meta http-equiv="refresh" content="; URL=" /> 
+    	<meta http-equiv="refresh" content="" />  	
+		<meta http-equiv="pragma" content="" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<meta name="identifier-url" content="" />
+		<meta name="reply-to" content="" />
+		<meta name="revisit-after" content="15" />
+		<meta name="category" content="" />
+		<meta name="copyright" content="" />
+		<meta name="generator" content="" />
+		<meta name="robots" content="index, follow, noodp" />
+		<meta name="distribution" content="Global" />
+		<meta name="date-creation-yyyymmdd" content="20070501" />
+		<meta name="date-revision-yyyymmdd" content="20070821" /><title>UniDev - Programação de Jogos &bull; View topic - Revista impressa Unidev</title>
+
+<link rel="alternate" type="application/rss+xml" title="UniDev - Programação de Jogos RSS-Portal" href="./portal/syndicate.php" />
+<link rel="alternate" type="application/rss+xml" title="UniDev - Programação de Jogos RSS-Attachments" href="./portal/syndicate_attachments.php" />
+<link rel="alternate" type="application/rss+xml" title="UniDev - Programação de Jogos RSS-Downloads" href="./portal/syndicate_downloads.php" />
+  
+<link rel="stylesheet" href="./style.php?sid=2894e00d7f66ce69e4b512f8ab30bdcf&amp;id=4&amp;lang=pt_br" type="text/css" />
+<!--[if IE]><link href="./styles/twilightBB/theme/ie.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+<link href="./styles/twilightBB/theme/prime_trash_bin.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+// <![CDATA[
+
+function popup(url, width, height, name)
+{
+	if (!name)
+	{
+		name = '_popup';
+	}
+
+	window.open(url.replace(/&amp;/g, '&'), name, 'height=' + height + ',resizable=yes,scrollbars=yes,width=' + width);
+	return false;
+}
+
+// www.phpBB-SEO.com SEO TOOLKIT BEGIN
+function jumpto() {
+	var page = prompt('Enter the page number you wish to go to:', '1');
+	var perpage = '15';
+	var base_url = './viewtopic.php?f=18&amp;t=48797';
+	var seo_delim_start = '-';
+	var seo_static_pagination = 'page';
+	var seo_ext_pagination = '.html';
+	if (page !== null && !isNaN(page) && page > 0) {
+		var seo_page = (page - 1) * perpage;
+		if ( base_url.indexOf('?') >= 0 ) {
+			document.location.href = base_url.replace(/&amp;/g, '&') + '&start=' + seo_page;
+		} else if ( seo_page > 0 ) {
+			var seo_type1 = base_url.match(/\.[a-z0-9]+$/i);
+			if (seo_type1 !== null) {
+				document.location.href = base_url.replace(/\.[a-z0-9]+$/i, '') + seo_delim_start + seo_page + seo_type1;
+			}
+			var seo_type2 = base_url.match(/\/$/);
+			if (seo_type2 !== null) {
+				document.location.href = base_url + seo_static_pagination + seo_page + seo_ext_pagination;
+			}
+		} else {
+			document.location.href = base_url;
+		}
+	}
+}
+// www.phpBB-SEO.com SEO TOOLKIT END
+
+/**
+* Find a member
+*/
+function find_username(url)
+{
+	popup(url, 760, 570, '_usersearch');
+	return false;
+}
+
+/**
+* Mark/unmark checklist
+* id = ID of parent container, name = name prefix, state = state [true/false]
+*/
+function marklist(id, name, state)
+{
+	var parent = document.getElementById(id);
+	if (!parent)
+	{
+		eval('parent = document.' + id);
+	}
+
+	if (!parent)
+	{
+		return;
+	}
+
+	var rb = parent.getElementsByTagName('input');
+	
+	for (var r = 0; r < rb.length; r++)
+	{
+		if (rb[r].name.substr(0, name.length) == name)
+		{
+			rb[r].checked = state;
+		}
+	}
+}
+
+
+// ]]>
+</script>
+
+<!--[if lt IE 7]>
+<script language="JavaScript">
+function correctPNG() // correctly handle PNG transparency in Win IE 5.5 & 6.
+{
+   var arVersion = navigator.appVersion.split("MSIE")
+   var version = parseFloat(arVersion[1])
+   if ((version >= 5.5) && (document.body.filters)) 
+   {
+      for(var i=0; i<document.images.length; i++)
+      {
+         var img = document.images[i]
+         var imgName = img.src.toUpperCase()
+         if (imgName.substring(imgName.length-3, imgName.length) == "PNG")
+         {
+            var imgID = (img.id) ? "id='" + img.id + "' " : ""
+            var imgClass = (img.className) ? "class='" + img.className + "' " : ""
+            var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' "
+            var imgStyle = "display:inline-block;" + img.style.cssText 
+            if (img.align == "left") imgStyle = "float:left;" + imgStyle
+            if (img.align == "right") imgStyle = "float:right;" + imgStyle
+            if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle
+            var strNewHTML = "<span " + imgID + imgClass + imgTitle
+            + " style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
+            + "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+            + "(src=\'" + img.src + "\', sizingMethod='scale');\"></span>" 
+            img.outerHTML = strNewHTML
+            i = i-1
+         }
+      }
+   }    
+}
+window.attachEvent("onload", correctPNG);
+</script>
+<![endif]-->
+
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/lib/prototype.js"></script>
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/src/scriptaculous.js?load=effects,dragdrop"></script>
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/src/unittest.js"></script>
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/src/lightbox.js"></script>
+
+ 
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/src/tooltips.js"></script>
+        
+
+<link rel="stylesheet" href="./styles/twilightBB/template/portal/scriptaculous/css/lightbox.css" type="text/css" />
+<link rel="stylesheet" href="./styles/twilightBB/theme/prime_links/prime_links.css" type="text/css" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+<script type="text/javascript">
+<!--
+	var rmw_max_width 	= '450';
+	var rmw_border_1 	= '1px solid';
+	var rmw_border_2 	= '2px dotted';
+	var rmw_image_title = 'Click here to view full size of this image!';
+//-->
+</script>
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/src/resize_image.js"></script>
+
+	
+<link rel="stylesheet" href="./styles/twilightBB/theme/highslide/highslide.css" type="text/css" /> 
+<script type="text/javascript" src="./styles/twilightBB/theme/highslide/highslide-with-gallery.packed.js"></script>
+<script type="text/javascript">
+	hs.graphicsDir = './styles/twilightBB/theme/highslide/graphics/';
+	hs.align = 'center';
+	hs.transitions = ['expand', 'crossfade'];
+	hs.outlineType = 'rounded-white';
+	hs.wrapperClassName = 'controls-in-heading';
+	hs.fadeInOut = true;
+	//hs.dimmingOpacity = 0.75;
+
+	// Add the controlbar
+	if (hs.addSlideshow) hs.addSlideshow({
+		//slideshowGroup: 'group1',
+		interval: 5000,
+		repeat: false,
+		useControls: true,
+		fixedControls: false,
+		overlayOptions: {
+			opacity: 1,
+			position: 'top right',
+			hideOnMouseOut: false
+		}
+	});
+</script>
+
+<script type="text/javascript">
+// <![CDATA[
+/***********************************************
+* AnyLink Drop Down Menu- � Dynamic Drive (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+///// Begin menu options 
+
+//Contents for menu 1
+var menu1=new Array()
+menu1[1]='<a href="./index.php">Board index</a>' 
+menu1[2]='<a href="./calendar.php"> Calendar</a>' 
+menu1[3]='<a href="./portal/portal_acronyms.php">Acronyms and abbreviations</a>' 
+menu1[4]='<a href="./knowledge/index.php"> Knowledge Base</a>' 
+menu1[5]='<a href="./portal/portal_mods.php">Mods Database</a>' 
+menu1[6]='<a href="./portal/portal_crawler_linker.php">Crawler Feeds</a>' 
+menu1[7]='<a href="./portal_pages.php">Portal Pages</a>' 
+
+
+//Contents for menu 2, and so on
+var menu2=new Array()
+menu2[1]='<a href="./faq.php">FAQ</a>' 
+menu2[2]='<a href="./contact.php">Contact</a>' 
+menu2[3]='<a href="./impressum.php">Imprint</a>' 
+menu2[4]='<a href="">The team</a>'
+menu2[5]='<a href="./portal/syndicate.php">RSS 2 Feed Forum</a>'
+menu2[6]='<a href="./portal/syndicate_attachments.php">RSS 2 Feed Attachments</a>'
+menu2[7]='<a href="./portal/syndicate_downloads.php">RSS 2 Feed Downloads</a>'
+ 
+
+//Contents for menu 3 
+var menu3=new Array() 
+menu3[1]='<a href="./downloads.php">Downloads</a>' 
+
+
+ //Contents for menu 5 
+var menu5=new Array() 
+menu5[1]='<a href="./ucp.php">User Control Panel</a>'  
+menu5[2]='<a href="./ucp.php?i=pm&amp;folder=inbox"></a>' 
+menu5[3]='' 
+menu5[4]='<a href="./ucp.php"> User Control Panel</a>' 
+menu5[5]='' 
+menu5[6]='' 
+ 
+
+
+//Contents for menu 6 
+var menu6=new Array() 
+menu6[1]='<a href="./portal/portal_recent_topics.php">Recent Topics</a>'
+ 
+
+
+///// End menu options 
+
+var menuwidth='200px' //default menu width
+var menubgcolor='#131313'  //menu bgcolor
+var disappeardelay=250  //menu disappear speed onMouseout (in miliseconds)
+var hidemenu_onclick="yes" //hide menu when user clicks within menu?
+
+/////No further editting needed
+
+var ie4=document.all
+var ns6=document.getElementById&&!document.all
+
+if (ie4||ns6)
+document.write('<div id="dropmenudiv" style="visibility:hidden;width:'+menuwidth+';background-color:'+menubgcolor+'" onMouseover="clearhidemenu()" onMouseout="dynamichide(event)"></div>')
+
+function getposOffset(what, offsettype){
+var totaloffset=(offsettype=="left")? what.offsetLeft : what.offsetTop;
+var parentEl=what.offsetParent;
+while (parentEl!=null){
+totaloffset=(offsettype=="left")? totaloffset+parentEl.offsetLeft : totaloffset+parentEl.offsetTop;
+parentEl=parentEl.offsetParent;
+}
+return totaloffset;
+}
+
+function showhide(obj, e, visible, hidden, menuwidth){
+if (ie4||ns6)
+dropmenuobj.style.left=dropmenuobj.style.top="-500px"
+if (menuwidth!=""){
+dropmenuobj.widthobj=dropmenuobj.style
+dropmenuobj.widthobj.width=menuwidth
+}
+if (e.type=="click" && obj.visibility==hidden || e.type=="mouseover")
+obj.visibility=visible
+else if (e.type=="click")
+obj.visibility=hidden
+}
+
+function iecompattest(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+
+}
+
+function clearbrowseredge(obj, whichedge){
+var edgeoffset=0
+if (whichedge=="rightedge"){
+var windowedge=ie4 && !window.opera? iecompattest().scrollLeft+iecompattest().clientWidth-15 : window.pageXOffset+window.innerWidth-15
+dropmenuobj.contentmeasure=dropmenuobj.offsetWidth
+if (windowedge-dropmenuobj.x < dropmenuobj.contentmeasure)
+edgeoffset=dropmenuobj.contentmeasure-obj.offsetWidth
+}
+else{
+var topedge=ie4 && !window.opera? iecompattest().scrollTop : window.pageYOffset
+var windowedge=ie4 && !window.opera? iecompattest().scrollTop+iecompattest().clientHeight-15 : window.pageYOffset+window.innerHeight-18
+dropmenuobj.contentmeasure=dropmenuobj.offsetHeight
+if (windowedge-dropmenuobj.y < dropmenuobj.contentmeasure){ //move up?
+edgeoffset=dropmenuobj.contentmeasure+obj.offsetHeight
+if ((dropmenuobj.y-topedge)<dropmenuobj.contentmeasure) //up no good either?
+edgeoffset=dropmenuobj.y+obj.offsetHeight-topedge
+}
+}
+return edgeoffset
+}
+
+function populatemenu(what){
+if (ie4||ns6)
+dropmenuobj.innerHTML=what.join("")
+}
+
+function dropdownmenu(obj, e, menucontents, menuwidth){
+if (window.event) event.cancelBubble=true
+else if (e.stopPropagation) e.stopPropagation()
+clearhidemenu()
+dropmenuobj=document.getElementById? document.getElementById("dropmenudiv") : dropmenudiv
+populatemenu(menucontents)
+
+if (ie4||ns6){
+showhide(dropmenuobj.style, e, "visible", "hidden", menuwidth)
+
+dropmenuobj.x=getposOffset(obj, "left")
+dropmenuobj.y=getposOffset(obj, "top")
+dropmenuobj.style.left=dropmenuobj.x-clearbrowseredge(obj, "rightedge")+"px"
+dropmenuobj.style.top=dropmenuobj.y-clearbrowseredge(obj, "bottomedge")+obj.offsetHeight+"px"
+}
+
+return clickreturnvalue()
+}
+
+function clickreturnvalue(){
+if (ie4||ns6) return false
+else return true
+}
+
+function contains_ns6(a, b) {
+while (b.parentNode)
+if ((b = b.parentNode) == a)
+return true;
+return false;
+}
+
+function dynamichide(e){
+if (ie4&&!dropmenuobj.contains(e.toElement))
+delayhidemenu()
+else if (ns6&&e.currentTarget!= e.relatedTarget&& !contains_ns6(e.currentTarget, e.relatedTarget))
+delayhidemenu()
+}
+
+function hidemenu(e){
+if (typeof dropmenuobj!="undefined"){
+if (ie4||ns6)
+dropmenuobj.style.visibility="hidden"
+}
+}
+
+function delayhidemenu(){
+if (ie4||ns6)
+delayhide=setTimeout("hidemenu()",disappeardelay)
+}
+
+function clearhidemenu(){
+if (typeof delayhide!="undefined")
+clearTimeout(delayhide)
+}
+
+if (hidemenu_onclick=="yes")
+document.onclick=hidemenu
+// ]]>
+</script>
+
+</head>
+<body class="ltr">
+
+<table id="container" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td id="bgleft"><img src="./styles/twilightBB/theme/images/spacer.gif" width="53px" alt="" /></td>
+<td id="middle" valign="top">
+<a id="top" name="top" accesskey="t"></a>
+<a id="wrap" name="wrap" accesskey="w"></a>
+<a id="wrapheader" name="wrapheader" accesskey="w"></a>
+
+<div id="wrapper">
+
+<div id="banner">
+	<a href="./index.php" title="Board index" id="logo"><img src="./styles/twilightBB/imageset/logos/site_logo_00.gif" border="0" alt="" /></a>
+</div>
+
+<div id="header">
+	<div id="menu">
+		<a class="faq" href="./faq.php" title="Frequently Asked Questions"><span>FAQ</span></a>
+			</div>
+	<br clear="all" />
+
+	<div id="crumbs">
+	
+	        
+		<ul class="breadcrumbs">
+			<li class="icon-home">
+                <a class="icon-home" href="./portal.php" accesskey="h">Portal</a> <strong>&#8249;</strong> <a href="./index.php" accesskey="h">Board index</a> <strong>&#8249;</strong> <a href="./viewforum.php?f=78">Outros assuntos</a> <strong>&#8249;</strong> <a href="./viewforum.php?f=18">Assuntos diversos</a>            </li>
+		</ul>
+	</div>
+	
+	<div id="datebar">
+         
+	</div>
+
+</div>
+
+<div id="ct"><div id="ct2"><div id="ctl"><div id="ctr">
+<div id="cb"><div id="cbl"><div id="cbr">
+
+<div id="wrapcentre">
+
+	
+	<br style="clear: both;" />
+
+	<script type="text/javascript">
+// Ajax Userinfo 0.1.0 by tas2580 (http://www.seo-phpbb.org)
+//
+// Thanks to Jhong (http://www.wp-united.com) for some ideas in the JavaScript
+
+var lockAnim;
+lockAnim = false;
+
+function show_popup(uID) {
+	chOpac(0, 'popup');
+	if (!lockAnim) {
+		lockAnim = true;
+		opacAnim('popup', 0, 100, 500);
+	}
+	document.onmousemove = snapdiv;
+	sendRequest(uID);
+	document.getElementById('popup').style.display='block';
+}
+
+function close_popup() {
+	if (!lockAnim) {
+		lockAnim = true;
+		opacAnim('popup', 100, 0, 500);
+	} else {
+		document.getElementById('popup').style.display='none';
+		setDefaults();
+	}
+}
+
+function setDefaults() {
+	document.getElementById('ajaxusername').innerHTML = '';
+	document.getElementById('ajax_registert').innerHTML = '';
+	document.getElementById('ajax_posts').innerHTML = '';
+	document.getElementById('ajax_from').innerHTML = '';
+	document.getElementById('ajax_last_visit').innerHTML = '';
+	document.getElementById('ajaxavatar').src = "portal/images/loading.gif";
+	document.getElementById('ajax_rank').innerHTML = '';
+	document.getElementById('ajaxusername').style.color = '#000000';
+	document.getElementById('ajax_website').innerHTML = '';
+	document.onmousemove = '';
+}
+
+// Make the request   
+function createRequestObject() {
+	var ro;
+	var browser = navigator.appName;
+	if(browser == "Microsoft Internet Explorer"){
+		ro = new ActiveXObject("Microsoft.XMLHTTP");
+	} else {
+		ro = new XMLHttpRequest();
+	}
+	return ro;
+}
+
+var http_getuser = createRequestObject();
+
+function sendRequest(UserID) {
+	http_getuser.open('get', 'portal/includes/ajax_userinfo.php?userid='+UserID);
+	http_getuser.onreadystatechange = handleResponse;
+	http_getuser.send(null);
+}
+
+// fill in the response
+function handleResponse() {
+	if(http_getuser.readyState == 4){
+		var xmlDoc   = http_getuser.responseXML;
+		document.getElementById('ajaxusername').innerHTML = xmlDoc.getElementsByTagName('username')[0].firstChild.nodeValue;
+		document.getElementById('ajaxusername').style.color = '#' + xmlDoc.getElementsByTagName('colour')[0].firstChild.nodeValue;
+		document.getElementById('ajax_registert').innerHTML = xmlDoc.getElementsByTagName('regdate')[0].firstChild.nodeValue;
+		document.getElementById('ajax_posts').innerHTML = xmlDoc.getElementsByTagName('posts')[0].firstChild.nodeValue;
+		document.getElementById('ajax_website').innerHTML = xmlDoc.getElementsByTagName('website')[0].firstChild.nodeValue;
+		document.getElementById('ajax_from').innerHTML = xmlDoc.getElementsByTagName('from')[0].firstChild.nodeValue;
+		document.getElementById('ajax_last_visit').innerHTML = xmlDoc.getElementsByTagName('lastvisit')[0].firstChild.nodeValue;
+		document.getElementById('ajax_rank').innerHTML = xmlDoc.getElementsByTagName('rank')[0].firstChild.nodeValue;
+		document.getElementById('ajaxavatar').src = xmlDoc.getElementsByTagName('avatar')[0].firstChild.nodeValue;
+	}
+}
+
+function snapdiv(e) {      
+	var docX, docY;
+	if(e)
+	{
+		if(typeof(e.pageX) == 'number') { docX = e.pageX; docY = e.pageY;}
+		else {docX = e.clientX; docY = e.clientY;}
+	}
+	else 
+	{
+		e = window.event;
+		docX = e.clientX; docY = e.clientY;
+		if(document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) 
+		{
+			docX += document.documentElement.scrollLeft; docY += document.documentElement.scrollTop;
+		}
+		else if(document.body && (document.body.scrollTop || document.body.scrollLeft)) 
+		{
+			docX += document.body.scrollLeft; docY += document.body.scrollTop;
+		}
+	}
+	if (docX > document.body.offsetWidth - 400) 
+	{
+		document.getElementById('popup').style.left = (docX - 390) + "px";
+	} 
+	else 
+	{
+		document.getElementById('popup').style.left = (docX - 10) + "px";
+	}
+	document.getElementById('popup').style.top    = (docY + 20) + "px";
+}
+
+function opacAnim(id, opacStart, opacEnd, millisec) {
+	lockAnim = true;
+	var speed = Math.round(millisec / 100);
+	var timer = 0; var i = 0;
+	if (opacEnd>opacStart) 
+	{
+		for (i = opacStart+1; i <= opacEnd; i=i+2) 
+		{
+			i= (i==99)?100:i;
+			setTimeout("chOpac(" + i + ",'" + id + "')",(timer * speed));
+			timer++;
+		}      
+	} 
+	else 
+	{
+		for (i = opacStart-1; i >= opacEnd; i--) 
+		{
+			setTimeout("chOpac(" + i + ",'" + id + "')",(timer * speed));
+			timer++;
+		}
+	}
+}
+
+function chOpac(opacity, id) 
+{
+	var object = document.getElementById(id).style;
+	object.filter = "alpha(opacity:" + opacity + ")";
+	object.opacity = object.MozOpacity = object.KhtmlOpacity = (opacity / 100);
+	if ((opacity <= 0) || (opacity >= 100)) 
+	{
+		lockAnim = false;
+		if (opacity <= 0) {
+			document.getElementById(id).style.display='none';setDefaults();
+		}
+	}
+}
+</script>
+
+<style type="text/css">
+/* Ajax User-Info Popups */
+.popup {
+   z-index: 60;
+   position: absolute;
+   display: none;
+   font-size: 10px;
+   width: 360px;
+}
+
+#avimg {width:100px; float: left; overflow: hidden; height: 100px; text-align: center;}
+#ajaxusername {font-weight: bold;}
+</style>
+
+<div class="popup forabg" id="popup" style="display: none;">
+  <table class="tablebg" cellspacing="1" width="100%">
+    <tr>
+      <th><h4>Users Information</h4></th>
+    </tr>
+    <td class="row1">
+    	<div id="avimg"><img id="ajaxavatar" src="./styles/twilightBB/theme/images/loading.gif" alt="avatar"></div>
+        <strong>Username:</strong> <span id="ajaxusername"></span><br />
+        <strong>Total posts:</strong> <span id="ajax_posts"></span><br />
+        <strong>Rank:</strong> <span id="ajax_rank"></span><br />
+        <strong>Joined:</strong> <span id="ajax_registert"></span><br />
+        <strong>Last visit:</strong> <span id="ajax_last_visit"></span><br />
+        <strong>Location:</strong> <span id="ajax_from"></span><br />
+        <strong>Website:</strong> <span id="ajax_website"></span><br style="clear: both;">
+      </td>
+    </tr>
+  </table>
+</div>        
+
+	<br />
+<table width="100%" cellspacing="1">
+  <tr>
+    <td class="genmed" align="left"><a href="#" onclick="Effect.toggle('portal_container','slide'); return false;" title="OpenCloseAllColumns"><span>[ +/- ]</span></a>
+            <span>[ Last visit was: Mon Jul 06, 2009 2:17 am ]</span>
+      </td>
+    <td class="genmed" align="right">      <span>[ It is currently Mon Jul 06, 2009 2:17 am ]</span>
+          </td>
+  </tr>
+</table>
+
+<div id="portal_container">
+
+<!-- [+] top block area -->
+<table width="100%" cellspacing="1">
+  <tr>
+    <td valign="top">
+    </td>
+  </tr>
+</table>
+<!-- [-] top block area -->
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<!-- [+] center block area -->
+	<td valign="top" align="left">
+
+<div id="pageheader">
+	<h2><a class="titles" href="./viewtopic.php?f=18&amp;t=48797&amp;start=0">Revista impressa Unidev</a></h2>
+
+	<p class="moderators">Moderators: Pr0gr4mm3r, proteus, <span style="color: #AA0000;" class="username-coloured">duzao7667</span>, Eric Draven, unwinged_angel, LordVader</p>
+</div>
+
+<br clear="all" /><br />
+
+<div id="pagecontent">
+
+
+	<table width="100%" cellspacing="1">
+	<tr>
+		<td align="left" valign="middle" width="190px">
+				</td>
+					<td class="gensmall" valign="middle" nowrap="nowrap">Page <strong>1</strong> of <strong>2</strong>&nbsp; &nbsp;[ 20 posts ]<br /></td>
+			<td class="gensmall" align="right" nowrap="nowrap"><b><a href="#" onclick="jumpto(); return false;" title="Click to jump to page…">Go to page</a> <strong>1</strong><span class="page-sep">, </span><a href="./viewtopic.php?f=18&amp;t=48797&amp;start=15">2</a> &nbsp;<a href="./viewtopic.php?f=18&amp;t=48797&amp;start=15">Next</a></b></td>
+			</tr>
+	</table>
+
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr>
+		<td class="cat">
+			<table width="100%" cellspacing="0">
+			<tr>
+				<td class="nav" nowrap="nowrap">&nbsp;
+								</td>
+				<td class="nav" align="right" nowrap="nowrap"><a href="./viewtopic.php?f=18&amp;t=48797&amp;view=previous">Previous topic</a> | <a href="./viewtopic.php?f=18&amp;t=48797&amp;view=next">Next topic</a>&nbsp;</td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td class="row2" colspan="2" align="center"><br clear="all" />
+
+			<form method="post" action="./viewtopic.php?f=18&amp;t=48797&amp;start=0">
+
+			<table cellspacing="0" cellpadding="4" border="0" align="center">
+			<tr>
+				<td align="center"><span class="gen"><b>Você assinaria uma revista impressa &quot;Unidev&quot;</b></span><br /><span class="gensmall"></span></td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table cellspacing="0" cellpadding="2" border="0">
+									<tr>
+											<td><span class="gen">Não, não tenho interesse.</span></td>
+													<td dir="ltr"><img src="./styles/twilightBB/imageset/poll_left.gif" width="4" height="12" alt="" title="" /><img src="./styles/twilightBB/imageset/poll_center.gif" width="20" height="12" alt="8%" title="8%" /><img src="./styles/twilightBB/imageset/poll_right.gif" width="4" height="12" alt="" title="" /></td>
+							<td class="gen" align="right"><b>&nbsp;8%&nbsp;</b></td>
+							<td class="gen" align="center">[ 10 ]</td>
+												</tr>
+									<tr>
+											<td><span class="gen">Não, não tenho condições.</span></td>
+													<td dir="ltr"><img src="./styles/twilightBB/imageset/poll_left.gif" width="4" height="12" alt="" title="" /><img src="./styles/twilightBB/imageset/poll_center.gif" width="12" height="12" alt="5%" title="5%" /><img src="./styles/twilightBB/imageset/poll_right.gif" width="4" height="12" alt="" title="" /></td>
+							<td class="gen" align="right"><b>&nbsp;5%&nbsp;</b></td>
+							<td class="gen" align="center">[ 6 ]</td>
+												</tr>
+									<tr>
+											<td><span class="gen">Talvez, compraria sem assinatura.</span></td>
+													<td dir="ltr"><img src="./styles/twilightBB/imageset/poll_left.gif" width="4" height="12" alt="" title="" /><img src="./styles/twilightBB/imageset/poll_center.gif" width="33" height="12" alt="13%" title="13%" /><img src="./styles/twilightBB/imageset/poll_right.gif" width="4" height="12" alt="" title="" /></td>
+							<td class="gen" align="right"><b>&nbsp;13%&nbsp;</b></td>
+							<td class="gen" align="center">[ 17 ]</td>
+												</tr>
+									<tr>
+											<td><span class="gen">Talvez, depende do conteúdo e preço.</span></td>
+													<td dir="ltr"><img src="./styles/twilightBB/imageset/poll_left.gif" width="4" height="12" alt="" title="" /><img src="./styles/twilightBB/imageset/poll_center.gif" width="92" height="12" alt="37%" title="37%" /><img src="./styles/twilightBB/imageset/poll_right.gif" width="4" height="12" alt="" title="" /></td>
+							<td class="gen" align="right"><b>&nbsp;37%&nbsp;</b></td>
+							<td class="gen" align="center">[ 47 ]</td>
+												</tr>
+									<tr>
+											<td><span class="gen">Sim, desde que custe até R$10,00.</span></td>
+													<td dir="ltr"><img src="./styles/twilightBB/imageset/poll_left.gif" width="4" height="12" alt="" title="" /><img src="./styles/twilightBB/imageset/poll_center.gif" width="47" height="12" alt="19%" title="19%" /><img src="./styles/twilightBB/imageset/poll_right.gif" width="4" height="12" alt="" title="" /></td>
+							<td class="gen" align="right"><b>&nbsp;19%&nbsp;</b></td>
+							<td class="gen" align="center">[ 24 ]</td>
+												</tr>
+									<tr>
+											<td><span class="gen">Sim, com certeza.</span></td>
+													<td dir="ltr"><img src="./styles/twilightBB/imageset/poll_left.gif" width="4" height="12" alt="" title="" /><img src="./styles/twilightBB/imageset/poll_center.gif" width="47" height="12" alt="19%" title="19%" /><img src="./styles/twilightBB/imageset/poll_right.gif" width="4" height="12" alt="" title="" /></td>
+							<td class="gen" align="right"><b>&nbsp;19%&nbsp;</b></td>
+							<td class="gen" align="center">[ 24 ]</td>
+												</tr>
+									</table>
+				</td>
+			</tr>
+					<tr>
+				<td class="gensmall" colspan="4" align="center"><b>Total votes : 128</b></td>
+			</tr>
+					</table>
+						
+			</form>
+			
+		</td>
+	</tr>
+	</table>
+
+	<table class="tablebg" width="100%" cellspacing="1">
+			<tr>
+			<th>Author</th>
+			<th>Message</th>
+		</tr>
+	<tr class="row1">
+			<td align="center" valign="middle">
+				<a name="p338376"></a>
+				<b class="postauthor" style="color: #AA0000">Zizaco</b>
+			</td>
+			<td width="100%" height="25">
+				<table width="100%" cellspacing="0">
+				<tr>
+									<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Revista impressa Unidev</div><div style="float: right;"><img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Post" title="Post" /><b>Posted:</b> Tue May 05, 2009 5:22 pm&nbsp;</div></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr class="row1">
+			<td valign="top" class="profile">
+				<table cellspacing="4" align="center" width="150">
+							<tr>
+					<td class="postdetails">Administrador</td>
+				</tr>
+							<tr>
+					<td><img src="http://img25.imageshack.us/img25/8108/craigavatar.jpg" width="120" height="150" alt="User avatar" /></td>
+				</tr>
+							</table>
+
+				<span class="postdetails">
+					<br /><b>Joined:</b> Wed Jul 02, 2003 12:23 pm<br /><b>Posts:</b> 1772<br /><b>Location:</b> Brasil				</span>
+
+			</td>
+			<td valign="top">
+				<table width="100%" cellspacing="5">
+				<tr>
+					<td>
+					
+						<div class="postbody">Estamos analizando se existe interesse dos usuarios em assinar uma revista sobre desenvolvimento de jogos.</div>
+
+											<span class="postbody"><br />_________________<br /><span style="font-weight: bold"><a href="http://www.unidev.com.br/curso/blitz3d/cursodescricao.htm" class="postlink-local">Como criar jogos?</a></span></span>
+					<br clear="all" /><br />
+						<table width="100%" cellspacing="0">
+						<tr valign="middle">
+							<!-- start mod view or mark unread posts (and end mod too) ... added mark_post_unread references in the preceding line -->                        
+							<td class="gensmall" align="right">
+														</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+
+		<tr class="row1">
+			<td class="profile"><strong><a href="./viewtopic.php?f=18&amp;t=48797&amp;start=0#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="./memberlist.php?mode=viewprofile&amp;u=2084"><img src="./styles/twilightBB/imageset/en/icon_user_profile.png" width="77" height="23" alt="Profile" title="Profile" /></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+			</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	</table>
+
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr class="row1">
+        <td style="text-align: center;" width="155">
+          </td>
+    <td valign="top" style="padding-left: 4px;">
+          </td>
+  </tr>
+  <tr>
+    <td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+  </tr>
+</table>
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr class="row2">
+			<td align="center" valign="middle">
+				<a name="p338378"></a>
+				<b class="postauthor">Rock</b>
+			</td>
+			<td width="100%" height="25">
+				<table width="100%" cellspacing="0">
+				<tr>
+									<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Revista impressa Unidev</div><div style="float: right;"><img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Post" title="Post" /><b>Posted:</b> Tue May 05, 2009 5:40 pm&nbsp;</div></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr class="row2">
+			<td valign="top" class="profile">
+				<table cellspacing="4" align="center" width="150">
+							<tr>
+					<td class="postdetails">Moderador(a)</td>
+				</tr>
+							<tr>
+					<td><img src="http://img2.orkut.com/images/medium/1239372565/63475918/bq.jpg" width="128" height="111" alt="User avatar" /></td>
+				</tr>
+							</table>
+
+				<span class="postdetails">
+					<br /><b>Joined:</b> Mon Jan 30, 2006 8:32 pm<br /><b>Posts:</b> 4049<br /><b>Location:</b> CodeGear				</span>
+
+			</td>
+			<td valign="top">
+				<table width="100%" cellspacing="5">
+				<tr>
+					<td>
+					
+						<div class="postbody">Kara, a versão digital não seguiu por muito tempo, quais fatores indicariam que seria confiável para o futuro assinante?</div>
+
+											<span class="postbody"><br />_________________<br /><span style="color: red"><span style="font-weight: bold">Let the carnage begin!</span></span><br /><img resizemod="on" onload="rmw_img_loaded(this)" src="http://img58.imageshack.us/img58/2314/theoffspringfan15sk.gif" alt="Image" /><br /><img resizemod="on" onload="rmw_img_loaded(this)" src="http://img209.imageshack.us/img209/8660/delphi7yu.gif" alt="Image" /></span>
+					<br clear="all" /><br />
+						<table width="100%" cellspacing="0">
+						<tr valign="middle">
+							<!-- start mod view or mark unread posts (and end mod too) ... added mark_post_unread references in the preceding line -->                        
+							<td class="gensmall" align="right">
+														</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+
+		<tr class="row2">
+			<td class="profile"><strong><a href="./viewtopic.php?f=18&amp;t=48797&amp;start=0#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="./memberlist.php?mode=viewprofile&amp;u=23453"><img src="./styles/twilightBB/imageset/en/icon_user_profile.png" width="77" height="23" alt="Profile" title="Profile" /></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+			</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	</table>
+
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr class="row2">
+        <td style="text-align: center;" width="155">
+          </td>
+    <td valign="top" style="padding-left: 4px;">
+          </td>
+  </tr>
+  <tr>
+    <td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+  </tr>
+</table>
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr class="row1">
+			<td align="center" valign="middle">
+				<a name="p338379"></a>
+				<b class="postauthor">dee-jay</b>
+			</td>
+			<td width="100%" height="25">
+				<table width="100%" cellspacing="0">
+				<tr>
+									<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Revista impressa Unidev</div><div style="float: right;"><img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Post" title="Post" /><b>Posted:</b> Tue May 05, 2009 6:21 pm&nbsp;</div></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr class="row1">
+			<td valign="top" class="profile">
+				<table cellspacing="4" align="center" width="150">
+							<tr>
+					<td class="postdetails">Membro Avançado</td>
+				</tr>
+							<tr>
+					<td><img src="http://pixelparadise.forumotion.com/users/a4/30/58/38/avatars/34-27.gif" width="100" height="133" alt="User avatar" /></td>
+				</tr>
+							</table>
+
+				<span class="postdetails">
+					<br /><b>Joined:</b> Sun Nov 06, 2005 10:18 pm<br /><b>Posts:</b> 1483<br /><b>Location:</b> Brasil				</span>
+
+			</td>
+			<td valign="top">
+				<table width="100%" cellspacing="5">
+				<tr>
+					<td>
+					
+						<div class="postbody">Realmente depende do conteúdo...<br /><br />Dae precisa arranjar um editor experiente e uma equipe boa.<br /><br />Coisas importantes de se ter na revista:<br />Opiniões: Achar nomes importantes da indústria de jogos pra explicar tendências de mercado e arriscar palpites.<br />Críticas<br />Entrevistas com desenvolvedores, mas com perguntas melhores que as 'padrões'. Tipo: Como fez, quanto custou, quais as dificuldades, quais ferramentas usou, Dica pra quem tá começando, dica pra quem tá entrando no mercado, Opinião sobre acontecimentos atuais e tal. Mas nada de resumex, algo um pouco mais extenso, técnico e bem explicado.<br /><br />e uns tutos, quem sabe.<br /><br /><img src="./images/smilies/icon_smile.gif" alt=":)" title="Smile" /><br /><br />…<br /><br />Montem um piloto em .pdf pra a gente analisar</div>
+
+											<span class="postbody"><br />_________________<br /><a href="http://djonata.deviantart.com/" class="postlink" rel="nofollow" onclick="this.target='_blank';">~djonata on deviantART</a>
+<br /><a href="http://www.meadiciona.com.br/djonata/" class="postlink" rel="nofollow" onclick="this.target='_blank';">me add++</a>
+<br />
+<br /><img resizemod="on" onload="rmw_img_loaded(this)" src="http://img144.imageshack.us/img144/9113/paintuserlz6.png" alt="Image" /></span>
+					<br clear="all" /><br />
+						<table width="100%" cellspacing="0">
+						<tr valign="middle">
+							<!-- start mod view or mark unread posts (and end mod too) ... added mark_post_unread references in the preceding line -->                        
+							<td class="gensmall" align="right">
+														</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+
+		<tr class="row1">
+			<td class="profile"><strong><a href="./viewtopic.php?f=18&amp;t=48797&amp;start=0#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="./memberlist.php?mode=viewprofile&amp;u=21179"><img src="./styles/twilightBB/imageset/en/icon_user_profile.png" width="77" height="23" alt="Profile" title="Profile" /></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+			</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	</table>
+
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr class="row1">
+        <td style="text-align: center;" width="155">
+          </td>
+    <td valign="top" style="padding-left: 4px;">
+          </td>
+  </tr>
+  <tr>
+    <td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+  </tr>
+</table>
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr class="row2">
+			<td align="center" valign="middle">
+				<a name="p338380"></a>
+				<b class="postauthor" style="color: #AA0000">gilmer</b>
+			</td>
+			<td width="100%" height="25">
+				<table width="100%" cellspacing="0">
+				<tr>
+									<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Revista impressa Unidev</div><div style="float: right;"><img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Post" title="Post" /><b>Posted:</b> Tue May 05, 2009 6:42 pm&nbsp;</div></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr class="row2">
+			<td valign="top" class="profile">
+				<table cellspacing="4" align="center" width="150">
+							<tr>
+					<td class="postdetails">Administrador</td>
+				</tr>
+							</table>
+
+				<span class="postdetails">
+					<br /><b>Joined:</b> Sat Aug 31, 2002 1:14 am<br /><b>Posts:</b> 190<br /><b>Location:</b> Brasil				</span>
+
+			</td>
+			<td valign="top">
+				<table width="100%" cellspacing="5">
+				<tr>
+					<td>
+					
+						<div class="postbody"><div class="quotetitle">Rock wrote:</div><div class="quotecontent">Kara, a versão digital não seguiu por muito tempo, quais fatores indicariam que seria confiável para o futuro assinante?</div><br /><br />Estes é um dos motivos de ser paga, para ter o mínimo de  condições de sustentar.<br />Seria preciso conteúdo, mas penso em criar uma parceria ou uma espécie de convênio com as universidades e outros desenvolvedores, o que você acha?<br /><br />Poderia até iniciar com uma revista eletrônica, mas como trazer recurso financeiro?</div>
+
+					<br clear="all" /><br />
+						<table width="100%" cellspacing="0">
+						<tr valign="middle">
+							<!-- start mod view or mark unread posts (and end mod too) ... added mark_post_unread references in the preceding line -->                        
+							<td class="gensmall" align="right">
+														</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+
+		<tr class="row2">
+			<td class="profile"><strong><a href="./viewtopic.php?f=18&amp;t=48797&amp;start=0#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="./memberlist.php?mode=viewprofile&amp;u=54"><img src="./styles/twilightBB/imageset/en/icon_user_profile.png" width="77" height="23" alt="Profile" title="Profile" /></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+			</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	</table>
+
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr class="row2">
+        <td style="text-align: center;" width="155">
+          </td>
+    <td valign="top" style="padding-left: 4px;">
+          </td>
+  </tr>
+  <tr>
+    <td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+  </tr>
+</table>
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr class="row1">
+			<td align="center" valign="middle">
+				<a name="p338381"></a>
+				<b class="postauthor" style="color: #AA0000">gilmer</b>
+			</td>
+			<td width="100%" height="25">
+				<table width="100%" cellspacing="0">
+				<tr>
+									<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Revista impressa Unidev</div><div style="float: right;"><img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Post" title="Post" /><b>Posted:</b> Tue May 05, 2009 7:02 pm&nbsp;</div></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr class="row1">
+			<td valign="top" class="profile">
+				<table cellspacing="4" align="center" width="150">
+							<tr>
+					<td class="postdetails">Administrador</td>
+				</tr>
+							</table>
+
+				<span class="postdetails">
+					<br /><b>Joined:</b> Sat Aug 31, 2002 1:14 am<br /><b>Posts:</b> 190<br /><b>Location:</b> Brasil				</span>
+
+			</td>
+			<td valign="top">
+				<table width="100%" cellspacing="5">
+				<tr>
+					<td>
+					
+						<div class="postbody"><div class="quotetitle">dee-jay wrote:</div><div class="quotecontent">Realmente depende do conteúdo...<br /><br />Dae precisa arranjar um editor experiente e uma equipe boa.<br /><br />Coisas importantes de se ter na revista:<br />Opiniões: Achar nomes importantes da indústria de jogos pra explicar tendências de mercado e arriscar palpites.<br />Críticas<br />Entrevistas com desenvolvedores, mas com perguntas melhores que as 'padrões'. Tipo: Como fez, quanto custou, quais as dificuldades, quais ferramentas usou, Dica pra quem tá começando, dica pra quem tá entrando no mercado, Opinião sobre acontecimentos atuais e tal. Mas nada de resumex, algo um pouco mais extenso, técnico e bem explicado.<br /><br />e uns tutos, quem sabe.<br /><br /><img src="./images/smilies/icon_smile.gif" alt=":)" title="Smile" /><br /><br />…<br /><br />Montem um piloto em .pdf pra a gente analisar</div><br /><br />Quais nomes você acha importante na industria brasileira de jogos?</div>
+
+					<br clear="all" /><br />
+						<table width="100%" cellspacing="0">
+						<tr valign="middle">
+							<!-- start mod view or mark unread posts (and end mod too) ... added mark_post_unread references in the preceding line -->                        
+							<td class="gensmall" align="right">
+														</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+
+		<tr class="row1">
+			<td class="profile"><strong><a href="./viewtopic.php?f=18&amp;t=48797&amp;start=0#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="./memberlist.php?mode=viewprofile&amp;u=54"><img src="./styles/twilightBB/imageset/en/icon_user_profile.png" width="77" height="23" alt="Profile" title="Profile" /></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+			</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	</table>
+
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr class="row1">
+        <td style="text-align: center;" width="155">
+          </td>
+    <td valign="top" style="padding-left: 4px;">
+          </td>
+  </tr>
+  <tr>
+    <td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+  </tr>
+</table>
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr class="row2">
+			<td align="center" valign="middle">
+				<a name="p338397"></a>
+				<b class="postauthor">righi</b>
+			</td>
+			<td width="100%" height="25">
+				<table width="100%" cellspacing="0">
+				<tr>
+									<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Revista impressa Unidev</div><div style="float: right;"><img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Post" title="Post" /><b>Posted:</b> Wed May 06, 2009 1:29 am&nbsp;</div></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr class="row2">
+			<td valign="top" class="profile">
+				<table cellspacing="4" align="center" width="150">
+							<tr>
+					<td class="postdetails">Membro Avançado</td>
+				</tr>
+							</table>
+
+				<span class="postdetails">
+					<br /><b>Joined:</b> Fri Feb 18, 2005 9:19 pm<br /><b>Posts:</b> 1460<br /><b>Location:</b> Brasil				</span>
+
+			</td>
+			<td valign="top">
+				<table width="100%" cellspacing="5">
+				<tr>
+					<td>
+					
+						<div class="postbody">Bom... o Pessoal da Hoplon, as Extrangeiras que vieram aqui pro Brasil, entre outras que estão se destacando... Talvez o pessoal responsável pelo Zeebo.</div>
+
+											<span class="postbody"><br />_________________<br />--//--
+<br />
+<br />“An it harm none, do as ye will.”</span>
+					<br clear="all" /><br />
+						<table width="100%" cellspacing="0">
+						<tr valign="middle">
+							<!-- start mod view or mark unread posts (and end mod too) ... added mark_post_unread references in the preceding line -->                        
+							<td class="gensmall" align="right">
+														</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+
+		<tr class="row2">
+			<td class="profile"><strong><a href="./viewtopic.php?f=18&amp;t=48797&amp;start=0#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="./memberlist.php?mode=viewprofile&amp;u=13687"><img src="./styles/twilightBB/imageset/en/icon_user_profile.png" width="77" height="23" alt="Profile" title="Profile" /></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+			</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	</table>
+
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr class="row2">
+        <td style="text-align: center;" width="155">
+          </td>
+    <td valign="top" style="padding-left: 4px;">
+          </td>
+  </tr>
+  <tr>
+    <td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+  </tr>
+</table>
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr class="row1">
+			<td align="center" valign="middle">
+				<a name="p338399"></a>
+				<b class="postauthor">secoloko</b>
+			</td>
+			<td width="100%" height="25">
+				<table width="100%" cellspacing="0">
+				<tr>
+									<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Revista impressa Unidev</div><div style="float: right;"><img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Post" title="Post" /><b>Posted:</b> Wed May 06, 2009 1:54 am&nbsp;</div></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr class="row1">
+			<td valign="top" class="profile">
+				<table cellspacing="4" align="center" width="150">
+							<tr>
+					<td class="postdetails">Membro</td>
+				</tr>
+							<tr>
+					<td><img src="http://img183.imageshack.us/img183/139/semttulo2xr4.png" width="150" height="150" alt="User avatar" /></td>
+				</tr>
+							</table>
+
+				<span class="postdetails">
+					<br /><b>Joined:</b> Sun Jan 01, 2006 6:20 am<br /><b>Posts:</b> 45<br /><b>Location:</b> Brasil				</span>
+
+			</td>
+			<td valign="top">
+				<table width="100%" cellspacing="5">
+				<tr>
+					<td>
+					
+						<div class="postbody">Eu gostaria de uma receber sim uma revista.<br />Bem ilustrada, com tendencias de mercado, dicas de empreendedorismo na área, notícias, detonados de jogos, reportagens com desenvolvedores, tutoriais de desenvolvimento, tecnicas de desenho. <br />E vindo junto sempre um CD (com jogos e ferramentas).<br /><br />e tudo isso por menos de 30 reais (incluso correio). <br />Claro se for uma revista quinzenal. <br /><br />Boa sorte!<br /> <img src="./images/smilies/icon_biggrin.gif" alt=":D" title="Very Happy" /></div>
+
+					<br clear="all" /><br />
+						<table width="100%" cellspacing="0">
+						<tr valign="middle">
+							<!-- start mod view or mark unread posts (and end mod too) ... added mark_post_unread references in the preceding line -->                        
+							<td class="gensmall" align="right">
+														</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+
+		<tr class="row1">
+			<td class="profile"><strong><a href="./viewtopic.php?f=18&amp;t=48797&amp;start=0#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="./memberlist.php?mode=viewprofile&amp;u=22672"><img src="./styles/twilightBB/imageset/en/icon_user_profile.png" width="77" height="23" alt="Profile" title="Profile" /></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+			</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	</table>
+
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr class="row1">
+        <td style="text-align: center;" width="155">
+          </td>
+    <td valign="top" style="padding-left: 4px;">
+          </td>
+  </tr>
+  <tr>
+    <td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+  </tr>
+</table>
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr class="row2">
+			<td align="center" valign="middle">
+				<a name="p338400"></a>
+				<b class="postauthor">killguns</b>
+			</td>
+			<td width="100%" height="25">
+				<table width="100%" cellspacing="0">
+				<tr>
+									<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Revista impressa Unidev</div><div style="float: right;"><img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Post" title="Post" /><b>Posted:</b> Wed May 06, 2009 2:59 am&nbsp;</div></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr class="row2">
+			<td valign="top" class="profile">
+				<table cellspacing="4" align="center" width="150">
+							<tr>
+					<td class="postdetails">Membro Avançado</td>
+				</tr>
+							<tr>
+					<td><img src="http://img142.imageshack.us/img142/191/formatura2cu6.png" width="160" height="150" alt="User avatar" /></td>
+				</tr>
+							</table>
+
+				<span class="postdetails">
+					<br /><b>Joined:</b> Sat Sep 10, 2005 5:41 am<br /><b>Posts:</b> 740<br /><b>Location:</b> Cuiabá/MT				</span>
+
+			</td>
+			<td valign="top">
+				<table width="100%" cellspacing="5">
+				<tr>
+					<td>
+					
+						<div class="postbody">Até que enfim estamos discutindo sério sobre isso... com certeza eu assinaria a revista.<br /> <img src="./images/smilies/icon_biggrin.gif" alt=":D" title="Very Happy" /></div>
+
+											<span class="postbody"><br />_________________<br />Projeto Arret : A counter World - Jogo de RPG
+<br />
+<br />Versão de Testes <span style="font-weight: bold"><span style="color: #00FF33">ON</span></span>
+<br />
+<br />Site: <!-- m --><a class="postlink" href="http://www.projetoarret.com.br" rel="nofollow" onclick="this.target='_blank';">http://www.projetoarret.com.br</a><!-- m -->
+<br />
+<br />Link Do projeto(unidev): <!-- m --><a class="postlink-local" href="http://www.unidev.com.br/centroprojeto.asp?id=422">http://www.unidev.com.br/centroprojeto.asp?id=422</a><!-- m --></span>
+					<br clear="all" /><br />
+						<table width="100%" cellspacing="0">
+						<tr valign="middle">
+							<!-- start mod view or mark unread posts (and end mod too) ... added mark_post_unread references in the preceding line -->                        
+							<td class="gensmall" align="right">
+														</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+
+		<tr class="row2">
+			<td class="profile"><strong><a href="./viewtopic.php?f=18&amp;t=48797&amp;start=0#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="./memberlist.php?mode=viewprofile&amp;u=19842"><img src="./styles/twilightBB/imageset/en/icon_user_profile.png" width="77" height="23" alt="Profile" title="Profile" /></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+			</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	</table>
+
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr class="row2">
+        <td style="text-align: center;" width="155">
+          </td>
+    <td valign="top" style="padding-left: 4px;">
+          </td>
+  </tr>
+  <tr>
+    <td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+  </tr>
+</table>
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr class="row1">
+			<td align="center" valign="middle">
+				<a name="p338406"></a>
+				<b class="postauthor">crocidb</b>
+			</td>
+			<td width="100%" height="25">
+				<table width="100%" cellspacing="0">
+				<tr>
+									<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Revista impressa Unidev</div><div style="float: right;"><img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Post" title="Post" /><b>Posted:</b> Wed May 06, 2009 6:45 am&nbsp;</div></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr class="row1">
+			<td valign="top" class="profile">
+				<table cellspacing="4" align="center" width="150">
+							<tr>
+					<td class="postdetails">Moderador(a)/Colaborador(a)</td>
+				</tr>
+							<tr>
+					<td><img src="http://img264.imageshack.us/img264/9582/simone2.jpg" width="200" height="150" alt="User avatar" /></td>
+				</tr>
+							</table>
+
+				<span class="postdetails">
+					<br /><b>Joined:</b> Sun Feb 29, 2004 6:18 am<br /><b>Posts:</b> 4065<br /><b>Location:</b> São Paulo				</span>
+
+			</td>
+			<td valign="top">
+				<table width="100%" cellspacing="5">
+				<tr>
+					<td>
+					
+						<div class="postbody">Opa, adorei a discussão.<br /><br />Eu também assinaria a Revista com certeza.<br /><br />Concordo com tudo o que disseram sobre a qualidade do conteúdo, e ainda adiciono que seria ótimo abrir uma área para membros da comunidade colaborarem com tutoriais, artigos e outros.<br /><br /><div class="quotetitle"><b>Quote:</b></div><div class="quotecontent">Poderia até iniciar com uma revista eletrônica, mas como trazer recurso financeiro?</div><br />Também é uma ótima idéia, que tal com propagandas de patrocinadores? Assim seria possível a contratação de um editor, ou equipe profissional. É claro, talvez não seja muoto fácil encontrar patrocinadores para uma revista na área de GameDev hoje aqui no Brasil, mas não custa tentar?<br /><br /><br />Finalizando, eu acho a idéia ÓTIMA, e dou o maior apoio. Estou na UniDev há muito tempo, aprendi muito aqui, e apoio sempre para que ela cresça. =D</div>
+
+											<span class="postbody"><br />_________________<br /><!-- m --><a class="postlink" href="http://crocidb.wordpress.com/" rel="nofollow" onclick="this.target='_blank';">http://crocidb.wordpress.com/</a><!-- m --> - <span style="font-weight: bold">Tutoriais, artigos, Notícias, Programação e GameDev</span><br /><!-- m --><a class="postlink" href="http://www.crocidb-tutorials.co.cc/" rel="nofollow" onclick="this.target='_blank';">http://www.crocidb-tutorials.co.cc/</a><!-- m --> - <span style="font-weight: bold">Programming Tutorials =D</span><br /><!-- m --><a class="postlink" href="http://twitter.com/CrociDB" rel="nofollow" onclick="this.target='_blank';">http://twitter.com/CrociDB</a><!-- m --> - <span style="font-weight: bold">Follow ME!</span></span>
+					<br clear="all" /><br />
+						<table width="100%" cellspacing="0">
+						<tr valign="middle">
+							<!-- start mod view or mark unread posts (and end mod too) ... added mark_post_unread references in the preceding line -->                        
+							<td class="gensmall" align="right">
+														</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+
+		<tr class="row1">
+			<td class="profile"><strong><a href="./viewtopic.php?f=18&amp;t=48797&amp;start=0#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="./memberlist.php?mode=viewprofile&amp;u=6060"><img src="./styles/twilightBB/imageset/en/icon_user_profile.png" width="77" height="23" alt="Profile" title="Profile" /></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+			</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	</table>
+
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr class="row1">
+        <td style="text-align: center;" width="155">
+          </td>
+    <td valign="top" style="padding-left: 4px;">
+          </td>
+  </tr>
+  <tr>
+    <td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+  </tr>
+</table>
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr class="row2">
+			<td align="center" valign="middle">
+				<a name="p338410"></a>
+				<b class="postauthor" style="color: #AA0000">gilmer</b>
+			</td>
+			<td width="100%" height="25">
+				<table width="100%" cellspacing="0">
+				<tr>
+									<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Revista impressa Unidev</div><div style="float: right;"><img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Post" title="Post" /><b>Posted:</b> Wed May 06, 2009 9:54 am&nbsp;</div></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr class="row2">
+			<td valign="top" class="profile">
+				<table cellspacing="4" align="center" width="150">
+							<tr>
+					<td class="postdetails">Administrador</td>
+				</tr>
+							</table>
+
+				<span class="postdetails">
+					<br /><b>Joined:</b> Sat Aug 31, 2002 1:14 am<br /><b>Posts:</b> 190<br /><b>Location:</b> Brasil				</span>
+
+			</td>
+			<td valign="top">
+				<table width="100%" cellspacing="5">
+				<tr>
+					<td>
+					
+						<div class="postbody">Bom Dia,<br /><br />  Alguem conhece alguma revista eletrônica de sucesso? pode ser qualquer mercado</div>
+
+					<br clear="all" /><br />
+						<table width="100%" cellspacing="0">
+						<tr valign="middle">
+							<!-- start mod view or mark unread posts (and end mod too) ... added mark_post_unread references in the preceding line -->                        
+							<td class="gensmall" align="right">
+														</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+
+		<tr class="row2">
+			<td class="profile"><strong><a href="./viewtopic.php?f=18&amp;t=48797&amp;start=0#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="./memberlist.php?mode=viewprofile&amp;u=54"><img src="./styles/twilightBB/imageset/en/icon_user_profile.png" width="77" height="23" alt="Profile" title="Profile" /></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+			</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	</table>
+
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr class="row2">
+        <td style="text-align: center;" width="155">
+          </td>
+    <td valign="top" style="padding-left: 4px;">
+          </td>
+  </tr>
+  <tr>
+    <td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+  </tr>
+</table>
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr class="row1">
+			<td align="center" valign="middle">
+				<a name="p338414"></a>
+				<b class="postauthor">Kleber Andrade</b>
+			</td>
+			<td width="100%" height="25">
+				<table width="100%" cellspacing="0">
+				<tr>
+									<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Revista impressa Unidev</div><div style="float: right;"><img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Post" title="Post" /><b>Posted:</b> Wed May 06, 2009 12:12 pm&nbsp;</div></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr class="row1">
+			<td valign="top" class="profile">
+				<table cellspacing="4" align="center" width="150">
+							<tr>
+					<td class="postdetails">Membro</td>
+				</tr>
+							<tr>
+					<td><img src="http://www.mecatronica.eesc.usp.br/wiki/upload/thumb/c/c8/Image_01.jpg/180px-Image_01.jpg" width="130" height="150" alt="User avatar" /></td>
+				</tr>
+							</table>
+
+				<span class="postdetails">
+					<br /><b>Joined:</b> Thu Feb 19, 2009 11:24 pm<br /><b>Posts:</b> 35<br /><b>Location:</b> Brasil				</span>
+
+			</td>
+			<td valign="top">
+				<table width="100%" cellspacing="5">
+				<tr>
+					<td>
+					
+						<div class="postbody">Acho  uma ótima idéia um revista sobre desenvolvimento de jogos, acredito que muita gente pode até acabar entendendo um pouco da área e começar a estuda-la porque viu na revista, atraindo assim mais pessoas para o ramo de desenvolvimento de jogos.<br /><br />Eu assinaria com certeza, desde que tenha vários conteúdos como noticias do que as empresas andam fazendo, entrevistas com algum diretor de empresas de sucesso, dicas de ferramentas para determinadas áreas, etc...<br /><br />Att,</div>
+
+											<span class="postbody"><br />_________________<br /><span style="font-weight: bold">Kleber de Oliveira Andrade</span><br />Mestrando em Engenharia Mecânica - USP<br />Bacharel em Ciência da Computação - EEP<br />email: <!-- e --><a href="mailto:pdjkleber@gmail.com">pdjkleber@gmail.com</a><!-- e --></span>
+					<br clear="all" /><br />
+						<table width="100%" cellspacing="0">
+						<tr valign="middle">
+							<!-- start mod view or mark unread posts (and end mod too) ... added mark_post_unread references in the preceding line -->                        
+							<td class="gensmall" align="right">
+														</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+
+		<tr class="row1">
+			<td class="profile"><strong><a href="./viewtopic.php?f=18&amp;t=48797&amp;start=0#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="./memberlist.php?mode=viewprofile&amp;u=49471"><img src="./styles/twilightBB/imageset/en/icon_user_profile.png" width="77" height="23" alt="Profile" title="Profile" /></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+			</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	</table>
+
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr class="row1">
+        <td style="text-align: center;" width="155">
+          </td>
+    <td valign="top" style="padding-left: 4px;">
+          </td>
+  </tr>
+  <tr>
+    <td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+  </tr>
+</table>
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr class="row2">
+			<td align="center" valign="middle">
+				<a name="p338431"></a>
+				<b class="postauthor">rodrigo_flausino</b>
+			</td>
+			<td width="100%" height="25">
+				<table width="100%" cellspacing="0">
+				<tr>
+									<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Revista impressa Unidev</div><div style="float: right;"><img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Post" title="Post" /><b>Posted:</b> Wed May 06, 2009 4:46 pm&nbsp;</div></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr class="row2">
+			<td valign="top" class="profile">
+				<table cellspacing="4" align="center" width="150">
+							<tr>
+					<td class="postdetails">Moderador(a)/Colaborador(a)</td>
+				</tr>
+							</table>
+
+				<span class="postdetails">
+					<br /><b>Joined:</b> Tue Sep 28, 2004 6:39 pm<br /><b>Posts:</b> 7298<br /><b>Location:</b> Varginha/MG				</span>
+
+			</td>
+			<td valign="top">
+				<table width="100%" cellspacing="5">
+				<tr>
+					<td>
+					
+						<div class="postbody"><div class="quotetitle">gilmer wrote:</div><div class="quotecontent">Bom Dia,<br /><br />  Alguem conhece alguma revista eletrônica de sucesso? pode ser qualquer mercado</div><br /><br />Tem essa (que é gratuita pra usuários registrados):<br /><br /><!-- m --><a class="postlink" href="http://www.developmag.com/" rel="nofollow" onclick="this.target='_blank';">http://www.developmag.com/</a><!-- m --><br /><br />Mas acho que eles tem revista impressa. Sobre sustentabilidade de um projeto assim, só via publicidade mesmo e assinaturas. E concordaria mais como uma revista eletrônica, via download.<br /><br /><br /><div class="quotetitle">Rock wrote:</div><div class="quotecontent">Kara, a versão digital não seguiu por muito tempo</div><br /><br />Talvez pq diagramar uma é um desafio à parte. Não é igual um blog/fórum, onde o usuário só escrevia um artigo e colocava as imagens no texto.</div>
+
+											<span class="postbody"><br />_________________<br /><a href="http://www.gamedevbr.com/" class="postlink" rel="nofollow" onclick="this.target='_blank';">GamedevBR</a> <br /><a href="http://www.selectgame.com.br/" class="postlink" rel="nofollow" onclick="this.target='_blank';">Select Game</a><br /><br /><a href="http://ps3trophycard.com/profile/rodrigoflausino" class="postlink" rel="nofollow" onclick="this.target='_blank';"><img resizemod="on" onload="rmw_img_loaded(this)" src="http://ps3trophycard.com/cards/rodrigoflausino/card.png" alt="Image" /></a></span>
+												<br /><br />
+							<span class="gensmall">Last edited by rodrigo_flausino on Thu May 07, 2009 4:21 pm, edited 1 time in total.</span>
+						<br clear="all" /><br />
+						<table width="100%" cellspacing="0">
+						<tr valign="middle">
+							<!-- start mod view or mark unread posts (and end mod too) ... added mark_post_unread references in the preceding line -->                        
+							<td class="gensmall" align="right">
+														</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+
+		<tr class="row2">
+			<td class="profile"><strong><a href="./viewtopic.php?f=18&amp;t=48797&amp;start=0#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="./memberlist.php?mode=viewprofile&amp;u=10259"><img src="./styles/twilightBB/imageset/en/icon_user_profile.png" width="77" height="23" alt="Profile" title="Profile" /></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+			</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	</table>
+
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr class="row2">
+        <td style="text-align: center;" width="155">
+          </td>
+    <td valign="top" style="padding-left: 4px;">
+          </td>
+  </tr>
+  <tr>
+    <td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+  </tr>
+</table>
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr class="row1">
+			<td align="center" valign="middle">
+				<a name="p338458"></a>
+				<b class="postauthor">moska61</b>
+			</td>
+			<td width="100%" height="25">
+				<table width="100%" cellspacing="0">
+				<tr>
+									<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Revista impressa Unidev</div><div style="float: right;"><img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Post" title="Post" /><b>Posted:</b> Thu May 07, 2009 2:57 pm&nbsp;</div></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr class="row1">
+			<td valign="top" class="profile">
+				<table cellspacing="4" align="center" width="150">
+							<tr>
+					<td class="postdetails">Membro Ativo</td>
+				</tr>
+							</table>
+
+				<span class="postdetails">
+					<br /><b>Joined:</b> Thu Dec 09, 2004 12:35 pm<br /><b>Posts:</b> 132<br /><b>Location:</b> Brasil				</span>
+
+			</td>
+			<td valign="top">
+				<table width="100%" cellspacing="5">
+				<tr>
+					<td>
+					
+						<div class="postbody">Como qualquer revista, nem todos os fascículos seriam interessantes, por isso não valeria a pena assinar todo o pacote por um tempo fixo.<br />Prefiro comprar nas bancas de revistas só alguns fascículos individuais.<br /><br /><br />O pior é quando as revistas &quot;amarram &quot; um assunto em vários fascículos.<br /><br />Exemplo: Nesta edição vamos ver a OITAVA parte do tutorial sobre......blá, blá, blá.<br /><br />Isso é muito irritante.<br />Eu me recuso a comprar revistas que fazem isso.<br />Deveriam colocar o tutorial inteiro em uma única edição para não fazerem os leitores de bobos só para vender revista.</div>
+
+					<br clear="all" /><br />
+						<table width="100%" cellspacing="0">
+						<tr valign="middle">
+							<!-- start mod view or mark unread posts (and end mod too) ... added mark_post_unread references in the preceding line -->                        
+							<td class="gensmall" align="right">
+														</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+
+		<tr class="row1">
+			<td class="profile"><strong><a href="./viewtopic.php?f=18&amp;t=48797&amp;start=0#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="./memberlist.php?mode=viewprofile&amp;u=12006"><img src="./styles/twilightBB/imageset/en/icon_user_profile.png" width="77" height="23" alt="Profile" title="Profile" /></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+			</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	</table>
+
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr class="row1">
+        <td style="text-align: center;" width="155">
+          </td>
+    <td valign="top" style="padding-left: 4px;">
+          </td>
+  </tr>
+  <tr>
+    <td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+  </tr>
+</table>
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr class="row2">
+			<td align="center" valign="middle">
+				<a name="p338465"></a>
+				<b class="postauthor">xandeck</b>
+			</td>
+			<td width="100%" height="25">
+				<table width="100%" cellspacing="0">
+				<tr>
+									<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Revista impressa Unidev</div><div style="float: right;"><img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Post" title="Post" /><b>Posted:</b> Thu May 07, 2009 4:11 pm&nbsp;</div></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr class="row2">
+			<td valign="top" class="profile">
+				<table cellspacing="4" align="center" width="150">
+							<tr>
+					<td class="postdetails">Membro Sênior</td>
+				</tr>
+							<tr>
+					<td><img src="http://www.gamedev.com.br/forum/images/avatars/1123548ba864705d26.gif" width="80" height="80" alt="User avatar" /></td>
+				</tr>
+							</table>
+
+				<span class="postdetails">
+					<br /><b>Joined:</b> Fri Aug 06, 2004 7:57 pm<br /><b>Posts:</b> 348<br /><b>Location:</b> Brasil				</span>
+
+			</td>
+			<td valign="top">
+				<table width="100%" cellspacing="5">
+				<tr>
+					<td>
+					
+						<div class="postbody">Condições (IMHO):<br /><br />- Conteúdo interessante na área de desenvolvimento de jogos (mínimo!).<br />- Exemplos de jogos feitos no Brasil, nem que seja totalmente amador, mas que tenha algo a mostrar.<br />- Textos sobre engines.<br />- Textos sobre linguagens diversas.<br />- CD contendo alguns modelos 3D, scripts, etc.<br />- Entrevistas (+++).<br />- Mercado de jogos.<br />- Área especial onde o leitor pode interagir.<br />- Tutoriais diversos.<br /><br />Ao contrário de moska61, acho que um tutorial dividido em várias edições seria legal <span style="font-weight: bold">SE</span> fosse um conteúdo extremamente interessante, como até um desenvolvimento de um game bom, o qual uma única edição não teria como colocar todo o conteúdo, e tem que ser algo inteligente, limpo e bem didático.<br /><br /><img src="./images/smilies/icon_wink.gif" alt=";)" title="Wink" /></div>
+
+											<span class="postbody"><br />_________________<br />XandeCK - Lead Developer<br /><!-- m --><a class="postlink" href="http://www.moonsector.com" rel="nofollow" onclick="this.target='_blank';">http://www.moonsector.com</a><!-- m --></span>
+					<br clear="all" /><br />
+						<table width="100%" cellspacing="0">
+						<tr valign="middle">
+							<!-- start mod view or mark unread posts (and end mod too) ... added mark_post_unread references in the preceding line -->                        
+							<td class="gensmall" align="right">
+														</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+
+		<tr class="row2">
+			<td class="profile"><strong><a href="./viewtopic.php?f=18&amp;t=48797&amp;start=0#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="./memberlist.php?mode=viewprofile&amp;u=8831"><img src="./styles/twilightBB/imageset/en/icon_user_profile.png" width="77" height="23" alt="Profile" title="Profile" /></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+			</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	</table>
+
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr class="row2">
+        <td style="text-align: center;" width="155">
+          </td>
+    <td valign="top" style="padding-left: 4px;">
+          </td>
+  </tr>
+  <tr>
+    <td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+  </tr>
+</table>
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr class="row1">
+			<td align="center" valign="middle">
+				<a name="p338467"></a>
+				<b class="postauthor">Karkaroff</b>
+			</td>
+			<td width="100%" height="25">
+				<table width="100%" cellspacing="0">
+				<tr>
+									<td class="gensmall" width="100%"><div style="float: left;">&nbsp;<b>Post subject:</b> Re: Revista impressa Unidev</div><div style="float: right;"><img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Post" title="Post" /><b>Posted:</b> Thu May 07, 2009 4:58 pm&nbsp;</div></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr class="row1">
+			<td valign="top" class="profile">
+				<table cellspacing="4" align="center" width="150">
+							<tr>
+					<td class="postdetails">Membro Ativo</td>
+				</tr>
+							<tr>
+					<td><img src="http://img150.imageshack.us/img150/7717/residentxm2.th.jpg" width="150" height="128" alt="User avatar" /></td>
+				</tr>
+							</table>
+
+				<span class="postdetails">
+					<br /><b>Joined:</b> Thu Jan 24, 2008 4:08 pm<br /><b>Posts:</b> 128<br /><b>Location:</b> Brasil				</span>
+
+			</td>
+			<td valign="top">
+				<table width="100%" cellspacing="5">
+				<tr>
+					<td>
+					
+						<div class="postbody">Seria bom adicionar &quot;notícias&quot; à lista do xandeck...<br /><br />depende do preço, mas acho que eu estaria disporto a pagar pela revista.</div>
+
+					<br clear="all" /><br />
+						<table width="100%" cellspacing="0">
+						<tr valign="middle">
+							<!-- start mod view or mark unread posts (and end mod too) ... added mark_post_unread references in the preceding line -->                        
+							<td class="gensmall" align="right">
+														</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+
+		<tr class="row1">
+			<td class="profile"><strong><a href="./viewtopic.php?f=18&amp;t=48797&amp;start=0#wrapheader">Top</a></strong></td>
+			<td><div class="gensmall" style="float: left;">&nbsp;<a href="./memberlist.php?mode=viewprofile&amp;u=44172"><img src="./styles/twilightBB/imageset/en/icon_user_profile.png" width="77" height="23" alt="Profile" title="Profile" /></a> &nbsp;</div> <div class="gensmall" style="float: right;">&nbsp;</div></td>
+			</tr>
+
+	<tr>
+		<td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+	</tr>
+	</table>
+
+<table class="tablebg" width="100%" cellspacing="0">
+    <tr class="row1">
+        <td style="text-align: center;" width="155">
+          </td>
+    <td valign="top" style="padding-left: 4px;">
+          </td>
+  </tr>
+  <tr>
+    <td class="spacer" colspan="2" height="1"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
+  </tr>
+</table>
+
+	<table width="100%" cellspacing="1" class="tablebg">
+	<tr align="center">
+		<td class="cat"><form name="viewtopic" method="post" action="./viewtopic.php?f=18&amp;t=48797&amp;start=0"><span class="gensmall">Display posts from previous:</span> <select name="st" id="st"><option value="0" selected="selected">All posts</option><option value="1">1 day</option><option value="7">7 days</option><option value="14">2 weeks</option><option value="30">1 month</option><option value="90">3 months</option><option value="180">6 months</option><option value="365">1 year</option></select>&nbsp;<span class="gensmall">Sort by</span> <select name="sk" id="sk"><option value="a">Author</option><option value="t" selected="selected">Post time</option><option value="s">Subject</option></select> <select name="sd" id="sd"><option value="a" selected="selected">Ascending</option><option value="d">Descending</option></select>&nbsp;<input class="btnlite" type="submit" value="Go" name="sort" /></form></td>
+	</tr>
+	</table>
+    
+
+	<table width="100%" cellspacing="1">
+	<tr>
+		<td align="left" valign="middle" width="190px">
+				</td>
+					<td class="gensmall" valign="middle" nowrap="nowrap">Page <strong>1</strong> of <strong>2</strong>&nbsp; &nbsp;[ 20 posts ]<br /></td>
+			<td class="gensmall" align="right" nowrap="nowrap"><b><a href="#" onclick="jumpto(); return false;" title="Click to jump to page…">Go to page</a> <strong>1</strong><span class="page-sep">, </span><a href="./viewtopic.php?f=18&amp;t=48797&amp;start=15">2</a> &nbsp;<a href="./viewtopic.php?f=18&amp;t=48797&amp;start=15">Next</a></b></td>
+			</tr>
+	</table>
+
+</div>
+
+<table class="tablebg" width="100%" cellspacing="1">
+  <tr>
+    <th colspan="5">Similar topics</th>
+  </tr>
+    <tr>
+                <td valign="top" class="row1">
+            <a href="./viewtopic.php?f=6&amp;t=15899" class="topictitle">Pascal - como aumentar a fonte impressa no monitor</a><br />
+            Forum: <a href="./viewforum.php?f=6">Pascal/Delphi</a><br />
+            Author: 1bertocosta<br />
+            Replies: 1<br />
+        </td>
+                <td valign="top" class="row1">
+            <a href="./viewtopic.php?f=62&amp;t=25592" class="topictitle">O Fórum da UniDev atrapalha sua vida?</a><br />
+            Forum: <a href="./viewforum.php?f=62">OFF-Topic</a><br />
+            Author: gersonapollo<br />
+            Replies: 36<br />
+        </td>
+                <td valign="top" class="row1">
+            <a href="./viewtopic.php?f=63&amp;t=35790" class="topictitle">© Copyright 2002 Unidev ???</a><br />
+            Forum: <a href="./viewforum.php?f=63">Fale conosco</a><br />
+            Author: rodrigo_flausino<br />
+            Replies: 2<br />
+        </td>
+                <td valign="top" class="row1">
+            <a href="./viewtopic.php?f=18&amp;t=47314" class="topictitle">Chat UniDev</a><br />
+            Forum: <a href="./viewforum.php?f=18">Assuntos diversos</a><br />
+            Author: <span style="color: #AA0000;" class="username-coloured">Zizaco</span><br />
+            Replies: 2<br />
+        </td>
+                <td valign="top" class="row1">
+            <a href="./viewtopic.php?f=71&amp;t=45364" class="topictitle">[UniDev Game Contest 2008] Pac X</a><br />
+            Forum: <a href="./viewforum.php?f=71">Contests</a><br />
+            Author: marquinhojfr<br />
+            Replies: 4<br />
+        </td>
+            </tr>
+  <tr>
+	<td class="cat" colspan="5"><strong><a href="./viewtopic.php?f=18&amp;t=48797&amp;start=0#wrapheader">Top</a></strong></td>
+  </tr>
+</table>
+
+<div id="pagefooter"></div>
+
+<br clear="all" />
+
+<ul class="breadcrumbs">
+    <li class="icon-home">
+        <a class="icon-home" href="./portal.php" accesskey="h">Portal</a> <strong>&#8249;</strong> <a href="./index.php" accesskey="h">Board index</a> <strong>&#8249;</strong> <a href="./viewforum.php?f=78">Outros assuntos</a> <strong>&#8249;</strong> <a href="./viewforum.php?f=18">Assuntos diversos</a>    </li>
+</ul>	<br clear="all" />
+
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr>
+		<td class="cat"><h4>Who is online</h4></td>
+	</tr>
+	<tr>
+		<td class="row1"><p class="gensmall">Users browsing this forum: <span style="color: #9E8DA7;" class="username-coloured">Heritrix [Crawler]</span> and 0 guests</p></td>
+	</tr>
+	</table>
+
+<br clear="all" />
+
+<table width="100%" cellspacing="1">
+<tr>
+	<td width="40%" valign="top" nowrap="nowrap" align="left"></td>
+	<td align="right" valign="top" nowrap="nowrap"><span class="gensmall">You <strong>cannot</strong> post new topics in this forum<br />You <strong>cannot</strong> reply to topics in this forum<br />You <strong>cannot</strong> edit your posts in this forum<br />You <strong>cannot</strong> delete your posts in this forum<br /></span></td>
+</tr>
+</table>
+
+<br clear="all" />
+
+<table width="100%" cellspacing="0">
+<tr>
+	<td></td>
+	<td align="right">	<form method="post" name="jumpbox" action="./viewforum.php" onsubmit="if(document.jumpbox.f.value == -1){return false;}">
+
+	<table cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td nowrap="nowrap"><span class="gensmall">Jump to:</span>&nbsp;<select name="f" onchange="if(this.options[this.selectedIndex].value != -1){ document.forms['jumpbox'].submit() }">
+
+					<option value="-1">Select a forum</option>
+		<option value="-1">------------------</option>			<option value="79">Notícias e Artigos</option>
+					<option value="75">Programação e assuntos relacionados</option>
+					<option value="6">&nbsp; &nbsp;Pascal/Delphi</option>
+					<option value="7">&nbsp; &nbsp;Visual Basic</option>
+					<option value="8">&nbsp; &nbsp;Outras linguagens</option>
+					<option value="20">&nbsp; &nbsp;Assembly</option>
+					<option value="21">&nbsp; &nbsp;C/C++</option>
+					<option value="22">&nbsp; &nbsp;Dark Basic</option>
+					<option value="23">&nbsp; &nbsp;Blitz Basic</option>
+					<option value="28">&nbsp; &nbsp;Inteligência artificial</option>
+					<option value="29">&nbsp; &nbsp;Programação gráfica</option>
+					<option value="31">&nbsp; &nbsp;Java</option>
+					<option value="32">&nbsp; &nbsp;Shockwave e Flash</option>
+					<option value="33">&nbsp; &nbsp;Matemática e física</option>
+					<option value="36">&nbsp; &nbsp;Programação Windows</option>
+					<option value="57">&nbsp; &nbsp;Programação em Linux</option>
+					<option value="58">&nbsp; &nbsp;Hardware</option>
+					<option value="60">&nbsp; &nbsp;C# e programação .NET</option>
+					<option value="61">&nbsp; &nbsp;Lógica da programação</option>
+					<option value="70">&nbsp; &nbsp;Programação de Games Online e Técnicas Multiplayer</option>
+					<option value="76">Engines, API's, bibliotecas e outros</option>
+					<option value="9">&nbsp; &nbsp;DirectX</option>
+					<option value="10">&nbsp; &nbsp;OpenGL</option>
+					<option value="11">&nbsp; &nbsp;Allegro</option>
+					<option value="12">&nbsp; &nbsp;SDL</option>
+					<option value="13">&nbsp; &nbsp;Outras API's e Engines</option>
+					<option value="69">&nbsp; &nbsp;Java3D</option>
+					<option value="25">&nbsp; &nbsp;XNA Game Studio</option>
+					<option value="73">&nbsp; &nbsp;Ogre 3D</option>
+					<option value="59">&nbsp; &nbsp;3D Game Studio</option>
+					<option value="65">&nbsp; &nbsp;Mobile</option>
+					<option value="67">&nbsp; &nbsp;Torque Game Engine</option>
+					<option value="68">&nbsp; &nbsp;Irrlicht Engine</option>
+					<option value="72">&nbsp; &nbsp;Game Making</option>
+					<option value="74">&nbsp; &nbsp;GameSpaceLib</option>
+					<option value="77">Arte nos jogos eletrônicos</option>
+					<option value="14">&nbsp; &nbsp;Modelagem 3D</option>
+					<option value="15">&nbsp; &nbsp;Game Design</option>
+					<option value="16">&nbsp; &nbsp;Arte 2D</option>
+					<option value="17">&nbsp; &nbsp;Música/Efeitos sonoros</option>
+					<option value="37">&nbsp; &nbsp;Roteiros</option>
+					<option value="78">Outros assuntos</option>
+					<option value="71">&nbsp; &nbsp;Contests</option>
+					<option value="18" selected="selected">&nbsp; &nbsp;Assuntos diversos</option>
+					<option value="19">&nbsp; &nbsp;Precisa-se</option>
+					<option value="63">&nbsp; &nbsp;Fale conosco</option>
+					<option value="27">&nbsp; &nbsp;Oferecem-se</option>
+					<option value="34">&nbsp; &nbsp;Tradução de Artigos</option>
+					<option value="5">&nbsp; &nbsp;Projetos</option>
+					<option value="38">&nbsp; &nbsp;Artigos / Tutoriais</option>
+					<option value="62">&nbsp; &nbsp;OFF-Topic</option>
+					<option value="64">&nbsp; &nbsp;Idiomas - termos técnicos</option>
+					<option value="26">&nbsp; &nbsp;UD-Zine</option>
+					<option value="66">&nbsp; &nbsp;Bancos de Dados</option>
+		
+		</select>&nbsp;<input class="btnlite" type="submit" value="Go" /></td>
+	</tr>
+	</table>
+
+	</form>
+</td>
+</tr>
+</table>
+
+
+
+
+
+	</td>
+<!-- [-] center block area -->	
+	</td>
+<!-- [-] right block area -->
+</tr>
+</table>
+<!-- [+] bottom block area -->
+<table width="100%" cellspacing="1">
+  <tr>
+    <td valign="top">
+    </td>
+  </tr>
+</table>
+<!-- [-] bottom block area -->
+
+</div>
+
+</div>
+
+		<br clear="all" />
+	
+</div></div></div></div>
+</div></div></div>
+
+</div>
+<br />
+<div id="wrapfooter">
+<!--
+	We request you retain the full copyright notice below including the link to www.phpbb.com.
+	This not only gives respect to the large amount of time given freely by the developers
+	but also helps build interest, traffic and use of phpBB3. If you (honestly) cannot retain
+	the full copyright we ask you at least leave in place the "Powered by phpBB" line, with
+	"phpBB" linked to www.phpbb.com. If you refuse to include even this then support on our
+	forums may be affected.
+
+	The phpBB Group : 2006
+//-->
+	<span class="copyright">Powered by <a href="http://www.phpbb.com/">phpBB</a> &copy;
+    <br />
+	<br />Virtual Object Inform�tica Ltda. Fone/Fax: (15)3231-6840
+	<br /><br /><span style="padding-top:5px; text-align: middle"><a href="http://damysterious.xs4all.nl/portalxl/" title="Portal XL 5.0 ~ Premod 0.2"><img src="./portal/images/phpbb-portal-xl40.png" alt="Portal XL 5.0 ~ Premod 0.2" /></a></span><span style="margin-top: 5px; text-align: middle;"> <a href="http://www.phpbb-seo.com/" title="Search Engine Optimization"><img src="http://unidev.tecnologia.ws/phpbb3/images/phpbb-seo.png" alt="phpBB SEO"/></a></span></span>
+</div>
+<br />
+
+</td>
+<td id="bgright"><img src="./styles/twilightBB/theme/images/spacer.gif" width="53px" alt="" /></td>
+</tr>
+</table>
+
+
+<div style="display: none;" id="resizemod"></div>
+</body>
+</html>

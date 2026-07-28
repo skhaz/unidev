@@ -1,0 +1,1846 @@
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="pt" xml:lang="pt">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="content-language" content="pt" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="resource-type" content="document" />
+ 
+    	<meta http-equiv="refresh" content="; URL=" /> 
+    	<meta http-equiv="refresh" content="" />  	
+		<meta http-equiv="pragma" content="" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<meta name="identifier-url" content="" />
+		<meta name="reply-to" content="" />
+		<meta name="revisit-after" content="15" />
+		<meta name="category" content="" />
+		<meta name="copyright" content="" />
+		<meta name="generator" content="" />
+		<meta name="robots" content="index, follow, noodp" />
+		<meta name="distribution" content="Global" />
+		<meta name="date-creation-yyyymmdd" content="20070501" />
+		<meta name="date-revision-yyyymmdd" content="20070821" /><title>UniDev - Programação de Jogos &bull; View forum - Precisa-se</title>
+
+<link rel="alternate" type="application/rss+xml" title="UniDev - Programação de Jogos RSS-Portal" href="./portal/syndicate.php" />
+<link rel="alternate" type="application/rss+xml" title="UniDev - Programação de Jogos RSS-Attachments" href="./portal/syndicate_attachments.php" />
+<link rel="alternate" type="application/rss+xml" title="UniDev - Programação de Jogos RSS-Downloads" href="./portal/syndicate_downloads.php" />
+  
+<link rel="stylesheet" href="./style.php?sid=3d483e65b9a3313a011a214214812b82&amp;id=6&amp;lang=en" type="text/css" />
+<!--[if IE]><link href="./styles/twilightBB/theme/ie.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+<link href="./styles/twilightBB/theme/prime_trash_bin.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+// <![CDATA[
+
+function popup(url, width, height, name)
+{
+	if (!name)
+	{
+		name = '_popup';
+	}
+
+	window.open(url.replace(/&amp;/g, '&'), name, 'height=' + height + ',resizable=yes,scrollbars=yes,width=' + width);
+	return false;
+}
+
+// www.phpBB-SEO.com SEO TOOLKIT BEGIN
+function jumpto() {
+	var page = prompt('Número da página para onde deseja ir.:', '3');
+	var perpage = '50';
+	var base_url = './viewforum.php?f=19&amp;sid=3d483e65b9a3313a011a214214812b82';
+	var seo_delim_start = '-';
+	var seo_static_pagination = 'page';
+	var seo_ext_pagination = '.html';
+	if (page !== null && !isNaN(page) && page > 0) {
+		var seo_page = (page - 1) * perpage;
+		if ( base_url.indexOf('?') >= 0 ) {
+			document.location.href = base_url.replace(/&amp;/g, '&') + '&start=' + seo_page;
+		} else if ( seo_page > 0 ) {
+			var seo_type1 = base_url.match(/\.[a-z0-9]+$/i);
+			if (seo_type1 !== null) {
+				document.location.href = base_url.replace(/\.[a-z0-9]+$/i, '') + seo_delim_start + seo_page + seo_type1;
+			}
+			var seo_type2 = base_url.match(/\/$/);
+			if (seo_type2 !== null) {
+				document.location.href = base_url + seo_static_pagination + seo_page + seo_ext_pagination;
+			}
+		} else {
+			document.location.href = base_url;
+		}
+	}
+}
+// www.phpBB-SEO.com SEO TOOLKIT END
+
+/**
+* Find a member
+*/
+function find_username(url)
+{
+	popup(url, 760, 570, '_usersearch');
+	return false;
+}
+
+/**
+* Mark/unmark checklist
+* id = ID of parent container, name = name prefix, state = state [true/false]
+*/
+function marklist(id, name, state)
+{
+	var parent = document.getElementById(id);
+	if (!parent)
+	{
+		eval('parent = document.' + id);
+	}
+
+	if (!parent)
+	{
+		return;
+	}
+
+	var rb = parent.getElementsByTagName('input');
+	
+	for (var r = 0; r < rb.length; r++)
+	{
+		if (rb[r].name.substr(0, name.length) == name)
+		{
+			rb[r].checked = state;
+		}
+	}
+}
+
+
+// ]]>
+</script>
+
+<!--[if lt IE 7]>
+<script language="JavaScript">
+function correctPNG() // correctly handle PNG transparency in Win IE 5.5 & 6.
+{
+   var arVersion = navigator.appVersion.split("MSIE")
+   var version = parseFloat(arVersion[1])
+   if ((version >= 5.5) && (document.body.filters)) 
+   {
+      for(var i=0; i<document.images.length; i++)
+      {
+         var img = document.images[i]
+         var imgName = img.src.toUpperCase()
+         if (imgName.substring(imgName.length-3, imgName.length) == "PNG")
+         {
+            var imgID = (img.id) ? "id='" + img.id + "' " : ""
+            var imgClass = (img.className) ? "class='" + img.className + "' " : ""
+            var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' "
+            var imgStyle = "display:inline-block;" + img.style.cssText 
+            if (img.align == "left") imgStyle = "float:left;" + imgStyle
+            if (img.align == "right") imgStyle = "float:right;" + imgStyle
+            if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle
+            var strNewHTML = "<span " + imgID + imgClass + imgTitle
+            + " style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
+            + "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+            + "(src=\'" + img.src + "\', sizingMethod='scale');\"></span>" 
+            img.outerHTML = strNewHTML
+            i = i-1
+         }
+      }
+   }    
+}
+window.attachEvent("onload", correctPNG);
+</script>
+<![endif]-->
+
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/lib/prototype.js"></script>
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/src/scriptaculous.js?load=effects,dragdrop"></script>
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/src/unittest.js"></script>
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/src/lightbox.js"></script>
+
+ 
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/src/tooltips.js"></script>
+        
+
+<link rel="stylesheet" href="./styles/twilightBB/template/portal/scriptaculous/css/lightbox.css" type="text/css" />
+<link rel="stylesheet" href="./styles/twilightBB/theme/prime_links/prime_links.css" type="text/css" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+<script type="text/javascript">
+<!--
+	var rmw_max_width 	= '450';
+	var rmw_border_1 	= '1px solid';
+	var rmw_border_2 	= '2px dotted';
+	var rmw_image_title = 'Click here to view full size of this image!';
+//-->
+</script>
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/src/resize_image.js"></script>
+
+	
+<link rel="stylesheet" href="./styles/twilightBB/theme/highslide/highslide.css" type="text/css" /> 
+<script type="text/javascript" src="./styles/twilightBB/theme/highslide/highslide-with-gallery.packed.js"></script>
+<script type="text/javascript">
+	hs.graphicsDir = './styles/twilightBB/theme/highslide/graphics/';
+	hs.align = 'center';
+	hs.transitions = ['expand', 'crossfade'];
+	hs.outlineType = 'rounded-white';
+	hs.wrapperClassName = 'controls-in-heading';
+	hs.fadeInOut = true;
+	//hs.dimmingOpacity = 0.75;
+
+	// Add the controlbar
+	if (hs.addSlideshow) hs.addSlideshow({
+		//slideshowGroup: 'group1',
+		interval: 5000,
+		repeat: false,
+		useControls: true,
+		fixedControls: false,
+		overlayOptions: {
+			opacity: 1,
+			position: 'top right',
+			hideOnMouseOut: false
+		}
+	});
+</script>
+
+<script type="text/javascript">
+// <![CDATA[
+/***********************************************
+* AnyLink Drop Down Menu- � Dynamic Drive (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+///// Begin menu options 
+
+//Contents for menu 1
+var menu1=new Array()
+menu1[1]='<a href="./index.php?sid=3d483e65b9a3313a011a214214812b82">Índice do Fórum</a>' 
+menu1[2]='<a href="./calendar.php?sid=3d483e65b9a3313a011a214214812b82"> Calendar</a>' 
+menu1[3]='<a href="./portal/portal_acronyms.php?sid=3d483e65b9a3313a011a214214812b82">Acronyms and abbreviations</a>' 
+menu1[4]='<a href="./knowledge/index.php?sid=3d483e65b9a3313a011a214214812b82"> Knowledge Base</a>' 
+menu1[5]='<a href="./portal/portal_mods.php?sid=3d483e65b9a3313a011a214214812b82">Mods Database</a>' 
+menu1[6]='<a href="./portal/portal_crawler_linker.php?sid=3d483e65b9a3313a011a214214812b82">Crawler Feeds</a>' 
+menu1[7]='<a href="./portal_pages.php?sid=3d483e65b9a3313a011a214214812b82">Portal Pages</a>' 
+
+
+//Contents for menu 2, and so on
+var menu2=new Array()
+menu2[1]='<a href="./faq.php?sid=3d483e65b9a3313a011a214214812b82">FAQ</a>' 
+menu2[2]='<a href="./contact.php?sid=3d483e65b9a3313a011a214214812b82">Contact</a>' 
+menu2[3]='<a href="./impressum.php?sid=3d483e65b9a3313a011a214214812b82">Imprint</a>' 
+menu2[4]='<a href="./memberlist.php?mode=leaders&amp;sid=3d483e65b9a3313a011a214214812b82">Equipa de Responsáveis pelo Fórum</a>'
+menu2[5]='<a href="./portal/syndicate.php?sid=3d483e65b9a3313a011a214214812b82">RSS 2 Feed Forum</a>'
+menu2[6]='<a href="./portal/syndicate_attachments.php?sid=3d483e65b9a3313a011a214214812b82">RSS 2 Feed Attachments</a>'
+menu2[7]='<a href="./portal/syndicate_downloads.php?sid=3d483e65b9a3313a011a214214812b82">RSS 2 Feed Downloads</a>'
+ 
+
+//Contents for menu 3 
+var menu3=new Array() 
+menu3[1]='<a href="./downloads.php?sid=3d483e65b9a3313a011a214214812b82">Downloads</a>' 
+
+
+ 
+
+
+//Contents for menu 6 
+var menu6=new Array() 
+menu6[1]='<a href="./portal/portal_recent_topics.php?sid=3d483e65b9a3313a011a214214812b82">Recent Topics</a>'
+ 
+menu6[2]='<a href="./search.php?sid=3d483e65b9a3313a011a214214812b82">Pesquisar</a>' 
+menu6[3]='<a href="./search.php?search_id=unanswered&amp;sid=3d483e65b9a3313a011a214214812b82">Ver Mensagens sem resposta</a>' 
+menu6[4]='<a href="./search.php?search_id=active_topics&amp;sid=3d483e65b9a3313a011a214214812b82">Ver Tópicos Activos</a>'
+
+
+///// End menu options 
+
+var menuwidth='200px' //default menu width
+var menubgcolor='#131313'  //menu bgcolor
+var disappeardelay=250  //menu disappear speed onMouseout (in miliseconds)
+var hidemenu_onclick="yes" //hide menu when user clicks within menu?
+
+/////No further editting needed
+
+var ie4=document.all
+var ns6=document.getElementById&&!document.all
+
+if (ie4||ns6)
+document.write('<div id="dropmenudiv" style="visibility:hidden;width:'+menuwidth+';background-color:'+menubgcolor+'" onMouseover="clearhidemenu()" onMouseout="dynamichide(event)"></div>')
+
+function getposOffset(what, offsettype){
+var totaloffset=(offsettype=="left")? what.offsetLeft : what.offsetTop;
+var parentEl=what.offsetParent;
+while (parentEl!=null){
+totaloffset=(offsettype=="left")? totaloffset+parentEl.offsetLeft : totaloffset+parentEl.offsetTop;
+parentEl=parentEl.offsetParent;
+}
+return totaloffset;
+}
+
+function showhide(obj, e, visible, hidden, menuwidth){
+if (ie4||ns6)
+dropmenuobj.style.left=dropmenuobj.style.top="-500px"
+if (menuwidth!=""){
+dropmenuobj.widthobj=dropmenuobj.style
+dropmenuobj.widthobj.width=menuwidth
+}
+if (e.type=="click" && obj.visibility==hidden || e.type=="mouseover")
+obj.visibility=visible
+else if (e.type=="click")
+obj.visibility=hidden
+}
+
+function iecompattest(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+
+}
+
+function clearbrowseredge(obj, whichedge){
+var edgeoffset=0
+if (whichedge=="rightedge"){
+var windowedge=ie4 && !window.opera? iecompattest().scrollLeft+iecompattest().clientWidth-15 : window.pageXOffset+window.innerWidth-15
+dropmenuobj.contentmeasure=dropmenuobj.offsetWidth
+if (windowedge-dropmenuobj.x < dropmenuobj.contentmeasure)
+edgeoffset=dropmenuobj.contentmeasure-obj.offsetWidth
+}
+else{
+var topedge=ie4 && !window.opera? iecompattest().scrollTop : window.pageYOffset
+var windowedge=ie4 && !window.opera? iecompattest().scrollTop+iecompattest().clientHeight-15 : window.pageYOffset+window.innerHeight-18
+dropmenuobj.contentmeasure=dropmenuobj.offsetHeight
+if (windowedge-dropmenuobj.y < dropmenuobj.contentmeasure){ //move up?
+edgeoffset=dropmenuobj.contentmeasure+obj.offsetHeight
+if ((dropmenuobj.y-topedge)<dropmenuobj.contentmeasure) //up no good either?
+edgeoffset=dropmenuobj.y+obj.offsetHeight-topedge
+}
+}
+return edgeoffset
+}
+
+function populatemenu(what){
+if (ie4||ns6)
+dropmenuobj.innerHTML=what.join("")
+}
+
+function dropdownmenu(obj, e, menucontents, menuwidth){
+if (window.event) event.cancelBubble=true
+else if (e.stopPropagation) e.stopPropagation()
+clearhidemenu()
+dropmenuobj=document.getElementById? document.getElementById("dropmenudiv") : dropmenudiv
+populatemenu(menucontents)
+
+if (ie4||ns6){
+showhide(dropmenuobj.style, e, "visible", "hidden", menuwidth)
+
+dropmenuobj.x=getposOffset(obj, "left")
+dropmenuobj.y=getposOffset(obj, "top")
+dropmenuobj.style.left=dropmenuobj.x-clearbrowseredge(obj, "rightedge")+"px"
+dropmenuobj.style.top=dropmenuobj.y-clearbrowseredge(obj, "bottomedge")+obj.offsetHeight+"px"
+}
+
+return clickreturnvalue()
+}
+
+function clickreturnvalue(){
+if (ie4||ns6) return false
+else return true
+}
+
+function contains_ns6(a, b) {
+while (b.parentNode)
+if ((b = b.parentNode) == a)
+return true;
+return false;
+}
+
+function dynamichide(e){
+if (ie4&&!dropmenuobj.contains(e.toElement))
+delayhidemenu()
+else if (ns6&&e.currentTarget!= e.relatedTarget&& !contains_ns6(e.currentTarget, e.relatedTarget))
+delayhidemenu()
+}
+
+function hidemenu(e){
+if (typeof dropmenuobj!="undefined"){
+if (ie4||ns6)
+dropmenuobj.style.visibility="hidden"
+}
+}
+
+function delayhidemenu(){
+if (ie4||ns6)
+delayhide=setTimeout("hidemenu()",disappeardelay)
+}
+
+function clearhidemenu(){
+if (typeof delayhide!="undefined")
+clearTimeout(delayhide)
+}
+
+if (hidemenu_onclick=="yes")
+document.onclick=hidemenu
+// ]]>
+</script>
+
+</head>
+<body class="ltr">
+
+<table id="container" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td id="bgleft"><img src="./styles/twilightBB/theme/images/spacer.gif" width="53px" alt="" /></td>
+<td id="middle" valign="top">
+<a id="top" name="top" accesskey="t"></a>
+<a id="wrap" name="wrap" accesskey="w"></a>
+<a id="wrapheader" name="wrapheader" accesskey="w"></a>
+
+<div id="wrapper">
+
+<div id="banner">
+	<a href="./index.php?sid=3d483e65b9a3313a011a214214812b82" title="Índice do Fórum" id="logo"><img src="./styles/twilightBB/imageset/logos/site_logo_00.gif" border="0" alt="" /></a>
+</div>
+
+<div id="header">
+	<div id="menu">
+		<a class="faq" href="./faq.php?sid=3d483e65b9a3313a011a214214812b82" title="Questões Mais Frequentes"><span>FAQ</span></a>
+		<a class="members" href="./memberlist.php?sid=3d483e65b9a3313a011a214214812b82" title="Ver a lista completa de Utilizadores"><span>Utilizadores</span></a><a class="search" href="./search.php?sid=3d483e65b9a3313a011a214214812b82" title="Ver opções avançadas de pesquisa"><span>Pesquisar</span></a>	</div>
+	<br clear="all" />
+
+	<div id="crumbs">
+	
+		<form action="./ucp.php?mode=login&amp;sid=3d483e65b9a3313a011a214214812b82" method="post">
+		<table class="toplogin" cellspacing="0">
+		    <tr>
+		        <td><span class="gensmall">Utilizador:</span></td>
+		        <td><input class="post" type="text" name="username" size="10" /></td>
+		        <td nowrap="nowrap"><input type="checkbox" checked="true" class="radio" name="autologin" /><span style="vertical-align: middle;" class="gensmall">Na próxima visita entrar automaticamente</span></td>
+		    </tr>
+		    <tr>
+		        <td><span class="gensmall">Senha:</span></td>
+		        <td><input class="post" type="password" name="password" size="10" /></td>
+		        <td><input type="submit" class="btnmain" name="login" value="Entrar" /></td>
+		    </tr>
+		</table>
+			</form>
+	        
+		<ul class="breadcrumbs">
+			<li class="icon-home">
+                <a class="icon-home" href="./portal.php?sid=3d483e65b9a3313a011a214214812b82" accesskey="h">Portal</a> <strong>&#8249;</strong> <a href="./index.php?sid=3d483e65b9a3313a011a214214812b82" accesskey="h">Índice do Fórum</a> <strong>&#8249;</strong> <a href="./viewforum.php?f=78&amp;sid=3d483e65b9a3313a011a214214812b82">Outros assuntos</a> <strong>&#8249;</strong> <a href="./viewforum.php?f=19&amp;sid=3d483e65b9a3313a011a214214812b82">Precisa-se</a>            </li>
+		</ul>
+	</div>
+		<ul id="navlist">
+		<!-- Begin menu options -->
+      	<li><a href="./portal.php?sid=3d483e65b9a3313a011a214214812b82" onMouseover="dropdownmenu(this, event, menu1, '200px')" onMouseout="delayhidemenu()">Home</a></li> 
+        <li><a href="#" onMouseover="dropdownmenu(this, event, menu2, '200px')" onMouseout="delayhidemenu()">Contact</a></li> 
+        <li><a href="" onMouseover="dropdownmenu(this, event, menu3, '200px')" onMouseout="delayhidemenu()">Downloads</a></li> 
+       
+               
+        <li><a href="./search.php?sid=3d483e65b9a3313a011a214214812b82" onMouseover="dropdownmenu(this, event, menu6, '200px')" onMouseout="delayhidemenu()">Pesquisar</a></li> 
+
+		<li><a href="./ucp.php?mode=register&amp;sid=3d483e65b9a3313a011a214214812b82">Registar</a></li>
+				<li><a href="./ucp.php?mode=login&amp;sid=3d483e65b9a3313a011a214214812b82">Entrar</a></li><!-- End menu options -->
+	</ul>
+	
+	<div id="datebar">
+         
+	</div>
+
+</div>
+
+<div id="ct"><div id="ct2"><div id="ctl"><div id="ctr">
+<div id="cb"><div id="cbl"><div id="cbr">
+
+<div id="wrapcentre">
+
+		<p class="searchbar">
+		<span style="float: left;"><a href="./search.php?search_id=unanswered&amp;sid=3d483e65b9a3313a011a214214812b82" title="Ver Mensagens sem resposta">Ver Mensagens sem resposta</a> | <a href="./search.php?search_id=active_topics&amp;sid=3d483e65b9a3313a011a214214812b82" title="Ver Tópicos Activos">Ver Tópicos Activos</a></span>
+			</p>
+	
+	<br style="clear: both;" />
+
+	<script type="text/javascript">
+// Ajax Userinfo 0.1.0 by tas2580 (http://www.seo-phpbb.org)
+//
+// Thanks to Jhong (http://www.wp-united.com) for some ideas in the JavaScript
+
+var lockAnim;
+lockAnim = false;
+
+function show_popup(uID) {
+	chOpac(0, 'popup');
+	if (!lockAnim) {
+		lockAnim = true;
+		opacAnim('popup', 0, 100, 500);
+	}
+	document.onmousemove = snapdiv;
+	sendRequest(uID);
+	document.getElementById('popup').style.display='block';
+}
+
+function close_popup() {
+	if (!lockAnim) {
+		lockAnim = true;
+		opacAnim('popup', 100, 0, 500);
+	} else {
+		document.getElementById('popup').style.display='none';
+		setDefaults();
+	}
+}
+
+function setDefaults() {
+	document.getElementById('ajaxusername').innerHTML = '';
+	document.getElementById('ajax_registert').innerHTML = '';
+	document.getElementById('ajax_posts').innerHTML = '';
+	document.getElementById('ajax_from').innerHTML = '';
+	document.getElementById('ajax_last_visit').innerHTML = '';
+	document.getElementById('ajaxavatar').src = "portal/images/loading.gif";
+	document.getElementById('ajax_rank').innerHTML = '';
+	document.getElementById('ajaxusername').style.color = '#000000';
+	document.getElementById('ajax_website').innerHTML = '';
+	document.onmousemove = '';
+}
+
+// Make the request   
+function createRequestObject() {
+	var ro;
+	var browser = navigator.appName;
+	if(browser == "Microsoft Internet Explorer"){
+		ro = new ActiveXObject("Microsoft.XMLHTTP");
+	} else {
+		ro = new XMLHttpRequest();
+	}
+	return ro;
+}
+
+var http_getuser = createRequestObject();
+
+function sendRequest(UserID) {
+	http_getuser.open('get', 'portal/includes/ajax_userinfo.php?userid='+UserID);
+	http_getuser.onreadystatechange = handleResponse;
+	http_getuser.send(null);
+}
+
+// fill in the response
+function handleResponse() {
+	if(http_getuser.readyState == 4){
+		var xmlDoc   = http_getuser.responseXML;
+		document.getElementById('ajaxusername').innerHTML = xmlDoc.getElementsByTagName('username')[0].firstChild.nodeValue;
+		document.getElementById('ajaxusername').style.color = '#' + xmlDoc.getElementsByTagName('colour')[0].firstChild.nodeValue;
+		document.getElementById('ajax_registert').innerHTML = xmlDoc.getElementsByTagName('regdate')[0].firstChild.nodeValue;
+		document.getElementById('ajax_posts').innerHTML = xmlDoc.getElementsByTagName('posts')[0].firstChild.nodeValue;
+		document.getElementById('ajax_website').innerHTML = xmlDoc.getElementsByTagName('website')[0].firstChild.nodeValue;
+		document.getElementById('ajax_from').innerHTML = xmlDoc.getElementsByTagName('from')[0].firstChild.nodeValue;
+		document.getElementById('ajax_last_visit').innerHTML = xmlDoc.getElementsByTagName('lastvisit')[0].firstChild.nodeValue;
+		document.getElementById('ajax_rank').innerHTML = xmlDoc.getElementsByTagName('rank')[0].firstChild.nodeValue;
+		document.getElementById('ajaxavatar').src = xmlDoc.getElementsByTagName('avatar')[0].firstChild.nodeValue;
+	}
+}
+
+function snapdiv(e) {      
+	var docX, docY;
+	if(e)
+	{
+		if(typeof(e.pageX) == 'number') { docX = e.pageX; docY = e.pageY;}
+		else {docX = e.clientX; docY = e.clientY;}
+	}
+	else 
+	{
+		e = window.event;
+		docX = e.clientX; docY = e.clientY;
+		if(document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) 
+		{
+			docX += document.documentElement.scrollLeft; docY += document.documentElement.scrollTop;
+		}
+		else if(document.body && (document.body.scrollTop || document.body.scrollLeft)) 
+		{
+			docX += document.body.scrollLeft; docY += document.body.scrollTop;
+		}
+	}
+	if (docX > document.body.offsetWidth - 400) 
+	{
+		document.getElementById('popup').style.left = (docX - 390) + "px";
+	} 
+	else 
+	{
+		document.getElementById('popup').style.left = (docX - 10) + "px";
+	}
+	document.getElementById('popup').style.top    = (docY + 20) + "px";
+}
+
+function opacAnim(id, opacStart, opacEnd, millisec) {
+	lockAnim = true;
+	var speed = Math.round(millisec / 100);
+	var timer = 0; var i = 0;
+	if (opacEnd>opacStart) 
+	{
+		for (i = opacStart+1; i <= opacEnd; i=i+2) 
+		{
+			i= (i==99)?100:i;
+			setTimeout("chOpac(" + i + ",'" + id + "')",(timer * speed));
+			timer++;
+		}      
+	} 
+	else 
+	{
+		for (i = opacStart-1; i >= opacEnd; i--) 
+		{
+			setTimeout("chOpac(" + i + ",'" + id + "')",(timer * speed));
+			timer++;
+		}
+	}
+}
+
+function chOpac(opacity, id) 
+{
+	var object = document.getElementById(id).style;
+	object.filter = "alpha(opacity:" + opacity + ")";
+	object.opacity = object.MozOpacity = object.KhtmlOpacity = (opacity / 100);
+	if ((opacity <= 0) || (opacity >= 100)) 
+	{
+		lockAnim = false;
+		if (opacity <= 0) {
+			document.getElementById(id).style.display='none';setDefaults();
+		}
+	}
+}
+</script>
+
+<style type="text/css">
+/* Ajax User-Info Popups */
+.popup {
+   z-index: 60;
+   position: absolute;
+   display: none;
+   font-size: 10px;
+   width: 360px;
+}
+
+#avimg {width:100px; float: left; overflow: hidden; height: 100px; text-align: center;}
+#ajaxusername {font-weight: bold;}
+</style>
+
+<div class="popup forabg" id="popup" style="display: none;">
+  <table class="tablebg" cellspacing="1" width="100%">
+    <tr>
+      <th><h4>Utilizadores Informação</h4></th>
+    </tr>
+    <td class="row1">
+    	<div id="avimg"><img id="ajaxavatar" src="./styles/twilightBB/theme/images/loading.gif" alt="avatar"></div>
+        <strong>Utilizador:</strong> <span id="ajaxusername"></span><br />
+        <strong>Total de Mensagens:</strong> <span id="ajax_posts"></span><br />
+        <strong>Rank:</strong> <span id="ajax_rank"></span><br />
+        <strong>Registado:</strong> <span id="ajax_registert"></span><br />
+        <strong>Last visit:</strong> <span id="ajax_last_visit"></span><br />
+        <strong>Localização:</strong> <span id="ajax_from"></span><br />
+        <strong>Sítio web:</strong> <span id="ajax_website"></span><br style="clear: both;">
+      </td>
+    </tr>
+  </table>
+</div>        
+
+	<br /><script type="text/javascript">
+// Topic Hover Preview 0.3.0 by raptor5001. This is a modified version of:
+//
+// Ajax Userinfo 0.1.0 by tas2580 (http://www.seo-phpbb.org)
+//
+// Thanks to Jhong (http://www.wp-united.com) for some ideas in the JavaScript
+
+//var lockAnimP;
+//lockAnimP = false;
+
+function show_preview(header, body) {
+/*	chOpacP(0, 'preview');
+	if (!lockAnimP) {
+		lockAnimP = true;
+		opacAnimP('preview', 0, 100, 500);
+	}*/
+	document.onmousemove = snapdivP;
+	document.getElementById('tpheader').innerHTML = header;
+	document.getElementById('tpbody').innerHTML = body;
+	document.getElementById('preview').style.display='block';
+}
+
+function close_preview() {
+/*	if (!lockAnimP) {
+		lockAnimP = true;
+		opacAnimP('preview', 100, 0, 500);
+	} else {*/
+		document.getElementById('preview').style.display='none';
+		setDefaultsP();
+//	}
+}
+
+function setDefaultsP() {
+	document.getElementById('tpheader').innerHTML = '';
+	document.getElementById('tpbody').innerHTML = '';
+	document.onmousemove = '';
+}
+
+function snapdivP(e) {      
+	var docX, docY;
+	if(e)
+	{
+		if(typeof(e.pageX) == 'number') { docX = e.pageX; docY = e.pageY;}
+		else {docX = e.clientX; docY = e.clientY;}
+	}
+	else 
+	{
+		e = window.event;
+		docX = e.clientX; docY = e.clientY;
+		if(document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) 
+		{
+			docX += document.documentElement.scrollLeft; docY += document.documentElement.scrollTop;
+		}
+		else if(document.body && (document.body.scrollTop || document.body.scrollLeft)) 
+		{
+			docX += document.body.scrollLeft; docY += document.body.scrollTop;
+		}
+	}
+	if (docX > document.body.offsetWidth - 400) 
+	{
+		document.getElementById('preview').style.left = (docX - 390) + "px";
+	} 
+	else 
+	{
+		document.getElementById('preview').style.left = (docX - 10) + "px";
+	}
+	document.getElementById('preview').style.top    = (docY + 20) + "px";
+}
+
+function opacAnimP(id, opacStart, opacEnd, millisec) {
+	lockAnimP = true;
+	var speed = Math.round(millisec / 100);
+	var timer = 0; var i = 0;
+	if (opacEnd>opacStart) 
+	{
+		for (i = opacStart+1; i <= opacEnd; i=i+2) 
+		{
+			i= (i==99)?100:i;
+			setTimeout("chOpacP(" + i + ",'" + id + "')",(timer * speed));
+			timer++;
+		}      
+	} 
+	else 
+	{
+		for (i = opacStart-1; i >= opacEnd; i--) 
+		{
+			setTimeout("chOpacP(" + i + ",'" + id + "')",(timer * speed));
+			timer++;
+		}
+	}
+}
+
+function chOpacP(opacity, id) 
+{
+	var object = document.getElementById(id).style;
+	object.filter = "alpha(opacity:" + opacity + ")";
+	object.opacity = object.MozOpacity = object.KhtmlOpacity = (opacity / 100);
+	if ((opacity <= 0) || (opacity >= 100)) 
+	{
+		lockAnimP = false;
+		if (opacity <= 0) {
+			document.getElementById(id).style.display='none';setDefaultsP();
+		}
+	}
+}
+</script>
+
+<style type="text/css">
+.preview {
+   z-index: 60;
+   position: absolute;
+   display: none;
+   font-size: 10px;
+   width: 350px;
+   border: 1px solid #808080;
+}
+</style>
+
+<div class="preview row2" id="preview" style="display: none;">
+<table class="tablebg" cellspacing="1" width="100%">
+<tr>
+	<th><h4><span id="tpheader"></span></h4></th>
+</tr>
+<tr>
+	<td class="row1" valign="top"><span id="tpbody"></span></td>
+</tr>
+</table>
+</div>        
+
+<table width="100%" cellspacing="1">
+  <tr>
+    <td class="genmed" align="left"><a href="#" onclick="Effect.toggle('portal_container','slide'); return false;" title="OpenCloseAllColumns"><span>[ +/- ]</span></a>
+            <span>[ Data/Hora: 16 Jul 2011, 13:55 ]</span>
+      </td>
+    <td class="genmed" align="right">    </td>
+  </tr>
+</table>
+
+<div id="portal_container">
+
+<!-- [+] top block area -->
+<table width="100%" cellspacing="1">
+  <tr>
+    <td valign="top">
+    </td>
+  </tr>
+</table>
+<!-- [-] top block area -->
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<!-- [+] center block area -->
+	<td valign="top">
+	<div id="pageheader">
+		<h2><a class="titles" href="./viewforum.php?f=19&amp;start=100&amp;sid=3d483e65b9a3313a011a214214812b82">Precisa-se</a></h2>
+
+					<p class="moderators">Moderador: <a href="./memberlist.php?mode=viewprofile&amp;u=869&amp;sid=3d483e65b9a3313a011a214214812b82" style="color: #AA0000;" class="username-coloured">UniDev</a></p>
+			</div>
+
+	<br clear="all" /><br />
+
+<div id="pagecontent">
+
+		<table width="100%" cellspacing="1">
+		<tr>
+							<td align="left" valign="middle">
+				<a class="post-icon" href="./posting.php?mode=post&amp;f=19&amp;sid=3d483e65b9a3313a011a214214812b82" title="Criar um novo Tópico"><span>Criar um novo Tópico</span></a>
+				</td>
+							<td class="nav" valign="middle" nowrap="nowrap">&nbsp;Página <b>3</b> de <b>17</b><br /></td>
+				<td class="gensmall" nowrap="nowrap">&nbsp;[ 833 topics ]&nbsp;</td>
+				<td class="gensmall" width="100%" align="right" nowrap="nowrap"><b><a href="#" onclick="jumpto(); return false;" title="Clique para ir à página...">Ir para página</a> <a href="./viewforum.php?f=19&amp;sid=3d483e65b9a3313a011a214214812b82&amp;start=50">Anterior</a>&nbsp;&nbsp;<a href="./viewforum.php?f=19&amp;sid=3d483e65b9a3313a011a214214812b82">1</a><span class="page-sep">, </span><a href="./viewforum.php?f=19&amp;sid=3d483e65b9a3313a011a214214812b82&amp;start=50">2</a><span class="page-sep">, </span><strong>3</strong><span class="page-sep">, </span><a href="./viewforum.php?f=19&amp;sid=3d483e65b9a3313a011a214214812b82&amp;start=150">4</a><span class="page-sep">, </span><a href="./viewforum.php?f=19&amp;sid=3d483e65b9a3313a011a214214812b82&amp;start=200">5</a><span class="page-sep">, </span><a href="./viewforum.php?f=19&amp;sid=3d483e65b9a3313a011a214214812b82&amp;start=250">6</a> ... <a href="./viewforum.php?f=19&amp;sid=3d483e65b9a3313a011a214214812b82&amp;start=800">17</a> &nbsp;<a href="./viewforum.php?f=19&amp;sid=3d483e65b9a3313a011a214214812b82&amp;start=150">Próximo</a></b></td>
+					</tr>
+		</table>
+			<table class="tablebg" width="100%" cellspacing="1">
+		<tr>
+							<th colspan="2">&nbsp;Tópicos&nbsp;</th>
+						<th>&nbsp;Autor&nbsp;</th>
+			<th>&nbsp;Respostas&nbsp;</th>
+			<th>&nbsp;Exibições&nbsp;</th>
+			<th>&nbsp;Última Mensagem&nbsp;</th>
+		</tr>
+
+						<tr>
+					<td class="row3" colspan="6"><b class="gensmall">Tópicos</b></td>
+				</tr>
+			
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/announce_read_locked.png" width="27" height="27" alt="Este Tópico está bloqueado. Não pode editar mensagens ou responder." title="Este Tópico está bloqueado. Não pode editar mensagens ou responder." /></td>
+								<td class="row1">
+										 <a title="Enviado: 19 Mar 2007, 20:12" href="./viewtopic.php?f=19&amp;t=37553&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Regras para utilização do Fórum</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=869&amp;sid=3d483e65b9a3313a011a214214812b82" style="color: #AA0000;" class="username-coloured">UniDev</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">1713</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">19 Mar 2007, 20:12</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=869"><b style="color:#AA0000" onmouseover="show_popup(869)" onmouseout="close_popup()">UniDev</b></a>						<a href="./viewtopic.php?f=19&amp;t=37553&amp;p=264717&amp;sid=3d483e65b9a3313a011a214214812b82#p264717"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+						<tr>
+					<td class="row3" colspan="6"><b class="gensmall">Tópicos</b></td>
+				</tr>
+			
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 28 Jan 2010, 21:51" href="./viewtopic.php?f=19&amp;t=50545&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Precisa-se de equipe para mmorpg de web.</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=43147&amp;sid=3d483e65b9a3313a011a214214812b82">mrgamemr</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">78</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">28 Jan 2010, 21:51</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=43147"><b style="color:#" onmouseover="show_popup(43147)" onmouseout="close_popup()">mrgamemr</b></a>						<a href="./viewtopic.php?f=19&amp;t=50545&amp;p=347873&amp;sid=3d483e65b9a3313a011a214214812b82#p347873"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 19 Jan 2010, 16:03" href="./viewtopic.php?f=19&amp;t=50477&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Precisa-se: programador AS3, C# e Java - Goiânia</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=28442&amp;sid=3d483e65b9a3313a011a214214812b82">phpower1</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">49</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">19 Jan 2010, 16:03</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=28442"><b style="color:#" onmouseover="show_popup(28442)" onmouseout="close_popup()">phpower1</b></a>						<a href="./viewtopic.php?f=19&amp;t=50477&amp;p=347466&amp;sid=3d483e65b9a3313a011a214214812b82#p347466"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 30 Jun 2009, 00:07" href="./viewtopic.php?f=19&amp;t=49082&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Modeladores que trabalhem com Blender</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=47023&amp;sid=3d483e65b9a3313a011a214214812b82">henrique-rafael</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">6</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">237</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">19 Jan 2010, 12:42</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=51387"><b style="color:#" onmouseover="show_popup(51387)" onmouseout="close_popup()">Anark</b></a>						<a href="./viewtopic.php?f=19&amp;t=49082&amp;p=347449&amp;sid=3d483e65b9a3313a011a214214812b82#p347449"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 12 Jan 2010, 22:42" href="./viewtopic.php?f=19&amp;t=50442&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Artista gráfico/Programador ActionScript</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=51373&amp;sid=3d483e65b9a3313a011a214214812b82">Falleco</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">2</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">100</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">13 Jan 2010, 09:04</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=26854"><b style="color:#" onmouseover="show_popup(26854)" onmouseout="close_popup()">Nestath</b></a>						<a href="./viewtopic.php?f=19&amp;t=50442&amp;p=347239&amp;sid=3d483e65b9a3313a011a214214812b82#p347239"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 06 Jan 2010, 16:17" href="./viewtopic.php?f=19&amp;t=50396&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">3 Vagas para Artistas Plenos - Curitiba</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=4564&amp;sid=3d483e65b9a3313a011a214214812b82">bcsanches2</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">2</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">132</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">08 Jan 2010, 00:26</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=4564"><b style="color:#" onmouseover="show_popup(4564)" onmouseout="close_popup()">bcsanches2</b></a>						<a href="./viewtopic.php?f=19&amp;t=50396&amp;p=347048&amp;sid=3d483e65b9a3313a011a214214812b82#p347048"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 06 Jan 2010, 16:16" href="./viewtopic.php?f=19&amp;t=50395&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">2 Vagas Programadores C++ - Pleno Curitiba</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=4564&amp;sid=3d483e65b9a3313a011a214214812b82">bcsanches2</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">116</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">06 Jan 2010, 16:16</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=4564"><b style="color:#" onmouseover="show_popup(4564)" onmouseout="close_popup()">bcsanches2</b></a>						<a href="./viewtopic.php?f=19&amp;t=50395&amp;p=346974&amp;sid=3d483e65b9a3313a011a214214812b82#p346974"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 17 Dez 2009, 19:29" href="./viewtopic.php?f=19&amp;t=50280&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Aquiris Contrada Game Developer</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=51303&amp;sid=3d483e65b9a3313a011a214214812b82">maulongoni</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">123</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">17 Dez 2009, 19:29</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=51303"><b style="color:#" onmouseover="show_popup(51303)" onmouseout="close_popup()">maulongoni</b></a>						<a href="./viewtopic.php?f=19&amp;t=50280&amp;p=346235&amp;sid=3d483e65b9a3313a011a214214812b82#p346235"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 16 Dez 2009, 01:16" href="./viewtopic.php?f=19&amp;t=50272&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Projeto em Unity 3D - Goiânia</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=28442&amp;sid=3d483e65b9a3313a011a214214812b82">phpower1</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">161</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">16 Dez 2009, 13:11</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=87"><b style="color:#" onmouseover="show_popup(87)" onmouseout="close_popup()">Cyrus</b></a>						<a href="./viewtopic.php?f=19&amp;t=50272&amp;p=346188&amp;sid=3d483e65b9a3313a011a214214812b82#p346188"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 27 Nov 2009, 12:24" href="./viewtopic.php?f=19&amp;t=50173&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Precisa-se URGENTEMENTE, Desenvolvedor .Net C# - BH/MG</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=8626&amp;sid=3d483e65b9a3313a011a214214812b82">tudela</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">58</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">14 Dez 2009, 20:43</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=23453"><b style="color:#" onmouseover="show_popup(23453)" onmouseout="close_popup()">Rock</b></a>						<a href="./viewtopic.php?f=19&amp;t=50173&amp;p=346135&amp;sid=3d483e65b9a3313a011a214214812b82#p346135"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 08 Dez 2009, 08:57" href="./viewtopic.php?f=19&amp;t=50238&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Designer gráfico para Adaptação de Webgames(freela)</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=43050&amp;sid=3d483e65b9a3313a011a214214812b82">2artdev</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">75</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">08 Dez 2009, 08:57</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=43050"><b style="color:#" onmouseover="show_popup(43050)" onmouseout="close_popup()">2artdev</b></a>						<a href="./viewtopic.php?f=19&amp;t=50238&amp;p=345924&amp;sid=3d483e65b9a3313a011a214214812b82#p345924"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 22 Nov 2009, 10:51" href="./viewtopic.php?f=19&amp;t=50139&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Faço seus personagens em 3D por 15 REAIS veja aqui meus Trab</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=45330&amp;sid=3d483e65b9a3313a011a214214812b82">blackviking</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">12</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">542</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">01 Dez 2009, 15:30</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=8831"><b style="color:#" onmouseover="show_popup(8831)" onmouseout="close_popup()">xandeck</b></a>						<a href="./viewtopic.php?f=19&amp;t=50139&amp;p=345764&amp;sid=3d483e65b9a3313a011a214214812b82#p345764"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 30 Nov 2009, 10:43" href="./viewtopic.php?f=19&amp;t=50193&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Desinger Freelancer para Webgame</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=34240&amp;sid=3d483e65b9a3313a011a214214812b82">Lucas Phillip</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">71</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">30 Nov 2009, 10:43</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=34240"><b style="color:#" onmouseover="show_popup(34240)" onmouseout="close_popup()">Lucas Phillip</b></a>						<a href="./viewtopic.php?f=19&amp;t=50193&amp;p=345709&amp;sid=3d483e65b9a3313a011a214214812b82#p345709"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read_hot.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 26 Fev 2009, 21:28" href="./viewtopic.php?f=19&amp;t=48217&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Equipe Para MMORPG 3D</a>
+											<p class="gensmall"> [ <img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Ir para página" title="Ir para página" />Ir para página: <a href="./viewtopic.php?f=19&amp;t=48217&amp;sid=3d483e65b9a3313a011a214214812b82&amp;start=0">1</a><span class="page-sep">, </span><a href="./viewtopic.php?f=19&amp;t=48217&amp;sid=3d483e65b9a3313a011a214214812b82&amp;start=15">2</a><span class="page-sep">, </span><a href="./viewtopic.php?f=19&amp;t=48217&amp;sid=3d483e65b9a3313a011a214214812b82&amp;start=30">3</a> ] </p>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=49533&amp;sid=3d483e65b9a3313a011a214214812b82">nukesc2</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">34</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">1986</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">26 Nov 2009, 18:24</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=30918"><b style="color:#" onmouseover="show_popup(30918)" onmouseout="close_popup()">Drag</b></a>						<a href="./viewtopic.php?f=19&amp;t=48217&amp;p=345626&amp;sid=3d483e65b9a3313a011a214214812b82#p345626"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 26 Nov 2009, 06:47" href="./viewtopic.php?f=19&amp;t=50164&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Precisa-se de Artista 2D e Artista Sonoro</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=28426&amp;sid=3d483e65b9a3313a011a214214812b82">leandrogp9</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">66</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">26 Nov 2009, 06:47</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=28426"><b style="color:#" onmouseover="show_popup(28426)" onmouseout="close_popup()">leandrogp9</b></a>						<a href="./viewtopic.php?f=19&amp;t=50164&amp;p=345595&amp;sid=3d483e65b9a3313a011a214214812b82#p345595"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 13 Out 2009, 15:58" href="./viewtopic.php?f=19&amp;t=49859&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Artistas 2D e 3D procuram programadores</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=50944&amp;sid=3d483e65b9a3313a011a214214812b82">P. F. Paiva</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">4</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">234</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">21 Nov 2009, 23:39</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=51153"><b style="color:#" onmouseover="show_popup(51153)" onmouseout="close_popup()">MatheusRocha</b></a>						<a href="./viewtopic.php?f=19&amp;t=49859&amp;p=345447&amp;sid=3d483e65b9a3313a011a214214812b82#p345447"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 09 Jun 2005, 05:59" href="./viewtopic.php?f=19&amp;t=18118&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">2 vagas para fechar o grupo do Projeto"Belfor"</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=3508&amp;sid=3d483e65b9a3313a011a214214812b82">lucasteixeira</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">2</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">382</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">15 Nov 2009, 00:09</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=29504"><b style="color:#" onmouseover="show_popup(29504)" onmouseout="close_popup()">rogeriodilima</b></a>						<a href="./viewtopic.php?f=19&amp;t=18118&amp;p=345232&amp;sid=3d483e65b9a3313a011a214214812b82#p345232"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 14 Nov 2009, 02:23" href="./viewtopic.php?f=19&amp;t=50086&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Formação de equipe:  modeladores, animadores, artistas etc.</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=49300&amp;sid=3d483e65b9a3313a011a214214812b82">marciovmf</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">79</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">14 Nov 2009, 02:23</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=49300"><b style="color:#" onmouseover="show_popup(49300)" onmouseout="close_popup()">marciovmf</b></a>						<a href="./viewtopic.php?f=19&amp;t=50086&amp;p=345208&amp;sid=3d483e65b9a3313a011a214214812b82#p345208"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 03 Nov 2009, 20:54" href="./viewtopic.php?f=19&amp;t=49996&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Programador de jogos 2D urgente</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=26136&amp;sid=3d483e65b9a3313a011a214214812b82">duckdodgers</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">118</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">03 Nov 2009, 20:54</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=26136"><b style="color:#" onmouseover="show_popup(26136)" onmouseout="close_popup()">duckdodgers</b></a>						<a href="./viewtopic.php?f=19&amp;t=49996&amp;p=344829&amp;sid=3d483e65b9a3313a011a214214812b82#p344829"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 30 Out 2009, 15:12" href="./viewtopic.php?f=19&amp;t=49971&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Precisa de Artistas 2d , 3d, progrmadoes javascript, php .</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=17631&amp;sid=3d483e65b9a3313a011a214214812b82">caveira_</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">84</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">30 Out 2009, 15:12</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=17631"><b style="color:#" onmouseover="show_popup(17631)" onmouseout="close_popup()">caveira_</b></a>						<a href="./viewtopic.php?f=19&amp;t=49971&amp;p=344684&amp;sid=3d483e65b9a3313a011a214214812b82#p344684"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 12 Ago 2007, 17:19" href="./viewtopic.php?f=19&amp;t=40072&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Preciso de programadores e designers [Browser Game]</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=40246&amp;sid=3d483e65b9a3313a011a214214812b82">Muril</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">4</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">1252</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">30 Out 2009, 15:05</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=17631"><b style="color:#" onmouseover="show_popup(17631)" onmouseout="close_popup()">caveira_</b></a>						<a href="./viewtopic.php?f=19&amp;t=40072&amp;p=344683&amp;sid=3d483e65b9a3313a011a214214812b82#p344683"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 20 Out 2009, 16:52" href="./viewtopic.php?f=19&amp;t=49908&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Programador qualquer linguagem (URGENTE)</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=50979&amp;sid=3d483e65b9a3313a011a214214812b82">Jujuqui</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">3</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">197</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">21 Out 2009, 22:11</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=50979"><b style="color:#" onmouseover="show_popup(50979)" onmouseout="close_popup()">Jujuqui</b></a>						<a href="./viewtopic.php?f=19&amp;t=49908&amp;p=344432&amp;sid=3d483e65b9a3313a011a214214812b82#p344432"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 18 Out 2009, 10:58" href="./viewtopic.php?f=19&amp;t=49892&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Procuro Desenhista</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=48237&amp;sid=3d483e65b9a3313a011a214214812b82">Tuanny</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">3</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">116</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">18 Out 2009, 12:31</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=40243"><b style="color:#" onmouseover="show_popup(40243)" onmouseout="close_popup()">FA Games</b></a>						<a href="./viewtopic.php?f=19&amp;t=49892&amp;p=344300&amp;sid=3d483e65b9a3313a011a214214812b82#p344300"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 14 Out 2009, 15:36" href="./viewtopic.php?f=19&amp;t=49869&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">URGENTE - Programador SHADER HLSL</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=47761&amp;sid=3d483e65b9a3313a011a214214812b82">Marcos-N41</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">76</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">14 Out 2009, 22:23</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=25739"><b style="color:#" onmouseover="show_popup(25739)" onmouseout="close_popup()">Kamus do Poder</b></a>						<a href="./viewtopic.php?f=19&amp;t=49869&amp;p=344222&amp;sid=3d483e65b9a3313a011a214214812b82#p344222"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 14 Out 2009, 18:30" href="./viewtopic.php?f=19&amp;t=49872&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Imagine Cup 2010 (precisa-se de artista 2D e 3D)</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=49471&amp;sid=3d483e65b9a3313a011a214214812b82">Kleber Andrade</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">79</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">14 Out 2009, 18:30</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=49471"><b style="color:#" onmouseover="show_popup(49471)" onmouseout="close_popup()">Kleber Andrade</b></a>						<a href="./viewtopic.php?f=19&amp;t=49872&amp;p=344213&amp;sid=3d483e65b9a3313a011a214214812b82#p344213"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 14 Out 2009, 11:17" href="./viewtopic.php?f=19&amp;t=49862&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Web Designer</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=8626&amp;sid=3d483e65b9a3313a011a214214812b82">tudela</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">61</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">14 Out 2009, 11:17</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=8626"><b style="color:#" onmouseover="show_popup(8626)" onmouseout="close_popup()">tudela</b></a>						<a href="./viewtopic.php?f=19&amp;t=49862&amp;p=344189&amp;sid=3d483e65b9a3313a011a214214812b82#p344189"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 09 Out 2009, 18:18" href="./viewtopic.php?f=19&amp;t=49836&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Programador Python + Panda 3D</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=43949&amp;sid=3d483e65b9a3313a011a214214812b82">XaVIeR</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">3</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">101</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">13 Out 2009, 16:23</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=7931"><b style="color:#" onmouseover="show_popup(7931)" onmouseout="close_popup()">simuBahia</b></a>						<a href="./viewtopic.php?f=19&amp;t=49836&amp;p=344176&amp;sid=3d483e65b9a3313a011a214214812b82#p344176"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 13 Out 2009, 12:35" href="./viewtopic.php?f=19&amp;t=49855&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Moon Sector - Precisa-se</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=8831&amp;sid=3d483e65b9a3313a011a214214812b82">xandeck</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">2</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">102</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">13 Out 2009, 13:18</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=8831"><b style="color:#" onmouseover="show_popup(8831)" onmouseout="close_popup()">xandeck</b></a>						<a href="./viewtopic.php?f=19&amp;t=49855&amp;p=344172&amp;sid=3d483e65b9a3313a011a214214812b82#p344172"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 09 Out 2009, 18:15" href="./viewtopic.php?f=19&amp;t=49835&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Blueprints</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=48165&amp;sid=3d483e65b9a3313a011a214214812b82">filipeamaral</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">2</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">60</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">09 Out 2009, 20:58</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=48329"><b style="color:#" onmouseover="show_popup(48329)" onmouseout="close_popup()">dirmp</b></a>						<a href="./viewtopic.php?f=19&amp;t=49835&amp;p=344068&amp;sid=3d483e65b9a3313a011a214214812b82#p344068"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 08 Out 2009, 15:16" href="./viewtopic.php?f=19&amp;t=49825&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Programador e desenhista</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=48329&amp;sid=3d483e65b9a3313a011a214214812b82">dirmp</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">84</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">08 Out 2009, 15:16</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=48329"><b style="color:#" onmouseover="show_popup(48329)" onmouseout="close_popup()">dirmp</b></a>						<a href="./viewtopic.php?f=19&amp;t=49825&amp;p=344021&amp;sid=3d483e65b9a3313a011a214214812b82#p344021"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 06 Out 2009, 15:47" href="./viewtopic.php?f=19&amp;t=49813&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Vaga para Programador C</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=50902&amp;sid=3d483e65b9a3313a011a214214812b82">papsp</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">148</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">06 Out 2009, 15:47</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=50902"><b style="color:#" onmouseover="show_popup(50902)" onmouseout="close_popup()">papsp</b></a>						<a href="./viewtopic.php?f=19&amp;t=49813&amp;p=343927&amp;sid=3d483e65b9a3313a011a214214812b82#p343927"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 01 Out 2009, 21:51" href="./viewtopic.php?f=19&amp;t=49781&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Modelador free-lance para trabalho remunerado</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=4995&amp;sid=3d483e65b9a3313a011a214214812b82">smariobros</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">3</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">130</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">05 Out 2009, 22:01</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=4995"><b style="color:#" onmouseover="show_popup(4995)" onmouseout="close_popup()">smariobros</b></a>						<a href="./viewtopic.php?f=19&amp;t=49781&amp;p=343873&amp;sid=3d483e65b9a3313a011a214214812b82#p343873"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 29 Set 2009, 19:41" href="./viewtopic.php?f=19&amp;t=49760&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Paranormal</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=49330&amp;sid=3d483e65b9a3313a011a214214812b82">algoz90</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">4</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">92</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">30 Set 2009, 18:20</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=49330"><b style="color:#" onmouseover="show_popup(49330)" onmouseout="close_popup()">algoz90</b></a>						<a href="./viewtopic.php?f=19&amp;t=49760&amp;p=343630&amp;sid=3d483e65b9a3313a011a214214812b82#p343630"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 17 Set 2009, 15:15" href="./viewtopic.php?f=19&amp;t=49669&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Vaga Gerente de Projetos / Coordenador de Produção - SP</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=50771&amp;sid=3d483e65b9a3313a011a214214812b82">PedroZ</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">81</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">17 Set 2009, 15:15</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=50771"><b style="color:#" onmouseover="show_popup(50771)" onmouseout="close_popup()">PedroZ</b></a>						<a href="./viewtopic.php?f=19&amp;t=49669&amp;p=343141&amp;sid=3d483e65b9a3313a011a214214812b82#p343141"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 11 Set 2009, 19:35" href="./viewtopic.php?f=19&amp;t=49617&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Vaga Programador - Curitiba</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=50739&amp;sid=3d483e65b9a3313a011a214214812b82">Make_Wish</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">2</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">152</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">12 Set 2009, 22:25</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=16263"><b style="color:#" onmouseover="show_popup(16263)" onmouseout="close_popup()">skhaz</b></a>						<a href="./viewtopic.php?f=19&amp;t=49617&amp;p=342938&amp;sid=3d483e65b9a3313a011a214214812b82#p342938"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 26 Jun 2009, 10:15" href="./viewtopic.php?f=19&amp;t=49058&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Procuro equipe para desenvolver jogo em BROWSER e XNA</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=2148&amp;sid=3d483e65b9a3313a011a214214812b82">sskakaroto</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">127</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">09 Set 2009, 19:47</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=39649"><b style="color:#" onmouseover="show_popup(39649)" onmouseout="close_popup()">melanke</b></a>						<a href="./viewtopic.php?f=19&amp;t=49058&amp;p=342790&amp;sid=3d483e65b9a3313a011a214214812b82#p342790"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 31 Jul 2009, 23:50" href="./viewtopic.php?f=19&amp;t=49293&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Montando uma equipe...</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=50474&amp;sid=3d483e65b9a3313a011a214214812b82">Matheus Rocha</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">8</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">221</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">12 Ago 2009, 23:10</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=47023"><b style="color:#" onmouseover="show_popup(47023)" onmouseout="close_popup()">henrique-rafael</b></a>						<a href="./viewtopic.php?f=19&amp;t=49293&amp;p=341715&amp;sid=3d483e65b9a3313a011a214214812b82#p341715"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 06 Ago 2009, 22:15" href="./viewtopic.php?f=19&amp;t=49342&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Precisa-se de quem faça orçamento</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=50512&amp;sid=3d483e65b9a3313a011a214214812b82">leandromj_br</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">102</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">06 Ago 2009, 22:15</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=50512"><b style="color:#" onmouseover="show_popup(50512)" onmouseout="close_popup()">leandromj_br</b></a>						<a href="./viewtopic.php?f=19&amp;t=49342&amp;p=341414&amp;sid=3d483e65b9a3313a011a214214812b82#p341414"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 27 Jul 2009, 18:27" href="./viewtopic.php?f=19&amp;t=49261&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Sprites Zelda</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=50288&amp;sid=3d483e65b9a3313a011a214214812b82">zephyro</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">80</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">27 Jul 2009, 18:27</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=50288"><b style="color:#" onmouseover="show_popup(50288)" onmouseout="close_popup()">zephyro</b></a>						<a href="./viewtopic.php?f=19&amp;t=49261&amp;p=340934&amp;sid=3d483e65b9a3313a011a214214812b82#p340934"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 25 Jul 2009, 20:25" href="./viewtopic.php?f=19&amp;t=49245&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Open Sonic: procuramos ARTISTA</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=50427&amp;sid=3d483e65b9a3313a011a214214812b82">alemart</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">96</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">25 Jul 2009, 20:25</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=50427"><b style="color:#" onmouseover="show_popup(50427)" onmouseout="close_popup()">alemart</b></a>						<a href="./viewtopic.php?f=19&amp;t=49245&amp;p=340848&amp;sid=3d483e65b9a3313a011a214214812b82#p340848"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 22 Jul 2009, 17:14" href="./viewtopic.php?f=19&amp;t=49223&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Precisa-se de Spriters Projeto  Storm Adventure MMORPG 2D</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=48520&amp;sid=3d483e65b9a3313a011a214214812b82">Lokinhu27</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">4</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">153</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">23 Jul 2009, 13:48</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=48520"><b style="color:#" onmouseover="show_popup(48520)" onmouseout="close_popup()">Lokinhu27</b></a>						<a href="./viewtopic.php?f=19&amp;t=49223&amp;p=340755&amp;sid=3d483e65b9a3313a011a214214812b82#p340755"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 24 Jun 2009, 11:19" href="./viewtopic.php?f=19&amp;t=49048&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Precisa-se de Programador em  Blitz 3d,C++ C#,Unreal,Unity!</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=47818&amp;sid=3d483e65b9a3313a011a214214812b82">brenolot</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">151</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">26 Jun 2009, 10:18</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=2148"><b style="color:#" onmouseover="show_popup(2148)" onmouseout="close_popup()">sskakaroto</b></a>						<a href="./viewtopic.php?f=19&amp;t=49048&amp;p=339725&amp;sid=3d483e65b9a3313a011a214214812b82#p339725"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 15 Jun 2009, 14:22" href="./viewtopic.php?f=19&amp;t=49036&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Procura-se programador com conhecimentos em iPhone-SDK</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=42090&amp;sid=3d483e65b9a3313a011a214214812b82">tydres</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">94</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">15 Jun 2009, 14:22</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=42090"><b style="color:#" onmouseover="show_popup(42090)" onmouseout="close_popup()">tydres</b></a>						<a href="./viewtopic.php?f=19&amp;t=49036&amp;p=339651&amp;sid=3d483e65b9a3313a011a214214812b82#p339651"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 27 Mai 2009, 00:27" href="./viewtopic.php?f=19&amp;t=48954&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">PatolaGames contrata programadores</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=5192&amp;sid=3d483e65b9a3313a011a214214812b82">nunof</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">179</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">27 Mai 2009, 00:27</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=5192"><b style="color:#" onmouseover="show_popup(5192)" onmouseout="close_popup()">nunof</b></a>						<a href="./viewtopic.php?f=19&amp;t=48954&amp;p=339263&amp;sid=3d483e65b9a3313a011a214214812b82#p339263"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read_hot.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 11 Mai 2009, 17:02" href="./viewtopic.php?f=19&amp;t=48842&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Projeto: .:: The Last HOPE ::.</a>
+											<p class="gensmall"> [ <img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Ir para página" title="Ir para página" />Ir para página: <a href="./viewtopic.php?f=19&amp;t=48842&amp;sid=3d483e65b9a3313a011a214214812b82&amp;start=0">1</a><span class="page-sep">, </span><a href="./viewtopic.php?f=19&amp;t=48842&amp;sid=3d483e65b9a3313a011a214214812b82&amp;start=15">2</a> ] </p>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=50126&amp;sid=3d483e65b9a3313a011a214214812b82">Alfacinha</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">23</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">292</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">22 Mai 2009, 10:24</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=2304"><b style="color:#" onmouseover="show_popup(2304)" onmouseout="close_popup()">pequeno washu</b></a>						<a href="./viewtopic.php?f=19&amp;t=48842&amp;p=339086&amp;sid=3d483e65b9a3313a011a214214812b82#p339086"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 13 Mai 2009, 14:15" href="./viewtopic.php?f=19&amp;t=48861&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Programador de jogos 3D</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=50147&amp;sid=3d483e65b9a3313a011a214214812b82">pucpr</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">128</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">13 Mai 2009, 14:15</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=50147"><b style="color:#" onmouseover="show_popup(50147)" onmouseout="close_popup()">pucpr</b></a>						<a href="./viewtopic.php?f=19&amp;t=48861&amp;p=338729&amp;sid=3d483e65b9a3313a011a214214812b82#p338729"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 10 Fev 2009, 14:30" href="./viewtopic.php?f=19&amp;t=48008&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Modelador 2D/3D - Jogo de Aventura (estilo Mário e Crash)</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=8831&amp;sid=3d483e65b9a3313a011a214214812b82">xandeck</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">3</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">393</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">04 Mai 2009, 12:50</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=8831"><b style="color:#" onmouseover="show_popup(8831)" onmouseout="close_popup()">xandeck</b></a>						<a href="./viewtopic.php?f=19&amp;t=48008&amp;p=338331&amp;sid=3d483e65b9a3313a011a214214812b82#p338331"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 14 Set 2008, 13:13" href="./viewtopic.php?f=19&amp;t=46000&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">3d Character maker, ideia boa e que rende grana.</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=3772&amp;sid=3d483e65b9a3313a011a214214812b82">ulryck</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">9</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">1189</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">24 Mar 2009, 16:45</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=46602"><b style="color:#" onmouseover="show_popup(46602)" onmouseout="close_popup()">Dubiesto</b></a>						<a href="./viewtopic.php?f=19&amp;t=46000&amp;p=337057&amp;sid=3d483e65b9a3313a011a214214812b82#p337057"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 23 Fev 2009, 21:17" href="./viewtopic.php?f=19&amp;t=48185&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Precisa-se de Sound FX Designer e Graphic Designer</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=1058&amp;sid=3d483e65b9a3313a011a214214812b82">Carmageddon</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">144</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">23 Fev 2009, 21:17</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=1058"><b style="color:#" onmouseover="show_popup(1058)" onmouseout="close_popup()">Carmageddon</b></a>						<a href="./viewtopic.php?f=19&amp;t=48185&amp;p=333983&amp;sid=3d483e65b9a3313a011a214214812b82#p333983"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+								<td class="row1">
+										 <a title="Enviado: 17 Fev 2009, 19:30" href="./viewtopic.php?f=19&amp;t=48105&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Precisa-se de Designer - Projeto BM</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=47876&amp;sid=3d483e65b9a3313a011a214214812b82">tiagosl</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">181</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">17 Fev 2009, 19:30</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=47876"><b style="color:#" onmouseover="show_popup(47876)" onmouseout="close_popup()">tiagosl</b></a>						<a href="./viewtopic.php?f=19&amp;t=48105&amp;p=333363&amp;sid=3d483e65b9a3313a011a214214812b82#p333363"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read_locked.png" width="27" height="27" alt="Este Tópico está bloqueado. Não pode editar mensagens ou responder." title="Este Tópico está bloqueado. Não pode editar mensagens ou responder." /></td>
+								<td class="row1">
+										 <a title="Enviado: 16 Fev 2009, 20:43" href="./viewtopic.php?f=19&amp;t=48096&amp;sid=3d483e65b9a3313a011a214214812b82" class="topictitle">Tópico Fechado!</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=49432&amp;sid=3d483e65b9a3313a011a214214812b82">Viniciush</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">8</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">317</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">17 Fev 2009, 13:22</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=2084"><b style="color:#AA0000" onmouseover="show_popup(2084)" onmouseout="close_popup()">Zizaco</b></a>						<a href="./viewtopic.php?f=19&amp;t=48096&amp;p=333319&amp;sid=3d483e65b9a3313a011a214214812b82#p333319"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="Visualizando últimas Mensagens" title="Visualizando últimas Mensagens" /></a>					</p>
+				</td>
+			</tr>
+
+		
+		<tr align="center">
+							<td class="cat" colspan="6">
+								<form method="post" action="./viewforum.php?f=19&amp;start=100&amp;sid=3d483e65b9a3313a011a214214812b82"><span class="gensmall">Mostrar Tópicos anteriores:</span>&nbsp;<select name="st" id="st"><option value="0" selected="selected">Todos os Tópicos</option><option value="1">1 Dia</option><option value="7">7 Dias</option><option value="14">2 Semanas</option><option value="30">1 Mês</option><option value="90">3 Meses</option><option value="180">6 Meses</option><option value="365">1 Ano</option></select>&nbsp;<span class="gensmall">Ordenar por</span> <select name="sk" id="sk"><option value="a">Autor</option><option value="t" selected="selected">Data da Mensagem</option><option value="r">Respostas</option><option value="s">Assunto</option><option value="v">Exibições</option></select> <select name="sd" id="sd"><option value="a">Crescente</option><option value="d" selected="selected">Decrescente</option></select>&nbsp;<input class="btnlite" type="submit" name="sort" value="Avançar" /></form>
+				</td>
+		</tr>
+				</table>
+			<table width="100%" cellspacing="1">
+		<tr>
+							<td align="left" valign="middle">
+				<a class="post-icon" href="./posting.php?mode=post&amp;f=19&amp;sid=3d483e65b9a3313a011a214214812b82" title="Criar um novo Tópico"><span>Criar um novo Tópico</span></a>
+				</td>
+							<td class="nav" valign="middle" nowrap="nowrap">&nbsp;Página <b>3</b> de <b>17</b><br /></td>
+				<td class="gensmall" nowrap="nowrap">&nbsp;[ 833 topics ]&nbsp;</td>
+				<td class="gensmall" width="100%" align="right" nowrap="nowrap"><b><a href="#" onclick="jumpto(); return false;" title="Clique para ir à página...">Ir para página</a> <a href="./viewforum.php?f=19&amp;sid=3d483e65b9a3313a011a214214812b82&amp;start=50">Anterior</a>&nbsp;&nbsp;<a href="./viewforum.php?f=19&amp;sid=3d483e65b9a3313a011a214214812b82">1</a><span class="page-sep">, </span><a href="./viewforum.php?f=19&amp;sid=3d483e65b9a3313a011a214214812b82&amp;start=50">2</a><span class="page-sep">, </span><strong>3</strong><span class="page-sep">, </span><a href="./viewforum.php?f=19&amp;sid=3d483e65b9a3313a011a214214812b82&amp;start=150">4</a><span class="page-sep">, </span><a href="./viewforum.php?f=19&amp;sid=3d483e65b9a3313a011a214214812b82&amp;start=200">5</a><span class="page-sep">, </span><a href="./viewforum.php?f=19&amp;sid=3d483e65b9a3313a011a214214812b82&amp;start=250">6</a> ... <a href="./viewforum.php?f=19&amp;sid=3d483e65b9a3313a011a214214812b82&amp;start=800">17</a> &nbsp;<a href="./viewforum.php?f=19&amp;sid=3d483e65b9a3313a011a214214812b82&amp;start=150">Próximo</a></b></td>
+					</tr>
+		</table>
+		
+		<br clear="all" />
+</div>
+
+	<br clear="all" />
+
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr>
+		<td class="cat"><h4>Quem está ligado:</h4></td>
+	</tr>
+	<tr>
+		<td class="row1"><p class="gensmall">Utilizador a ver este Fórum: Nenhum utilizador registado e 1 visitante</p></td>
+	</tr>
+	</table>
+	<br clear="all" />
+
+	<table width="100%" cellspacing="0">
+	<tr>
+		<td align="left" valign="top">
+			<table cellspacing="3" cellpadding="0" border="0">
+			<tr>
+				<td width="20" style="text-align: center;"><img src="./styles/twilightBB/imageset/topic_unread.png" width="27" height="27" alt="Novas Mensagens" title="Novas Mensagens" /></td>
+				<td class="gensmall">Novas Mensagens</td>
+				<td>&nbsp;&nbsp;</td>
+				<td width="20" style="text-align: center;"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="Sem mensagens novas" title="Sem mensagens novas" /></td>
+				<td class="gensmall">Sem mensagens novas</td>
+				<td>&nbsp;&nbsp;</td>
+				<td width="20" style="text-align: center;"><img src="./styles/twilightBB/imageset/announce_read.png" width="27" height="27" alt="Anúncio" title="Anúncio" /></td>
+				<td class="gensmall">Announcement</td>
+			</tr>
+			<tr>
+				<td style="text-align: center;"><img src="./styles/twilightBB/imageset/topic_unread_hot.png" width="27" height="27" alt="New posts [ Popular ]" title="New posts [ Popular ]" /></td>
+				<td class="gensmall">New posts [ Popular ]</td>
+				<td>&nbsp;&nbsp;</td>
+				<td style="text-align: center;"><img src="./styles/twilightBB/imageset/topic_read_hot.png" width="27" height="27" alt="No new posts [ Popular ]" title="No new posts [ Popular ]" /></td>
+				<td class="gensmall">No new posts [ Popular ]</td>
+				<td>&nbsp;&nbsp;</td>
+				<td style="text-align: center;"><img src="./styles/twilightBB/imageset/sticky_read.png" width="27" height="27" alt="Fixo" title="Fixo" /></td>
+				<td class="gensmall">Sticky</td>			
+			</tr>
+			<tr>
+				<td style="text-align: center;"><img src="./styles/twilightBB/imageset/topic_unread_locked.png" width="27" height="27" alt="New posts [ Locked ]" title="New posts [ Locked ]" /></td>
+				<td class="gensmall">New posts [ Locked ]</td>
+				<td>&nbsp;&nbsp;</td>
+				<td style="text-align: center;"><img src="./styles/twilightBB/imageset/topic_read_locked.png" width="27" height="27" alt="No new posts [ Locked ]" title="No new posts [ Locked ]" /></td>
+				<td class="gensmall">No new posts [ Locked ]</td>
+				<td>&nbsp;&nbsp;</td>
+				<td style="text-align: center;"><img src="./styles/twilightBB/imageset/topic_moved.png" width="27" height="27" alt="Tópico Movido" title="Tópico Movido" /></td>
+				<td class="gensmall">Tópico Movido</td>
+			</tr>
+			</table>
+		</td>
+		<td align="right"><span class="gensmall">
+		<span class="gensmall right">
+				<br />Criar Tópicos: <b>Proibído</b><br />Responder Tópicos: <b>Proibído</b><br />Editar Mensagens: <b>Proibído</b><br />Apagar Mensagens: <b>Proibído</b><br />		</span></td>
+	</tr>
+	</table>
+
+<br clear="all" />
+
+<table width="100%" cellspacing="0">
+<tr>
+	<td><form method="post" name="search" action="./search.php?fid[]=19&amp;sid=3d483e65b9a3313a011a214214812b82"><span class="gensmall">Pesquisar por:</span> <input class="post" type="text" name="keywords" size="20" /> <input class="btnlite" type="submit" value="Avançar" /></form></td>
+	<td align="right">	<form method="post" name="jumpbox" action="./viewforum.php?sid=3d483e65b9a3313a011a214214812b82" onsubmit="if(document.jumpbox.f.value == -1){return false;}">
+
+	<table cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td nowrap="nowrap"><span class="gensmall">Ir para:</span>&nbsp;<select name="f" onchange="if(this.options[this.selectedIndex].value != -1){ document.forms['jumpbox'].submit() }">
+
+					<option value="-1">Seleccione o Fórum</option>
+		<option value="-1">------------------</option>			<option value="79">Notícias</option>
+					<option value="81">&nbsp; &nbsp;Notícias</option>
+					<option value="82">Artigos</option>
+					<option value="83">&nbsp; &nbsp;Artigos dos Usuários</option>
+					<option value="94">&nbsp; &nbsp;Artigos Externos</option>
+					<option value="85">&nbsp; &nbsp;Arte 3D</option>
+					<option value="89">&nbsp; &nbsp;Arte 2D</option>
+					<option value="86">&nbsp; &nbsp;Iniciantes</option>
+					<option value="87">&nbsp; &nbsp;Game Design</option>
+					<option value="90">&nbsp; &nbsp;Programação</option>
+					<option value="92">&nbsp; &nbsp;Outros</option>
+					<option value="75">Programação e assuntos relacionados</option>
+					<option value="6">&nbsp; &nbsp;Pascal/Delphi</option>
+					<option value="7">&nbsp; &nbsp;Visual Basic</option>
+					<option value="8">&nbsp; &nbsp;Outras linguagens</option>
+					<option value="20">&nbsp; &nbsp;Assembly</option>
+					<option value="21">&nbsp; &nbsp;C/C++</option>
+					<option value="22">&nbsp; &nbsp;Dark Basic</option>
+					<option value="23">&nbsp; &nbsp;Blitz Basic</option>
+					<option value="28">&nbsp; &nbsp;Inteligência artificial</option>
+					<option value="29">&nbsp; &nbsp;Programação gráfica</option>
+					<option value="31">&nbsp; &nbsp;Java</option>
+					<option value="32">&nbsp; &nbsp;Shockwave e Flash</option>
+					<option value="33">&nbsp; &nbsp;Matemática e física</option>
+					<option value="36">&nbsp; &nbsp;Programação Windows</option>
+					<option value="57">&nbsp; &nbsp;Programação em Linux</option>
+					<option value="58">&nbsp; &nbsp;Hardware</option>
+					<option value="60">&nbsp; &nbsp;C# e programação .NET</option>
+					<option value="61">&nbsp; &nbsp;Lógica da programação</option>
+					<option value="70">&nbsp; &nbsp;Programação de Games Online e Técnicas Multiplayer</option>
+					<option value="76">Engines, API's, bibliotecas e outros</option>
+					<option value="9">&nbsp; &nbsp;DirectX</option>
+					<option value="10">&nbsp; &nbsp;OpenGL</option>
+					<option value="91">&nbsp; &nbsp;Unreal Engine</option>
+					<option value="93">&nbsp; &nbsp;Unity3D</option>
+					<option value="11">&nbsp; &nbsp;Allegro</option>
+					<option value="12">&nbsp; &nbsp;SDL</option>
+					<option value="13">&nbsp; &nbsp;Outras API's e Engines</option>
+					<option value="69">&nbsp; &nbsp;Java3D</option>
+					<option value="25">&nbsp; &nbsp;XNA Game Studio</option>
+					<option value="73">&nbsp; &nbsp;Ogre 3D</option>
+					<option value="59">&nbsp; &nbsp;3D Game Studio</option>
+					<option value="65">&nbsp; &nbsp;Mobile</option>
+					<option value="67">&nbsp; &nbsp;Torque Game Engine</option>
+					<option value="68">&nbsp; &nbsp;Irrlicht Engine</option>
+					<option value="72">&nbsp; &nbsp;Game Making</option>
+					<option value="74">&nbsp; &nbsp;GameSpaceLib</option>
+					<option value="88">&nbsp; &nbsp;Panda3D</option>
+					<option value="77">Arte nos jogos eletrônicos</option>
+					<option value="14">&nbsp; &nbsp;Modelagem 3D</option>
+					<option value="15">&nbsp; &nbsp;Game Design</option>
+					<option value="16">&nbsp; &nbsp;Arte 2D</option>
+					<option value="17">&nbsp; &nbsp;Música/Efeitos sonoros</option>
+					<option value="37">&nbsp; &nbsp;Roteiros</option>
+					<option value="78">Outros assuntos</option>
+					<option value="71">&nbsp; &nbsp;Contests</option>
+					<option value="18">&nbsp; &nbsp;Assuntos diversos</option>
+					<option value="19" selected="selected">&nbsp; &nbsp;Precisa-se</option>
+					<option value="63">&nbsp; &nbsp;Fale conosco</option>
+					<option value="27">&nbsp; &nbsp;Oferecem-se</option>
+					<option value="34">&nbsp; &nbsp;Tradução de Artigos</option>
+					<option value="5">&nbsp; &nbsp;Projetos</option>
+					<option value="38">&nbsp; &nbsp;Artigos / Tutoriais</option>
+					<option value="62">&nbsp; &nbsp;OFF-Topic</option>
+					<option value="64">&nbsp; &nbsp;Idiomas - termos técnicos</option>
+					<option value="26">&nbsp; &nbsp;UD-Zine</option>
+					<option value="66">&nbsp; &nbsp;Bancos de Dados</option>
+		
+		</select>&nbsp;<input class="btnlite" type="submit" value="Avançar" /></td>
+	</tr>
+	</table>
+
+	</form>
+</td>
+</tr>
+</table>
+
+
+
+
+
+	</td>
+<!-- [-] center block area -->	<td width="0"><img src="images/spacer.gif" alt="" width="0" height="30" /></td>
+<!-- [+] right block area -->
+	<td width="180" valign="top">
+    
+<table class="tablebg" cellspacing="1" width="100%" style="margin-bottom:5px;">
+  <tr>
+    <th style="text-align:left;"> 
+       <div><a href="#" onclick="Effect.toggle('right_46','BLIND'); return false;">
+       <h4><img src="./portal/images/icon_block/folder_link.png" title="Banners" height="12" width="12" />&nbsp;Banners</h4></a></div>
+    </th>
+  </tr>
+  <tr>
+    <td class="row1"> 
+	   <div id="right_46" style="display: block;"><table class="tablebg" cellspacing="1" width="100%">
+<!--<tr>
+	<th style="text-align:left;">Random Banner</th>
+</tr>-->
+    <tr>
+    <td align="center" class="row1"><a target="_blank" href="http://udco.unidev.com.br/cursos/UDK/splash/splash.html" title=""><img src="portal/images/banners/130x600/udksky.jpg" width="120" height="600" alt="" title="" /></a><br /></td>
+  </tr>
+  </table></div>
+    </td>
+  </tr>
+</table>
+	
+	</td>
+<!-- [-] right block area -->
+</tr>
+</table>
+<!-- [+] bottom block area -->
+<table width="100%" cellspacing="1">
+  <tr>
+    <td valign="top">
+    </td>
+  </tr>
+</table>
+<!-- [-] bottom block area -->
+
+</div>
+
+</div>
+
+		<br clear="all" />
+	
+</div></div></div></div>
+</div></div></div>
+
+</div>
+<br />
+<div id="wrapfooter">
+<!--
+	We request you retain the full copyright notice below including the link to www.phpbb.com.
+	This not only gives respect to the large amount of time given freely by the developers
+	but also helps build interest, traffic and use of phpBB3. If you (honestly) cannot retain
+	the full copyright we ask you at least leave in place the "Powered by phpBB" line, with
+	"phpBB" linked to www.phpbb.com. If you refuse to include even this then support on our
+	forums may be affected.
+
+	The phpBB Group : 2006
+//-->
+	<span class="copyright">Powered by <a href="http://www.phpbb.com/">phpBB</a> &copy;
+    <br />
+	<br />Virtual Object Inform�tica Ltda. Fone/Fax: (15)3231-6840
+	<br /><div xmlns:cc="http://creativecommons.org/ns#" about="http://phpbbportugal.com"><a rel="cc:attributionURL" property="cc:attributionName" href="http://phpbbportugal.com" target="_blank">Traduzido para português europeu por <b>phpBB Portugal</b></a> / <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.5/pt/" target="_blank">CC BY-NC-ND 2.5</a><br /><span style="padding-top:5px; text-align: middle"><a href="http://damysterious.xs4all.nl/portalxl/" title="Portal XL 5.0 ~ Premod 0.2"><img src="./portal/images/phpbb-portal-xl40.png" alt="Portal XL 5.0 ~ Premod 0.2" /></a></span><span style="margin-top: 5px; text-align: middle;"> <a href="http://www.phpbb-seo.com/" title="Search Engine Optimization"><img src="http://www.unidev.com.br/phpbb3/images/phpbb-seo.png" alt="phpBB SEO"/></a></span></span>
+</div>
+<br />
+
+</td>
+<td id="bgright"><img src="./styles/twilightBB/theme/images/spacer.gif" width="53px" alt="" /></td>
+</tr>
+</table>
+
+
+<div style="display: none;" id="resizemod"></div>
+</body>
+</html>

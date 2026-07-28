@@ -1,0 +1,428 @@
+<!-- DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" -->
+<!-- <html xmlns="http://www.w3.org/1999/xhtml"> -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+ <link rel="top" href="./index.php?sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="UniDev - Índice" />
+<link rel="search" href="./search.php?sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Busca" />
+<link rel="help" href="./faq.php?sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="FAQ" />
+<link rel="author" href="./memberlist.php?sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Membros" />
+<link rel="prev" href="viewtopic.php?t=19513&amp;view=previous&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Exibir tópico anterior" />
+<link rel="next" href="viewtopic.php?t=19513&amp;view=next&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Exibir próximo tópico" />
+<link rel="up" href="viewforum.php?f=21&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="C/C++" />
+<link rel="chapter forum" href="viewforum.php?f=6&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Pascal/Delphi" />
+<link rel="chapter forum" href="viewforum.php?f=7&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Visual Basic" />
+<link rel="chapter forum" href="viewforum.php?f=8&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Outras linguagens" />
+<link rel="chapter forum" href="viewforum.php?f=20&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Assembly" />
+<link rel="chapter forum" href="viewforum.php?f=21&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="C/C++" />
+<link rel="chapter forum" href="viewforum.php?f=22&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Dark Basic" />
+<link rel="chapter forum" href="viewforum.php?f=23&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Blitz Basic" />
+<link rel="chapter forum" href="viewforum.php?f=28&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Inteligência artificial" />
+<link rel="chapter forum" href="viewforum.php?f=29&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Programação gráfica" />
+<link rel="chapter forum" href="viewforum.php?f=31&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Java" />
+<link rel="chapter forum" href="viewforum.php?f=32&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Shockwave e Flash" />
+<link rel="chapter forum" href="viewforum.php?f=33&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Matemática e física" />
+<link rel="chapter forum" href="viewforum.php?f=36&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Programação Windows" />
+<link rel="chapter forum" href="viewforum.php?f=57&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Programação em Linux" />
+<link rel="chapter forum" href="viewforum.php?f=58&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Hardware" />
+<link rel="chapter forum" href="viewforum.php?f=60&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="C# e programação .NET" />
+<link rel="chapter forum" href="viewforum.php?f=61&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Lógica da programação" />
+<link rel="chapter forum" href="viewforum.php?f=70&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Programação de Games Online e Técnicas Multiplayer" />
+<link rel="chapter forum" href="viewforum.php?f=9&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="DirectX" />
+<link rel="chapter forum" href="viewforum.php?f=10&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="OpenGL" />
+<link rel="chapter forum" href="viewforum.php?f=11&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Allegro" />
+<link rel="chapter forum" href="viewforum.php?f=12&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="SDL" />
+<link rel="chapter forum" href="viewforum.php?f=13&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Outras API's e Engines" />
+<link rel="chapter forum" href="viewforum.php?f=69&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Java3D" />
+<link rel="chapter forum" href="viewforum.php?f=25&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="XNA Game Studio" />
+<link rel="chapter forum" href="viewforum.php?f=59&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="3D Game Studio" />
+<link rel="chapter forum" href="viewforum.php?f=65&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Mobile" />
+<link rel="chapter forum" href="viewforum.php?f=67&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Torque Game Engine" />
+<link rel="chapter forum" href="viewforum.php?f=68&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Irrlicht Engine" />
+<link rel="chapter forum" href="viewforum.php?f=72&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Game Making" />
+<link rel="chapter forum" href="viewforum.php?f=14&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Modelagem 3D" />
+<link rel="chapter forum" href="viewforum.php?f=15&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Game Design" />
+<link rel="chapter forum" href="viewforum.php?f=16&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Arte 2D" />
+<link rel="chapter forum" href="viewforum.php?f=17&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Música/Efeitos sonoros" />
+<link rel="chapter forum" href="viewforum.php?f=37&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Roteiros" />
+<link rel="chapter forum" href="viewforum.php?f=71&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Contests" />
+<link rel="chapter forum" href="viewforum.php?f=18&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Assuntos diversos" />
+<link rel="chapter forum" href="viewforum.php?f=19&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Precisa-se" />
+<link rel="chapter forum" href="viewforum.php?f=63&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Fale conosco" />
+<link rel="chapter forum" href="viewforum.php?f=27&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Oferecem-se" />
+<link rel="chapter forum" href="viewforum.php?f=34&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Tradução de Artigos" />
+<link rel="chapter forum" href="viewforum.php?f=5&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Projetos" />
+<link rel="chapter forum" href="viewforum.php?f=38&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Artigos / Tutoriais" />
+<link rel="chapter forum" href="viewforum.php?f=62&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="OFF-Topic" />
+<link rel="chapter forum" href="viewforum.php?f=64&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Idiomas - termos técnicos" />
+<link rel="chapter forum" href="viewforum.php?f=26&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="UD-Zine" />
+<link rel="chapter forum" href="viewforum.php?f=66&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" title="Bancos de Dados" />
+
+<title>UniDev :: Exibir tópico - Um duvida comum...</title>
+<link rel="stylesheet" href="templates/darkside/darkside.css" type="text/css">
+<style>
+td.toprow
+{
+font-family: Verdana;
+font-size : 9px;
+color: #F4F4F4;
+background-image: url(templates/darkside/images/gradient_blue.gif);
+background-repeat: repeat;
+}
+
+td.catrow
+{
+font-family: Verdana;
+font-size : 12px;
+color: #F4F4F4;
+font-weight: bold;
+background-image: url(templates/darkside/images/gradient_grey.gif);
+background-repeat: repeat;
+}
+</style>
+</head>
+<body bgcolor="#000000" text="#F4F4F4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td bgcolor="#5B5B5B">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td align="left" valign="top"><a href="index.php"><img src="templates/darkside/images/forumlogo.gif" width="305" height="109" border="0"></a></td>
+          <td width="100%">
+            <table border="0" cellspacing="2" cellpadding="0" width="300" align="center">
+              <tr>
+                <td nowrap><img src="templates/darkside/images/bullet.gif" width="29" height="19" align="absmiddle">
+                  <a href="faq.php?sid=fa3dc8198f8e0d7e6cfaed0456467f9a" class="smalllink">FAQ</a></td>
+                <td nowrap><img src="templates/darkside/images/bullet.gif" width="29" height="19" align="absmiddle">
+                  <a href="profile.php?mode=editprofile&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" class="smalllink">Profile</a> </td>
+
+                <td nowrap><img src="templates/darkside/images/bullet.gif" width="29" height="19" align="absmiddle">
+                  <a href="search.php?sid=fa3dc8198f8e0d7e6cfaed0456467f9a" class="smalllink">Search</a> </td>
+                <td nowrap><img src="templates/darkside/images/bullet.gif" width="29" height="19" align="absmiddle">
+                  <a href="memberlist.php?sid=fa3dc8198f8e0d7e6cfaed0456467f9a" class="smalllink">Members</a> </td>
+              </tr>
+              <tr>
+                <td nowrap><img src="templates/darkside/images/bullet.gif" width="29" height="19" align="absmiddle">
+                  <a href="groupcp.php?sid=fa3dc8198f8e0d7e6cfaed0456467f9a" class="smalllink">Groups</a> </td>
+                <td nowrap>
+                  <p><img src="templates/darkside/images/bullet.gif" width="29" height="19" align="absmiddle">
+                    <a href="privmsg.php?folder=inbox&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" class="smalllink">PM's</a></p></td>
+                <td nowrap><img src="templates/darkside/images/bullet.gif" width="29" height="19" align="absmiddle">
+                  <a href="profile.php?mode=register&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" class="smalllink">Register</a> </td>
+                <td nowrap><img src="templates/darkside/images/bullet.gif" width="29" height="19" align="absmiddle">
+                  <a href="login.php?sid=fa3dc8198f8e0d7e6cfaed0456467f9a" class="smalllink">Login/Out</a></td>
+              </tr>
+            </table>
+          </td>
+          <td align="right" valign="top"><img src="templates/darkside/images/curve_tr.gif" width="28" height="24"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#5B5B5B">
+      <table width="100%" border="0" cellspacing="0" cellpadding="12">
+        <tr>
+          <td>
+<table cellpadding="0" cellspacing="0" border="0" width="98%" align="center">
+  <tr>
+    <td class="tableborder">
+<table cellpadding="7" cellspacing="1" border="0"  width="100%">
+  <tr align="center">
+    <td align="center" nowrap height="35" class="toprow" valign="middle"><b>Um duvida comum...</b></td>
+  </tr>
+  <tr align="center">
+    <td align="center" nowrap class="row2" valign="middle">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td align="center" width="100%"><span class="mediumtext">&lt;&nbsp;
+            <a href="viewtopic.php?t=19513&amp;view=previous&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" class="mediumlink">Last Thread</a>&nbsp;|&nbsp;<a href="viewtopic.php?t=19513&amp;view=next&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a" class="mediumlink">Next
+            Thread </a>&nbsp;&gt;</span><span class="smalltext"><b><br>
+            </b></span><br>
+          </td>
+                <td align="right" nowrap><span class="smalltext"><a href="posting.php?mode=newtopic&amp;f=21&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a"><img src="templates/darkside/images/post_lang.gif" border="0" alt="Novo tópico" align="middle"></a>&nbsp;<a href="posting.php?mode=reply&amp;t=19513&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a"><img src="templates/darkside/images/reply_lang.gif" border="0" alt="Responder tópico" align="middle"></a></span></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr align="center">
+    <td align="center" nowrap class="row1" valign="middle"><span class="largetext"><a href="index.php" class="largelink"><b>UniDev</b></a>
+      &gt; <a class="largelink" href=""><b></b></a><a class="largelink" href="viewforum.php?f=21&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a"><b>C/C++</b></a></span></td>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<br>
+<table cellpadding="0" cellspacing="0" border="0" width="98%" align="center">
+  <tr>
+    <td class="tableborder">
+      <table cellpadding="7" cellspacing="1" border="0"  width="100%">
+        <tr align="center">
+          <td align="center" nowrap class="catrow" valign="middle" width="22%">Author</td>
+          <td align="center" nowrap class="catrow" valign="middle">Thread</td>
+        </tr>
+
+       </table>
+    </td>
+  </tr>
+</table>
+<table cellpadding="0" cellspacing="0" border="0" width="98%" align="center">
+  <tr>
+    <td class="tableborder">
+<table width="100%" border="0" cellspacing="1" cellpadding="7">
+  <tr align="center">
+    <td align="left" nowrap class="row1" valign="top" width="22%"><span class="largetext"><a name="101505"></a><b>Jonatas</b></span><br />
+      <span class="smalltext">Membro<br />
+      <br />
+      <br />
+      Registrado: 06/12/03<br />
+      Mensagens: 17<br />
+      Localização: Brasil</span> </td>
+    <td align="left" class="row2" valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="2">
+              <tr>
+          <td><span class="smalltext"><b></b></span></td>
+          <td align="right">&nbsp;<a href="posting.php?mode=quote&amp;p=101505&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a"><img src="templates/darkside/images/icon_quote_lang.gif" alt="Responder com citação" title="Responder com citação" border="0" /></a>&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="2" height="3" class="row1"></td>
+        </tr>
+      </table>
+      <br>
+      <span class="largetext">Bom, mandei e-mail pro pessoal da unidev mas, como ninguém ainda me respondeu, catei um desses "homepage gratis" e tasquei o tutorial lá. Olha o link:
+<br />
+
+<br />
+<a href="http://www.jonatasjr.ubbi.com.br/" target="_blank" class="postlink">http://www.jonatasjr.ubbi.com.br/</a>
+<br />
+
+<br />
+Se bem que o kao00 já falou praticamente quase tudo o que eu explico no meu artigo, hehehe !
+<br />
+
+<br />
+Mas blz, espero que ainda seja de alguma utilidade ! <img src="images/smiles/icon_wink.gif" alt="Wink" border="0" /></span><span class="smalltext"></span></td>
+  </tr>
+  <tr align="center">
+    <td align="center" class="row1" valign="middle" width="22%"><a href="viewtopic.php?p=101505&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a#101505"><img src="templates/darkside/images/icon_minipost.gif" <img src="templates/darkside/images/icon_minipost.gif" alt="Mensagem" border="0"></a><span class="smalltext">
+      Sex Jul 15, 2005 11:54 am<span class="mediumtext"></span></span></td>
+    <td align="center" nowrap class="row2" valign="middle">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr valign="bottom">
+          <td>&nbsp;<a href="profile.php?mode=viewprofile&amp;u=4760&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a"><img src="templates/darkside/images/icon_profile_lang.gif" alt="Exibir o perfil do usuário" title="Exibir o perfil do usuário" border="0" /></a> <a href="privmsg.php?mode=post&amp;u=4760&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a"><img src="templates/darkside/images/icon_pm_lang.gif" alt="Enviar mensagem privada" title="Enviar mensagem privada" border="0" /></a> <a href="mailto:jmoraes@gmail.com"><img src="templates/darkside/images/icon_email_lang.gif" alt="Enviar e-mail" title="Enviar e-mail" border="0" /></a>
+               
+            <a href="http://wwp.icq.com/scripts/search.dll?to=103022459"><img src="templates/darkside/images/icon_icq_add_lang.gif" alt="Número do ICQ" title="Número do ICQ" border="0" /></a></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+    </td>
+  </tr>
+</table>
+<table cellpadding="0" cellspacing="0" border="0" width="98%" align="center">
+  <tr>
+    <td class="tableborder">
+<table width="100%" border="0" cellspacing="1" cellpadding="7">
+  <tr align="center">
+    <td align="left" nowrap class="row1" valign="top" width="22%"><span class="largetext"><a name="101520"></a><b>Viper</b></span><br />
+      <span class="smalltext">Membro<br />
+      <br />
+      <br />
+      Registrado: 25/09/03<br />
+      Mensagens: 13<br />
+      Localização: Brasil</span> </td>
+    <td align="left" class="row2" valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="2">
+              <tr>
+          <td><span class="smalltext"><b></b></span></td>
+          <td align="right">&nbsp;<a href="posting.php?mode=quote&amp;p=101520&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a"><img src="templates/darkside/images/icon_quote_lang.gif" alt="Responder com citação" title="Responder com citação" border="0" /></a>&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="2" height="3" class="row1"></td>
+        </tr>
+      </table>
+      <br>
+      <span class="largetext">Muito bom Jonatas!!
+<br />
+
+<br />
+Finalmente consegui entender como criar e utilizar os famosos headers... <img src="images/smiles/icon_wink.gif" alt="Wink" border="0" />
+<br />
+
+<br />
+Vlw!!</span><span class="smalltext"></span></td>
+  </tr>
+  <tr align="center">
+    <td align="center" class="row1" valign="middle" width="22%"><a href="viewtopic.php?p=101520&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a#101520"><img src="templates/darkside/images/icon_minipost.gif" <img src="templates/darkside/images/icon_minipost.gif" alt="Mensagem" border="0"></a><span class="smalltext">
+      Sex Jul 15, 2005 1:28 pm<span class="mediumtext"></span></span></td>
+    <td align="center" nowrap class="row2" valign="middle">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr valign="bottom">
+          <td>&nbsp;<a href="profile.php?mode=viewprofile&amp;u=3415&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a"><img src="templates/darkside/images/icon_profile_lang.gif" alt="Exibir o perfil do usuário" title="Exibir o perfil do usuário" border="0" /></a> <a href="privmsg.php?mode=post&amp;u=3415&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a"><img src="templates/darkside/images/icon_pm_lang.gif" alt="Enviar mensagem privada" title="Enviar mensagem privada" border="0" /></a> <a href="mailto:felipe_ls@uol.com.br"><img src="templates/darkside/images/icon_email_lang.gif" alt="Enviar e-mail" title="Enviar e-mail" border="0" /></a>
+               
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+    </td>
+  </tr>
+</table>
+<table cellpadding="0" cellspacing="0" border="0" width="98%" align="center">
+  <tr>
+    <td class="tableborder">
+<table width="100%" border="0" cellspacing="1" cellpadding="7">
+  <tr align="center">
+    <td align="left" nowrap class="row1" valign="top" width="22%"><span class="largetext"><a name="101521"></a><b>Mago</b></span><br />
+      <span class="smalltext">BANIDO!<br />
+      <br />
+      <br />
+      Registrado: 15/11/02<br />
+      Mensagens: 1070<br />
+      Localização: Brasil</span> </td>
+    <td align="left" class="row2" valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="2">
+              <tr>
+          <td><span class="smalltext"><b></b></span></td>
+          <td align="right">&nbsp;<a href="posting.php?mode=quote&amp;p=101521&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a"><img src="templates/darkside/images/icon_quote_lang.gif" alt="Responder com citação" title="Responder com citação" border="0" /></a>&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="2" height="3" class="row1"></td>
+        </tr>
+      </table>
+      <br>
+      <span class="largetext">Aew, valeu mesmo!
+<br />
+Ainda hoje eu pego isto e vejo, pois agora to no trampo e num tenho compilador... mas prometo que vou tentar!
+<br />
+
+<br />
+Valeu a todos! Se alguem precisar de ajuda, serei o primeiro a ajudar!
+<br />
+
+<br />
+Valeu
+<br />
+
+<br />
+__________________________<h6>"Eu só conheço uma língua: 101001, e com ela posso saber seu nome, seu número de cartão de crédito e suas fantasias sexuais" - Rato, Viagem ao Centro da Terra</h6><br />_________________<br />__________________________&lt;h6&gt;"Eu só conheço uma língua: 101001, e com ela posso saber seu nome, sua senha, seu número de cartão de crédito e suas fantasias sexuais" - Rato, Viagem ao Centro da Terra&lt;/h6&gt;</span><span class="smalltext"></span></td>
+  </tr>
+  <tr align="center">
+    <td align="center" class="row1" valign="middle" width="22%"><a href="viewtopic.php?p=101521&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a#101521"><img src="templates/darkside/images/icon_minipost.gif" <img src="templates/darkside/images/icon_minipost.gif" alt="Mensagem" border="0"></a><span class="smalltext">
+      Sex Jul 15, 2005 1:35 pm<span class="mediumtext"></span></span></td>
+    <td align="center" nowrap class="row2" valign="middle">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr valign="bottom">
+          <td>&nbsp;<a href="profile.php?mode=viewprofile&amp;u=597&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a"><img src="templates/darkside/images/icon_profile_lang.gif" alt="Exibir o perfil do usuário" title="Exibir o perfil do usuário" border="0" /></a> <a href="privmsg.php?mode=post&amp;u=597&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a"><img src="templates/darkside/images/icon_pm_lang.gif" alt="Enviar mensagem privada" title="Enviar mensagem privada" border="0" /></a> <a href="mailto:yves_nadjarian@unidev.com.br"><img src="templates/darkside/images/icon_email_lang.gif" alt="Enviar e-mail" title="Enviar e-mail" border="0" /></a>
+            <a href="http://" target="_userwww"><img src="templates/darkside/images/icon_www_lang.gif" alt="Visitar o website do usuário" title="Visitar o website do usuário" border="0" /></a>   
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+    </td>
+  </tr>
+</table>
+<br>
+<table cellpadding="0" cellspacing="0" border="0" width="98%" align="center">
+    <tr>
+      <td class="tableborder">
+<table cellpadding="7" cellspacing="1" border="0"  width="100%">
+  <tr>
+          <td width="50%" align="left" class="row1"><span class="smalltext"><a href="posting.php?mode=newtopic&amp;f=21&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a"><img src="templates/darkside/images/post_lang.gif" border="0" alt="Novo tópico" align="middle"></a>&nbsp;<a href="posting.php?mode=reply&amp;t=19513&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a"><img src="templates/darkside/images/reply_lang.gif" border="0" alt="Responder tópico" align="middle"></a></span><br>
+      <span class="smalltext"><a href=""></a></span></td>
+    <td width="50%" align="right" class="row2" valign="top" colspan="-3">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td> <b><span class="smalltext">Forum Jump:</span></b><br>
+            
+<form method="post" name="jumpbox" action="viewforum.php?sid=fa3dc8198f8e0d7e6cfaed0456467f9a">
+  <table cellspacing="0" cellpadding="0" border="0">
+	<tr>
+	  <td nowrap><span class="smalltext">Ir para:&nbsp;<select name="f" onchange="if(this.options[this.selectedIndex].value != -1){ forms['jumpbox'].submit() }"><option value="-1">Selecione um fórum</option><option value="-1">&nbsp;</option><option value="-1">Programação e assuntos relacionados</option><option value="-1">----------------</option><option value="6">Pascal/Delphi</option><option value="7">Visual Basic</option><option value="8">Outras linguagens</option><option value="20">Assembly</option><option value="21"selected="selected">C/C++</option><option value="22">Dark Basic</option><option value="23">Blitz Basic</option><option value="28">Inteligência artificial</option><option value="29">Programação gráfica</option><option value="31">Java</option><option value="32">Shockwave e Flash</option><option value="33">Matemática e física</option><option value="36">Programação Windows</option><option value="57">Programação em Linux</option><option value="58">Hardware</option><option value="60">C# e programação .NET</option><option value="61">Lógica da programação</option><option value="70">Programação de Games Online e Técnicas Multiplayer</option><option value="-1">&nbsp;</option><option value="-1">Engines, API's, bibliotecas e outros</option><option value="-1">----------------</option><option value="9">DirectX</option><option value="10">OpenGL</option><option value="11">Allegro</option><option value="12">SDL</option><option value="13">Outras API's e Engines</option><option value="69">Java3D</option><option value="25">XNA Game Studio</option><option value="59">3D Game Studio</option><option value="65">Mobile</option><option value="67">Torque Game Engine</option><option value="68">Irrlicht Engine</option><option value="72">Game Making</option><option value="-1">&nbsp;</option><option value="-1">Arte nos jogos eletrônicos</option><option value="-1">----------------</option><option value="14">Modelagem 3D</option><option value="15">Game Design</option><option value="16">Arte 2D</option><option value="17">Música/Efeitos sonoros</option><option value="37">Roteiros</option><option value="-1">&nbsp;</option><option value="-1">Outros assuntos</option><option value="-1">----------------</option><option value="71">Contests</option><option value="18">Assuntos diversos</option><option value="19">Precisa-se</option><option value="63">Fale conosco</option><option value="27">Oferecem-se</option><option value="34">Tradução de Artigos</option><option value="5">Projetos</option><option value="38">Artigos / Tutoriais</option><option value="62">OFF-Topic</option><option value="64">Idiomas - termos técnicos</option><option value="26">UD-Zine</option><option value="66">Bancos de Dados</option></select><input type="hidden" name="sid" value="fa3dc8198f8e0d7e6cfaed0456467f9a" />&nbsp;
+		<input type="submit" value="Ir">
+		</span></td>
+	</tr>
+  </table>
+ </form>
+
+ </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" class="row2"><span class="smalltext">Ir à página  <a href="viewtopic.php?t=19513&amp;postdays=0&amp;postorder=asc&amp;start=0&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a">Anterior</a>&nbsp;&nbsp;<a href="viewtopic.php?t=19513&amp;postdays=0&amp;postorder=asc&amp;start=0&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a">1</a>, <b>2</b></span><span class="smalltext"><br>
+      Todos os horários são GMT. </span> <span class="smalltext">Data e hora atuais: Qui Set 06, 2007 12:14 pm</span> <br>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2" align="center" height="35" class="toprow">
+      <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+        <form method="post" action="viewtopic.php?t=19513&amp;start=15&amp;sid=fa3dc8198f8e0d7e6cfaed0456467f9a">
+          <td valign="middle"><span class="toprowtext">&nbsp;&nbsp;Mostrar os tópicos anteriores:</span></td>
+          <td valign="middle"><span class="toprowtext">&nbsp;&nbsp;<select name="postdays"><option value="0" selected="selected">Todas as mensagens</option><option value="1">1 Dia</option><option value="7">7 Dias</option><option value="14">2 Semanas</option><option value="30">1 Mês</option><option value="90">3 Meses</option><option value="180">6 Meses</option><option value="364">1 Ano</option></select>&nbsp;<select name="postorder"><option value="asc" selected="selected">Antigas primeiro</option><option value="desc">Recentes primeiro</option></select></span></td>
+          <td align="left" valign="middle"><span class="toprowtext"> &nbsp;
+            <input type="image" src="templates/icicle/images/gobutton.gif" border="0" align="absmiddle" name="image">
+            </span></td>
+             </form>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+    </td>
+  </tr>
+</table>
+<p align="center"></p>
+
+<div align="center"><br>
+  <span class="smalllink"><b></b></span>
+  <!--
+
+	Please note that the following copyright notice
+	MUST be displayed on each and every page output
+	by phpBB. You may alter the font, colour etc. but
+	you CANNOT remove it, nor change it so that it be,
+	to all intents and purposes, invisible. You may ADD
+	your own notice to it should you have altered the
+	code but you may not replace it. The hyperlink must
+	also remain intact. These conditions are part of the
+	licence this software is released under. See the
+	LICENCE and README files for more information.
+
+	The phpBB Group : 2001
+
+// --><font size="-3">
+  Powered by phpBB:  &copy; 2001, 2002 <a href="http://www.phpbb.com/" target="_phpbb" class="smalllink"><b>phpBB
+  Group</b></a></td> </tr> </table> </td> </tr> </div>
+		  </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#5B5B5B">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td align="left" valign="bottom"><img src="templates/darkside/images/curve_bl.gif" width="25" height="24"></td>
+          <td bgcolor="#5B5B5B" width="100%" align="center">
+          <span class="smalltext"> Copyright © 2007 <a href="http://www.unidev.com.br" class="smalllink">UniDev</a>.  Virtual Object Informática Ltda.®</span></td>
+          <td align="right" valign="bottom"><img src="templates/darkside/images/curve_br.gif" width="26" height="24"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

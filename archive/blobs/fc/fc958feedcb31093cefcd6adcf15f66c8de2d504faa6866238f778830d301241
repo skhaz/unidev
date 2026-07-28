@@ -1,0 +1,426 @@
+
+<script language="JavaScript">
+function ChangePage(){document.PageNum.submit();}
+</script>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Forum Unidev</title>
+<meta name="copyright" content="This code is Copyright (C) 2000-01 Michael Anderson and Pierre Gorissen">
+
+<script language="JavaScript">
+<!-- hide from JavaScript-challenged browsers
+function openWindow(url) {
+  popupWin = window.open(url,'new_page','width=400,height=400')
+}
+function openWindow2(url) {
+  popupWin = window.open(url,'new_page','width=400,height=450')
+}
+function openWindow3(url) {
+  popupWin = window.open(url,'new_page','width=400,height=450,scrollbars=yes')
+}
+function openWindow4(url) {
+  popupWin = window.open(url,'new_page','width=400,height=525')
+}
+function openWindow5(url) {
+  popupWin = window.open(url,'new_page','width=450,height=525,scrollbars=yes,toolbars=yes,menubar=yes,resizable=yes')
+}
+// done hiding -->
+</script>
+<style type=text/css>
+<!--
+a:link    {color:506F8D;text-decoration:underline}
+a:visited {color:506F8D;text-decoration:underline}
+a:hover   {color:slategray;text-decoration:underline}
+input.radio {background: E4E9EC; color:#000000}
+-->
+</style>
+<link rel="stylesheet" href="imagens/forum.css" type="text/css">
+</head>
+
+<body bgColor="black" text="708090" link="506F8D" aLink="slategray" vLink="slategray" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<a name="top"></a><font face="Verdana, Arial, Helvetica"> 
+<table background="../imagem/UDTOPBG.GIF" align="center" border="0" cellPadding="0" cellSpacing="0" width="100%">
+        <tr> 
+          <td  width="50%" align="center" background="../imagem/barsuplogo.jpg"> 
+            <font face="Verdana, Arial, Helvetica" size="1" > 
+             <b>         <a href="http://www.unidev.com.br/"><acronym title="Página Inicial da Unidev"><b>Unidev</b></acronym></a>
+        |
+        <a href="pop_profile.asp?mode=Edit"><acronym title="Edite seus dados pessoais">Meu Perfil</acronym></a>
+        |
+        <a href="../cadastro.asp"><acronym title="Cadastre-se para participar dos Fóruns">Cadastro</acronym></a>
+        |
+        <a href="active.asp"><acronym title="Veja todos os tópicos ativos desde sua última visita">Tópicos Ativos</acronym></a>
+        |
+        <a href="members.asp"><acronym title="Listar todos os membros do Fórum">Membros</acronym></a>
+        |
+        <a href="search.asp"><acronym title="Faça uma busca pelo Fórum">Busca</acronym></a>
+        |
+        <a href="faq.asp"><acronym title="Perguntas mais Freqüentes ...">FAQ</acronym></a>
+ </b>
+              </font>
+          </td>
+              <td align="center" valign="top" width="50%" background="../imagem/barsuplogo.jpg">&nbsp; </td>
+        </tr>
+  <tr> 
+    <td valign="top" width="50%"><a href="default.asp"><img title="Forum Unidev" border="0" src="../imagem/logoforum.jpg"></a></td>
+    <td valign="middle" width="50%" align="left">
+       <iframe name="mainFrame" frameborder="0" border="0" framespacing="0" width="400" height="68" src="../banner.asp"></iframe>
+    </td>
+  </tr>
+<!-- Aqui é a barrinha de links "Unidev, meu perfil etc-->
+  <tr> 
+    <td bgcolor="#000000" valign="top" colspan="2"> 
+      <table border="0" cellpadding="2" cellspacing="0" align="center">
+
+        
+      <form action="/forum/topic.asp" method="post" id=form1 name=form1>
+      <INPUT type="hidden" name="Method_Type" value="login">
+      <tr>
+        <td align="center">
+        <table>
+          <tr>
+
+            <td><font face="Verdana, Arial, Helvetica" size="1"><b>Usuário:</b></font><br>
+            <INPUT type="text" name="Name" size="10" value="" class=text>
+          </td>
+            <td><font face="Verdana, Arial, Helvetica" size="1"><b>Senha:</b></font><br>
+            <INPUT type="password" name="Password" size="10" value="" class=text>
+          </td>
+            <td valign="bottom">
+
+            <INPUT src=imagens/button_login.gif type="image" value="Login" id=submit1 name=submit1 border=0 hspace=4 width="45" height="20">
+
+            </td>
+			<td>
+				
+			</td>
+	</tr>
+	<tr>
+	<td colspan="3" align="left"><font face="Verdana, Arial, Helvetica" size="1">
+	<INPUT type="checkbox" name="SavePassWord" value="true" CHECKED><b> Salvar senha</b></font>
+	</td>
+
+          </tr>
+
+       </table>
+       </td>
+     </tr>
+     </form>
+
+   </table>
+   </td>
+ </tr>
+</table>
+<table align="center" border="0" cellPadding="0" cellSpacing="0" width="95%">
+  <tr>
+    <td>
+
+<script language="JavaScript">
+<!--
+function jumpTo(s) {if (s.selectedIndex != 0) top.location.href = s.options[s.selectedIndex].value;return 1;}
+// -->
+</script>
+
+<table border="0" width="100%">
+  <tr>
+	<td width="50%" align="left" nowrap><font face="Verdana, Arial, Helvetica" size="2">
+	<img src="icon_folder_open.gif" height=15 width=15 border="0">&nbsp;<a href="default.asp">Todos os Fóruns</a><br>
+	<img src="icon_bar.gif" height=15 width=15 border="0">
+	
+	<img src="icon_folder_open.gif" height=15 width=15 border="0">
+	
+	&nbsp;<a href="FORUM.asp?FORUM_ID=21">C/C++</a><br>
+
+	<img src="icon_blank.gif" height=15 width=15 border="0"><img src="icon_bar.gif" height=15 width=15 border="0"><img src="icon_folder_open_topic.gif" height=15 width=15 border="0">&nbsp;QBASIC
+    </font></td>
+    <td align="center" width="50%">
+    <font face="Verdana, Arial, Helvetica" size="2">
+
+    <a href="post.asp?method=Topic&FORUM_ID=21&CAT_ID=1&Forum_Title=C%2FC%2B%2B"><img src="icon_folder_new_topic.gif" height=15 width=15 border=0></a>&nbsp;<a href="post.asp?method=Topic&FORUM_ID=21&CAT_ID=1&Forum_Title=C%2FC%2B%2B">Novo tópico</a>
+
+    <a href="post.asp?method=Reply&TOPIC_ID=10426&FORUM_ID=21&CAT_ID=1&Forum_Title=C%2FC%2B%2B&Topic_Title=QBASIC"><img src="icon_reply_topic.gif" height=15 width=15 border=0></a>&nbsp;<a href="post.asp?method=Reply&TOPIC_ID=10426&FORUM_ID=21&CAT_ID=1&Forum_Title=C%2FC%2B%2B&Topic_Title=QBASIC">Responder tópico</a>
+
+
+    </font>
+</td>
+  </tr>
+  <tr>
+<td align="right" colspan=2 width=100%>
+
+	<td align=right>&nbsp;</td>
+    &nbsp;
+
+    </td>
+  </tr>
+</table>
+<table border="0" width="100%" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td bgcolor="black">
+    <table border="0" width="100%" cellspacing="1" cellpadding="4">
+      <tr>
+        <td align="center" background=" ../imagem/bgtableForum.jpg " width="100"  nowrap><b><font face="Verdana, Arial, Helvetica" size="2" color="#FFFFFF">Autor</font></b></td>
+        <td align="center" background=" ../imagem/bgtableForum.jpg " width="100%" ><b><font face="Verdana, Arial, Helvetica" size="2" color="#FFFFFF"><a href=topic.asp?TOPIC_ID=21173&ARCHIVE=><img src="icon_go_left.gif" height=15 width=15 Title="Visualizar tópico" border="0" align="absmiddle" hspace="6"></a><b><b><font face="Verdana, Arial, Helvetica" size="2" color="234970">&nbsp;Tópico&nbsp;</font></b><a href=topic.asp?TOPIC_ID=21146&ARCHIVE=><img src="icon_go_right.gif" height=15 width=15 Title="Próximo tópico" border="0" align="absmiddle" hspace="6"></a></font></b></td>
+
+        <td align=right background=" ../imagem/bgtableForum.jpg " nowrap>&nbsp;</td>
+
+      </tr>
+
+      <tr>
+        <td bgcolor="B8C0CD" valign="top">
+        <font color="black" face="Verdana, Arial, Helvetica" size="2">
+        
+		<a href="pop_profile.asp?mode=display&id=9554">
+        	
+		<font color="black" face="Verdana, Arial, Helvetica" size="2"><b>raphael_net</a>
+        </b></font>
+  
+
+        <br>
+        
+        <br><font color="black" face="Verdana, Arial, Helvetica" size="1"><small>Membro Ativo</small></font>
+
+        <br><img src=icon_star_blue.gif border=0><img src=icon_star_blue.gif border=0><img src=icon_star_blue.gif border=0>
+        <br>
+        <br><font color="black" face="Verdana, Arial, Helvetica" size="1"><small>Brasil</small></font>
+        <br><font color="black" face="Verdana, Arial, Helvetica" size="1"><small>118&nbsp;Mensagens</small></font></td>
+        <td bgcolor="B8C0CD" colspan="2" valign="top">
+		<img src="icon_posticon.gif" border="0" hspace="3"><font color="black" face="Verdana, Arial, Helvetica" size="1">Postado&nbsp;-&nbsp;07/09/2004&nbsp;:&nbsp; 12:42:49</font>
+
+		&nbsp;<a href="pop_profile.asp?mode=display&id=9554"><img src="icon_profile.gif" height=15 width=15 Title="Ver dados" border="0" align="absmiddle" hspace="6"></a>
+ 
+			&nbsp;<a href="JavaScript:openWindow('pop_mail.asp?id=9554')"><img src="icon_email.gif" height=15 width=15 Title="Enviar e-mail" border="0" align="absmiddle" hspace="6"></a>
+
+        &nbsp;<a href="post.asp?method=TopicQuote&TOPIC_ID=10426&FORUM_ID=21&CAT_ID=1&Forum_Title=C%2FC%2B%2B&Topic_Title=QBASIC"><img src="icon_reply_topic.gif" height=15 width=15 Title="Responder com Citação " border="0" align="absmiddle" hspace="6"></a>
+
+        &nbsp;<a href="javascript:window.open('stats.asp?Id=9554','','width=600,height=600,scrollbars=yes'); void(0);"><img src="button_stats.gif" height=15 width=15 Title="Estatísticas do Usuário" border="0" align="absmiddle" hspace="6"></a>
+        &nbsp;<a href="javascript:window.open('denuncie.asp?Link=http://www.unidev.com.br/forum/topic.asp?TOPIC_ID=10426xseparaxARCHIVE=&IdMembro=9554&IdTopico=10426','','width=370,height=320,scrollbars=no'); void(0);"><img src="btn_warning.gif" height=15 width=15 Title="Noticie este Tópico" border="0" align="absmiddle" hspace="6"></a>        
+        <hr noshade size="1">
+        
+        <font color="black" face="Verdana, Arial, Helvetica" size="2"> SEI QUE AQUI NÃO É LUGAR DE POSTAR SOBRE ISSO, MASIC ALGUEM SABE A ONDE ENCONRO TUTORIAL SOBRE QBASIC E EXEMPLOS DE JOGOS DE LUTAS , OU MELHOR QUALQUER TIPO DE FONTE.<BR>OBRIGADO.</font></td>
+
+      </tr>
+
+      <tr>
+        <td bgcolor="E4E9EC" valign="top">
+
+		<a href="pop_profile.asp?mode=display&id=684">
+	
+		<font color="black" face="Verdana, Arial, Helvetica" size="2"><b>FilipeEsch</a>
+        </b></font>
+  
+
+        <br>
+        
+                 <img src="../chat/caretas/0876.jpg" width="125" height="150">
+           
+        <br><font color="black" face="Verdana, Arial, Helvetica" size="1"><small>Moderador - Colaborador</small></font>
+
+        <br><img src=icon_star_orange.gif border=0><img src=icon_star_orange.gif border=0><img src=icon_star_orange.gif border=0><img src=icon_star_orange.gif border=0><img src=icon_star_orange.gif border=0>
+        <br>
+        <br><font color="black" face="Verdana, Arial, Helvetica" size="1"><small>Brasil</small></font>
+        <br><font color="black" face="Verdana, Arial, Helvetica" size="1"><small>3254&nbsp;Mensagens</small></font></td>
+        <td bgcolor="E4E9EC" colspan="2" valign="top">
+		<a name="46489"></a>
+		<img src="icon_posticon.gif" border="0" hspace="3"><font color="black" face="Verdana, Arial, Helvetica" size="1">Postado&nbsp;-&nbsp;07/09/2004&nbsp;:&nbsp; 18:57:37</font>
+
+		&nbsp;<a href="pop_profile.asp?mode=display&id=684"><img src="icon_profile.gif" height=15 width=15 Title="Ver dados" border="0" align="absmiddle" hspace="6"></a>
+        
+			&nbsp;<a href="JavaScript:openWindow('pop_mail.asp?id=684')"><img src="icon_email.gif" height=15 width=15 Title="Enviar e-mail" border="0" align="absmiddle" hspace="6"></a>
+
+        &nbsp;<a href="JavaScript:openWindow('pop_messengers.asp?mode=ICQ&ICQ=179349818&M_NAME=FilipeEsch')"><img src="http://online.mirabilis.com/scripts/online.dll?icq=179349818&img=5" height=15 width=15 title="Enviar FilipeEsch um ICQ Mensagem" border="0" align="absmiddle" hspace="6"></a>
+
+        &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=46489&TOPIC_ID=10426&FORUM_ID=21&CAT_ID=1&Forum_Title=C%2FC%2B%2B&Topic_Title=QBASIC&M="><img src="icon_reply_topic.gif" height=15 width=15 Title="Responder com Citação " border="0" align="absmiddle" hspace="6"></a>
+
+		&nbsp;<a href="javascript:window.open('stats.asp?Id=684','','width=600,height=600,scrollbars=yes'); void(0);"><img src="button_stats.gif" height=15 width=15 Title="Estatísticas do Usuário" border="0" align="absmiddle" hspace="6"></a>
+        &nbsp;<a href="javascript:window.open('denuncie.asp?Link=http://www.unidev.com.br/forum/topic.asp?TOPIC_ID=10426xseparaxARCHIVE=&IdMembro=684&IdResposta=46489','','width=370,height=320,scrollbars=no'); void(0);"><img src="btn_warning.gif" height=15 width=15 Title="Noticie esta Mensagem" border="0" align="absmiddle" hspace="6"></a> 
+        
+        <hr noshade size="1">
+        
+        <font color="black" face="Verdana, Arial, Helvetica" size="2"> cara, isso ja esta ultrapassado, ja pensou em aprender c/c++? e bem melhor.</P><P>Panda( 3dStudioMax para .x ):<BR><a href="http://www.pandasoft.demon.co.uk/directxmax4.htm" target="_blank">http://www.pandasoft.demon.co.uk/directxmax4.htm</a><BR>Configuração:<BR><a href="http://www.unidev.com.br/artigos/exportingxpanda000.asp?id=343" target="_blank">http://www.unidev.com.br/artigos/exportingxpanda000.asp?id=343</a></P><P>Dev-C++:<BR><a href="http://www.bloodshed.net" target="_blank">http://www.bloodshed.net</a></P><P>Curso de C da UFMG:<BR><a href="http://ead1.eee.ufmg.br/cursos/C/" target="_blank">http://ead1.eee.ufmg.br/cursos/C/</a><a href="#top"><img src="icon_go_up.gif" height=15 width=15 border="0" align="right" Title="Ir para o topo"></a></font></td>
+      </tr>
+
+      <tr>
+        <td bgcolor="B8C0CD" valign="top">
+
+		<a href="pop_profile.asp?mode=display&id=3636">
+	
+		<font color="black" face="Verdana, Arial, Helvetica" size="2"><b>Aclive</a>
+        </b></font>
+  
+
+        <br>
+        
+                 <img src="../chat/caretas/04220.png" width="50" height="50">
+           
+        <br><font color="black" face="Verdana, Arial, Helvetica" size="1"><small>Colaborador</small></font>
+
+        <br><img src=icon_star_silver.gif border=0><img src=icon_star_silver.gif border=0><img src=icon_star_silver.gif border=0><img src=icon_star_silver.gif border=0>
+        <br>
+        <br><font color="black" face="Verdana, Arial, Helvetica" size="1"><small>Brasil</small></font>
+        <br><font color="black" face="Verdana, Arial, Helvetica" size="1"><small>523&nbsp;Mensagens</small></font></td>
+        <td bgcolor="B8C0CD" colspan="2" valign="top">
+		<a name="108799"></a>
+		<img src="icon_posticon.gif" border="0" hspace="3"><font color="black" face="Verdana, Arial, Helvetica" size="1">Postado&nbsp;-&nbsp;16/08/2005&nbsp;:&nbsp; 23:27:37</font>
+
+		&nbsp;<a href="pop_profile.asp?mode=display&id=3636"><img src="icon_profile.gif" height=15 width=15 Title="Ver dados" border="0" align="absmiddle" hspace="6"></a>
+        
+			&nbsp;<a href="JavaScript:openWindow('pop_mail.asp?id=3636')"><img src="icon_email.gif" height=15 width=15 Title="Enviar e-mail" border="0" align="absmiddle" hspace="6"></a>
+
+        &nbsp;<a href="geocities.yahoo.com.br/softclive" target="_blank"><img src="icon_homepage.gif" height=15 width=15 Title="Visitar o site do membro Aclive " border="0" align="absmiddle" hspace="6"></a>
+
+        &nbsp;<a href="post.asp?method=ReplyQuote&REPLY_ID=108799&TOPIC_ID=10426&FORUM_ID=21&CAT_ID=1&Forum_Title=C%2FC%2B%2B&Topic_Title=QBASIC&M="><img src="icon_reply_topic.gif" height=15 width=15 Title="Responder com Citação " border="0" align="absmiddle" hspace="6"></a>
+
+		&nbsp;<a href="javascript:window.open('stats.asp?Id=3636','','width=600,height=600,scrollbars=yes'); void(0);"><img src="button_stats.gif" height=15 width=15 Title="Estatísticas do Usuário" border="0" align="absmiddle" hspace="6"></a>
+        &nbsp;<a href="javascript:window.open('denuncie.asp?Link=http://www.unidev.com.br/forum/topic.asp?TOPIC_ID=10426xseparaxARCHIVE=&IdMembro=3636&IdResposta=108799','','width=370,height=320,scrollbars=no'); void(0);"><img src="btn_warning.gif" height=15 width=15 Title="Noticie esta Mensagem" border="0" align="absmiddle" hspace="6"></a> 
+        
+        <hr noshade size="1">
+        
+        <font color="black" face="Verdana, Arial, Helvetica" size="2"> Vale a pena...<BR>como aprendizado, vale a pena! Seja velho, ultrapassado ou não. Se programar estruturadamente no QB, migrar pro C é um pulo. Parece que não, mas ajuda muito!</P><P></P><P>Para iniciantes e nostálgicos: fiquem de olho no curso de programação QBasic + DirectQB (voltado para jogos)<BR>Pegue o seu compilador + exemplos aqui:<BR><a href="http://geocities.yahoo.com.br/materialdown" target="_blank">http://geocities.yahoo.com.br/materialdown</a><a href="#top"><img src="icon_go_up.gif" height=15 width=15 border="0" align="right" Title="Ir para o topo"></a></font></td>
+      </tr>
+
+    </table></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+    <table border="0" width="100%">
+      <tr>
+        <td>
+
+	<td valign="top">&nbsp;</td>
+
+        </td>
+        <td align="right" nowrap>
+
+        &nbsp;
+
+        </td> 
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</div>
+
+<table width="100%">
+  <tr>
+    <td align="center" valign="top" width="70%">
+    <font face="Verdana, Arial, Helvetica" size="2">
+
+    <a href="post.asp?method=Topic&FORUM_ID=21&CAT_ID=1&Forum_Title=C%2FC%2B%2B"><img src="icon_folder_new_topic.gif" height=15 width=15 border=0></a>&nbsp;<a href="post.asp?method=Topic&FORUM_ID=21&CAT_ID=1&Forum_Title=C%2FC%2B%2B">Novo tópico</a>
+
+    <a href="post.asp?method=Reply&TOPIC_ID=10426&FORUM_ID=21&CAT_ID=1&Forum_Title=C%2FC%2B%2B&Topic_Title=QBASIC"><img src="icon_reply_topic.gif" height=15 width=15 border=0></a>&nbsp;<a href="post.asp?method=Reply&TOPIC_ID=10426&FORUM_ID=21&CAT_ID=1&Forum_Title=C%2FC%2B%2B&Topic_Title=QBASIC">Responder tópico</a>
+
+
+    </font>
+</td>
+    <td align="center" valign="top" width="30%"><!-- START JUMP TO -->
+    <form name="Stuff">		<font face="Verdana, Arial, Helvetica" size="2"><b>Pular para:</b></font>
+	    <select name="SelectMenu" size="1" onchange="jumpTo(this)" class=text>
+		    <option value="./">Selecione um Fórum</option>
+      <option value='default.asp'>Programação e assuntos relacionados</option>
+      <option value='forum.asp?FORUM_ID=60'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C# e programação .NET</option>
+      <option value='forum.asp?FORUM_ID=21'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C/C++</option>
+      <option value='forum.asp?FORUM_ID=58'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hardware</option>
+      <option value='forum.asp?FORUM_ID=61'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lógica da programação</option>
+      <option value='forum.asp?FORUM_ID=28'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inteligência artificial</option>
+      <option value='forum.asp?FORUM_ID=31'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java</option>
+      <option value='forum.asp?FORUM_ID=33'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matemática e física</option>
+      <option value='forum.asp?FORUM_ID=36'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Programação Windows</option>
+      <option value='forum.asp?FORUM_ID=57'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Programação em Linux</option>
+      <option value='forum.asp?FORUM_ID=29'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Programação gráfica</option>
+      <option value='forum.asp?FORUM_ID=32'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shockwave e Flash</option>
+      <option value='forum.asp?FORUM_ID=20'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assembly</option>
+      <option value='forum.asp?FORUM_ID=22'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dark Basic</option>
+      <option value='forum.asp?FORUM_ID=7'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Visual Basic</option>
+      <option value='forum.asp?FORUM_ID=6'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pascal/Delphi</option>
+      <option value='forum.asp?FORUM_ID=8'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Outras linguagens</option>
+      <option value='forum.asp?FORUM_ID=23'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Blitz Basic</option>
+      <option value='default.asp'>API's, bibliotecas e plataformas específicas</option>
+      <option value='forum.asp?FORUM_ID=59'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3D Game Studio</option>
+      <option value='forum.asp?FORUM_ID=9'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DirectX</option>
+      <option value='forum.asp?FORUM_ID=68'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Irrlicht Engine</option>
+      <option value='forum.asp?FORUM_ID=65'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mobile</option>
+      <option value='forum.asp?FORUM_ID=67'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Torque Game Engine</option>
+      <option value='forum.asp?FORUM_ID=10'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OpenGL</option>
+      <option value='forum.asp?FORUM_ID=13'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Outras API's e Engines</option>
+      <option value='forum.asp?FORUM_ID=11'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Allegro</option>
+      <option value='forum.asp?FORUM_ID=12'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SDL</option>
+      <option value='default.asp'>Arte nos jogos eletrônicos</option>
+      <option value='forum.asp?FORUM_ID=15'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Game Design</option>
+      <option value='forum.asp?FORUM_ID=37'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Roteiros</option>
+      <option value='forum.asp?FORUM_ID=14'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Modelagem 3D</option>
+      <option value='forum.asp?FORUM_ID=16'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arte 2D</option>
+      <option value='forum.asp?FORUM_ID=17'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Música/Efeitos sonoros</option>
+      <option value='default.asp'>Outros assuntos</option>
+      <option value='forum.asp?FORUM_ID=38'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Artigos / Tutoriais</option>
+      <option value='forum.asp?FORUM_ID=18'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assuntos diversos</option>
+      <option value='forum.asp?FORUM_ID=66'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bancos de Dados</option>
+      <option value='forum.asp?FORUM_ID=30'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contest Unidev #1</option>
+      <option value='forum.asp?FORUM_ID=63'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fale conosco</option>
+      <option value='forum.asp?FORUM_ID=64'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Idiomas - termos técnicos</option>
+      <option value='forum.asp?FORUM_ID=27'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Oferecem-se</option>
+      <option value='forum.asp?FORUM_ID=62'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Qualquer assunto MESMO</option>
+      <option value='forum.asp?FORUM_ID=34'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tradução de Artigos</option>
+      <option value='forum.asp?FORUM_ID=19'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Precisa-se</option>
+		<option value="">&nbsp;--------------------</option>
+		<option value="http://www.unidev.com.br/">Inicial</option>
+		<option value="active.asp">Tópicos Ativos</option>
+		<option value="faq.asp">Perguntas mais freqüentes</option>
+		<option value="members.asp">Informações dos Membros</option>
+		<option value="search.asp">Página de Busca</option>
+	</select>
+</form>
+<!-- END JUMP TO -->
+</td>
+  </tr>
+</table>
+
+</td>
+</tr> </table> </font> 
+ <br> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td bgcolor="#5E7EA5"> 
+      <div align="center"><font face="Verdana, Arial, Helvetica" size="1"><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">&copy; 
+        Copyright 2002 <b>Unidev<br>
+        </b>Todos os Direitos Reservados</font></font></div>
+    </td>
+  </tr>
+</table>
+
+</body>
+<!-- timer
+<center>
+<font face="Verdana, Arial, Helvetica" size="1">18492.89</font>
+</center>
+end timer -->
+</html>
+
+
+
+
+<script language="javascript">
+function AdicionarMecanismoDePesquisa(promptName, pathToImage)
+{
+
+   var dir = pathToImage.split('/');
+   var imgFile = dir.pop();
+   var splitedImgFile = imgFile.split('.');
+   splitedImgFile.pop();
+   var srcFile = splitedImgFile.join('.') + '.src';
+   var path;
+   if (dir.length > 1) {
+	  path = dir.join('/') + '/';
+   }
+   else {
+      path = 'http://www.unidev.com.br/';
+   }
+   try {
+      window.sidebar.addSearchEngine(path + srcFile, path + imgFile, promptName, 'Campo de pesquisa do Firefox');
+   }
+   catch(ex) {
+      window.alert('Esta pesquisa é um recurso para usuários do browser Firefox.\r\nInstale-o gratuitamente em http://br.mozdev.org');
+   }
+}
+</script>

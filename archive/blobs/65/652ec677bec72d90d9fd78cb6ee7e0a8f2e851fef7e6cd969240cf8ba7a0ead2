@@ -1,0 +1,719 @@
+<!-- DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" -->
+<!-- <html xmlns="http://www.w3.org/1999/xhtml"> -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+ <link rel="top" href="./index.php" title="UniDev - Índice" />
+<link rel="search" href="./search.php" title="Busca" />
+<link rel="help" href="./faq.php" title="FAQ" />
+<link rel="author" href="./memberlist.php" title="Membros" />
+<link rel="up" href="index.php" title="UniDev - Índice" />
+
+<title>UniDev :: Exibir fórum - SDL</title>
+<meta http-equiv="Content-Language" content="pt-br">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name=keywords content="programação+de+jogos,design,cursos+informatica,modelagem+3d,webdevelopment+cursos,jogos,riojaneiro">
+<meta name=Description content="UniDev programação de jogos.">
+<link rel="stylesheet" href="templates/darkside/darkside.css" type="text/css">
+<style>
+td.toprow
+{
+font-family: Verdana;
+font-size : 9px;
+color: #F4F4F4;
+background-image: url(templates/darkside/images/gradient_blue.gif);
+background-repeat: repeat;
+}
+
+td.catrow
+{
+font-family: Verdana;
+font-size : 12px;
+color: #F4F4F4;
+font-weight: bold;
+background-image: url(templates/darkside/images/gradient_grey.gif);
+background-repeat: repeat;
+}
+</style>
+</head>
+<body bgcolor="#000000" text="#F4F4F4">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td bgcolor="#5B5B5B">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td align="left" valign="top"><a href="index.php"><img src="templates/darkside/images/forumlogo.gif" width="305" height="109" border="0"></a></td>
+          <td width="100%">
+            <table border="0" cellspacing="2" cellpadding="0" width="300" align="center">
+              <tr>
+                <td nowrap><img src="templates/darkside/images/bullet.gif" width="29" height="19" align="absmiddle">
+                  <a href="faq.php" class="smalllink">FAQ</a></td>
+                <td nowrap><img src="templates/darkside/images/bullet.gif" width="29" height="19" align="absmiddle">
+                  <a href="profile.php?mode=editprofile" class="smalllink">Profile</a> </td>
+
+                <td nowrap><img src="templates/darkside/images/bullet.gif" width="29" height="19" align="absmiddle">
+                  <a href="search.php" class="smalllink">Search</a> </td>
+                <td nowrap><img src="templates/darkside/images/bullet.gif" width="29" height="19" align="absmiddle">
+                  <a href="memberlist.php" class="smalllink">Members</a> </td>
+              </tr>
+              <tr>
+                <td nowrap><img src="templates/darkside/images/bullet.gif" width="29" height="19" align="absmiddle">
+                  <a href="groupcp.php" class="smalllink">Groups</a> </td>
+                <td nowrap>
+                  <p><img src="templates/darkside/images/bullet.gif" width="29" height="19" align="absmiddle">
+                    <a href="privmsg.php?folder=inbox" class="smalllink">PM's</a></p></td>
+                <td nowrap><img src="templates/darkside/images/bullet.gif" width="29" height="19" align="absmiddle">
+                  <a href="profile.php?mode=register" class="smalllink">Register</a> </td>
+                <td nowrap><img src="templates/darkside/images/bullet.gif" width="29" height="19" align="absmiddle">
+                  <a href="login.php" class="smalllink">Login/Out</a></td>
+              </tr>
+            </table>
+          </td>
+          <td align="right" valign="top"><img src="templates/darkside/images/curve_tr.gif" width="28" height="24"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#5B5B5B">
+      <table width="100%" border="0" cellspacing="0" cellpadding="12">
+        <tr>
+          <td>
+
+
+  <table cellpadding="0" cellspacing="0" border="0" width="98%" align="center">
+    <tr>
+      <td class="tableborder">
+        <table cellpadding="7" cellspacing="1" border="0"  width="100%">
+          <tr align="center">
+            <td align="center" nowrap colspan="6" height="35" class="toprow" valign="middle"><a class="toprowlink" href=""><b>SDL</b></a>
+              - Página <b>1</b> de <b>8</b></td>
+          </tr>
+          <tr align="center">
+            <td align="center" nowrap colspan="6" class="row2" valign="middle">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td align="left">(Moderated by:<b><span class="smalltext"> <a href="profile.php?mode=viewprofile&amp;u=869">UniDev</a></span></b>)<br>
+                    <b><span class="smalltext">Ir à página <b>1</b>, <a href="viewforum.php?f=12&amp;topicdays=0&amp;start=50">2</a>, <a href="viewforum.php?f=12&amp;topicdays=0&amp;start=100">3</a>, <a href="viewforum.php?f=12&amp;topicdays=0&amp;start=150">4</a>, <a href="viewforum.php?f=12&amp;topicdays=0&amp;start=200">5</a>, <a href="viewforum.php?f=12&amp;topicdays=0&amp;start=250">6</a>, <a href="viewforum.php?f=12&amp;topicdays=0&amp;start=300">7</a>, <a href="viewforum.php?f=12&amp;topicdays=0&amp;start=350">8</a>&nbsp;&nbsp;<a href="viewforum.php?f=12&amp;topicdays=0&amp;start=50">Próximo</a> </span></b><span class="smalltext"><b>Usuário navegando neste fórum: Nenhum</b></span><br>
+                  </td>
+                  <td align="right"><a href="posting.php?mode=newtopic&amp;f=12"><img src="templates/darkside/images/post_lang.gif" border="0" alt="Novo tópico"></a></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr align="center">
+
+          <td align="center" nowrap colspan="6" class="row1" valign="middle"><span class="largetext"><a href="index.php" class="largelink"><b>UniDev</b></a>
+            &gt; <a class="largelink" href=""><b>SDL</b></a></span></td>
+          </tr>
+		  		        </table>
+      </td>
+    </tr>
+  </table><br>
+      <table cellpadding="0" cellspacing="0" border="0" width="98%" align="center">
+    <tr>
+      <td class="tableborder">
+        <table cellpadding="7" cellspacing="1" border="0"  width="100%">
+          <tr align="center">
+            <td align="center" nowrap colspan="2" class="catrow" valign="middle"><span class="catrowtext">&nbsp;Thread&nbsp;</span></td>
+            <td nowrap class="catrow" valign="middle"><span class="catrowtext">&nbsp;Author&nbsp;</span></td>
+            <td nowrap class="catrow" valign="middle"><span class="catrowtext">&nbsp;Respostas&nbsp;</span></td>
+            <td nowrap class="catrow" valign="middle"><span class="catrowtext">&nbsp;Exibições&nbsp;</span></td>
+            <td nowrap class="catrow" valign="middle"><span class="catrowtext">&nbsp;Última mensagem&nbsp;</span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_hot.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=40275" class="topiclink">Meu RPG em C/C++ &amp; SDL</a></span><span class="smalltext"><br>
+               [ <img src="templates/darkside/images/icon_minipost.gif" alt="Ir à página" title="Ir à página" />Ir à página: <a href="viewtopic.php?t=40275&amp;start=0">1</a> ... <a href="viewtopic.php?t=40275&amp;start=75">6</a>, <a href="viewtopic.php?t=40275&amp;start=90">7</a>, <a href="viewtopic.php?t=40275&amp;start=105">8</a> ] </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=35023">X-Shiryu</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">109</span></td>
+            <td class="row1" nowrap><span class="mediumtext">3619</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Qui Out 11, 2007 2:48 pm<br><a href="profile.php?mode=viewprofile&amp;u=35023">X-Shiryu</a><a href="viewtopic.php?p=277077#277077"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=40964" class="topiclink">Jogo Clorofila 2</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=5466">Tales84</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">5</span></td>
+            <td class="row1" nowrap><span class="mediumtext">195</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Qui Out 11, 2007 2:45 am<br><a href="profile.php?mode=viewprofile&amp;u=5466">Tales84</a><a href="viewtopic.php?p=277041#277041"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=41046" class="topiclink">Blitar uma Surface 32 em outra de 32</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=41123">diogorbg</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">3</span></td>
+            <td class="row1" nowrap><span class="mediumtext">65</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Qua Out 10, 2007 1:40 pm<br><a href="profile.php?mode=viewprofile&amp;u=41123">diogorbg</a><a href="viewtopic.php?p=276937#276937"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=41044" class="topiclink">Duvidas Idiotas sobre SDL.</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=31073">jao456</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">3</span></td>
+            <td class="row1" nowrap><span class="mediumtext">67</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Ter Out 09, 2007 11:42 pm<br><a href="profile.php?mode=viewprofile&amp;u=35023">X-Shiryu</a><a href="viewtopic.php?p=276883#276883"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=40989" class="topiclink">SDL_gfx</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=35023">X-Shiryu</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">3</span></td>
+            <td class="row1" nowrap><span class="mediumtext">64</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Dom Out 07, 2007 12:55 am<br><a href="profile.php?mode=viewprofile&amp;u=37322">poeta_bh</a><a href="viewtopic.php?p=276524#276524"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=40731" class="topiclink">Presciso de um &quot;Grabber&quot; para SDL</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=35023">X-Shiryu</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">5</span></td>
+            <td class="row1" nowrap><span class="mediumtext">220</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Qui Out 04, 2007 6:14 pm<br><a href="profile.php?mode=viewprofile&amp;u=35023">X-Shiryu</a><a href="viewtopic.php?p=276241#276241"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=38010" class="topiclink">Resolução diferente, cenário igual</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=19652">billguedes</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">6</span></td>
+            <td class="row1" nowrap><span class="mediumtext">324</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Qui Out 04, 2007 11:26 am<br><a href="profile.php?mode=viewprofile&amp;u=40061">systemripper</a><a href="viewtopic.php?p=276188#276188"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=40919" class="topiclink">alguem pode me dizer q erro é esse?</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=20781">hirosky</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">3</span></td>
+            <td class="row1" nowrap><span class="mediumtext">119</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Ter Out 02, 2007 11:21 pm<br><a href="profile.php?mode=viewprofile&amp;u=20781">hirosky</a><a href="viewtopic.php?p=276061#276061"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=40910" class="topiclink">SDL_Thread em classes</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=30852">vashlupus</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">2</span></td>
+            <td class="row1" nowrap><span class="mediumtext">79</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Ter Out 02, 2007 1:08 am<br><a href="profile.php?mode=viewprofile&amp;u=30852">vashlupus</a><a href="viewtopic.php?p=275960#275960"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=39445" class="topiclink">Continuam ocupando memória</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=19419">tronix</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">9</span></td>
+            <td class="row1" nowrap><span class="mediumtext">622</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Ter Out 02, 2007 12:14 am<br><a href="profile.php?mode=viewprofile&amp;u=27086">Mancha</a><a href="viewtopic.php?p=275954#275954"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=40911" class="topiclink">SDL em C# - Tutorial</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=36187">Amadeus_Dabela</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">0</span></td>
+            <td class="row1" nowrap><span class="mediumtext">66</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Seg Out 01, 2007 9:02 pm<br><a href="profile.php?mode=viewprofile&amp;u=36187">Amadeus_Dabela</a><a href="viewtopic.php?p=275925#275925"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=40887" class="topiclink">alguem pode me ajudar?</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=20781">hirosky</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">1</span></td>
+            <td class="row1" nowrap><span class="mediumtext">63</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Dom Set 30, 2007 8:43 pm<br><a href="profile.php?mode=viewprofile&amp;u=19755">alext</a><a href="viewtopic.php?p=275790#275790"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=40709" class="topiclink">SDL_FreeSurface</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=11698">bonovox_</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">3</span></td>
+            <td class="row1" nowrap><span class="mediumtext">153</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Dom Set 30, 2007 3:21 am<br><a href="profile.php?mode=viewprofile&amp;u=11698">bonovox_</a><a href="viewtopic.php?p=275729#275729"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=40836" class="topiclink">SDL_Draw</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=35960">Edimartin</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">2</span></td>
+            <td class="row1" nowrap><span class="mediumtext">88</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Dom Set 30, 2007 1:52 am<br><a href="profile.php?mode=viewprofile&amp;u=27086">Mancha</a><a href="viewtopic.php?p=275718#275718"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=40810" class="topiclink">stderr &amp; stdout files</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=35023">X-Shiryu</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">0</span></td>
+            <td class="row1" nowrap><span class="mediumtext">73</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Seg Set 24, 2007 10:47 pm<br><a href="profile.php?mode=viewprofile&amp;u=35023">X-Shiryu</a><a href="viewtopic.php?p=275184#275184"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=40778" class="topiclink">Pelo amor de deus um tutorail sobre sdl!!!!</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=40921">igor_henrik</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">3</span></td>
+            <td class="row1" nowrap><span class="mediumtext">187</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Sáb Set 22, 2007 8:45 pm<br><a href="profile.php?mode=viewprofile&amp;u=40921">igor_henrik</a><a href="viewtopic.php?p=274974#274974"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=40676" class="topiclink">Preciso tutorial completo de SDL</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=40921">igor_henrik</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">2</span></td>
+            <td class="row1" nowrap><span class="mediumtext">121</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Dom Set 16, 2007 7:42 pm<br><a href="profile.php?mode=viewprofile&amp;u=40921">igor_henrik</a><a href="viewtopic.php?p=274160#274160"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=40615" class="topiclink">Colisão por pixel</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=23635">hardrion</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">7</span></td>
+            <td class="row1" nowrap><span class="mediumtext">273</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Dom Set 16, 2007 6:02 am<br><a href="profile.php?mode=viewprofile&amp;u=23635">hardrion</a><a href="viewtopic.php?p=274124#274124"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=40623" class="topiclink">Dúvida SDL - Como plotar imagem?</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=36187">Amadeus_Dabela</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">1</span></td>
+            <td class="row1" nowrap><span class="mediumtext">101</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Qua Set 12, 2007 8:43 pm<br><a href="profile.php?mode=viewprofile&amp;u=7350">newbie_x11</a><a href="viewtopic.php?p=273619#273619"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=39974" class="topiclink">Tecnica Fading no SDL</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=31629">arkanis</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">8</span></td>
+            <td class="row1" nowrap><span class="mediumtext">408</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Qua Set 12, 2007 2:29 pm<br><a href="profile.php?mode=viewprofile&amp;u=19755">alext</a><a href="viewtopic.php?p=273555#273555"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=40389" class="topiclink">Space Invaders</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=23635">hardrion</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">4</span></td>
+            <td class="row1" nowrap><span class="mediumtext">274</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Sáb Set 08, 2007 4:49 am<br><a href="profile.php?mode=viewprofile&amp;u=6060">crocidb</a><a href="viewtopic.php?p=273024#273024"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=40274" class="topiclink">SDL AddTimer</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=35023">X-Shiryu</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">4</span></td>
+            <td class="row1" nowrap><span class="mediumtext">213</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Qui Ago 23, 2007 9:23 am<br><a href="profile.php?mode=viewprofile&amp;u=35023">X-Shiryu</a><a href="viewtopic.php?p=271106#271106"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=40159" class="topiclink">Retas</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=18652">jvlppm</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">4</span></td>
+            <td class="row1" nowrap><span class="mediumtext">300</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Dom Ago 19, 2007 7:39 pm<br><a href="profile.php?mode=viewprofile&amp;u=19755">alext</a><a href="viewtopic.php?p=270467#270467"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=40115" class="topiclink">Guichan</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=16263">skhaz</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">3</span></td>
+            <td class="row1" nowrap><span class="mediumtext">270</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Qui Ago 16, 2007 2:05 am<br><a href="profile.php?mode=viewprofile&amp;u=11698">bonovox_</a><a href="viewtopic.php?p=269985#269985"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=39762" class="topiclink">Liberar memoria</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=32139">thiagoncc</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">3</span></td>
+            <td class="row1" nowrap><span class="mediumtext">275</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Qui Ago 02, 2007 1:38 am<br><a href="profile.php?mode=viewprofile&amp;u=32139">thiagoncc</a><a href="viewtopic.php?p=268119#268119"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=39362" class="topiclink">Sethos Online - Versão beta</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=19419">tronix</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">14</span></td>
+            <td class="row1" nowrap><span class="mediumtext">838</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Ter Jul 24, 2007 10:23 pm<br><a href="profile.php?mode=viewprofile&amp;u=19419">tronix</a><a href="viewtopic.php?p=267014#267014"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=39247" class="topiclink">Proque desses erros? :(</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=25739">Kamus do Poder</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">4</span></td>
+            <td class="row1" nowrap><span class="mediumtext">304</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Sáb Jun 09, 2007 6:58 pm<br><a href="profile.php?mode=viewprofile&amp;u=25739">Kamus do Poder</a><a href="viewtopic.php?p=266366#266366"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_hot.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=39213" class="topiclink">Sem interesse?</a></span><span class="smalltext"><br>
+               [ <img src="templates/darkside/images/icon_minipost.gif" alt="Ir à página" title="Ir à página" />Ir à página: <a href="viewtopic.php?t=39213&amp;start=0">1</a>, <a href="viewtopic.php?t=39213&amp;start=15">2</a> ] </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=19652">billguedes</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">15</span></td>
+            <td class="row1" nowrap><span class="mediumtext">855</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Qui Jun 07, 2007 11:17 pm<br><a href="profile.php?mode=viewprofile&amp;u=19652">billguedes</a><a href="viewtopic.php?p=266332#266332"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_hot.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=38915" class="topiclink">Engine...</a></span><span class="smalltext"><br>
+               [ <img src="templates/darkside/images/icon_minipost.gif" alt="Ir à página" title="Ir à página" />Ir à página: <a href="viewtopic.php?t=38915&amp;start=0">1</a>, <a href="viewtopic.php?t=38915&amp;start=15">2</a> ] </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=16263">skhaz</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">15</span></td>
+            <td class="row1" nowrap><span class="mediumtext">1185</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Qui Maio 24, 2007 7:24 pm<br><a href="profile.php?mode=viewprofile&amp;u=16263">skhaz</a><a href="viewtopic.php?p=266040#266040"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=38912" class="topiclink">novo beta Anime Fight</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=6189">_DiGO_jPA</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">13</span></td>
+            <td class="row1" nowrap><span class="mediumtext">578</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Qui Maio 24, 2007 5:36 pm<br><a href="profile.php?mode=viewprofile&amp;u=6189">_DiGO_jPA</a><a href="viewtopic.php?p=266037#266037"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=38820" class="topiclink">Apostilas/Tutoriais</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=35386">brunoramos1</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">4</span></td>
+            <td class="row1" nowrap><span class="mediumtext">442</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Dom Maio 20, 2007 3:54 pm<br><a href="profile.php?mode=viewprofile&amp;u=35386">brunoramos1</a><a href="viewtopic.php?p=265946#265946"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=38574" class="topiclink">msvcp80.dll</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=38328">jcl.travassos</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">1</span></td>
+            <td class="row1" nowrap><span class="mediumtext">441</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Ter Maio 08, 2007 2:43 am<br><a href="profile.php?mode=viewprofile&amp;u=38328">jcl.travassos</a><a href="viewtopic.php?p=265713#265713"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=38418" class="topiclink">SDL_IMAGE.DLL plz</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=25757">david_vila</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">5</span></td>
+            <td class="row1" nowrap><span class="mediumtext">283</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Ter Maio 01, 2007 4:19 am<br><a href="profile.php?mode=viewprofile&amp;u=25757">david_vila</a><a href="viewtopic.php?p=265560#265560"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=38370" class="topiclink">novato!poderia me explicar sobre....</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=30276">Venom ex</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">2</span></td>
+            <td class="row1" nowrap><span class="mediumtext">256</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Dom Abr 29, 2007 7:24 pm<br><a href="profile.php?mode=viewprofile&amp;u=30276">Venom ex</a><a href="viewtopic.php?p=265515#265515"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=38359" class="topiclink">Problemas...</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=24369">Treiber</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">8</span></td>
+            <td class="row1" nowrap><span class="mediumtext">488</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Dom Abr 29, 2007 2:40 am<br><a href="profile.php?mode=viewprofile&amp;u=24369">Treiber</a><a href="viewtopic.php?p=265504#265504"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=38288" class="topiclink">beta de um joguinho meu...</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=6189">_DiGO_jPA</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">9</span></td>
+            <td class="row1" nowrap><span class="mediumtext">588</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Qua Abr 25, 2007 12:09 pm<br><a href="profile.php?mode=viewprofile&amp;u=6189">_DiGO_jPA</a><a href="viewtopic.php?p=265435#265435"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=38222" class="topiclink">SDL_WM_GrabInput</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=19652">billguedes</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">1</span></td>
+            <td class="row1" nowrap><span class="mediumtext">172</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Sáb Abr 21, 2007 10:54 pm<br><a href="profile.php?mode=viewprofile&amp;u=19652">billguedes</a><a href="viewtopic.php?p=265370#265370"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_hot.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=37922" class="topiclink">FacilSDL</a></span><span class="smalltext"><br>
+               [ <img src="templates/darkside/images/icon_minipost.gif" alt="Ir à página" title="Ir à página" />Ir à página: <a href="viewtopic.php?t=37922&amp;start=0">1</a>, <a href="viewtopic.php?t=37922&amp;start=15">2</a> ] </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=19652">billguedes</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">27</span></td>
+            <td class="row1" nowrap><span class="mediumtext">1415</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Sáb Abr 07, 2007 8:34 am<br><a href="profile.php?mode=viewprofile&amp;u=19652">billguedes</a><a href="viewtopic.php?p=265077#265077"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_hot.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=37891" class="topiclink">Codigo Fonte do Arret(MMORPG) em SDL</a></span><span class="smalltext"><br>
+               [ <img src="templates/darkside/images/icon_minipost.gif" alt="Ir à página" title="Ir à página" />Ir à página: <a href="viewtopic.php?t=37891&amp;start=0">1</a>, <a href="viewtopic.php?t=37891&amp;start=15">2</a> ] </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=19755">alext</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">18</span></td>
+            <td class="row1" nowrap><span class="mediumtext">1219</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Qui Abr 05, 2007 5:20 am<br><a href="profile.php?mode=viewprofile&amp;u=19755">alext</a><a href="viewtopic.php?p=265046#265046"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=37852" class="topiclink">AJUDA??</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=16263">skhaz</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">3</span></td>
+            <td class="row1" nowrap><span class="mediumtext">236</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Ter Abr 03, 2007 12:18 pm<br><a href="profile.php?mode=viewprofile&amp;u=16263">skhaz</a><a href="viewtopic.php?p=265008#265008"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=37809" class="topiclink">Botoes, list box, text box em SDL!</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=15537">natureba</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">12</span></td>
+            <td class="row1" nowrap><span class="mediumtext">668</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Dom Abr 01, 2007 3:29 am<br><a href="profile.php?mode=viewprofile&amp;u=15537">natureba</a><a href="viewtopic.php?p=264965#264965"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=37796" class="topiclink">Montar Mapa</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=19652">billguedes</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">5</span></td>
+            <td class="row1" nowrap><span class="mediumtext">442</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Sáb Mar 31, 2007 4:46 pm<br><a href="profile.php?mode=viewprofile&amp;u=19652">billguedes</a><a href="viewtopic.php?p=264953#264953"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=37685" class="topiclink">Lock\Unlock O que realmente está acontecendo?</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=22543">allanmulin</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">1</span></td>
+            <td class="row1" nowrap><span class="mediumtext">207</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Seg Mar 26, 2007 4:33 pm<br><a href="profile.php?mode=viewprofile&amp;u=22543">allanmulin</a><a href="viewtopic.php?p=264845#264845"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=37637" class="topiclink">Criar camadas com SDL</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=10094">xMDKx</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">5</span></td>
+            <td class="row1" nowrap><span class="mediumtext">331</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Sex Mar 23, 2007 8:36 pm<br><a href="profile.php?mode=viewprofile&amp;u=10094">xMDKx</a><a href="viewtopic.php?p=264798#264798"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=37629" class="topiclink">SDLNet</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=30380">eduardofernandes</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">1</span></td>
+            <td class="row1" nowrap><span class="mediumtext">189</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Sex Mar 23, 2007 1:12 pm<br><a href="profile.php?mode=viewprofile&amp;u=30380">eduardofernandes</a><a href="viewtopic.php?p=264790#264790"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=37576" class="topiclink">Sprite</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=32139">thiagoncc</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">2</span></td>
+            <td class="row1" nowrap><span class="mediumtext">218</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Ter Mar 20, 2007 11:45 pm<br><a href="profile.php?mode=viewprofile&amp;u=32139">thiagoncc</a><a href="viewtopic.php?p=264740#264740"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=37568" class="topiclink">Migrar de Glut para SDL?</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=10700">lucifer2</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">3</span></td>
+            <td class="row1" nowrap><span class="mediumtext">200</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Ter Mar 20, 2007 4:02 pm<br><a href="profile.php?mode=viewprofile&amp;u=10700">lucifer2</a><a href="viewtopic.php?p=264732#264732"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=37478" class="topiclink">SDL nao eh lenta - Projeto do Transport Tycoon</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=33547">puberdade</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">11</span></td>
+            <td class="row1" nowrap><span class="mediumtext">488</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Qui Mar 15, 2007 4:45 am<br><a href="profile.php?mode=viewprofile&amp;u=33547">puberdade</a><a href="viewtopic.php?p=264646#264646"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_hot.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=37402" class="topiclink">Fazendo o mapa de um jogo!</a></span><span class="smalltext"><br>
+               [ <img src="templates/darkside/images/icon_minipost.gif" alt="Ir à página" title="Ir à página" />Ir à página: <a href="viewtopic.php?t=37402&amp;start=0">1</a>, <a href="viewtopic.php?t=37402&amp;start=15">2</a>, <a href="viewtopic.php?t=37402&amp;start=30">3</a> ] </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=15537">natureba</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">32</span></td>
+            <td class="row1" nowrap><span class="mediumtext">1702</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Seg Mar 12, 2007 1:58 am<br><a href="profile.php?mode=viewprofile&amp;u=15537">natureba</a><a href="viewtopic.php?p=264570#264570"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+          <tr align="center">
+            <td class="row1" valign="middle"><img src="templates/darkside/images/posticon_normal.gif" alt=""></td>
+            <td align="left" class="row2" width="100%"><span class="smalltext"><a href="viewtopic.php?t=37080" class="topiclink">Meu código ficou lento! Por que?</a></span><span class="smalltext"><br>
+              </span></td>
+            <td nowrap class="row1"><span class="smalltext"><a href="profile.php?mode=viewprofile&amp;u=15537">natureba</a></span></td>
+            <td class="row2" nowrap><span class="mediumtext">4</span></td>
+            <td class="row1" nowrap><span class="mediumtext">370</span></td>
+            <td class="row2" align="right" nowrap><span class="smalltext">Qui Mar 01, 2007 5:41 pm<br><a href="profile.php?mode=viewprofile&amp;u=15537">natureba</a><a href="viewtopic.php?p=264308#264308"><img src="templates/darkside/images/icon_latest_reply.gif" alt="Exibir a última mensagen" title="Exibir a última mensagen" border="0" /></a></span></td>
+          </tr>
+		        </table>
+      </td>
+    </tr>
+  </table>
+      <table cellpadding="0" cellspacing="0" border="0" width="98%" align="center">
+    <tr>
+      <td class="tableborder"> <br>
+        <table cellpadding="7" cellspacing="1" border="0"  width="100%">
+          <tr>
+            <td width="50%" align="left" class="row1"><a href="posting.php?mode=newtopic&amp;f=12"><img src="templates/darkside/images/post_lang.gif" border="0" alt="Novo tópico"></a><br>
+              <span class="smalltext"><a href="viewforum.php?f=12&amp;mark=topics">Marcar todos os tópicos como lidos</a></span></td>
+            <td width="50%" align="right" class="row2" valign="top" colspan="-3">
+              <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td> <b><span class="smalltext">Forum Jump:</span></b><br>
+                    
+<form method="post" name="jumpbox" action="viewforum.php">
+  <table cellspacing="0" cellpadding="0" border="0">
+	<tr>
+	  <td nowrap><span class="smalltext">Ir para:&nbsp;<select name="f" onchange="if(this.options[this.selectedIndex].value != -1){ forms['jumpbox'].submit() }"><option value="-1">Selecione um fórum</option><option value="-1">&nbsp;</option><option value="-1">Programação e assuntos relacionados</option><option value="-1">----------------</option><option value="6">Pascal/Delphi</option><option value="7">Visual Basic</option><option value="8">Outras linguagens</option><option value="20">Assembly</option><option value="21">C/C++</option><option value="22">Dark Basic</option><option value="23">Blitz Basic</option><option value="28">Inteligência artificial</option><option value="29">Programação gráfica</option><option value="31">Java</option><option value="32">Shockwave e Flash</option><option value="33">Matemática e física</option><option value="36">Programação Windows</option><option value="57">Programação em Linux</option><option value="58">Hardware</option><option value="60">C# e programação .NET</option><option value="61">Lógica da programação</option><option value="70">Programação de Games Online e Técnicas Multiplayer</option><option value="-1">&nbsp;</option><option value="-1">Engines, API's, bibliotecas e outros</option><option value="-1">----------------</option><option value="9">DirectX</option><option value="10">OpenGL</option><option value="11">Allegro</option><option value="12">SDL</option><option value="13">Outras API's e Engines</option><option value="69">Java3D</option><option value="25">XNA Game Studio</option><option value="59">3D Game Studio</option><option value="65">Mobile</option><option value="67">Torque Game Engine</option><option value="68">Irrlicht Engine</option><option value="72">Game Making</option><option value="-1">&nbsp;</option><option value="-1">Arte nos jogos eletrônicos</option><option value="-1">----------------</option><option value="14">Modelagem 3D</option><option value="15">Game Design</option><option value="16">Arte 2D</option><option value="17">Música/Efeitos sonoros</option><option value="37">Roteiros</option><option value="-1">&nbsp;</option><option value="-1">Outros assuntos</option><option value="-1">----------------</option><option value="71">Contests</option><option value="18">Assuntos diversos</option><option value="19">Precisa-se</option><option value="63">Fale conosco</option><option value="27">Oferecem-se</option><option value="34">Tradução de Artigos</option><option value="5">Projetos</option><option value="38">Artigos / Tutoriais</option><option value="62">OFF-Topic</option><option value="64">Idiomas - termos técnicos</option><option value="26">UD-Zine</option><option value="66">Bancos de Dados</option></select><input type="hidden" name="sid" value="861bf5a6c38efdea9e2c3129f5eb0a25" />&nbsp;
+		<input type="submit" value="Ir">
+		</span></td>
+	</tr>
+  </table>
+ </form>
+
+ </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center" class="row2"><span class="smalltext">Ir à página <b>1</b>, <a href="viewforum.php?f=12&amp;topicdays=0&amp;start=50">2</a>, <a href="viewforum.php?f=12&amp;topicdays=0&amp;start=100">3</a>, <a href="viewforum.php?f=12&amp;topicdays=0&amp;start=150">4</a>, <a href="viewforum.php?f=12&amp;topicdays=0&amp;start=200">5</a>, <a href="viewforum.php?f=12&amp;topicdays=0&amp;start=250">6</a>, <a href="viewforum.php?f=12&amp;topicdays=0&amp;start=300">7</a>, <a href="viewforum.php?f=12&amp;topicdays=0&amp;start=350">8</a>&nbsp;&nbsp;<a href="viewforum.php?f=12&amp;topicdays=0&amp;start=50">Próximo</a></span><span class="smalltext"><br>
+              Todos os horários são GMT. </span> <span class="smalltext">Data e hora atuais: Qui Out 11, 2007 7:08 pm</span>
+              <br>
+            </td>
+          </tr>
+          <tr>
+            <td width="100%" colspan="2" align="center" height="35" class="toprow">
+              <table border="0" cellspacing="0" cellpadding="2">
+                <tr align="center" valign="middle">
+                  <td><form method="post" action="viewforum.php?f=12&amp;start=0"><span class="toprowtext">Exibir tópicos anteriores:</span></td>
+                  <td>&nbsp;<select name="topicdays"><option value="0" selected="selected">Todos os tópicos</option><option value="1">1 Dia</option><option value="7">7 Dias</option><option value="14">2 Semanas</option><option value="30">1 Mês</option><option value="90">3 Meses</option><option value="180">6 Meses</option><option value="364">1 Ano</option></select>&nbsp;</td>
+                  <td><span class="toprowtext">
+                    <input type="image" src="templates/darkside/images/gobutton.gif" border="0" align="absmiddle" name="image">
+                    </span></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+   </form>
+<table cellpadding="2" cellspacing="0" border="0" width="98%"  align="center">
+  <tr>
+    <td rowspan="2" align="left">
+      <table border="0" cellspacing="2" cellpadding="2" align="left">
+        <tr>
+          <td nowrap>(&nbsp;<img src="templates/darkside/images/posticon_normal_new.gif" alt="Mensagens novas" align="absmiddle" >&nbsp;Mensagens novas&nbsp;&nbsp;)</td>
+          <td nowrap>( <img src="templates/darkside/images/posticon_hot_new.gif" alt="Mensagens novas [ Popular ]" align="absmiddle" >&nbsp;Mensagens novas [ Popular ]
+            )&nbsp;&nbsp;</td>
+          <td nowrap>( <img src="templates/darkside/images/posticon_normal_locked.gif" alt="Não há mensagens novas [ Bloqueadas ]" align="absmiddle" >&nbsp;Closed
+            thread )</td>
+        </tr>
+        <tr>
+          <td nowrap>(&nbsp;<img src="templates/darkside/images/posticon_normal.gif" alt="Não há mensagens novas" align="absmiddle" >&nbsp;Não há mensagens novas&nbsp;)&nbsp;</td>
+          <td nowrap colspan="2">( <img src="templates/darkside/images/posticon_hot.gif" alt="Não há mensagens novas [ Popular ]" align="absmiddle" >&nbsp;Não há mensagens novas [ Popular ]
+            )&nbsp;&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+    <td rowspan="2" align="right"><span class="smalltext">Você <b>não pode</b> enviar mensagens novas neste fórum<br />Você <b>não pode</b> responder mensagens neste fórum<br />Você <b>não pode</b> editar suas mensagens neste fórum<br />Você <b>não pode</b> excluir suas mensagens neste fórum<br />Você <b>não pode</b> votar em enquetes neste fórum<br /></span></td>
+  </tr>
+  <tr> </tr>
+</table>
+<br>
+
+
+<div align="center"><br>
+  <span class="smalllink"><b></b></span>
+  <!--
+	Please note that the following copyright notice
+	MUST be displayed on each and every page output
+	by phpBB. You may alter the font, colour etc. but
+	you CANNOT remove it, nor change it so that it be,
+	to all intents and purposes, invisible. You may ADD
+	your own notice to it should you have altered the
+	code but you may not replace it. The hyperlink must
+	also remain intact. These conditions are part of the
+	licence this software is released under. See the
+	LICENCE and README files for more information.
+
+	The phpBB Group : 2001
+// -->
+<font size="-3">
+  Powered by phpBB:  &copy; 2001, 2002 <a href="http://www.phpbb.com/" target="_phpbb" class="smalllink"><b>phpBB
+  Group</b></a></td> </tr> </table> </td> </tr> </div>
+		  </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#5B5B5B">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td align="left" valign="bottom"><img src="templates/darkside/images/curve_bl.gif" width="25" height="24"></td>
+          <td bgcolor="#5B5B5B" width="100%" align="center">
+          <span class="smalltext"> Copyright © 2007 <a href="http://www.unidev.com.br" class="smalllink">UniDev</a>.  Virtual Object Informática Ltda.®</span></td>
+          <td align="right" valign="bottom"><img src="templates/darkside/images/curve_br.gif" width="26" height="24"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<div align="center"> <span class="banner"><script type="text/javascript"><!--
+google_ad_client = "pub-3596064202471436";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "text";
+//2007-09-22: unidev
+google_ad_channel = "2293050844";
+google_color_border = "000000";
+google_color_bg = "F0F0F0";
+google_color_link = "0000FF";
+google_color_text = "000000";
+google_color_url = "008000";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></span></div>
+&nbsp;
+<br>
+
+</body>
+</html>

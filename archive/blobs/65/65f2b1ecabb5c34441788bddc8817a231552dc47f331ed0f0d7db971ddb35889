@@ -1,0 +1,1814 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-gb" xml:lang="en-gb">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="content-language" content="en-gb" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="resource-type" content="document" />
+ 
+    	<meta http-equiv="refresh" content="; URL=" /> 
+    	<meta http-equiv="refresh" content="" />  	
+		<meta http-equiv="pragma" content="" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<meta name="identifier-url" content="" />
+		<meta name="reply-to" content="" />
+		<meta name="revisit-after" content="15" />
+		<meta name="category" content="" />
+		<meta name="copyright" content="" />
+		<meta name="generator" content="" />
+		<meta name="robots" content="index, follow, noodp" />
+		<meta name="distribution" content="Global" />
+		<meta name="date-creation-yyyymmdd" content="20070501" />
+		<meta name="date-revision-yyyymmdd" content="20070821" /><title>UniDev - Programação de Jogos &bull; View forum - SDL</title>
+
+<link rel="alternate" type="application/rss+xml" title="UniDev - Programação de Jogos RSS-Portal" href="./portal/syndicate.php" />
+<link rel="alternate" type="application/rss+xml" title="UniDev - Programação de Jogos RSS-Attachments" href="./portal/syndicate_attachments.php" />
+<link rel="alternate" type="application/rss+xml" title="UniDev - Programação de Jogos RSS-Downloads" href="./portal/syndicate_downloads.php" />
+  
+<link rel="stylesheet" href="./style.php?sid=b81c31e13804213b286fe1f0a13bfd07&amp;id=4&amp;lang=en" type="text/css" />
+<!--[if IE]><link href="./styles/twilightBB/theme/ie.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+<link href="./styles/twilightBB/theme/prime_trash_bin.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+// <![CDATA[
+
+function popup(url, width, height, name)
+{
+	if (!name)
+	{
+		name = '_popup';
+	}
+
+	window.open(url.replace(/&amp;/g, '&'), name, 'height=' + height + ',resizable=yes,scrollbars=yes,width=' + width);
+	return false;
+}
+
+// www.phpBB-SEO.com SEO TOOLKIT BEGIN
+function jumpto() {
+	var page = prompt('Enter the page number you wish to go to:', '1');
+	var perpage = '50';
+	var base_url = './viewforum.php?f=12';
+	var seo_delim_start = '-';
+	var seo_static_pagination = 'page';
+	var seo_ext_pagination = '.html';
+	if (page !== null && !isNaN(page) && page > 0) {
+		var seo_page = (page - 1) * perpage;
+		if ( base_url.indexOf('?') >= 0 ) {
+			document.location.href = base_url.replace(/&amp;/g, '&') + '&start=' + seo_page;
+		} else if ( seo_page > 0 ) {
+			var seo_type1 = base_url.match(/\.[a-z0-9]+$/i);
+			if (seo_type1 !== null) {
+				document.location.href = base_url.replace(/\.[a-z0-9]+$/i, '') + seo_delim_start + seo_page + seo_type1;
+			}
+			var seo_type2 = base_url.match(/\/$/);
+			if (seo_type2 !== null) {
+				document.location.href = base_url + seo_static_pagination + seo_page + seo_ext_pagination;
+			}
+		} else {
+			document.location.href = base_url;
+		}
+	}
+}
+// www.phpBB-SEO.com SEO TOOLKIT END
+
+/**
+* Find a member
+*/
+function find_username(url)
+{
+	popup(url, 760, 570, '_usersearch');
+	return false;
+}
+
+/**
+* Mark/unmark checklist
+* id = ID of parent container, name = name prefix, state = state [true/false]
+*/
+function marklist(id, name, state)
+{
+	var parent = document.getElementById(id);
+	if (!parent)
+	{
+		eval('parent = document.' + id);
+	}
+
+	if (!parent)
+	{
+		return;
+	}
+
+	var rb = parent.getElementsByTagName('input');
+	
+	for (var r = 0; r < rb.length; r++)
+	{
+		if (rb[r].name.substr(0, name.length) == name)
+		{
+			rb[r].checked = state;
+		}
+	}
+}
+
+
+// ]]>
+</script>
+
+<!--[if lt IE 7]>
+<script language="JavaScript">
+function correctPNG() // correctly handle PNG transparency in Win IE 5.5 & 6.
+{
+   var arVersion = navigator.appVersion.split("MSIE")
+   var version = parseFloat(arVersion[1])
+   if ((version >= 5.5) && (document.body.filters)) 
+   {
+      for(var i=0; i<document.images.length; i++)
+      {
+         var img = document.images[i]
+         var imgName = img.src.toUpperCase()
+         if (imgName.substring(imgName.length-3, imgName.length) == "PNG")
+         {
+            var imgID = (img.id) ? "id='" + img.id + "' " : ""
+            var imgClass = (img.className) ? "class='" + img.className + "' " : ""
+            var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' "
+            var imgStyle = "display:inline-block;" + img.style.cssText 
+            if (img.align == "left") imgStyle = "float:left;" + imgStyle
+            if (img.align == "right") imgStyle = "float:right;" + imgStyle
+            if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle
+            var strNewHTML = "<span " + imgID + imgClass + imgTitle
+            + " style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
+            + "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+            + "(src=\'" + img.src + "\', sizingMethod='scale');\"></span>" 
+            img.outerHTML = strNewHTML
+            i = i-1
+         }
+      }
+   }    
+}
+window.attachEvent("onload", correctPNG);
+</script>
+<![endif]-->
+
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/lib/prototype.js"></script>
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/src/scriptaculous.js?load=effects,dragdrop"></script>
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/src/unittest.js"></script>
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/src/lightbox.js"></script>
+
+ 
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/src/tooltips.js"></script>
+        
+
+<link rel="stylesheet" href="./styles/twilightBB/template/portal/scriptaculous/css/lightbox.css" type="text/css" />
+<link rel="stylesheet" href="./styles/twilightBB/theme/prime_links/prime_links.css" type="text/css" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+<script type="text/javascript">
+<!--
+	var rmw_max_width 	= '450';
+	var rmw_border_1 	= '1px solid';
+	var rmw_border_2 	= '2px dotted';
+	var rmw_image_title = 'Click here to view full size of this image!';
+//-->
+</script>
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/src/resize_image.js"></script>
+
+	
+<link rel="stylesheet" href="./styles/twilightBB/theme/highslide/highslide.css" type="text/css" /> 
+<script type="text/javascript" src="./styles/twilightBB/theme/highslide/highslide-with-gallery.packed.js"></script>
+<script type="text/javascript">
+	hs.graphicsDir = './styles/twilightBB/theme/highslide/graphics/';
+	hs.align = 'center';
+	hs.transitions = ['expand', 'crossfade'];
+	hs.outlineType = 'rounded-white';
+	hs.wrapperClassName = 'controls-in-heading';
+	hs.fadeInOut = true;
+	//hs.dimmingOpacity = 0.75;
+
+	// Add the controlbar
+	if (hs.addSlideshow) hs.addSlideshow({
+		//slideshowGroup: 'group1',
+		interval: 5000,
+		repeat: false,
+		useControls: true,
+		fixedControls: false,
+		overlayOptions: {
+			opacity: 1,
+			position: 'top right',
+			hideOnMouseOut: false
+		}
+	});
+</script>
+
+<script type="text/javascript">
+// <![CDATA[
+/***********************************************
+* AnyLink Drop Down Menu- � Dynamic Drive (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+///// Begin menu options 
+
+//Contents for menu 1
+var menu1=new Array()
+menu1[1]='<a href="./index.php">Board index</a>' 
+menu1[2]='<a href="./calendar.php"> Calendar</a>' 
+menu1[3]='<a href="./portal/portal_acronyms.php">Acronyms and abbreviations</a>' 
+menu1[4]='<a href="./knowledge/index.php"> Knowledge Base</a>' 
+menu1[5]='<a href="./portal/portal_mods.php">Mods Database</a>' 
+menu1[6]='<a href="./portal/portal_crawler_linker.php">Crawler Feeds</a>' 
+menu1[7]='<a href="./portal_pages.php">Portal Pages</a>' 
+
+
+//Contents for menu 2, and so on
+var menu2=new Array()
+menu2[1]='<a href="./faq.php">FAQ</a>' 
+menu2[2]='<a href="./contact.php">Contact</a>' 
+menu2[3]='<a href="./impressum.php">Imprint</a>' 
+menu2[4]='<a href="./memberlist.php?mode=leaders">The team</a>'
+menu2[5]='<a href="./portal/syndicate.php">RSS 2 Feed Forum</a>'
+menu2[6]='<a href="./portal/syndicate_attachments.php">RSS 2 Feed Attachments</a>'
+menu2[7]='<a href="./portal/syndicate_downloads.php">RSS 2 Feed Downloads</a>'
+ 
+
+//Contents for menu 3 
+var menu3=new Array() 
+menu3[1]='<a href="./downloads.php">Downloads</a>' 
+
+
+ 
+
+
+//Contents for menu 6 
+var menu6=new Array() 
+menu6[1]='<a href="./portal/portal_recent_topics.php">Recent Topics</a>'
+ 
+menu6[2]='<a href="./search.php">Search</a>' 
+menu6[3]='<a href="./search.php?search_id=unanswered">View unanswered posts</a>' 
+menu6[4]='<a href="./search.php?search_id=active_topics">View active topics</a>'
+
+
+///// End menu options 
+
+var menuwidth='200px' //default menu width
+var menubgcolor='#131313'  //menu bgcolor
+var disappeardelay=250  //menu disappear speed onMouseout (in miliseconds)
+var hidemenu_onclick="yes" //hide menu when user clicks within menu?
+
+/////No further editting needed
+
+var ie4=document.all
+var ns6=document.getElementById&&!document.all
+
+if (ie4||ns6)
+document.write('<div id="dropmenudiv" style="visibility:hidden;width:'+menuwidth+';background-color:'+menubgcolor+'" onMouseover="clearhidemenu()" onMouseout="dynamichide(event)"></div>')
+
+function getposOffset(what, offsettype){
+var totaloffset=(offsettype=="left")? what.offsetLeft : what.offsetTop;
+var parentEl=what.offsetParent;
+while (parentEl!=null){
+totaloffset=(offsettype=="left")? totaloffset+parentEl.offsetLeft : totaloffset+parentEl.offsetTop;
+parentEl=parentEl.offsetParent;
+}
+return totaloffset;
+}
+
+function showhide(obj, e, visible, hidden, menuwidth){
+if (ie4||ns6)
+dropmenuobj.style.left=dropmenuobj.style.top="-500px"
+if (menuwidth!=""){
+dropmenuobj.widthobj=dropmenuobj.style
+dropmenuobj.widthobj.width=menuwidth
+}
+if (e.type=="click" && obj.visibility==hidden || e.type=="mouseover")
+obj.visibility=visible
+else if (e.type=="click")
+obj.visibility=hidden
+}
+
+function iecompattest(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+
+}
+
+function clearbrowseredge(obj, whichedge){
+var edgeoffset=0
+if (whichedge=="rightedge"){
+var windowedge=ie4 && !window.opera? iecompattest().scrollLeft+iecompattest().clientWidth-15 : window.pageXOffset+window.innerWidth-15
+dropmenuobj.contentmeasure=dropmenuobj.offsetWidth
+if (windowedge-dropmenuobj.x < dropmenuobj.contentmeasure)
+edgeoffset=dropmenuobj.contentmeasure-obj.offsetWidth
+}
+else{
+var topedge=ie4 && !window.opera? iecompattest().scrollTop : window.pageYOffset
+var windowedge=ie4 && !window.opera? iecompattest().scrollTop+iecompattest().clientHeight-15 : window.pageYOffset+window.innerHeight-18
+dropmenuobj.contentmeasure=dropmenuobj.offsetHeight
+if (windowedge-dropmenuobj.y < dropmenuobj.contentmeasure){ //move up?
+edgeoffset=dropmenuobj.contentmeasure+obj.offsetHeight
+if ((dropmenuobj.y-topedge)<dropmenuobj.contentmeasure) //up no good either?
+edgeoffset=dropmenuobj.y+obj.offsetHeight-topedge
+}
+}
+return edgeoffset
+}
+
+function populatemenu(what){
+if (ie4||ns6)
+dropmenuobj.innerHTML=what.join("")
+}
+
+function dropdownmenu(obj, e, menucontents, menuwidth){
+if (window.event) event.cancelBubble=true
+else if (e.stopPropagation) e.stopPropagation()
+clearhidemenu()
+dropmenuobj=document.getElementById? document.getElementById("dropmenudiv") : dropmenudiv
+populatemenu(menucontents)
+
+if (ie4||ns6){
+showhide(dropmenuobj.style, e, "visible", "hidden", menuwidth)
+
+dropmenuobj.x=getposOffset(obj, "left")
+dropmenuobj.y=getposOffset(obj, "top")
+dropmenuobj.style.left=dropmenuobj.x-clearbrowseredge(obj, "rightedge")+"px"
+dropmenuobj.style.top=dropmenuobj.y-clearbrowseredge(obj, "bottomedge")+obj.offsetHeight+"px"
+}
+
+return clickreturnvalue()
+}
+
+function clickreturnvalue(){
+if (ie4||ns6) return false
+else return true
+}
+
+function contains_ns6(a, b) {
+while (b.parentNode)
+if ((b = b.parentNode) == a)
+return true;
+return false;
+}
+
+function dynamichide(e){
+if (ie4&&!dropmenuobj.contains(e.toElement))
+delayhidemenu()
+else if (ns6&&e.currentTarget!= e.relatedTarget&& !contains_ns6(e.currentTarget, e.relatedTarget))
+delayhidemenu()
+}
+
+function hidemenu(e){
+if (typeof dropmenuobj!="undefined"){
+if (ie4||ns6)
+dropmenuobj.style.visibility="hidden"
+}
+}
+
+function delayhidemenu(){
+if (ie4||ns6)
+delayhide=setTimeout("hidemenu()",disappeardelay)
+}
+
+function clearhidemenu(){
+if (typeof delayhide!="undefined")
+clearTimeout(delayhide)
+}
+
+if (hidemenu_onclick=="yes")
+document.onclick=hidemenu
+// ]]>
+</script>
+
+</head>
+<body class="ltr">
+
+<table id="container" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td id="bgleft"><img src="./styles/twilightBB/theme/images/spacer.gif" width="53px" alt="" /></td>
+<td id="middle" valign="top">
+<a id="top" name="top" accesskey="t"></a>
+<a id="wrap" name="wrap" accesskey="w"></a>
+<a id="wrapheader" name="wrapheader" accesskey="w"></a>
+
+<div id="wrapper">
+
+<div id="banner">
+	<a href="./index.php" title="Board index" id="logo"><img src="./styles/twilightBB/imageset/logos/site_logo_00.gif" border="0" alt="" /></a>
+</div>
+
+<div id="header">
+	<div id="menu">
+		<a class="faq" href="./faq.php" title="Frequently Asked Questions"><span>FAQ</span></a>
+		<a class="members" href="./memberlist.php" title="View complete list of members"><span>Members</span></a><a class="search" href="./search.php" title="View the advanced search options"><span>Search</span></a>	</div>
+	<br clear="all" />
+
+	<div id="crumbs">
+	
+		<form action="./ucp.php?mode=login" method="post">
+		<table class="toplogin" cellspacing="0">
+		    <tr>
+		        <td><span class="gensmall">Username:</span></td>
+		        <td><input class="post" type="text" name="username" size="10" /></td>
+		        <td nowrap="nowrap"><input type="checkbox" checked="true" class="radio" name="autologin" /><span style="vertical-align: middle;" class="gensmall">Log me on automatically each visit</span></td>
+		    </tr>
+		    <tr>
+		        <td><span class="gensmall">Password:</span></td>
+		        <td><input class="post" type="password" name="password" size="10" /></td>
+		        <td><input type="submit" class="btnmain" name="login" value="Login" /></td>
+		    </tr>
+		</table>
+			</form>
+	        
+		<ul class="breadcrumbs">
+			<li class="icon-home">
+                <a class="icon-home" href="./portal.php" accesskey="h">Portal</a> <strong>&#8249;</strong> <a href="./index.php" accesskey="h">Board index</a> <strong>&#8249;</strong> <a href="./viewforum.php?f=76">Engines, API's, bibliotecas e outros</a> <strong>&#8249;</strong> <a href="./viewforum.php?f=12">SDL</a>            </li>
+		</ul>
+	</div>
+		<ul id="navlist">
+		<!-- Begin menu options -->
+      	<li><a href="./portal.php" onMouseover="dropdownmenu(this, event, menu1, '200px')" onMouseout="delayhidemenu()">Home</a></li> 
+        <li><a href="#" onMouseover="dropdownmenu(this, event, menu2, '200px')" onMouseout="delayhidemenu()">Contact</a></li> 
+        <li><a href="" onMouseover="dropdownmenu(this, event, menu3, '200px')" onMouseout="delayhidemenu()">Downloads</a></li> 
+       
+               
+        <li><a href="./search.php" onMouseover="dropdownmenu(this, event, menu6, '200px')" onMouseout="delayhidemenu()">Search</a></li> 
+
+		<li><a href="./ucp.php?mode=register">Register</a></li>
+				<li><a href="./ucp.php?mode=login">Login</a></li><!-- End menu options -->
+	</ul>
+	
+	<div id="datebar">
+         
+	</div>
+
+</div>
+
+<div id="ct"><div id="ct2"><div id="ctl"><div id="ctr">
+<div id="cb"><div id="cbl"><div id="cbr">
+
+<div id="wrapcentre">
+
+		<p class="searchbar">
+		<span style="float: left;"><a href="./search.php?search_id=unanswered" title="View unanswered posts">View unanswered posts</a> | <a href="./search.php?search_id=active_topics" title="View active topics">View active topics</a></span>
+			</p>
+	
+	<br style="clear: both;" />
+
+	<script type="text/javascript">
+// Ajax Userinfo 0.1.0 by tas2580 (http://www.seo-phpbb.org)
+//
+// Thanks to Jhong (http://www.wp-united.com) for some ideas in the JavaScript
+
+var lockAnim;
+lockAnim = false;
+
+function show_popup(uID) {
+	chOpac(0, 'popup');
+	if (!lockAnim) {
+		lockAnim = true;
+		opacAnim('popup', 0, 100, 500);
+	}
+	document.onmousemove = snapdiv;
+	sendRequest(uID);
+	document.getElementById('popup').style.display='block';
+}
+
+function close_popup() {
+	if (!lockAnim) {
+		lockAnim = true;
+		opacAnim('popup', 100, 0, 500);
+	} else {
+		document.getElementById('popup').style.display='none';
+		setDefaults();
+	}
+}
+
+function setDefaults() {
+	document.getElementById('ajaxusername').innerHTML = '';
+	document.getElementById('ajax_registert').innerHTML = '';
+	document.getElementById('ajax_posts').innerHTML = '';
+	document.getElementById('ajax_from').innerHTML = '';
+	document.getElementById('ajax_last_visit').innerHTML = '';
+	document.getElementById('ajaxavatar').src = "portal/images/loading.gif";
+	document.getElementById('ajax_rank').innerHTML = '';
+	document.getElementById('ajaxusername').style.color = '#000000';
+	document.getElementById('ajax_website').innerHTML = '';
+	document.onmousemove = '';
+}
+
+// Make the request   
+function createRequestObject() {
+	var ro;
+	var browser = navigator.appName;
+	if(browser == "Microsoft Internet Explorer"){
+		ro = new ActiveXObject("Microsoft.XMLHTTP");
+	} else {
+		ro = new XMLHttpRequest();
+	}
+	return ro;
+}
+
+var http_getuser = createRequestObject();
+
+function sendRequest(UserID) {
+	http_getuser.open('get', 'portal/includes/ajax_userinfo.php?userid='+UserID);
+	http_getuser.onreadystatechange = handleResponse;
+	http_getuser.send(null);
+}
+
+// fill in the response
+function handleResponse() {
+	if(http_getuser.readyState == 4){
+		var xmlDoc   = http_getuser.responseXML;
+		document.getElementById('ajaxusername').innerHTML = xmlDoc.getElementsByTagName('username')[0].firstChild.nodeValue;
+		document.getElementById('ajaxusername').style.color = '#' + xmlDoc.getElementsByTagName('colour')[0].firstChild.nodeValue;
+		document.getElementById('ajax_registert').innerHTML = xmlDoc.getElementsByTagName('regdate')[0].firstChild.nodeValue;
+		document.getElementById('ajax_posts').innerHTML = xmlDoc.getElementsByTagName('posts')[0].firstChild.nodeValue;
+		document.getElementById('ajax_website').innerHTML = xmlDoc.getElementsByTagName('website')[0].firstChild.nodeValue;
+		document.getElementById('ajax_from').innerHTML = xmlDoc.getElementsByTagName('from')[0].firstChild.nodeValue;
+		document.getElementById('ajax_last_visit').innerHTML = xmlDoc.getElementsByTagName('lastvisit')[0].firstChild.nodeValue;
+		document.getElementById('ajax_rank').innerHTML = xmlDoc.getElementsByTagName('rank')[0].firstChild.nodeValue;
+		document.getElementById('ajaxavatar').src = xmlDoc.getElementsByTagName('avatar')[0].firstChild.nodeValue;
+	}
+}
+
+function snapdiv(e) {      
+	var docX, docY;
+	if(e)
+	{
+		if(typeof(e.pageX) == 'number') { docX = e.pageX; docY = e.pageY;}
+		else {docX = e.clientX; docY = e.clientY;}
+	}
+	else 
+	{
+		e = window.event;
+		docX = e.clientX; docY = e.clientY;
+		if(document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) 
+		{
+			docX += document.documentElement.scrollLeft; docY += document.documentElement.scrollTop;
+		}
+		else if(document.body && (document.body.scrollTop || document.body.scrollLeft)) 
+		{
+			docX += document.body.scrollLeft; docY += document.body.scrollTop;
+		}
+	}
+	if (docX > document.body.offsetWidth - 400) 
+	{
+		document.getElementById('popup').style.left = (docX - 390) + "px";
+	} 
+	else 
+	{
+		document.getElementById('popup').style.left = (docX - 10) + "px";
+	}
+	document.getElementById('popup').style.top    = (docY + 20) + "px";
+}
+
+function opacAnim(id, opacStart, opacEnd, millisec) {
+	lockAnim = true;
+	var speed = Math.round(millisec / 100);
+	var timer = 0; var i = 0;
+	if (opacEnd>opacStart) 
+	{
+		for (i = opacStart+1; i <= opacEnd; i=i+2) 
+		{
+			i= (i==99)?100:i;
+			setTimeout("chOpac(" + i + ",'" + id + "')",(timer * speed));
+			timer++;
+		}      
+	} 
+	else 
+	{
+		for (i = opacStart-1; i >= opacEnd; i--) 
+		{
+			setTimeout("chOpac(" + i + ",'" + id + "')",(timer * speed));
+			timer++;
+		}
+	}
+}
+
+function chOpac(opacity, id) 
+{
+	var object = document.getElementById(id).style;
+	object.filter = "alpha(opacity:" + opacity + ")";
+	object.opacity = object.MozOpacity = object.KhtmlOpacity = (opacity / 100);
+	if ((opacity <= 0) || (opacity >= 100)) 
+	{
+		lockAnim = false;
+		if (opacity <= 0) {
+			document.getElementById(id).style.display='none';setDefaults();
+		}
+	}
+}
+</script>
+
+<style type="text/css">
+/* Ajax User-Info Popups */
+.popup {
+   z-index: 60;
+   position: absolute;
+   display: none;
+   font-size: 10px;
+   width: 360px;
+}
+
+#avimg {width:100px; float: left; overflow: hidden; height: 100px; text-align: center;}
+#ajaxusername {font-weight: bold;}
+</style>
+
+<div class="popup forabg" id="popup" style="display: none;">
+  <table class="tablebg" cellspacing="1" width="100%">
+    <tr>
+      <th><h4>Users Information</h4></th>
+    </tr>
+    <td class="row1">
+    	<div id="avimg"><img id="ajaxavatar" src="./styles/twilightBB/theme/images/loading.gif" alt="avatar"></div>
+        <strong>Username:</strong> <span id="ajaxusername"></span><br />
+        <strong>Total posts:</strong> <span id="ajax_posts"></span><br />
+        <strong>Rank:</strong> <span id="ajax_rank"></span><br />
+        <strong>Joined:</strong> <span id="ajax_registert"></span><br />
+        <strong>Last visit:</strong> <span id="ajax_last_visit"></span><br />
+        <strong>Location:</strong> <span id="ajax_from"></span><br />
+        <strong>Website:</strong> <span id="ajax_website"></span><br style="clear: both;">
+      </td>
+    </tr>
+  </table>
+</div>        
+
+	<br /><script type="text/javascript">
+// Topic Hover Preview 0.3.0 by raptor5001. This is a modified version of:
+//
+// Ajax Userinfo 0.1.0 by tas2580 (http://www.seo-phpbb.org)
+//
+// Thanks to Jhong (http://www.wp-united.com) for some ideas in the JavaScript
+
+//var lockAnimP;
+//lockAnimP = false;
+
+function show_preview(header, body) {
+/*	chOpacP(0, 'preview');
+	if (!lockAnimP) {
+		lockAnimP = true;
+		opacAnimP('preview', 0, 100, 500);
+	}*/
+	document.onmousemove = snapdivP;
+	document.getElementById('tpheader').innerHTML = header;
+	document.getElementById('tpbody').innerHTML = body;
+	document.getElementById('preview').style.display='block';
+}
+
+function close_preview() {
+/*	if (!lockAnimP) {
+		lockAnimP = true;
+		opacAnimP('preview', 100, 0, 500);
+	} else {*/
+		document.getElementById('preview').style.display='none';
+		setDefaultsP();
+//	}
+}
+
+function setDefaultsP() {
+	document.getElementById('tpheader').innerHTML = '';
+	document.getElementById('tpbody').innerHTML = '';
+	document.onmousemove = '';
+}
+
+function snapdivP(e) {      
+	var docX, docY;
+	if(e)
+	{
+		if(typeof(e.pageX) == 'number') { docX = e.pageX; docY = e.pageY;}
+		else {docX = e.clientX; docY = e.clientY;}
+	}
+	else 
+	{
+		e = window.event;
+		docX = e.clientX; docY = e.clientY;
+		if(document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) 
+		{
+			docX += document.documentElement.scrollLeft; docY += document.documentElement.scrollTop;
+		}
+		else if(document.body && (document.body.scrollTop || document.body.scrollLeft)) 
+		{
+			docX += document.body.scrollLeft; docY += document.body.scrollTop;
+		}
+	}
+	if (docX > document.body.offsetWidth - 400) 
+	{
+		document.getElementById('preview').style.left = (docX - 390) + "px";
+	} 
+	else 
+	{
+		document.getElementById('preview').style.left = (docX - 10) + "px";
+	}
+	document.getElementById('preview').style.top    = (docY + 20) + "px";
+}
+
+function opacAnimP(id, opacStart, opacEnd, millisec) {
+	lockAnimP = true;
+	var speed = Math.round(millisec / 100);
+	var timer = 0; var i = 0;
+	if (opacEnd>opacStart) 
+	{
+		for (i = opacStart+1; i <= opacEnd; i=i+2) 
+		{
+			i= (i==99)?100:i;
+			setTimeout("chOpacP(" + i + ",'" + id + "')",(timer * speed));
+			timer++;
+		}      
+	} 
+	else 
+	{
+		for (i = opacStart-1; i >= opacEnd; i--) 
+		{
+			setTimeout("chOpacP(" + i + ",'" + id + "')",(timer * speed));
+			timer++;
+		}
+	}
+}
+
+function chOpacP(opacity, id) 
+{
+	var object = document.getElementById(id).style;
+	object.filter = "alpha(opacity:" + opacity + ")";
+	object.opacity = object.MozOpacity = object.KhtmlOpacity = (opacity / 100);
+	if ((opacity <= 0) || (opacity >= 100)) 
+	{
+		lockAnimP = false;
+		if (opacity <= 0) {
+			document.getElementById(id).style.display='none';setDefaultsP();
+		}
+	}
+}
+</script>
+
+<style type="text/css">
+.preview {
+   z-index: 60;
+   position: absolute;
+   display: none;
+   font-size: 10px;
+   width: 350px;
+   border: 1px solid #808080;
+}
+</style>
+
+<div class="preview row2" id="preview" style="display: none;">
+<table class="tablebg" cellspacing="1" width="100%">
+<tr>
+	<th><h4><span id="tpheader"></span></h4></th>
+</tr>
+<tr>
+	<td class="row1" valign="top"><span id="tpbody"></span></td>
+</tr>
+</table>
+</div>        
+
+<table width="100%" cellspacing="1">
+  <tr>
+    <td class="genmed" align="left"><a href="#" onclick="Effect.toggle('portal_container','slide'); return false;" title="OpenCloseAllColumns"><span>[ +/- ]</span></a>
+            <span>[ It is currently 03 Jul 2009, 22:36 ]</span>
+      </td>
+    <td class="genmed" align="right">    </td>
+  </tr>
+</table>
+
+<div id="portal_container">
+
+<!-- [+] top block area -->
+<table width="100%" cellspacing="1">
+  <tr>
+    <td valign="top">
+    </td>
+  </tr>
+</table>
+<!-- [-] top block area -->
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<!-- [+] center block area -->
+	<td valign="top">
+	<div id="pageheader">
+		<h2><a class="titles" href="./viewforum.php?f=12&amp;start=0">SDL</a></h2>
+
+					<p class="moderators">Moderator: <a href="./memberlist.php?mode=viewprofile&amp;u=869" style="color: #AA0000;" class="username-coloured">UniDev</a></p>
+			</div>
+
+	<br clear="all" /><br />
+
+<div id="pagecontent">
+
+		<table width="100%" cellspacing="1">
+		<tr>
+							<td align="left" valign="middle">
+				<a class="post-icon" href="./posting.php?mode=post&amp;f=12" title="Post a new topic"><span>Post a new topic</span></a>
+				</td>
+							<td class="nav" valign="middle" nowrap="nowrap">&nbsp;Page <strong>1</strong> of <strong>10</strong><br /></td>
+				<td class="gensmall" nowrap="nowrap">&nbsp;[ 489 topics ]&nbsp;</td>
+				<td class="gensmall" width="100%" align="right" nowrap="nowrap"><b><a href="#" onclick="jumpto(); return false;" title="Click to jump to page…">Go to page</a> <strong>1</strong><span class="page-sep">, </span><a href="./viewforum.php?f=12&amp;start=50">2</a><span class="page-sep">, </span><a href="./viewforum.php?f=12&amp;start=100">3</a><span class="page-sep">, </span><a href="./viewforum.php?f=12&amp;start=150">4</a><span class="page-sep">, </span><a href="./viewforum.php?f=12&amp;start=200">5</a> ... <a href="./viewforum.php?f=12&amp;start=450">10</a> &nbsp;<a href="./viewforum.php?f=12&amp;start=50">Next</a></b></td>
+					</tr>
+		</table>
+			<table class="tablebg" width="100%" cellspacing="1">
+		<tr>
+							<th colspan="2">&nbsp;Topics&nbsp;</th>
+						<th>&nbsp;Author&nbsp;</th>
+			<th>&nbsp;Replies&nbsp;</th>
+			<th>&nbsp;Views&nbsp;</th>
+			<th>&nbsp;Last post&nbsp;</th>
+		</tr>
+
+						<tr>
+					<td class="row3" colspan="6"><b class="gensmall">Topics</b></td>
+				</tr>
+			
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/announce_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 13 Apr 2009, 23:08" href="./viewtopic.php?f=12&amp;t=48573" class="topictitle">Novo forum e breve novo portal!</a>
+											<p class="gensmall"> [ <img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Go to page" title="Go to page" />Go to page: <a href="./viewtopic.php?f=12&amp;t=48573&amp;start=0">1</a><span class="page-sep">, </span><a href="./viewtopic.php?f=12&amp;t=48573&amp;start=15">2</a><span class="page-sep">, </span><a href="./viewtopic.php?f=12&amp;t=48573&amp;start=30">3</a> ] </p>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=6133" style="color: #AA0000;" class="username-coloured">duzao7667</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">34</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">709</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">05 Jun 2009, 18:19</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=7347"><b style="color:#" onmouseover="show_popup(7347)" onmouseout="close_popup()">joaoalfredo</b></a>						<a href="./viewtopic.php?f=12&amp;t=48573&amp;p=339483#p339483"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/announce_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 17 Apr 2009, 09:30" href="./viewtopic.php?f=12&amp;t=48605" class="topictitle">O Forum UniDev será fechado amanhã para instalação do portal</a>
+											<p class="gensmall"> [ <img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Go to page" title="Go to page" />Go to page: <a href="./viewtopic.php?f=12&amp;t=48605&amp;start=0">1</a><span class="page-sep">, </span><a href="./viewtopic.php?f=12&amp;t=48605&amp;start=15">2</a> ] </p>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=6133" style="color: #AA0000;" class="username-coloured">duzao7667</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">15</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">322</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">25 Apr 2009, 09:49</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=6133"><b style="color:#AA0000" onmouseover="show_popup(6133)" onmouseout="close_popup()">duzao7667</b></a>						<a href="./viewtopic.php?f=12&amp;t=48605&amp;p=338012#p338012"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+						<tr>
+					<td class="row3" colspan="6"><b class="gensmall">Topics</b></td>
+				</tr>
+			
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 14 Jun 2009, 14:31" href="./viewtopic.php?f=12&amp;t=49033" class="topictitle">Artigo sobre SDL_net em inglês</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=23043">renatonolo</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">31</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">26 Jun 2009, 14:36</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=24498"><b style="color:#" onmouseover="show_popup(24498)" onmouseout="close_popup()">darknessw</b></a>						<a href="./viewtopic.php?f=12&amp;t=49033&amp;p=339737#p339737"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 05 Jun 2009, 16:13" href="./viewtopic.php?f=12&amp;t=48998" class="topictitle">Mapeamento de Tiles</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=50233">RodrigoXxXx</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">3</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">54</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">26 Jun 2009, 14:28</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=24498"><b style="color:#" onmouseover="show_popup(24498)" onmouseout="close_popup()">darknessw</b></a>						<a href="./viewtopic.php?f=12&amp;t=48998&amp;p=339735#p339735"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 14 Jun 2009, 13:23" href="./viewtopic.php?f=12&amp;t=49032" class="topictitle">Apostila completa sobre SDL em português</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=47727">leopl</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">42</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">14 Jun 2009, 14:24</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=23043"><b style="color:#" onmouseover="show_popup(23043)" onmouseout="close_popup()">renatonolo</b></a>						<a href="./viewtopic.php?f=12&amp;t=49032&amp;p=339620#p339620"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 14 Jun 2009, 12:42" href="./viewtopic.php?f=12&amp;t=49031" class="topictitle">Problema com menu</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=23043">renatonolo</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">15</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">14 Jun 2009, 12:42</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=23043"><b style="color:#" onmouseover="show_popup(23043)" onmouseout="close_popup()">renatonolo</b></a>						<a href="./viewtopic.php?f=12&amp;t=49031&amp;p=339616#p339616"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 09 Jun 2009, 00:13" href="./viewtopic.php?f=12&amp;t=49013" class="topictitle">Como imprimir variável com SDL_ttf?</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=23043">renatonolo</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">4</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">31</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">12 Jun 2009, 20:22</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=49946"><b style="color:#" onmouseover="show_popup(49946)" onmouseout="close_popup()">giulianovma@hotmail.com</b></a>						<a href="./viewtopic.php?f=12&amp;t=49013&amp;p=339573#p339573"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 04 Jun 2009, 20:09" href="./viewtopic.php?f=12&amp;t=48995" class="topictitle">Duvida - SDL_Gfx, tutorial</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=49946">giulianovma@hotmail.com</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">22</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">05 Jun 2009, 13:09</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=47835"><b style="color:#" onmouseover="show_popup(47835)" onmouseout="close_popup()">bmacedo</b></a>						<a href="./viewtopic.php?f=12&amp;t=48995&amp;p=339470#p339470"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 03 Jun 2009, 10:20" href="./viewtopic.php?f=12&amp;t=48985" class="topictitle">Erro ao pressionar a tecla pro personagem andar!</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=23043">renatonolo</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">4</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">49</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">04 Jun 2009, 17:15</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=23043"><b style="color:#" onmouseover="show_popup(23043)" onmouseout="close_popup()">renatonolo</b></a>						<a href="./viewtopic.php?f=12&amp;t=48985&amp;p=339451#p339451"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 26 May 2009, 19:27" href="./viewtopic.php?f=12&amp;t=48951" class="topictitle">Ajuda: Evento de mouse</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=49946">giulianovma@hotmail.com</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">5</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">52</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">29 May 2009, 19:54</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=24498"><b style="color:#" onmouseover="show_popup(24498)" onmouseout="close_popup()">darknessw</b></a>						<a href="./viewtopic.php?f=12&amp;t=48951&amp;p=339339#p339339"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 25 May 2009, 19:01" href="./viewtopic.php?f=12&amp;t=48944" class="topictitle">Jogo em SDL / C++ com código fonte</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=50190">espectro negro</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">122</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">26 May 2009, 22:50</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=5928"><b style="color:#" onmouseover="show_popup(5928)" onmouseout="close_popup()">prchakal</b></a>						<a href="./viewtopic.php?f=12&amp;t=48944&amp;p=339261#p339261"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 10 Oct 2008, 19:28" href="./viewtopic.php?f=12&amp;t=46295" class="topictitle">Troll2D - Biblioteca para Jogos 2D</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=25954">viniciusjarina</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">371</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">19 May 2009, 22:47</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=5928"><b style="color:#" onmouseover="show_popup(5928)" onmouseout="close_popup()">prchakal</b></a>						<a href="./viewtopic.php?f=12&amp;t=46295&amp;p=338988#p338988"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 26 Mar 2009, 13:05" href="./viewtopic.php?f=12&amp;t=48546" class="topictitle">Quebra de linha usando ttf</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=48947">Camila Sales</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">2</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">96</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">27 Mar 2009, 12:44</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=48947"><b style="color:#" onmouseover="show_popup(48947)" onmouseout="close_popup()">Camila Sales</b></a>						<a href="./viewtopic.php?f=12&amp;t=48546&amp;p=337415#p337415"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 26 Mar 2009, 12:18" href="./viewtopic.php?f=12&amp;t=48545" class="topictitle">SDL Tetris Tutorial para iniciantes</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=49564">Sam L.</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">82</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">26 Mar 2009, 12:18</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=49564"><b style="color:#" onmouseover="show_popup(49564)" onmouseout="close_popup()">Sam L.</b></a>						<a href="./viewtopic.php?f=12&amp;t=48545&amp;p=337273#p337273"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 26 Oct 2008, 18:18" href="./viewtopic.php?f=12&amp;t=46507" class="topictitle">Space Invaders By Me =]</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=45251">Slash99</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">4</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">558</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">25 Mar 2009, 00:49</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=49826"><b style="color:#" onmouseover="show_popup(49826)" onmouseout="close_popup()">ntabr</b></a>						<a href="./viewtopic.php?f=12&amp;t=46507&amp;p=337118#p337118"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 06 Mar 2009, 23:17" href="./viewtopic.php?f=12&amp;t=48323" class="topictitle">Dúvida sobre declaração de 'Surfaces'</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=49589">pirci2387</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">2</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">137</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">17 Mar 2009, 15:51</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=24498"><b style="color:#" onmouseover="show_popup(24498)" onmouseout="close_popup()">darknessw</b></a>						<a href="./viewtopic.php?f=12&amp;t=48323&amp;p=336352#p336352"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 15 Mar 2009, 15:36" href="./viewtopic.php?f=12&amp;t=48419" class="topictitle">Posicionar janela principal no monitor[RESOLVIDO]</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=49564">Sam L.</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">6</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">244</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">16 Mar 2009, 19:10</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=49564"><b style="color:#" onmouseover="show_popup(49564)" onmouseout="close_popup()">Sam L.</b></a>						<a href="./viewtopic.php?f=12&amp;t=48419&amp;p=336315#p336315"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 13 Jun 2008, 16:52" href="./viewtopic.php?f=12&amp;t=44909" class="topictitle">SDL e janelas</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=46423">vannamei</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">9</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">914</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">12 Mar 2009, 09:31</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=48634"><b style="color:#" onmouseover="show_popup(48634)" onmouseout="close_popup()">josemdvdf</b></a>						<a href="./viewtopic.php?f=12&amp;t=44909&amp;p=335861#p335861"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 26 May 2005, 16:25" href="./viewtopic.php?f=12&amp;t=18007" class="topictitle">CPU a 100%</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=7461">rodrigomann</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">8</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">961</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">22 Feb 2009, 11:27</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=4564"><b style="color:#" onmouseover="show_popup(4564)" onmouseout="close_popup()">bcsanches2</b></a>						<a href="./viewtopic.php?f=12&amp;t=18007&amp;p=333833#p333833"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 19 Aug 2006, 13:27" href="./viewtopic.php?f=12&amp;t=32244" class="topictitle">Video e Rede no SDL</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=8908">mairlo</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">2</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">554</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">22 Feb 2009, 01:01</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=14293"><b style="color:#" onmouseover="show_popup(14293)" onmouseout="close_popup()">vistorvingador</b></a>						<a href="./viewtopic.php?f=12&amp;t=32244&amp;p=333808#p333808"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 12 Feb 2009, 07:59" href="./viewtopic.php?f=12&amp;t=48027" class="topictitle">Carregar imagens</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=45023">Prego.msg</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">2</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">161</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">12 Feb 2009, 11:50</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=40297"><b style="color:#" onmouseover="show_popup(40297)" onmouseout="close_popup()">jonatasvcosta</b></a>						<a href="./viewtopic.php?f=12&amp;t=48027&amp;p=332721#p332721"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 05 Feb 2009, 14:35" href="./viewtopic.php?f=12&amp;t=47937" class="topictitle">Tuturial Completo [português]</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=47059">Corolido</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">293</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">05 Feb 2009, 18:03</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=49079"><b style="color:#" onmouseover="show_popup(49079)" onmouseout="close_popup()">Fuentes</b></a>						<a href="./viewtopic.php?f=12&amp;t=47937&amp;p=331786#p331786"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 04 Feb 2009, 01:38" href="./viewtopic.php?f=12&amp;t=47912" class="topictitle">Dúvida em uma função da lib</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=47059">Corolido</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">119</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">04 Feb 2009, 12:37</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=41123"><b style="color:#" onmouseover="show_popup(41123)" onmouseout="close_popup()">diogorbg</b></a>						<a href="./viewtopic.php?f=12&amp;t=47912&amp;p=331619#p331619"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 27 Jan 2009, 19:56" href="./viewtopic.php?f=12&amp;t=47808" class="topictitle">SDL PARA JOGO 2D</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=48083">mau2008</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">7</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">370</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">28 Jan 2009, 12:21</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=41123"><b style="color:#" onmouseover="show_popup(41123)" onmouseout="close_popup()">diogorbg</b></a>						<a href="./viewtopic.php?f=12&amp;t=47808&amp;p=330697#p330697"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read_hot.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 04 Jan 2009, 12:31" href="./viewtopic.php?f=12&amp;t=47501" class="topictitle">Socket com sdl_net.</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=31547">phew</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">14</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">516</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">12 Jan 2009, 12:35</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=31547"><b style="color:#" onmouseover="show_popup(31547)" onmouseout="close_popup()">phew</b></a>						<a href="./viewtopic.php?f=12&amp;t=47501&amp;p=328284#p328284"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 10 Dec 2008, 13:08" href="./viewtopic.php?f=12&amp;t=47181" class="topictitle">Ajuda com SDL</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=17884">Vo0</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">10</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">427</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">05 Jan 2009, 12:27</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=41123"><b style="color:#" onmouseover="show_popup(41123)" onmouseout="close_popup()">diogorbg</b></a>						<a href="./viewtopic.php?f=12&amp;t=47181&amp;p=327630#p327630"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 25 Dec 2008, 21:42" href="./viewtopic.php?f=12&amp;t=47400" class="topictitle">Problemas com SDL_timer</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=31547">phew</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">8</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">318</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">26 Dec 2008, 10:24</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=4564"><b style="color:#" onmouseover="show_popup(4564)" onmouseout="close_popup()">bcsanches2</b></a>						<a href="./viewtopic.php?f=12&amp;t=47400&amp;p=326617#p326617"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 23 Dec 2008, 21:52" href="./viewtopic.php?f=12&amp;t=47381" class="topictitle">[Ajuda]Como compilar a Guichan no CodeBlocks</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=47133">vikuw</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">5</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">351</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">25 Dec 2008, 22:20</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=39372"><b style="color:#" onmouseover="show_popup(39372)" onmouseout="close_popup()">k.himura</b></a>						<a href="./viewtopic.php?f=12&amp;t=47381&amp;p=326569#p326569"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 18 Dec 2008, 20:40" href="./viewtopic.php?f=12&amp;t=47317" class="topictitle">SDL + Console</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=42085">printf(</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">4</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">393</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">19 Dec 2008, 20:51</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=42085"><b style="color:#" onmouseover="show_popup(42085)" onmouseout="close_popup()">printf(</b></a>						<a href="./viewtopic.php?f=12&amp;t=47317&amp;p=325984#p325984"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 18 Dec 2008, 00:23" href="./viewtopic.php?f=12&amp;t=47306" class="topictitle">Png transparente - Ajustar Alpha da Superficie</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=46420">Nociam</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">3</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">326</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">18 Dec 2008, 20:54</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=28384"><b style="color:#" onmouseover="show_popup(28384)" onmouseout="close_popup()">clebertavares</b></a>						<a href="./viewtopic.php?f=12&amp;t=47306&amp;p=325884#p325884"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 06 Dec 2008, 00:02" href="./viewtopic.php?f=12&amp;t=47110" class="topictitle">Dúvidas do noob aqui... :/</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=48416">felipealencar</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">13</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">556</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">15 Dec 2008, 11:45</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=48416"><b style="color:#" onmouseover="show_popup(48416)" onmouseout="close_popup()">felipealencar</b></a>						<a href="./viewtopic.php?f=12&amp;t=47110&amp;p=325542#p325542"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 13 Oct 2008, 02:05" href="./viewtopic.php?f=12&amp;t=46320" class="topictitle">SDL e classes - dor de cabeça do cão</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=38656">emersonmx</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">4</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">622</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">27 Nov 2008, 00:21</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=28384"><b style="color:#" onmouseover="show_popup(28384)" onmouseout="close_popup()">clebertavares</b></a>						<a href="./viewtopic.php?f=12&amp;t=46320&amp;p=323278#p323278"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 06 Nov 2008, 23:50" href="./viewtopic.php?f=12&amp;t=46640" class="topictitle">SDL_Overlay</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=14111">c_prosk</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">2</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">370</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">13 Nov 2008, 13:04</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=14111"><b style="color:#" onmouseover="show_popup(14111)" onmouseout="close_popup()">c_prosk</b></a>						<a href="./viewtopic.php?f=12&amp;t=46640&amp;p=322107#p322107"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 20 Oct 2008, 12:37" href="./viewtopic.php?f=12&amp;t=46424" class="topictitle">PROBLEMAS SDL + LINUX</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=14536">Crash Metal</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">326</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">09 Nov 2008, 17:30</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=11048"><b style="color:#" onmouseover="show_popup(11048)" onmouseout="close_popup()">Chrys</b></a>						<a href="./viewtopic.php?f=12&amp;t=46424&amp;p=321733#p321733"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 02 Nov 2008, 10:20" href="./viewtopic.php?f=12&amp;t=46585" class="topictitle">Uma pequena pergunta</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=47133">vikuw</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">2</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">309</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">05 Nov 2008, 11:19</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=47133"><b style="color:#" onmouseover="show_popup(47133)" onmouseout="close_popup()">vikuw</b></a>						<a href="./viewtopic.php?f=12&amp;t=46585&amp;p=321404#p321404"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 28 Jul 2005, 23:38" href="./viewtopic.php?f=12&amp;t=20361" class="topictitle">Tocar música pelo SDL_Mixer</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=16245">Yi_Chuan</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">3</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">973</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">24 Oct 2008, 00:43</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=39460"><b style="color:#" onmouseover="show_popup(39460)" onmouseout="close_popup()">renamp2007</b></a>						<a href="./viewtopic.php?f=12&amp;t=20361&amp;p=320500#p320500"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 23 Oct 2006, 20:13" href="./viewtopic.php?f=12&amp;t=33892" class="topictitle">FMOD api de audio melhor que o sdl_mixer</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=29619">DFAoBolinho</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">3</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">1069</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">24 Oct 2008, 00:19</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=39460"><b style="color:#" onmouseover="show_popup(39460)" onmouseout="close_popup()">renamp2007</b></a>						<a href="./viewtopic.php?f=12&amp;t=33892&amp;p=320498#p320498"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 16 Jan 2008, 00:20" href="./viewtopic.php?f=12&amp;t=42656" class="topictitle">É necessario usar OpenGL?</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=40921">igor_henrik</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">10</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">1745</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">20 Oct 2008, 21:56</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=40227"><b style="color:#" onmouseover="show_popup(40227)" onmouseout="close_popup()">brwnow_w</b></a>						<a href="./viewtopic.php?f=12&amp;t=42656&amp;p=320173#p320173"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 08 Sep 2008, 17:17" href="./viewtopic.php?f=12&amp;t=45930" class="topictitle">Problema com SDL_ttf</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=47550">Jimi</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">439</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">13 Oct 2008, 12:01</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=37698"><b style="color:#" onmouseover="show_popup(37698)" onmouseout="close_popup()">kogyblack</b></a>						<a href="./viewtopic.php?f=12&amp;t=45930&amp;p=319431#p319431"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 29 Sep 2008, 18:20" href="./viewtopic.php?f=12&amp;t=46154" class="topictitle">Problema com Rects[RESOLVIDO]</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=38656">emersonmx</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">332</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">30 Sep 2008, 14:39</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=38656"><b style="color:#" onmouseover="show_popup(38656)" onmouseout="close_popup()">emersonmx</b></a>						<a href="./viewtopic.php?f=12&amp;t=46154&amp;p=318382#p318382"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 10 Nov 2005, 12:15" href="./viewtopic.php?f=12&amp;t=23874" class="topictitle">Rotacionar Imagens</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=16232">xcedax</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">2</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">827</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">07 Sep 2008, 15:36</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=40921"><b style="color:#" onmouseover="show_popup(40921)" onmouseout="close_popup()">igor_henrik</b></a>						<a href="./viewtopic.php?f=12&amp;t=23874&amp;p=316651#p316651"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 21 Apr 2008, 14:21" href="./viewtopic.php?f=12&amp;t=44134" class="topictitle">Como compilar a Guichan no Code::Blocks (win32)?</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=31629">arkanis</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">7</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">1337</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">24 Aug 2008, 15:57</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=5466"><b style="color:#" onmouseover="show_popup(5466)" onmouseout="close_popup()">Tales84</b></a>						<a href="./viewtopic.php?f=12&amp;t=44134&amp;p=315490#p315490"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 14 Aug 2008, 02:14" href="./viewtopic.php?f=12&amp;t=45662" class="topictitle">Colisão Com SDL_Gfx</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=47045">tong</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">487</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">14 Aug 2008, 09:31</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=2084"><b style="color:#AA0000" onmouseover="show_popup(2084)" onmouseout="close_popup()">Zizaco</b></a>						<a href="./viewtopic.php?f=12&amp;t=45662&amp;p=314682#p314682"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 08 Aug 2008, 01:25" href="./viewtopic.php?f=12&amp;t=45598" class="topictitle">Desenhar primitivas</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=47045">tong</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">374</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">08 Aug 2008, 15:54</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=16263"><b style="color:#" onmouseover="show_popup(16263)" onmouseout="close_popup()">skhaz</b></a>						<a href="./viewtopic.php?f=12&amp;t=45598&amp;p=314237#p314237"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 22 Jul 2008, 23:12" href="./viewtopic.php?f=12&amp;t=45392" class="topictitle">GUICHAN funciona em C?</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=47058">lasantos</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">433</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">08 Aug 2008, 15:54</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=16263"><b style="color:#" onmouseover="show_popup(16263)" onmouseout="close_popup()">skhaz</b></a>						<a href="./viewtopic.php?f=12&amp;t=45392&amp;p=314236#p314236"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 03 Aug 2008, 20:10" href="./viewtopic.php?f=12&amp;t=45537" class="topictitle">Selecionar Personagem com o mouse</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=47045">tong</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">4</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">605</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">08 Aug 2008, 04:30</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=47045"><b style="color:#" onmouseover="show_popup(47045)" onmouseout="close_popup()">tong</b></a>						<a href="./viewtopic.php?f=12&amp;t=45537&amp;p=314181#p314181"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 28 Jul 2008, 15:10" href="./viewtopic.php?f=12&amp;t=45454" class="topictitle">Escrevendo com SDL?</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=11244">Roonsoft_gold</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">2</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">508</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">28 Jul 2008, 18:40</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=41123"><b style="color:#" onmouseover="show_popup(41123)" onmouseout="close_popup()">diogorbg</b></a>						<a href="./viewtopic.php?f=12&amp;t=45454&amp;p=313168#p313168"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 24 Jul 2008, 11:13" href="./viewtopic.php?f=12&amp;t=45406" class="topictitle">Executar código de x em x segundos</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=43651">wrproject</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">7</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">742</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">24 Jul 2008, 18:23</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=43651"><b style="color:#" onmouseover="show_popup(43651)" onmouseout="close_popup()">wrproject</b></a>						<a href="./viewtopic.php?f=12&amp;t=45406&amp;p=312822#p312822"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 22 Jul 2008, 13:24" href="./viewtopic.php?f=12&amp;t=45384" class="topictitle">Post: Carregando mapas 2D no formato TMX</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=41123">diogorbg</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">7</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">819</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">24 Jul 2008, 13:38</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=41123"><b style="color:#" onmouseover="show_popup(41123)" onmouseout="close_popup()">diogorbg</b></a>						<a href="./viewtopic.php?f=12&amp;t=45384&amp;p=312790#p312790"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 03 Jul 2008, 21:25" href="./viewtopic.php?f=12&amp;t=45168" class="topictitle">Array de SDL_Rect</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=32831">eduardofelipe</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">5</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">816</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">04 Jul 2008, 16:51</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=32831"><b style="color:#" onmouseover="show_popup(32831)" onmouseout="close_popup()">eduardofelipe</b></a>						<a href="./viewtopic.php?f=12&amp;t=45168&amp;p=311250#p311250"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 30 Jun 2008, 18:19" href="./viewtopic.php?f=12&amp;t=45134" class="topictitle">DLL's</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=39901">Diomen01</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">6</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">782</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">03 Jul 2008, 07:58</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=39901"><b style="color:#" onmouseover="show_popup(39901)" onmouseout="close_popup()">Diomen01</b></a>						<a href="./viewtopic.php?f=12&amp;t=45134&amp;p=311143#p311143"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: 20 May 2008, 19:23" href="./viewtopic.php?f=12&amp;t=44564" class="topictitle">SDL_Net &amp;&amp; SDL_Thread</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><a href="./memberlist.php?mode=viewprofile&amp;u=14111">c_prosk</a></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">3</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">890</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">21 May 2008, 12:51</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=14111"><b style="color:#" onmouseover="show_popup(14111)" onmouseout="close_popup()">c_prosk</b></a>						<a href="./viewtopic.php?f=12&amp;t=44564&amp;p=307329#p307329"><img src="./styles/twilightBB/imageset/icon_topic_latest.gif" width="11" height="9" alt="View the latest post" title="View the latest post" /></a>					</p>
+				</td>
+			</tr>
+
+		
+		<tr align="center">
+							<td class="cat" colspan="6">
+								<form method="post" action="./viewforum.php?f=12&amp;start=0"><span class="gensmall">Display topics from previous:</span>&nbsp;<select name="st" id="st"><option value="0" selected="selected">All Topics</option><option value="1">1 day</option><option value="7">7 days</option><option value="14">2 weeks</option><option value="30">1 month</option><option value="90">3 months</option><option value="180">6 months</option><option value="365">1 year</option></select>&nbsp;<span class="gensmall">Sort by</span> <select name="sk" id="sk"><option value="a">Author</option><option value="t" selected="selected">Post time</option><option value="r">Replies</option><option value="s">Subject</option><option value="v">Views</option></select> <select name="sd" id="sd"><option value="a">Ascending</option><option value="d" selected="selected">Descending</option></select>&nbsp;<input class="btnlite" type="submit" name="sort" value="Go" /></form>
+				</td>
+		</tr>
+				</table>
+			<table width="100%" cellspacing="1">
+		<tr>
+							<td align="left" valign="middle">
+				<a class="post-icon" href="./posting.php?mode=post&amp;f=12" title="Post a new topic"><span>Post a new topic</span></a>
+				</td>
+							<td class="nav" valign="middle" nowrap="nowrap">&nbsp;Page <strong>1</strong> of <strong>10</strong><br /></td>
+				<td class="gensmall" nowrap="nowrap">&nbsp;[ 489 topics ]&nbsp;</td>
+				<td class="gensmall" width="100%" align="right" nowrap="nowrap"><b><a href="#" onclick="jumpto(); return false;" title="Click to jump to page…">Go to page</a> <strong>1</strong><span class="page-sep">, </span><a href="./viewforum.php?f=12&amp;start=50">2</a><span class="page-sep">, </span><a href="./viewforum.php?f=12&amp;start=100">3</a><span class="page-sep">, </span><a href="./viewforum.php?f=12&amp;start=150">4</a><span class="page-sep">, </span><a href="./viewforum.php?f=12&amp;start=200">5</a> ... <a href="./viewforum.php?f=12&amp;start=450">10</a> &nbsp;<a href="./viewforum.php?f=12&amp;start=50">Next</a></b></td>
+					</tr>
+		</table>
+		
+		<br clear="all" />
+</div>
+
+	<br clear="all" />
+
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr>
+		<td class="cat"><h4>Who is online</h4></td>
+	</tr>
+	<tr>
+		<td class="row1"><p class="gensmall">Users browsing this forum: No registered users and 1 guest</p></td>
+	</tr>
+	</table>
+	<br clear="all" />
+
+	<table width="100%" cellspacing="0">
+	<tr>
+		<td align="left" valign="top">
+			<table cellspacing="3" cellpadding="0" border="0">
+			<tr>
+				<td width="20" style="text-align: center;"><img src="./styles/twilightBB/imageset/topic_unread.png" width="27" height="27" alt="New posts" title="New posts" /></td>
+				<td class="gensmall">New posts</td>
+				<td>&nbsp;&nbsp;</td>
+				<td width="20" style="text-align: center;"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+				<td class="gensmall">No new posts</td>
+				<td>&nbsp;&nbsp;</td>
+				<td width="20" style="text-align: center;"><img src="./styles/twilightBB/imageset/announce_read.png" width="27" height="27" alt="Announce" title="Announce" /></td>
+				<td class="gensmall">Announcement</td>
+			</tr>
+			<tr>
+				<td style="text-align: center;"><img src="./styles/twilightBB/imageset/topic_unread_hot.png" width="27" height="27" alt="New posts [ Popular ]" title="New posts [ Popular ]" /></td>
+				<td class="gensmall">New posts [ Popular ]</td>
+				<td>&nbsp;&nbsp;</td>
+				<td style="text-align: center;"><img src="./styles/twilightBB/imageset/topic_read_hot.png" width="27" height="27" alt="No new posts [ Popular ]" title="No new posts [ Popular ]" /></td>
+				<td class="gensmall">No new posts [ Popular ]</td>
+				<td>&nbsp;&nbsp;</td>
+				<td style="text-align: center;"><img src="./styles/twilightBB/imageset/sticky_read.png" width="27" height="27" alt="Sticky" title="Sticky" /></td>
+				<td class="gensmall">Sticky</td>			
+			</tr>
+			<tr>
+				<td style="text-align: center;"><img src="./styles/twilightBB/imageset/topic_unread_locked.png" width="27" height="27" alt="New posts [ Locked ]" title="New posts [ Locked ]" /></td>
+				<td class="gensmall">New posts [ Locked ]</td>
+				<td>&nbsp;&nbsp;</td>
+				<td style="text-align: center;"><img src="./styles/twilightBB/imageset/topic_read_locked.png" width="27" height="27" alt="No new posts [ Locked ]" title="No new posts [ Locked ]" /></td>
+				<td class="gensmall">No new posts [ Locked ]</td>
+				<td>&nbsp;&nbsp;</td>
+				<td style="text-align: center;"><img src="./styles/twilightBB/imageset/topic_moved.png" width="27" height="27" alt="Moved topic" title="Moved topic" /></td>
+				<td class="gensmall">Moved topic</td>
+			</tr>
+			</table>
+		</td>
+		<td align="right"><span class="gensmall">
+		<span class="gensmall right">
+				<br />You <strong>cannot</strong> post new topics in this forum<br />You <strong>cannot</strong> reply to topics in this forum<br />You <strong>cannot</strong> edit your posts in this forum<br />You <strong>cannot</strong> delete your posts in this forum<br />		</span></td>
+	</tr>
+	</table>
+
+<br clear="all" />
+
+<table width="100%" cellspacing="0">
+<tr>
+	<td><form method="post" name="search" action="./search.php?fid[]=12"><span class="gensmall">Search for:</span> <input class="post" type="text" name="keywords" size="20" /> <input class="btnlite" type="submit" value="Go" /></form></td>
+	<td align="right">	<form method="post" name="jumpbox" action="./viewforum.php" onsubmit="if(document.jumpbox.f.value == -1){return false;}">
+
+	<table cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td nowrap="nowrap"><span class="gensmall">Jump to:</span>&nbsp;<select name="f" onchange="if(this.options[this.selectedIndex].value != -1){ document.forms['jumpbox'].submit() }">
+
+					<option value="-1">Select a forum</option>
+		<option value="-1">------------------</option>			<option value="79">Notícias e Artigos</option>
+					<option value="81">&nbsp; &nbsp;Notícias</option>
+					<option value="75">Programação e assuntos relacionados</option>
+					<option value="6">&nbsp; &nbsp;Pascal/Delphi</option>
+					<option value="7">&nbsp; &nbsp;Visual Basic</option>
+					<option value="8">&nbsp; &nbsp;Outras linguagens</option>
+					<option value="20">&nbsp; &nbsp;Assembly</option>
+					<option value="21">&nbsp; &nbsp;C/C++</option>
+					<option value="22">&nbsp; &nbsp;Dark Basic</option>
+					<option value="23">&nbsp; &nbsp;Blitz Basic</option>
+					<option value="28">&nbsp; &nbsp;Inteligência artificial</option>
+					<option value="29">&nbsp; &nbsp;Programação gráfica</option>
+					<option value="31">&nbsp; &nbsp;Java</option>
+					<option value="32">&nbsp; &nbsp;Shockwave e Flash</option>
+					<option value="33">&nbsp; &nbsp;Matemática e física</option>
+					<option value="36">&nbsp; &nbsp;Programação Windows</option>
+					<option value="57">&nbsp; &nbsp;Programação em Linux</option>
+					<option value="58">&nbsp; &nbsp;Hardware</option>
+					<option value="60">&nbsp; &nbsp;C# e programação .NET</option>
+					<option value="61">&nbsp; &nbsp;Lógica da programação</option>
+					<option value="70">&nbsp; &nbsp;Programação de Games Online e Técnicas Multiplayer</option>
+					<option value="76">Engines, API's, bibliotecas e outros</option>
+					<option value="9">&nbsp; &nbsp;DirectX</option>
+					<option value="10">&nbsp; &nbsp;OpenGL</option>
+					<option value="11">&nbsp; &nbsp;Allegro</option>
+					<option value="12" selected="selected">&nbsp; &nbsp;SDL</option>
+					<option value="13">&nbsp; &nbsp;Outras API's e Engines</option>
+					<option value="69">&nbsp; &nbsp;Java3D</option>
+					<option value="25">&nbsp; &nbsp;XNA Game Studio</option>
+					<option value="73">&nbsp; &nbsp;Ogre 3D</option>
+					<option value="59">&nbsp; &nbsp;3D Game Studio</option>
+					<option value="65">&nbsp; &nbsp;Mobile</option>
+					<option value="67">&nbsp; &nbsp;Torque Game Engine</option>
+					<option value="68">&nbsp; &nbsp;Irrlicht Engine</option>
+					<option value="72">&nbsp; &nbsp;Game Making</option>
+					<option value="74">&nbsp; &nbsp;GameSpaceLib</option>
+					<option value="77">Arte nos jogos eletrônicos</option>
+					<option value="14">&nbsp; &nbsp;Modelagem 3D</option>
+					<option value="15">&nbsp; &nbsp;Game Design</option>
+					<option value="16">&nbsp; &nbsp;Arte 2D</option>
+					<option value="17">&nbsp; &nbsp;Música/Efeitos sonoros</option>
+					<option value="37">&nbsp; &nbsp;Roteiros</option>
+					<option value="78">Outros assuntos</option>
+					<option value="71">&nbsp; &nbsp;Contests</option>
+					<option value="18">&nbsp; &nbsp;Assuntos diversos</option>
+					<option value="19">&nbsp; &nbsp;Precisa-se</option>
+					<option value="63">&nbsp; &nbsp;Fale conosco</option>
+					<option value="27">&nbsp; &nbsp;Oferecem-se</option>
+					<option value="34">&nbsp; &nbsp;Tradução de Artigos</option>
+					<option value="5">&nbsp; &nbsp;Projetos</option>
+					<option value="38">&nbsp; &nbsp;Artigos / Tutoriais</option>
+					<option value="62">&nbsp; &nbsp;OFF-Topic</option>
+					<option value="64">&nbsp; &nbsp;Idiomas - termos técnicos</option>
+					<option value="26">&nbsp; &nbsp;UD-Zine</option>
+					<option value="66">&nbsp; &nbsp;Bancos de Dados</option>
+		
+		</select>&nbsp;<input class="btnlite" type="submit" value="Go" /></td>
+	</tr>
+	</table>
+
+	</form>
+</td>
+</tr>
+</table>
+
+
+
+
+
+	</td>
+<!-- [-] center block area -->	
+	</td>
+<!-- [-] right block area -->
+</tr>
+</table>
+<!-- [+] bottom block area -->
+<table width="100%" cellspacing="1">
+  <tr>
+    <td valign="top">
+    </td>
+  </tr>
+</table>
+<!-- [-] bottom block area -->
+
+</div>
+
+</div>
+
+		<br clear="all" />
+	
+</div></div></div></div>
+</div></div></div>
+
+</div>
+<br />
+<div id="wrapfooter">
+<!--
+	We request you retain the full copyright notice below including the link to www.phpbb.com.
+	This not only gives respect to the large amount of time given freely by the developers
+	but also helps build interest, traffic and use of phpBB3. If you (honestly) cannot retain
+	the full copyright we ask you at least leave in place the "Powered by phpBB" line, with
+	"phpBB" linked to www.phpbb.com. If you refuse to include even this then support on our
+	forums may be affected.
+
+	The phpBB Group : 2006
+//-->
+	<span class="copyright">Powered by <a href="http://www.phpbb.com/">phpBB</a> &copy;
+    <br />
+	<br />Virtual Object Inform�tica Ltda. Fone/Fax: (15)3231-6840
+	<br /><br /><span style="padding-top:5px; text-align: middle"><a href="http://damysterious.xs4all.nl/portalxl/" title="Portal XL 5.0 ~ Premod 0.2"><img src="./portal/images/phpbb-portal-xl40.png" alt="Portal XL 5.0 ~ Premod 0.2" /></a></span><span style="margin-top: 5px; text-align: middle;"> <a href="http://www.phpbb-seo.com/" title="Search Engine Optimization"><img src="http://unidev.tecnologia.ws/phpbb3/images/phpbb-seo.png" alt="phpBB SEO"/></a></span></span>
+</div>
+<br />
+
+</td>
+<td id="bgright"><img src="./styles/twilightBB/theme/images/spacer.gif" width="53px" alt="" /></td>
+</tr>
+</table>
+
+
+<div style="display: none;" id="resizemod"></div>
+</body>
+</html>

@@ -1,0 +1,1741 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-gb" xml:lang="en-gb">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta http-equiv="content-language" content="en-gb" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="resource-type" content="document" />
+ 
+    	<meta http-equiv="refresh" content="; URL=" /> 
+    	<meta http-equiv="refresh" content="" />  	
+		<meta http-equiv="pragma" content="" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<meta name="identifier-url" content="" />
+		<meta name="reply-to" content="" />
+		<meta name="revisit-after" content="15" />
+		<meta name="category" content="" />
+		<meta name="copyright" content="" />
+		<meta name="generator" content="" />
+		<meta name="robots" content="index, follow, noodp" />
+		<meta name="distribution" content="Global" />
+		<meta name="date-creation-yyyymmdd" content="20070501" />
+		<meta name="date-revision-yyyymmdd" content="20070821" /><title>UniDev - Programação de Jogos &bull; View forum - Fale conosco</title>
+
+<link rel="alternate" type="application/rss+xml" title="UniDev - Programação de Jogos RSS-Portal" href="./portal/syndicate.php" />
+<link rel="alternate" type="application/rss+xml" title="UniDev - Programação de Jogos RSS-Attachments" href="./portal/syndicate_attachments.php" />
+<link rel="alternate" type="application/rss+xml" title="UniDev - Programação de Jogos RSS-Downloads" href="./portal/syndicate_downloads.php" />
+  
+<link rel="stylesheet" href="./style.php?sid=2894e00d7f66ce69e4b512f8ab30bdcf&amp;id=4&amp;lang=pt_br" type="text/css" />
+<!--[if IE]><link href="./styles/twilightBB/theme/ie.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+<link href="./styles/twilightBB/theme/prime_trash_bin.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+// <![CDATA[
+
+function popup(url, width, height, name)
+{
+	if (!name)
+	{
+		name = '_popup';
+	}
+
+	window.open(url.replace(/&amp;/g, '&'), name, 'height=' + height + ',resizable=yes,scrollbars=yes,width=' + width);
+	return false;
+}
+
+// www.phpBB-SEO.com SEO TOOLKIT BEGIN
+function jumpto() {
+	var page = prompt('Enter the page number you wish to go to:', '1');
+	var perpage = '50';
+	var base_url = './viewforum.php?f=63';
+	var seo_delim_start = '-';
+	var seo_static_pagination = 'page';
+	var seo_ext_pagination = '.html';
+	if (page !== null && !isNaN(page) && page > 0) {
+		var seo_page = (page - 1) * perpage;
+		if ( base_url.indexOf('?') >= 0 ) {
+			document.location.href = base_url.replace(/&amp;/g, '&') + '&start=' + seo_page;
+		} else if ( seo_page > 0 ) {
+			var seo_type1 = base_url.match(/\.[a-z0-9]+$/i);
+			if (seo_type1 !== null) {
+				document.location.href = base_url.replace(/\.[a-z0-9]+$/i, '') + seo_delim_start + seo_page + seo_type1;
+			}
+			var seo_type2 = base_url.match(/\/$/);
+			if (seo_type2 !== null) {
+				document.location.href = base_url + seo_static_pagination + seo_page + seo_ext_pagination;
+			}
+		} else {
+			document.location.href = base_url;
+		}
+	}
+}
+// www.phpBB-SEO.com SEO TOOLKIT END
+
+/**
+* Find a member
+*/
+function find_username(url)
+{
+	popup(url, 760, 570, '_usersearch');
+	return false;
+}
+
+/**
+* Mark/unmark checklist
+* id = ID of parent container, name = name prefix, state = state [true/false]
+*/
+function marklist(id, name, state)
+{
+	var parent = document.getElementById(id);
+	if (!parent)
+	{
+		eval('parent = document.' + id);
+	}
+
+	if (!parent)
+	{
+		return;
+	}
+
+	var rb = parent.getElementsByTagName('input');
+	
+	for (var r = 0; r < rb.length; r++)
+	{
+		if (rb[r].name.substr(0, name.length) == name)
+		{
+			rb[r].checked = state;
+		}
+	}
+}
+
+
+// ]]>
+</script>
+
+<!--[if lt IE 7]>
+<script language="JavaScript">
+function correctPNG() // correctly handle PNG transparency in Win IE 5.5 & 6.
+{
+   var arVersion = navigator.appVersion.split("MSIE")
+   var version = parseFloat(arVersion[1])
+   if ((version >= 5.5) && (document.body.filters)) 
+   {
+      for(var i=0; i<document.images.length; i++)
+      {
+         var img = document.images[i]
+         var imgName = img.src.toUpperCase()
+         if (imgName.substring(imgName.length-3, imgName.length) == "PNG")
+         {
+            var imgID = (img.id) ? "id='" + img.id + "' " : ""
+            var imgClass = (img.className) ? "class='" + img.className + "' " : ""
+            var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' "
+            var imgStyle = "display:inline-block;" + img.style.cssText 
+            if (img.align == "left") imgStyle = "float:left;" + imgStyle
+            if (img.align == "right") imgStyle = "float:right;" + imgStyle
+            if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle
+            var strNewHTML = "<span " + imgID + imgClass + imgTitle
+            + " style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
+            + "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+            + "(src=\'" + img.src + "\', sizingMethod='scale');\"></span>" 
+            img.outerHTML = strNewHTML
+            i = i-1
+         }
+      }
+   }    
+}
+window.attachEvent("onload", correctPNG);
+</script>
+<![endif]-->
+
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/lib/prototype.js"></script>
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/src/scriptaculous.js?load=effects,dragdrop"></script>
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/src/unittest.js"></script>
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/src/lightbox.js"></script>
+
+ 
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/src/tooltips.js"></script>
+        
+
+<link rel="stylesheet" href="./styles/twilightBB/template/portal/scriptaculous/css/lightbox.css" type="text/css" />
+<link rel="stylesheet" href="./styles/twilightBB/theme/prime_links/prime_links.css" type="text/css" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+<script type="text/javascript">
+<!--
+	var rmw_max_width 	= '450';
+	var rmw_border_1 	= '1px solid';
+	var rmw_border_2 	= '2px dotted';
+	var rmw_image_title = 'Click here to view full size of this image!';
+//-->
+</script>
+<script type="text/javascript" src="./styles/twilightBB/template/portal/scriptaculous/src/resize_image.js"></script>
+
+	
+<link rel="stylesheet" href="./styles/twilightBB/theme/highslide/highslide.css" type="text/css" /> 
+<script type="text/javascript" src="./styles/twilightBB/theme/highslide/highslide-with-gallery.packed.js"></script>
+<script type="text/javascript">
+	hs.graphicsDir = './styles/twilightBB/theme/highslide/graphics/';
+	hs.align = 'center';
+	hs.transitions = ['expand', 'crossfade'];
+	hs.outlineType = 'rounded-white';
+	hs.wrapperClassName = 'controls-in-heading';
+	hs.fadeInOut = true;
+	//hs.dimmingOpacity = 0.75;
+
+	// Add the controlbar
+	if (hs.addSlideshow) hs.addSlideshow({
+		//slideshowGroup: 'group1',
+		interval: 5000,
+		repeat: false,
+		useControls: true,
+		fixedControls: false,
+		overlayOptions: {
+			opacity: 1,
+			position: 'top right',
+			hideOnMouseOut: false
+		}
+	});
+</script>
+
+<script type="text/javascript">
+// <![CDATA[
+/***********************************************
+* AnyLink Drop Down Menu- � Dynamic Drive (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+///// Begin menu options 
+
+//Contents for menu 1
+var menu1=new Array()
+menu1[1]='<a href="./index.php">Board index</a>' 
+menu1[2]='<a href="./calendar.php"> Calendar</a>' 
+menu1[3]='<a href="./portal/portal_acronyms.php">Acronyms and abbreviations</a>' 
+menu1[4]='<a href="./knowledge/index.php"> Knowledge Base</a>' 
+menu1[5]='<a href="./portal/portal_mods.php">Mods Database</a>' 
+menu1[6]='<a href="./portal/portal_crawler_linker.php">Crawler Feeds</a>' 
+menu1[7]='<a href="./portal_pages.php">Portal Pages</a>' 
+
+
+//Contents for menu 2, and so on
+var menu2=new Array()
+menu2[1]='<a href="./faq.php">FAQ</a>' 
+menu2[2]='<a href="./contact.php">Contact</a>' 
+menu2[3]='<a href="./impressum.php">Imprint</a>' 
+menu2[4]='<a href="">The team</a>'
+menu2[5]='<a href="./portal/syndicate.php">RSS 2 Feed Forum</a>'
+menu2[6]='<a href="./portal/syndicate_attachments.php">RSS 2 Feed Attachments</a>'
+menu2[7]='<a href="./portal/syndicate_downloads.php">RSS 2 Feed Downloads</a>'
+ 
+
+//Contents for menu 3 
+var menu3=new Array() 
+menu3[1]='<a href="./downloads.php">Downloads</a>' 
+
+
+ //Contents for menu 5 
+var menu5=new Array() 
+menu5[1]='<a href="./ucp.php">User Control Panel</a>'  
+menu5[2]='<a href="./ucp.php?i=pm&amp;folder=inbox"></a>' 
+menu5[3]='' 
+menu5[4]='<a href="./ucp.php"> User Control Panel</a>' 
+menu5[5]='' 
+menu5[6]='' 
+ 
+
+
+//Contents for menu 6 
+var menu6=new Array() 
+menu6[1]='<a href="./portal/portal_recent_topics.php">Recent Topics</a>'
+ 
+
+
+///// End menu options 
+
+var menuwidth='200px' //default menu width
+var menubgcolor='#131313'  //menu bgcolor
+var disappeardelay=250  //menu disappear speed onMouseout (in miliseconds)
+var hidemenu_onclick="yes" //hide menu when user clicks within menu?
+
+/////No further editting needed
+
+var ie4=document.all
+var ns6=document.getElementById&&!document.all
+
+if (ie4||ns6)
+document.write('<div id="dropmenudiv" style="visibility:hidden;width:'+menuwidth+';background-color:'+menubgcolor+'" onMouseover="clearhidemenu()" onMouseout="dynamichide(event)"></div>')
+
+function getposOffset(what, offsettype){
+var totaloffset=(offsettype=="left")? what.offsetLeft : what.offsetTop;
+var parentEl=what.offsetParent;
+while (parentEl!=null){
+totaloffset=(offsettype=="left")? totaloffset+parentEl.offsetLeft : totaloffset+parentEl.offsetTop;
+parentEl=parentEl.offsetParent;
+}
+return totaloffset;
+}
+
+function showhide(obj, e, visible, hidden, menuwidth){
+if (ie4||ns6)
+dropmenuobj.style.left=dropmenuobj.style.top="-500px"
+if (menuwidth!=""){
+dropmenuobj.widthobj=dropmenuobj.style
+dropmenuobj.widthobj.width=menuwidth
+}
+if (e.type=="click" && obj.visibility==hidden || e.type=="mouseover")
+obj.visibility=visible
+else if (e.type=="click")
+obj.visibility=hidden
+}
+
+function iecompattest(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+
+}
+
+function clearbrowseredge(obj, whichedge){
+var edgeoffset=0
+if (whichedge=="rightedge"){
+var windowedge=ie4 && !window.opera? iecompattest().scrollLeft+iecompattest().clientWidth-15 : window.pageXOffset+window.innerWidth-15
+dropmenuobj.contentmeasure=dropmenuobj.offsetWidth
+if (windowedge-dropmenuobj.x < dropmenuobj.contentmeasure)
+edgeoffset=dropmenuobj.contentmeasure-obj.offsetWidth
+}
+else{
+var topedge=ie4 && !window.opera? iecompattest().scrollTop : window.pageYOffset
+var windowedge=ie4 && !window.opera? iecompattest().scrollTop+iecompattest().clientHeight-15 : window.pageYOffset+window.innerHeight-18
+dropmenuobj.contentmeasure=dropmenuobj.offsetHeight
+if (windowedge-dropmenuobj.y < dropmenuobj.contentmeasure){ //move up?
+edgeoffset=dropmenuobj.contentmeasure+obj.offsetHeight
+if ((dropmenuobj.y-topedge)<dropmenuobj.contentmeasure) //up no good either?
+edgeoffset=dropmenuobj.y+obj.offsetHeight-topedge
+}
+}
+return edgeoffset
+}
+
+function populatemenu(what){
+if (ie4||ns6)
+dropmenuobj.innerHTML=what.join("")
+}
+
+function dropdownmenu(obj, e, menucontents, menuwidth){
+if (window.event) event.cancelBubble=true
+else if (e.stopPropagation) e.stopPropagation()
+clearhidemenu()
+dropmenuobj=document.getElementById? document.getElementById("dropmenudiv") : dropmenudiv
+populatemenu(menucontents)
+
+if (ie4||ns6){
+showhide(dropmenuobj.style, e, "visible", "hidden", menuwidth)
+
+dropmenuobj.x=getposOffset(obj, "left")
+dropmenuobj.y=getposOffset(obj, "top")
+dropmenuobj.style.left=dropmenuobj.x-clearbrowseredge(obj, "rightedge")+"px"
+dropmenuobj.style.top=dropmenuobj.y-clearbrowseredge(obj, "bottomedge")+obj.offsetHeight+"px"
+}
+
+return clickreturnvalue()
+}
+
+function clickreturnvalue(){
+if (ie4||ns6) return false
+else return true
+}
+
+function contains_ns6(a, b) {
+while (b.parentNode)
+if ((b = b.parentNode) == a)
+return true;
+return false;
+}
+
+function dynamichide(e){
+if (ie4&&!dropmenuobj.contains(e.toElement))
+delayhidemenu()
+else if (ns6&&e.currentTarget!= e.relatedTarget&& !contains_ns6(e.currentTarget, e.relatedTarget))
+delayhidemenu()
+}
+
+function hidemenu(e){
+if (typeof dropmenuobj!="undefined"){
+if (ie4||ns6)
+dropmenuobj.style.visibility="hidden"
+}
+}
+
+function delayhidemenu(){
+if (ie4||ns6)
+delayhide=setTimeout("hidemenu()",disappeardelay)
+}
+
+function clearhidemenu(){
+if (typeof delayhide!="undefined")
+clearTimeout(delayhide)
+}
+
+if (hidemenu_onclick=="yes")
+document.onclick=hidemenu
+// ]]>
+</script>
+
+</head>
+<body class="ltr">
+
+<table id="container" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td id="bgleft"><img src="./styles/twilightBB/theme/images/spacer.gif" width="53px" alt="" /></td>
+<td id="middle" valign="top">
+<a id="top" name="top" accesskey="t"></a>
+<a id="wrap" name="wrap" accesskey="w"></a>
+<a id="wrapheader" name="wrapheader" accesskey="w"></a>
+
+<div id="wrapper">
+
+<div id="banner">
+	<a href="./index.php" title="Board index" id="logo"><img src="./styles/twilightBB/imageset/logos/site_logo_00.gif" border="0" alt="" /></a>
+</div>
+
+<div id="header">
+	<div id="menu">
+		<a class="faq" href="./faq.php" title="Frequently Asked Questions"><span>FAQ</span></a>
+			</div>
+	<br clear="all" />
+
+	<div id="crumbs">
+	
+	        
+		<ul class="breadcrumbs">
+			<li class="icon-home">
+                <a class="icon-home" href="./portal.php" accesskey="h">Portal</a> <strong>&#8249;</strong> <a href="./index.php" accesskey="h">Board index</a> <strong>&#8249;</strong> <a href="./viewforum.php?f=78">Outros assuntos</a> <strong>&#8249;</strong> <a href="./viewforum.php?f=63">Fale conosco</a>            </li>
+		</ul>
+	</div>
+	
+	<div id="datebar">
+         
+	</div>
+
+</div>
+
+<div id="ct"><div id="ct2"><div id="ctl"><div id="ctr">
+<div id="cb"><div id="cbl"><div id="cbr">
+
+<div id="wrapcentre">
+
+	
+	<br style="clear: both;" />
+
+	<script type="text/javascript">
+// Ajax Userinfo 0.1.0 by tas2580 (http://www.seo-phpbb.org)
+//
+// Thanks to Jhong (http://www.wp-united.com) for some ideas in the JavaScript
+
+var lockAnim;
+lockAnim = false;
+
+function show_popup(uID) {
+	chOpac(0, 'popup');
+	if (!lockAnim) {
+		lockAnim = true;
+		opacAnim('popup', 0, 100, 500);
+	}
+	document.onmousemove = snapdiv;
+	sendRequest(uID);
+	document.getElementById('popup').style.display='block';
+}
+
+function close_popup() {
+	if (!lockAnim) {
+		lockAnim = true;
+		opacAnim('popup', 100, 0, 500);
+	} else {
+		document.getElementById('popup').style.display='none';
+		setDefaults();
+	}
+}
+
+function setDefaults() {
+	document.getElementById('ajaxusername').innerHTML = '';
+	document.getElementById('ajax_registert').innerHTML = '';
+	document.getElementById('ajax_posts').innerHTML = '';
+	document.getElementById('ajax_from').innerHTML = '';
+	document.getElementById('ajax_last_visit').innerHTML = '';
+	document.getElementById('ajaxavatar').src = "portal/images/loading.gif";
+	document.getElementById('ajax_rank').innerHTML = '';
+	document.getElementById('ajaxusername').style.color = '#000000';
+	document.getElementById('ajax_website').innerHTML = '';
+	document.onmousemove = '';
+}
+
+// Make the request   
+function createRequestObject() {
+	var ro;
+	var browser = navigator.appName;
+	if(browser == "Microsoft Internet Explorer"){
+		ro = new ActiveXObject("Microsoft.XMLHTTP");
+	} else {
+		ro = new XMLHttpRequest();
+	}
+	return ro;
+}
+
+var http_getuser = createRequestObject();
+
+function sendRequest(UserID) {
+	http_getuser.open('get', 'portal/includes/ajax_userinfo.php?userid='+UserID);
+	http_getuser.onreadystatechange = handleResponse;
+	http_getuser.send(null);
+}
+
+// fill in the response
+function handleResponse() {
+	if(http_getuser.readyState == 4){
+		var xmlDoc   = http_getuser.responseXML;
+		document.getElementById('ajaxusername').innerHTML = xmlDoc.getElementsByTagName('username')[0].firstChild.nodeValue;
+		document.getElementById('ajaxusername').style.color = '#' + xmlDoc.getElementsByTagName('colour')[0].firstChild.nodeValue;
+		document.getElementById('ajax_registert').innerHTML = xmlDoc.getElementsByTagName('regdate')[0].firstChild.nodeValue;
+		document.getElementById('ajax_posts').innerHTML = xmlDoc.getElementsByTagName('posts')[0].firstChild.nodeValue;
+		document.getElementById('ajax_website').innerHTML = xmlDoc.getElementsByTagName('website')[0].firstChild.nodeValue;
+		document.getElementById('ajax_from').innerHTML = xmlDoc.getElementsByTagName('from')[0].firstChild.nodeValue;
+		document.getElementById('ajax_last_visit').innerHTML = xmlDoc.getElementsByTagName('lastvisit')[0].firstChild.nodeValue;
+		document.getElementById('ajax_rank').innerHTML = xmlDoc.getElementsByTagName('rank')[0].firstChild.nodeValue;
+		document.getElementById('ajaxavatar').src = xmlDoc.getElementsByTagName('avatar')[0].firstChild.nodeValue;
+	}
+}
+
+function snapdiv(e) {      
+	var docX, docY;
+	if(e)
+	{
+		if(typeof(e.pageX) == 'number') { docX = e.pageX; docY = e.pageY;}
+		else {docX = e.clientX; docY = e.clientY;}
+	}
+	else 
+	{
+		e = window.event;
+		docX = e.clientX; docY = e.clientY;
+		if(document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) 
+		{
+			docX += document.documentElement.scrollLeft; docY += document.documentElement.scrollTop;
+		}
+		else if(document.body && (document.body.scrollTop || document.body.scrollLeft)) 
+		{
+			docX += document.body.scrollLeft; docY += document.body.scrollTop;
+		}
+	}
+	if (docX > document.body.offsetWidth - 400) 
+	{
+		document.getElementById('popup').style.left = (docX - 390) + "px";
+	} 
+	else 
+	{
+		document.getElementById('popup').style.left = (docX - 10) + "px";
+	}
+	document.getElementById('popup').style.top    = (docY + 20) + "px";
+}
+
+function opacAnim(id, opacStart, opacEnd, millisec) {
+	lockAnim = true;
+	var speed = Math.round(millisec / 100);
+	var timer = 0; var i = 0;
+	if (opacEnd>opacStart) 
+	{
+		for (i = opacStart+1; i <= opacEnd; i=i+2) 
+		{
+			i= (i==99)?100:i;
+			setTimeout("chOpac(" + i + ",'" + id + "')",(timer * speed));
+			timer++;
+		}      
+	} 
+	else 
+	{
+		for (i = opacStart-1; i >= opacEnd; i--) 
+		{
+			setTimeout("chOpac(" + i + ",'" + id + "')",(timer * speed));
+			timer++;
+		}
+	}
+}
+
+function chOpac(opacity, id) 
+{
+	var object = document.getElementById(id).style;
+	object.filter = "alpha(opacity:" + opacity + ")";
+	object.opacity = object.MozOpacity = object.KhtmlOpacity = (opacity / 100);
+	if ((opacity <= 0) || (opacity >= 100)) 
+	{
+		lockAnim = false;
+		if (opacity <= 0) {
+			document.getElementById(id).style.display='none';setDefaults();
+		}
+	}
+}
+</script>
+
+<style type="text/css">
+/* Ajax User-Info Popups */
+.popup {
+   z-index: 60;
+   position: absolute;
+   display: none;
+   font-size: 10px;
+   width: 360px;
+}
+
+#avimg {width:100px; float: left; overflow: hidden; height: 100px; text-align: center;}
+#ajaxusername {font-weight: bold;}
+</style>
+
+<div class="popup forabg" id="popup" style="display: none;">
+  <table class="tablebg" cellspacing="1" width="100%">
+    <tr>
+      <th><h4>Users Information</h4></th>
+    </tr>
+    <td class="row1">
+    	<div id="avimg"><img id="ajaxavatar" src="./styles/twilightBB/theme/images/loading.gif" alt="avatar"></div>
+        <strong>Username:</strong> <span id="ajaxusername"></span><br />
+        <strong>Total posts:</strong> <span id="ajax_posts"></span><br />
+        <strong>Rank:</strong> <span id="ajax_rank"></span><br />
+        <strong>Joined:</strong> <span id="ajax_registert"></span><br />
+        <strong>Last visit:</strong> <span id="ajax_last_visit"></span><br />
+        <strong>Location:</strong> <span id="ajax_from"></span><br />
+        <strong>Website:</strong> <span id="ajax_website"></span><br style="clear: both;">
+      </td>
+    </tr>
+  </table>
+</div>        
+
+	<br /><script type="text/javascript">
+// Topic Hover Preview 0.3.0 by raptor5001. This is a modified version of:
+//
+// Ajax Userinfo 0.1.0 by tas2580 (http://www.seo-phpbb.org)
+//
+// Thanks to Jhong (http://www.wp-united.com) for some ideas in the JavaScript
+
+//var lockAnimP;
+//lockAnimP = false;
+
+function show_preview(header, body) {
+/*	chOpacP(0, 'preview');
+	if (!lockAnimP) {
+		lockAnimP = true;
+		opacAnimP('preview', 0, 100, 500);
+	}*/
+	document.onmousemove = snapdivP;
+	document.getElementById('tpheader').innerHTML = header;
+	document.getElementById('tpbody').innerHTML = body;
+	document.getElementById('preview').style.display='block';
+}
+
+function close_preview() {
+/*	if (!lockAnimP) {
+		lockAnimP = true;
+		opacAnimP('preview', 100, 0, 500);
+	} else {*/
+		document.getElementById('preview').style.display='none';
+		setDefaultsP();
+//	}
+}
+
+function setDefaultsP() {
+	document.getElementById('tpheader').innerHTML = '';
+	document.getElementById('tpbody').innerHTML = '';
+	document.onmousemove = '';
+}
+
+function snapdivP(e) {      
+	var docX, docY;
+	if(e)
+	{
+		if(typeof(e.pageX) == 'number') { docX = e.pageX; docY = e.pageY;}
+		else {docX = e.clientX; docY = e.clientY;}
+	}
+	else 
+	{
+		e = window.event;
+		docX = e.clientX; docY = e.clientY;
+		if(document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) 
+		{
+			docX += document.documentElement.scrollLeft; docY += document.documentElement.scrollTop;
+		}
+		else if(document.body && (document.body.scrollTop || document.body.scrollLeft)) 
+		{
+			docX += document.body.scrollLeft; docY += document.body.scrollTop;
+		}
+	}
+	if (docX > document.body.offsetWidth - 400) 
+	{
+		document.getElementById('preview').style.left = (docX - 390) + "px";
+	} 
+	else 
+	{
+		document.getElementById('preview').style.left = (docX - 10) + "px";
+	}
+	document.getElementById('preview').style.top    = (docY + 20) + "px";
+}
+
+function opacAnimP(id, opacStart, opacEnd, millisec) {
+	lockAnimP = true;
+	var speed = Math.round(millisec / 100);
+	var timer = 0; var i = 0;
+	if (opacEnd>opacStart) 
+	{
+		for (i = opacStart+1; i <= opacEnd; i=i+2) 
+		{
+			i= (i==99)?100:i;
+			setTimeout("chOpacP(" + i + ",'" + id + "')",(timer * speed));
+			timer++;
+		}      
+	} 
+	else 
+	{
+		for (i = opacStart-1; i >= opacEnd; i--) 
+		{
+			setTimeout("chOpacP(" + i + ",'" + id + "')",(timer * speed));
+			timer++;
+		}
+	}
+}
+
+function chOpacP(opacity, id) 
+{
+	var object = document.getElementById(id).style;
+	object.filter = "alpha(opacity:" + opacity + ")";
+	object.opacity = object.MozOpacity = object.KhtmlOpacity = (opacity / 100);
+	if ((opacity <= 0) || (opacity >= 100)) 
+	{
+		lockAnimP = false;
+		if (opacity <= 0) {
+			document.getElementById(id).style.display='none';setDefaultsP();
+		}
+	}
+}
+</script>
+
+<style type="text/css">
+.preview {
+   z-index: 60;
+   position: absolute;
+   display: none;
+   font-size: 10px;
+   width: 350px;
+   border: 1px solid #808080;
+}
+</style>
+
+<div class="preview row2" id="preview" style="display: none;">
+<table class="tablebg" cellspacing="1" width="100%">
+<tr>
+	<th><h4><span id="tpheader"></span></h4></th>
+</tr>
+<tr>
+	<td class="row1" valign="top"><span id="tpbody"></span></td>
+</tr>
+</table>
+</div>        
+
+<table width="100%" cellspacing="1">
+  <tr>
+    <td class="genmed" align="left"><a href="#" onclick="Effect.toggle('portal_container','slide'); return false;" title="OpenCloseAllColumns"><span>[ +/- ]</span></a>
+            <span>[ Last visit was: Mon Jul 06, 2009 3:58 am ]</span>
+      </td>
+    <td class="genmed" align="right">      <span>[ It is currently Mon Jul 06, 2009 3:58 am ]</span>
+          </td>
+  </tr>
+</table>
+
+<div id="portal_container">
+
+<!-- [+] top block area -->
+<table width="100%" cellspacing="1">
+  <tr>
+    <td valign="top">
+    </td>
+  </tr>
+</table>
+<!-- [-] top block area -->
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<!-- [+] center block area -->
+	<td valign="top">
+	<div id="pageheader">
+		<h2><a class="titles" href="./viewforum.php?f=63&amp;start=0">Fale conosco</a></h2>
+
+			</div>
+
+	<br clear="all" /><br />
+
+<div id="pagecontent">
+
+		<table width="100%" cellspacing="1">
+		<tr>
+							<td class="nav" valign="middle" nowrap="nowrap">&nbsp;Page <strong>1</strong> of <strong>10</strong><br /></td>
+				<td class="gensmall" nowrap="nowrap">&nbsp;[ 480 topics ]&nbsp;</td>
+				<td class="gensmall" width="100%" align="right" nowrap="nowrap"><b><a href="#" onclick="jumpto(); return false;" title="Click to jump to page…">Go to page</a> <strong>1</strong><span class="page-sep">, </span><a href="./viewforum.php?f=63&amp;start=50">2</a><span class="page-sep">, </span><a href="./viewforum.php?f=63&amp;start=100">3</a><span class="page-sep">, </span><a href="./viewforum.php?f=63&amp;start=150">4</a><span class="page-sep">, </span><a href="./viewforum.php?f=63&amp;start=200">5</a> ... <a href="./viewforum.php?f=63&amp;start=450">10</a> &nbsp;<a href="./viewforum.php?f=63&amp;start=50">Next</a></b></td>
+					</tr>
+		</table>
+			<table class="tablebg" width="100%" cellspacing="1">
+		<tr>
+							<th colspan="2">&nbsp;Topics&nbsp;</th>
+						<th>&nbsp;Author&nbsp;</th>
+			<th>&nbsp;Replies&nbsp;</th>
+			<th>&nbsp;Views&nbsp;</th>
+			<th>&nbsp;Last post&nbsp;</th>
+		</tr>
+
+						<tr>
+					<td class="row3" colspan="6"><b class="gensmall">Topics</b></td>
+				</tr>
+			
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/announce_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Tue Apr 14, 2009 2:08 am" href="./viewtopic.php?f=63&amp;t=48573" class="topictitle">Novo forum e breve novo portal!</a>
+											<p class="gensmall"> [ <img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Go to page" title="Go to page" />Go to page: <a href="./viewtopic.php?f=63&amp;t=48573&amp;start=0">1</a><span class="page-sep">, </span><a href="./viewtopic.php?f=63&amp;t=48573&amp;start=15">2</a><span class="page-sep">, </span><a href="./viewtopic.php?f=63&amp;t=48573&amp;start=30">3</a> ] </p>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><span style="color: #AA0000;" class="username-coloured">duzao7667</span></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">34</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">713</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Fri Jun 05, 2009 9:19 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=7347"><b style="color:#" onmouseover="show_popup(7347)" onmouseout="close_popup()">joaoalfredo</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/announce_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Fri Apr 17, 2009 12:30 pm" href="./viewtopic.php?f=63&amp;t=48605" class="topictitle">O Forum UniDev será fechado amanhã para instalação do portal</a>
+											<p class="gensmall"> [ <img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Go to page" title="Go to page" />Go to page: <a href="./viewtopic.php?f=63&amp;t=48605&amp;start=0">1</a><span class="page-sep">, </span><a href="./viewtopic.php?f=63&amp;t=48605&amp;start=15">2</a> ] </p>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><span style="color: #AA0000;" class="username-coloured">duzao7667</span></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">15</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">324</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Sat Apr 25, 2009 12:49 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=6133"><b style="color:#AA0000" onmouseover="show_popup(6133)" onmouseout="close_popup()">duzao7667</b></a>											</p>
+				</td>
+			</tr>
+
+						<tr>
+					<td class="row3" colspan="6"><b class="gensmall">Topics</b></td>
+				</tr>
+			
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/sticky_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Fri Mar 03, 2006 6:42 pm" href="./viewtopic.php?f=63&amp;t=26332" class="topictitle">Reportar Problemas</a>
+											<p class="gensmall"> [ <img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Go to page" title="Go to page" />Go to page: <a href="./viewtopic.php?f=63&amp;t=26332&amp;start=0">1</a><span class="page-sep">, </span><a href="./viewtopic.php?f=63&amp;t=26332&amp;start=15">2</a><span class="page-sep">, </span><a href="./viewtopic.php?f=63&amp;t=26332&amp;start=30">3</a> ] </p>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">ACDias</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">35</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">7092</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Tue May 12, 2009 11:34 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=48933"><b style="color:#" onmouseover="show_popup(48933)" onmouseout="close_popup()">dani piresk</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/sticky_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Thu Jan 26, 2006 12:41 pm" href="./viewtopic.php?f=63&amp;t=26300" class="topictitle">Sugestões de recursos para o Fórum.</a>
+											<p class="gensmall"> [ <img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Go to page" title="Go to page" />Go to page: <a href="./viewtopic.php?f=63&amp;t=26300&amp;start=0">1</a><span class="page-sep">, </span><a href="./viewtopic.php?f=63&amp;t=26300&amp;start=15">2</a><span class="page-sep">, </span><a href="./viewtopic.php?f=63&amp;t=26300&amp;start=30">3</a><span class="page-sep">, </span><a href="./viewtopic.php?f=63&amp;t=26300&amp;start=45">4</a><span class="page-sep">, </span><a href="./viewtopic.php?f=63&amp;t=26300&amp;start=60">5</a> ] </p>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">rodrigo_flausino</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">60</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">11319</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Tue Mar 10, 2009 3:41 am</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=23453"><b style="color:#" onmouseover="show_popup(23453)" onmouseout="close_popup()">Rock</b></a>											</p>
+				</td>
+			</tr>
+
+						<tr>
+					<td class="row3" colspan="6"><b class="gensmall">Topics</b></td>
+				</tr>
+			
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Sun Jul 05, 2009 2:33 am" href="./viewtopic.php?f=63&amp;t=49109" class="topictitle">Novo engine</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">gameman</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">24</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Sun Jul 05, 2009 2:33 am</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=46610"><b style="color:#" onmouseover="show_popup(46610)" onmouseout="close_popup()">gameman</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Thu Jun 25, 2009 12:53 pm" href="./viewtopic.php?f=63&amp;t=49054" class="topictitle">Cookies do Portal</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">Rock</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">6</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">35</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Mon Jun 29, 2009 2:57 am</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=23453"><b style="color:#" onmouseover="show_popup(23453)" onmouseout="close_popup()">Rock</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Wed Jun 24, 2009 7:06 pm" href="./viewtopic.php?f=63&amp;t=49051" class="topictitle">Sobre a seção Artigos / Tutoriais</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">V! O Vil</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">52</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Thu Jun 25, 2009 11:14 am</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=54"><b style="color:#AA0000" onmouseover="show_popup(54)" onmouseout="close_popup()">gilmer</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Mon May 25, 2009 12:12 am" href="./viewtopic.php?f=63&amp;t=48940" class="topictitle">Desenterrar tópicos</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">NewWave</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">5</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">59</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Tue May 26, 2009 7:01 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=4564"><b style="color:#" onmouseover="show_popup(4564)" onmouseout="close_popup()">bcsanches2</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read_hot.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Fri May 15, 2009 3:15 am" href="./viewtopic.php?f=63&amp;t=48880" class="topictitle">Alguem pode me Ajudar? por favor</a>
+											<p class="gensmall"> [ <img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Go to page" title="Go to page" />Go to page: <a href="./viewtopic.php?f=63&amp;t=48880&amp;start=0">1</a><span class="page-sep">, </span><a href="./viewtopic.php?f=63&amp;t=48880&amp;start=15">2</a> ] </p>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">zeugad</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">16</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">89</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Tue May 26, 2009 1:35 am</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=45165"><b style="color:#" onmouseover="show_popup(45165)" onmouseout="close_popup()">zeugad</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Fri May 15, 2009 3:49 am" href="./viewtopic.php?f=63&amp;t=48882" class="topictitle">Ícones da seção</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">c_prosk</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">22</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Fri May 15, 2009 3:49 am</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=14111"><b style="color:#" onmouseover="show_popup(14111)" onmouseout="close_popup()">c_prosk</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Wed Mar 18, 2009 9:57 pm" href="./viewtopic.php?f=63&amp;t=48443" class="topictitle">Quero informações sobre o cus cursos promovidos pela UniDev</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">Jeffmccoy</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">108</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Thu Mar 19, 2009 11:43 am</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=2084"><b style="color:#AA0000" onmouseover="show_popup(2084)" onmouseout="close_popup()">Zizaco</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Sat Mar 14, 2009 3:00 pm" href="./viewtopic.php?f=63&amp;t=48407" class="topictitle">Game Estudio</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">Fliperac</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">71</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Sat Mar 14, 2009 3:00 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=48379"><b style="color:#" onmouseover="show_popup(48379)" onmouseout="close_popup()">Fliperac</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Thu Mar 12, 2009 4:37 pm" href="./viewtopic.php?f=63&amp;t=48389" class="topictitle">Curso 3dgs</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">Mabrol</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">4</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">157</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Fri Mar 13, 2009 4:45 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=8831"><b style="color:#" onmouseover="show_popup(8831)" onmouseout="close_popup()">xandeck</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Mon Mar 02, 2009 12:24 am" href="./viewtopic.php?f=63&amp;t=48258" class="topictitle">Site...</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">Nathy_princess</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">83</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Mon Mar 02, 2009 1:31 am</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=25739"><b style="color:#" onmouseover="show_popup(25739)" onmouseout="close_popup()">Kamus do Poder</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Tue Feb 24, 2009 7:41 pm" href="./viewtopic.php?f=63&amp;t=48194" class="topictitle">CD do curso não abre (sem chave)</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">fertel</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">2</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">163</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Wed Feb 25, 2009 8:10 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=6906"><b style="color:#" onmouseover="show_popup(6906)" onmouseout="close_popup()">fertel</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Mon Feb 23, 2009 8:22 pm" href="./viewtopic.php?f=63&amp;t=48179" class="topictitle">CHAT que não funciona.</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">gokernel</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">3</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">158</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Tue Feb 24, 2009 2:09 am</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=44277"><b style="color:#" onmouseover="show_popup(44277)" onmouseout="close_popup()">edvardjr</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_moved.png" width="27" height="27" alt="Moved topic" title="Moved topic" /></td>
+								<td class="row1">
+										 <b>Moved: </b> <a title="Posted: Sat Feb 21, 2009 10:18 am" href="./viewtopic.php?f=8&amp;t=48147" class="topictitle">Linguagem LUA</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">gokernel</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">13</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">522</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Wed Mar 25, 2009 1:48 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=49468"><b style="color:#" onmouseover="show_popup(49468)" onmouseout="close_popup()">gokernel</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Sat Dec 27, 2008 11:22 pm" href="./viewtopic.php?f=63&amp;t=47423" class="topictitle">Hora errada na página inicial nos tópicos</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">rodrigo_flausino</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">174</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Sat Dec 27, 2008 11:22 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=10259"><b style="color:#" onmouseover="show_popup(10259)" onmouseout="close_popup()">rodrigo_flausino</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Tue Dec 09, 2008 12:25 pm" href="./viewtopic.php?f=63&amp;t=47160" class="topictitle">Problema com AVATAR no FORUM</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">akigames</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">2</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">248</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Wed Dec 10, 2008 6:42 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=1615"><b style="color:#" onmouseover="show_popup(1615)" onmouseout="close_popup()">akigames</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Sun Aug 17, 2008 3:31 pm" href="./viewtopic.php?f=63&amp;t=45694" class="topictitle">CD do Curso de JAVA3D</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">Alyssa Bates</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">330</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Sun Aug 17, 2008 3:31 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=11400"><b style="color:#" onmouseover="show_popup(11400)" onmouseout="close_popup()">Alyssa Bates</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Wed Mar 26, 2008 11:14 pm" href="./viewtopic.php?f=63&amp;t=43793" class="topictitle">Editar perfil e layout do site</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">Eric Draven</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">3</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">760</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Thu Aug 07, 2008 2:29 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=14536"><b style="color:#" onmouseover="show_popup(14536)" onmouseout="close_popup()">Crash Metal</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Wed Apr 09, 2008 8:06 pm" href="./viewtopic.php?f=63&amp;t=43964" class="topictitle">Problema com tutorial</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">Rock</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">2</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">714</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Fri Jul 11, 2008 2:11 am</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=6133"><b style="color:#AA0000" onmouseover="show_popup(6133)" onmouseout="close_popup()">duzao7667</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Thu Mar 13, 2008 4:19 pm" href="./viewtopic.php?f=63&amp;t=43583" class="topictitle">Num encontrei o Arret no UDGP :(</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">killguns</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">5</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">860</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Fri Jul 11, 2008 2:10 am</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=6133"><b style="color:#AA0000" onmouseover="show_popup(6133)" onmouseout="close_popup()">duzao7667</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Fri Jul 11, 2008 12:42 am" href="./viewtopic.php?f=63&amp;t=45247" class="topictitle">DUZÃO IS BACK!!!!! }:D</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><span style="color: #AA0000;" class="username-coloured">duzao7667</span></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">386</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Fri Jul 11, 2008 1:07 am</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=2949"><b style="color:#" onmouseover="show_popup(2949)" onmouseout="close_popup()">ZuMbY</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Sun Mar 30, 2008 5:58 pm" href="./viewtopic.php?f=63&amp;t=43837" class="topictitle">cursos UDCO - curso de modelagem - quando volta?</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">Johhan32</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">501</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Sun Mar 30, 2008 5:58 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=45440"><b style="color:#" onmouseover="show_popup(45440)" onmouseout="close_popup()">Johhan32</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Sun Mar 23, 2008 4:36 pm" href="./viewtopic.php?f=63&amp;t=43743" class="topictitle">Sobre o pagamento do curso de Blitz3D</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">kyruz</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">520</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Sun Mar 23, 2008 4:36 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=45324"><b style="color:#" onmouseover="show_popup(45324)" onmouseout="close_popup()">kyruz</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Sun Nov 04, 2007 4:01 pm" href="./viewtopic.php?f=63&amp;t=41438" class="topictitle">Erro quanto ao valor do pagamento</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">RetalhadorX</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">3</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">1073</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Sun Mar 23, 2008 4:29 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=45324"><b style="color:#" onmouseover="show_popup(45324)" onmouseout="close_popup()">kyruz</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Sun Mar 09, 2008 1:56 pm" href="./viewtopic.php?f=63&amp;t=43534" class="topictitle">Dúvida sobre CD do Curso</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">MalloryKnox</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">550</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Mon Mar 10, 2008 11:07 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=9127"><b style="color:#" onmouseover="show_popup(9127)" onmouseout="close_popup()">MalloryKnox</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Sun Mar 09, 2008 5:13 am" href="./viewtopic.php?f=63&amp;t=43532" class="topictitle">Comprei um livro</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">Andron</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">510</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Sun Mar 09, 2008 5:13 am</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=45122"><b style="color:#" onmouseover="show_popup(45122)" onmouseout="close_popup()">Andron</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Wed Feb 13, 2008 10:21 am" href="./viewtopic.php?f=63&amp;t=43129" class="topictitle">Excluir arquivos de download do UDP</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">Fabio Paganini</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">7</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">1153</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Tue Feb 19, 2008 3:22 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=43680"><b style="color:#" onmouseover="show_popup(43680)" onmouseout="close_popup()">Fabio Paganini</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Sun Feb 17, 2008 5:27 am" href="./viewtopic.php?f=63&amp;t=43183" class="topictitle">tutorial directqb</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">adil.</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">539</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Sun Feb 17, 2008 5:27 am</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=44545"><b style="color:#" onmouseover="show_popup(44545)" onmouseout="close_popup()">adil.</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Sat Feb 16, 2008 11:44 pm" href="./viewtopic.php?f=63&amp;t=43179" class="topictitle">a pagina de tutoriais naum abre</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">JeffiN</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">577</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Sun Feb 17, 2008 12:37 am</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=6133"><b style="color:#AA0000" onmouseover="show_popup(6133)" onmouseout="close_popup()">duzao7667</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Fri Jan 11, 2008 8:07 pm" href="./viewtopic.php?f=63&amp;t=42577" class="topictitle">[Webmaster]Tag do YouTube adicionada ao forum!</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor"><span style="color: #AA0000;" class="username-coloured">duzao7667</span></p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">4</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">1220</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Wed Feb 13, 2008 6:28 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=1536"><b style="color:#" onmouseover="show_popup(1536)" onmouseout="close_popup()">Maycon-Amaral</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Fri Jan 25, 2008 1:26 pm" href="./viewtopic.php?f=63&amp;t=42840" class="topictitle">Curso de c++ e apostilas</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">weliton310</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">3</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">961</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Sat Feb 02, 2008 5:17 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=44148"><b style="color:#" onmouseover="show_popup(44148)" onmouseout="close_popup()">weliton310</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read_hot.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Sun Dec 30, 2007 3:19 am" href="./viewtopic.php?f=63&amp;t=42388" class="topictitle">Tirem a mensagem de carregando da pág inicial</a>
+											<p class="gensmall"> [ <img src="./styles/twilightBB/imageset/icon_post_target.gif" width="11" height="9" alt="Go to page" title="Go to page" />Go to page: <a href="./viewtopic.php?f=63&amp;t=42388&amp;start=0">1</a><span class="page-sep">, </span><a href="./viewtopic.php?f=63&amp;t=42388&amp;start=15">2</a><span class="page-sep">, </span><a href="./viewtopic.php?f=63&amp;t=42388&amp;start=30">3</a> ] </p>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">arthurprs</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">34</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">4575</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Thu Jan 03, 2008 9:33 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=6133"><b style="color:#AA0000" onmouseover="show_popup(6133)" onmouseout="close_popup()">duzao7667</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Tue Jan 01, 2008 5:00 am" href="./viewtopic.php?f=63&amp;t=42411" class="topictitle">dúvidas</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">new_art_3d</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">581</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Tue Jan 01, 2008 5:00 am</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=43456"><b style="color:#" onmouseover="show_popup(43456)" onmouseout="close_popup()">new_art_3d</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Tue Dec 18, 2007 2:36 pm" href="./viewtopic.php?f=63&amp;t=42201" class="topictitle">Ideia, particularmente acho uma ideia revolucionaria ^^</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">Hiro</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">5</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">1256</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Tue Dec 18, 2007 4:52 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=238"><b style="color:#" onmouseover="show_popup(238)" onmouseout="close_popup()">Eric Draven</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Mon Dec 10, 2007 11:49 pm" href="./viewtopic.php?f=63&amp;t=42065" class="topictitle">Como Colocar Tutoriais no Site? (RESOLVIDOO)</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">helannogueira</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">2</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">993</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Tue Dec 11, 2007 4:18 am</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=30895"><b style="color:#" onmouseover="show_popup(30895)" onmouseout="close_popup()">helannogueira</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Fri Nov 23, 2007 5:29 pm" href="./viewtopic.php?f=63&amp;t=41742" class="topictitle">Troca e venda de livros</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">pispico</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">1</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">775</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Fri Nov 23, 2007 6:33 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=3709"><b style="color:#" onmouseover="show_popup(3709)" onmouseout="close_popup()">Pr0gr4mm3r</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <b>Poll: </b> <a title="Posted: Sun Nov 18, 2007 5:45 am" href="./viewtopic.php?f=63&amp;t=41641" class="topictitle">Criar sessão &quot;Ogre 3D&quot; no fórum</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">tiozorak</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">13</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">2189</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Wed Nov 21, 2007 10:49 am</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=16263"><b style="color:#" onmouseover="show_popup(16263)" onmouseout="close_popup()">skhaz</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Wed Nov 14, 2007 11:39 pm" href="./viewtopic.php?f=63&amp;t=41587" class="topictitle">Cursos</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">danizero</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">3</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">958</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Thu Nov 15, 2007 9:06 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=6133"><b style="color:#AA0000" onmouseover="show_popup(6133)" onmouseout="close_popup()">duzao7667</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Sun Oct 28, 2007 12:51 am" href="./viewtopic.php?f=63&amp;t=41322" class="topictitle">UDCO</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">don flyer</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">5</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">1380</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Wed Oct 31, 2007 6:20 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=6528"><b style="color:#" onmouseover="show_popup(6528)" onmouseout="close_popup()">RetalhadorX</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Mon Oct 29, 2007 4:27 am" href="./viewtopic.php?f=63&amp;t=41340" class="topictitle">Erro ao desabilitar projeto</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">moises</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">673</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Mon Oct 29, 2007 4:27 am</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=14499"><b style="color:#" onmouseover="show_popup(14499)" onmouseout="close_popup()">moises</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Fri Oct 26, 2007 4:09 pm" href="./viewtopic.php?f=63&amp;t=41300" class="topictitle">Mais problemas!</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">YN</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">0</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">631</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Fri Oct 26, 2007 4:09 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=39079"><b style="color:#" onmouseover="show_popup(39079)" onmouseout="close_popup()">YN</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Sun Jan 09, 2005 3:08 am" href="./viewtopic.php?f=63&amp;t=13786" class="topictitle">Novo Forum: C++ Avançado</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">akroma</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">6</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">1514</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Fri Oct 19, 2007 4:35 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=734"><b style="color:#" onmouseover="show_popup(734)" onmouseout="close_popup()">Spy7</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Mon Sep 03, 2007 3:37 am" href="./viewtopic.php?f=63&amp;t=40469" class="topictitle">Minha senha oO</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">alext</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">12</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">2304</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Fri Oct 19, 2007 1:56 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=23453"><b style="color:#" onmouseover="show_popup(23453)" onmouseout="close_popup()">Rock</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Wed Oct 10, 2007 7:57 pm" href="./viewtopic.php?f=63&amp;t=41061" class="topictitle">Usuário com mais de 30K msg</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">KeyMaker</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">5</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">1300</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Wed Oct 17, 2007 1:28 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=39079"><b style="color:#" onmouseover="show_popup(39079)" onmouseout="close_popup()">YN</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read_hot.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Wed Apr 05, 2006 2:07 am" href="./viewtopic.php?f=63&amp;t=28320" class="topictitle">Novo fórum para Contests</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">Lord Eternal K</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">14</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">2616</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Wed Oct 17, 2007 12:08 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=41719"><b style="color:#" onmouseover="show_popup(41719)" onmouseout="close_popup()">joker12</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Sun Sep 30, 2007 1:28 pm" href="./viewtopic.php?f=63&amp;t=40884" class="topictitle">COMPRA DE ENGINER</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">FA Games</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">3</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">1173</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Wed Oct 10, 2007 11:56 am</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=238"><b style="color:#" onmouseover="show_popup(238)" onmouseout="close_popup()">Eric Draven</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Tue Oct 09, 2007 4:39 am" href="./viewtopic.php?f=63&amp;t=41025" class="topictitle">Enviar tutorial em PDF para a unidev</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">lucifer2</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">4</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">1335</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Wed Oct 10, 2007 11:07 am</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=41289"><b style="color:#" onmouseover="show_popup(41289)" onmouseout="close_popup()">.LG.</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Fri Sep 21, 2007 3:06 am" href="./viewtopic.php?f=63&amp;t=40758" class="topictitle">Duvida</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">Seta</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">2</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">957</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Fri Sep 21, 2007 12:27 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=39079"><b style="color:#" onmouseover="show_popup(39079)" onmouseout="close_popup()">YN</b></a>											</p>
+				</td>
+			</tr>
+
+		
+			<tr>
+				<td class="row_h" width="25" align="center"><img src="./styles/twilightBB/imageset/topic_read.png" width="27" height="27" alt="No new posts" title="No new posts" /></td>
+								<td class="row1">
+										 <a title="Posted: Sat Aug 04, 2007 1:24 am" href="./viewtopic.php?f=63&amp;t=39944" class="topictitle">Syntax Highlight para os códigos</a>
+									</td>
+				<td class="row2" width="130" align="center"><p class="topicauthor">arthurprs</p></td>
+				<td class="row1" width="50" align="center"><p class="topicdetails">3</p></td>
+				<td class="row2" width="50" align="center"><p class="topicdetails">1235</p></td>
+				<td class="row1" width="140" align="center">
+					<p class="topicdetails" style="white-space: nowrap;">Wed Sep 05, 2007 9:45 pm</p>
+					<p class="topicdetails"><a href="./memberlist.php?mode=viewprofile&amp;u=6060"><b style="color:#" onmouseover="show_popup(6060)" onmouseout="close_popup()">crocidb</b></a>											</p>
+				</td>
+			</tr>
+
+				</table>
+			<table width="100%" cellspacing="1">
+		<tr>
+							<td class="nav" valign="middle" nowrap="nowrap">&nbsp;Page <strong>1</strong> of <strong>10</strong><br /></td>
+				<td class="gensmall" nowrap="nowrap">&nbsp;[ 480 topics ]&nbsp;</td>
+				<td class="gensmall" width="100%" align="right" nowrap="nowrap"><b><a href="#" onclick="jumpto(); return false;" title="Click to jump to page…">Go to page</a> <strong>1</strong><span class="page-sep">, </span><a href="./viewforum.php?f=63&amp;start=50">2</a><span class="page-sep">, </span><a href="./viewforum.php?f=63&amp;start=100">3</a><span class="page-sep">, </span><a href="./viewforum.php?f=63&amp;start=150">4</a><span class="page-sep">, </span><a href="./viewforum.php?f=63&amp;start=200">5</a> ... <a href="./viewforum.php?f=63&amp;start=450">10</a> &nbsp;<a href="./viewforum.php?f=63&amp;start=50">Next</a></b></td>
+					</tr>
+		</table>
+		
+		<br clear="all" />
+</div>
+
+	<br clear="all" />
+
+	<table class="tablebg" width="100%" cellspacing="1">
+	<tr>
+		<td class="cat"><h4>Who is online</h4></td>
+	</tr>
+	<tr>
+		<td class="row1"><p class="gensmall">Users browsing this forum: <span style="color: #9E8DA7;" class="username-coloured">Heritrix [Crawler]</span> and 0 guests</p></td>
+	</tr>
+	</table>
+
+<br clear="all" />
+
+<table width="100%" cellspacing="0">
+<tr>
+	<td></td>
+	<td align="right">	<form method="post" name="jumpbox" action="./viewforum.php" onsubmit="if(document.jumpbox.f.value == -1){return false;}">
+
+	<table cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td nowrap="nowrap"><span class="gensmall">Jump to:</span>&nbsp;<select name="f" onchange="if(this.options[this.selectedIndex].value != -1){ document.forms['jumpbox'].submit() }">
+
+					<option value="-1">Select a forum</option>
+		<option value="-1">------------------</option>			<option value="79">Notícias e Artigos</option>
+					<option value="75">Programação e assuntos relacionados</option>
+					<option value="6">&nbsp; &nbsp;Pascal/Delphi</option>
+					<option value="7">&nbsp; &nbsp;Visual Basic</option>
+					<option value="8">&nbsp; &nbsp;Outras linguagens</option>
+					<option value="20">&nbsp; &nbsp;Assembly</option>
+					<option value="21">&nbsp; &nbsp;C/C++</option>
+					<option value="22">&nbsp; &nbsp;Dark Basic</option>
+					<option value="23">&nbsp; &nbsp;Blitz Basic</option>
+					<option value="28">&nbsp; &nbsp;Inteligência artificial</option>
+					<option value="29">&nbsp; &nbsp;Programação gráfica</option>
+					<option value="31">&nbsp; &nbsp;Java</option>
+					<option value="32">&nbsp; &nbsp;Shockwave e Flash</option>
+					<option value="33">&nbsp; &nbsp;Matemática e física</option>
+					<option value="36">&nbsp; &nbsp;Programação Windows</option>
+					<option value="57">&nbsp; &nbsp;Programação em Linux</option>
+					<option value="58">&nbsp; &nbsp;Hardware</option>
+					<option value="60">&nbsp; &nbsp;C# e programação .NET</option>
+					<option value="61">&nbsp; &nbsp;Lógica da programação</option>
+					<option value="70">&nbsp; &nbsp;Programação de Games Online e Técnicas Multiplayer</option>
+					<option value="76">Engines, API's, bibliotecas e outros</option>
+					<option value="9">&nbsp; &nbsp;DirectX</option>
+					<option value="10">&nbsp; &nbsp;OpenGL</option>
+					<option value="11">&nbsp; &nbsp;Allegro</option>
+					<option value="12">&nbsp; &nbsp;SDL</option>
+					<option value="13">&nbsp; &nbsp;Outras API's e Engines</option>
+					<option value="69">&nbsp; &nbsp;Java3D</option>
+					<option value="25">&nbsp; &nbsp;XNA Game Studio</option>
+					<option value="73">&nbsp; &nbsp;Ogre 3D</option>
+					<option value="59">&nbsp; &nbsp;3D Game Studio</option>
+					<option value="65">&nbsp; &nbsp;Mobile</option>
+					<option value="67">&nbsp; &nbsp;Torque Game Engine</option>
+					<option value="68">&nbsp; &nbsp;Irrlicht Engine</option>
+					<option value="72">&nbsp; &nbsp;Game Making</option>
+					<option value="74">&nbsp; &nbsp;GameSpaceLib</option>
+					<option value="77">Arte nos jogos eletrônicos</option>
+					<option value="14">&nbsp; &nbsp;Modelagem 3D</option>
+					<option value="15">&nbsp; &nbsp;Game Design</option>
+					<option value="16">&nbsp; &nbsp;Arte 2D</option>
+					<option value="17">&nbsp; &nbsp;Música/Efeitos sonoros</option>
+					<option value="37">&nbsp; &nbsp;Roteiros</option>
+					<option value="78">Outros assuntos</option>
+					<option value="71">&nbsp; &nbsp;Contests</option>
+					<option value="18">&nbsp; &nbsp;Assuntos diversos</option>
+					<option value="19">&nbsp; &nbsp;Precisa-se</option>
+					<option value="63" selected="selected">&nbsp; &nbsp;Fale conosco</option>
+					<option value="27">&nbsp; &nbsp;Oferecem-se</option>
+					<option value="34">&nbsp; &nbsp;Tradução de Artigos</option>
+					<option value="5">&nbsp; &nbsp;Projetos</option>
+					<option value="38">&nbsp; &nbsp;Artigos / Tutoriais</option>
+					<option value="62">&nbsp; &nbsp;OFF-Topic</option>
+					<option value="64">&nbsp; &nbsp;Idiomas - termos técnicos</option>
+					<option value="26">&nbsp; &nbsp;UD-Zine</option>
+					<option value="66">&nbsp; &nbsp;Bancos de Dados</option>
+		
+		</select>&nbsp;<input class="btnlite" type="submit" value="Go" /></td>
+	</tr>
+	</table>
+
+	</form>
+</td>
+</tr>
+</table>
+
+
+
+
+
+	</td>
+<!-- [-] center block area -->	
+	</td>
+<!-- [-] right block area -->
+</tr>
+</table>
+<!-- [+] bottom block area -->
+<table width="100%" cellspacing="1">
+  <tr>
+    <td valign="top">
+    </td>
+  </tr>
+</table>
+<!-- [-] bottom block area -->
+
+</div>
+
+</div>
+
+		<br clear="all" />
+	
+</div></div></div></div>
+</div></div></div>
+
+</div>
+<br />
+<div id="wrapfooter">
+<!--
+	We request you retain the full copyright notice below including the link to www.phpbb.com.
+	This not only gives respect to the large amount of time given freely by the developers
+	but also helps build interest, traffic and use of phpBB3. If you (honestly) cannot retain
+	the full copyright we ask you at least leave in place the "Powered by phpBB" line, with
+	"phpBB" linked to www.phpbb.com. If you refuse to include even this then support on our
+	forums may be affected.
+
+	The phpBB Group : 2006
+//-->
+	<span class="copyright">Powered by <a href="http://www.phpbb.com/">phpBB</a> &copy;
+    <br />
+	<br />Virtual Object Inform�tica Ltda. Fone/Fax: (15)3231-6840
+	<br /><br /><span style="padding-top:5px; text-align: middle"><a href="http://damysterious.xs4all.nl/portalxl/" title="Portal XL 5.0 ~ Premod 0.2"><img src="./portal/images/phpbb-portal-xl40.png" alt="Portal XL 5.0 ~ Premod 0.2" /></a></span><span style="margin-top: 5px; text-align: middle;"> <a href="http://www.phpbb-seo.com/" title="Search Engine Optimization"><img src="http://unidev.tecnologia.ws/phpbb3/images/phpbb-seo.png" alt="phpBB SEO"/></a></span></span>
+</div>
+<br />
+
+</td>
+<td id="bgright"><img src="./styles/twilightBB/theme/images/spacer.gif" width="53px" alt="" /></td>
+</tr>
+</table>
+
+
+<div style="display: none;" id="resizemod"></div>
+</body>
+</html>
