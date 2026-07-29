@@ -63,6 +63,51 @@ def test_rewrites_quoted_css_imports_and_urls_to_local_files() -> None:
     assert 'url("bg.gif")' in value
 
 
+def test_preserves_empty_capture_as_empty_inert_document() -> None:
+    source = "http://unidev.com.br/phpbb3/downloads.php"
+    value = preserve_document(
+        b"",
+        source,
+        PurePosixPath("phpbb3/downloads/index.html"),
+        RouteRegistry.from_urls((source,)),
+        {},
+    )
+
+    document = html.document_fromstring(value)
+    assert document.xpath("//body")[0].text_content() == ""
+    assert document.xpath("//meta[@charset='utf-8']")
+    assert document.xpath("//meta[@http-equiv='Content-Security-Policy']")
+
+
+def test_neutralizes_malformed_resource_urls() -> None:
+    source = "http://unidev.com.br/phpbb3/index.php"
+    value = preserve_document(
+        b'<html><body><img id="bad" src="http://[invalid"></body></html>',
+        source,
+        PurePosixPath("phpbb3/index.html"),
+        RouteRegistry.from_urls((source,)),
+        {},
+    )
+
+    image = html.document_fromstring(value).get_element_by_id("bad")
+    assert image.get("src") is None
+    assert "archive-link-missing" in image.get("class")
+
+
+def test_neutralizes_uncaptured_css_references_without_network_requests() -> None:
+    value = preserve_stylesheet(
+        b'@import "missing.css";body{background:url("missing.gif")}',
+        "http://unidev.com.br/phpbb3/styles/main.css",
+        PurePosixPath("recursos/main.css"),
+        {},
+    )
+
+    assert "@import" not in value
+    assert "missing.css" not in value
+    assert "missing.gif" not in value
+    assert 'url("data:,")' in value
+
+
 def test_rewrites_import_without_whitespace_and_with_token_comment() -> None:
     source = "http://unidev.com.br/phpbb3/styles/main.css"
     target = canonical_url("http://unidev.com.br/phpbb3/styles/nested.css")

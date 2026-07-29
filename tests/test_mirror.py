@@ -126,6 +126,25 @@ def test_wayback_hostname_as_plain_text_does_not_fail_link_validator(tmp_path: P
     _validate_output(tmp_path)
 
 
+def test_validator_neutralizes_uncaptured_local_fragments(tmp_path: Path) -> None:
+    (tmp_path / "index.html").write_text(
+        '<html><body><a id="cross" href="target.html#missing">post</a><a id="same" href="#missing">seção</a></body></html>',
+        encoding="utf-8",
+    )
+    (tmp_path / "target.html").write_text(
+        '<html><body><p id="preserved">conteúdo</p></body></html>',
+        encoding="utf-8",
+    )
+
+    _validate_output(tmp_path)
+
+    published = (tmp_path / "index.html").read_text(encoding="utf-8")
+    assert 'href="target.html"' in published
+    assert "target.html#missing" not in published
+    assert 'id="same"' in published
+    assert "archive-link-missing" in published
+
+
 def test_validator_rejects_active_external_anchor(tmp_path: Path) -> None:
     (tmp_path / "index.html").write_text(
         '<html><body><a href="https://example.org/">externo</a></body></html>',

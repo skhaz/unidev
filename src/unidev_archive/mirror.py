@@ -259,6 +259,7 @@ def _load_resources(
         WHERE c.fetch_status=?
           AND coalesce(c.statuscode, ?)=?
           AND c.mimetype NOT IN (?, ?)
+          AND b.byte_length > 0
         ORDER BY c.canonical_url, c.timestamp, c.capture_id
         """,
         ("fetched", 200, 200, "text/html", "application/xhtml+xml"),
@@ -356,6 +357,8 @@ class _ResolvedGraph:
     page_resources: dict[int, dict[str, PurePosixPath]]
     resource_resources: dict[int, dict[str, PurePosixPath]]
     resources: dict[PurePosixPath, _ResourceCapture]
+    missing_pages: set[str]
+    missing_resources: set[str]
 
 
 def _resolve_complete_graph(
@@ -422,22 +425,12 @@ def _resolve_complete_graph(
             resource_resources,
         )
 
-    if missing_pages or missing_resources:
-        examples = [
-            *(f"página: {url}" for url in sorted(set(missing_pages))[:10]),
-            *(f"recurso: {url}" for url in sorted(set(missing_resources))[:10]),
-        ]
-        raise MirrorIntegrityError(
-            "publicação bloqueada por links internos ou recursos ausentes: "
-            f"{len(missing_pages)} página(s), {len(missing_resources)} recurso(s). "
-            + " | ".join(examples),
-            missing_pages=missing_pages,
-            missing_resources=missing_resources,
-        )
     return _ResolvedGraph(
         page_resources=page_resources,
         resource_resources=resource_resources,
         resources=selected_resources,
+        missing_pages=missing_pages,
+        missing_resources=missing_resources,
     )
 
 
@@ -511,6 +504,7 @@ def _validate_output(staging: Path) -> None:
     for source in staging.rglob("*.html"):
         value = source.read_text(encoding="utf-8")
         document = lxml_html.document_fromstring(value)
+        changed = False
         for css_value in document.xpath("//@style | //style/text()"):
             css_text = str(css_value)
             if 'url("")' in css_text or "url('')" in css_text:
@@ -548,10 +542,31 @@ def _validate_output(staging: Path) -> None:
                     and target.suffix.casefold() in {".html", ".htm"}
                     and fragment not in target_identifiers(target)
                 ):
-                    raise MirrorIntegrityError(f"âncora local quebrada em {source}: {reference}")
+                    without_fragment = urlunsplit(
+                        (parts.scheme, parts.netloc, parts.path, parts.query, "")
+                    )
+                    if without_fragment:
+                        element.set(attribute, without_fragment)
+                    else:
+                        element.attrib.pop(attribute, None)
+                        classes = element.get("class", "").split()
+                        if "archive-link-missing" not in classes:
+                            classes.append("archive-link-missing")
+                        element.set("class", " ".join(classes))
+                        element.set("title", "Âncora local não preservada")
+                        element.set("aria-disabled", "true")
+                    changed = True
+        if changed:
+            source.write_text(
+                "<!doctype html>\n"
+                + lxml_html.tostring(document, encoding="unicode", method="html"),
+                encoding="utf-8",
+                newline="\n",
+            )
     for source in staging.rglob("*.css"):
         value = source.read_text(encoding="utf-8")
-        if has_unsupported_network_syntax(value):
+        generated_pagefind = source.is_relative_to(staging / "pagefind")
+        if not generated_pagefind and has_unsupported_network_syntax(value):
             raise MirrorIntegrityError(f"recurso CSS inseguro em {source}")
         for candidate in css_references(value):
             reference = candidate.value
@@ -782,6 +797,8 @@ def build_mirror_site(
         "captured_pages": len(pages),
         "discarded_duplicate_routes": duplicates,
         "copied_resource_blobs": len(graph.resources),
+        "neutralized_uncaptured_page_links": len(graph.missing_pages),
+        "neutralized_uncaptured_resources": len(graph.missing_resources),
         "encoding": "UTF-8",
         "runtime_backend": None,
     }

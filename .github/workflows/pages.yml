@@ -54,6 +54,12 @@ jobs:
       - name: Construir índice de busca estático
         run: npx --yes pagefind@1.5.2 --site dist --force-language pt
 
+      - name: Validar artefato final
+        run: |
+          uv run python -c 'from pathlib import Path; from unidev_archive.mirror import _validate_output; _validate_output(Path("dist"))'
+          test -z "$(find dist \( -type l -o \( -type f -links +1 \) \) -print -quit)"
+          test "$(du -sb dist | cut -f1)" -lt 10000000000
+
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v6.0.0
 

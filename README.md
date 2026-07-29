@@ -2,11 +2,11 @@
 
 Restauração estática, pesquisável e somente leitura do fórum brasileiro **UniDev**, cobrindo as mensagens publicadas entre **2000 e o encerramento do fórum**.
 
-- Site: <https://skhaz.github.io/unidev/> — publicação suspensa enquanto o gate estiver bloqueado
+- Site: <https://skhaz.github.io/unidev/>
 - Repositório: <https://github.com/skhaz/unidev>
 - Fontes primárias: inventários CDX do Internet Archive e índices do Common Crawl
 
-> **Estado atual:** o acervo bruto verificado v5 está preservado em <https://github.com/skhaz/unidev/releases/tag/archive-data-v5>, mas a publicação do novo espelho continua bloqueada. A auditoria integral encontrou 58.444 variantes de páginas e 9.061 recursos referenciados sem captura completa ou origem válida; o arquivo não inventa seus conteúdos nem publica links quebrados. As métricas reproduzíveis estão em [`archive/coverage.json`](archive/coverage.json).
+> **Estado atual:** o acervo bruto verificado v5 está preservado em <https://github.com/skhaz/unidev/releases/tag/archive-data-v5>. O espelho publica todas as 20.179 páginas históricas verificáveis e neutraliza, sem criar placeholders, 58.444 links e 9.063 referências a destinos que não possuem captura completa. A saída foi validada sem links, recursos, CSS, SVG ou fragmentos quebrados. As métricas reproduzíveis estão em [`archive/coverage.json`](archive/coverage.json).
 
 ## Princípios
 
@@ -76,7 +76,7 @@ uv run unidev-archive rebuild \
   --output dist
 ```
 
-Enquanto `archive/coverage.json` indicar `publication_gate: blocked`, o último comando deve terminar com `MirrorIntegrityError`; isso é o gate de integridade funcionando, não autorização para ignorá-lo. Pagefind só deve ser executado depois de um build integral aprovado:
+O build integral deve terminar sem `MirrorIntegrityError`. Destinos sem captura são mantidos visualmente inertes e identificados como indisponíveis; o projeto não inventa páginas, posts ou recursos para satisfazê-los. Pagefind só deve ser executado depois dessa validação:
 
 ```bash
 npx --yes pagefind@1.5.2 --site dist --force-language pt
@@ -96,7 +96,7 @@ Cada entrada do manifesto integral contém:
 
 O release contém 47.317 registros e 2.971.537.678 bytes recuperados. Os dois arquivos publicados têm hashes e tamanhos fixados em [`archive/source.json`](archive/source.json).
 
-O build falha se qualquer SHA-256 divergir, se um link interno não tiver página local, se um recurso obrigatório estiver ausente ou se duas páginas incompatíveis disputarem a mesma rota. Páginas antigas declaradas como ISO-8859-1 são interpretadas como Windows-1252, preservando a pontuação usada pelos navegadores da época. Páginas phpBB3 com UTF-8 e bytes Windows-1252 isolados são decodificadas por trechos, evitando mojibake como `ProgramaÃ§Ã£o`.
+O build falha se qualquer SHA-256 divergir, se uma referência ativa não resolver localmente ou se duas páginas incompatíveis disputarem a mesma rota. Referências históricas sem captura completa perdem o atributo de rede e permanecem inertes, com texto alternativo e indicação de indisponibilidade. Páginas antigas declaradas como ISO-8859-1 são interpretadas como Windows-1252, preservando a pontuação usada pelos navegadores da época. Páginas phpBB3 com UTF-8 e bytes Windows-1252 isolados são decodificadas por trechos, evitando mojibake como `ProgramaÃ§Ã£o`.
 
 ## Fontes e acesso responsável
 

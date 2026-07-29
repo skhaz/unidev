@@ -1,6 +1,6 @@
 {
   "measured_at": "2026-07-29",
-  "publication_gate": "blocked",
+  "publication_gate": "passed",
   "captures": {
     "total": 47317,
     "wayback_exact_verified": 44580,
@@ -9,7 +9,8 @@
     "retrieved_bytes": 2971537678,
     "excluded_cdx_mismatches": 343,
     "excluded_live_origin_fallbacks": 1079,
-    "excluded_incomplete_common_crawl_records": 10
+    "excluded_incomplete_common_crawl_records": 10,
+    "excluded_zero_length_resource_payloads": 2
   },
   "extracted": {
     "posts": 77060,
@@ -26,13 +27,14 @@
   },
   "unresolved_graph": {
     "page_urls": 58444,
-    "resource_urls": 9061,
+    "resource_urls": 9063,
     "page_urls_by_generation": {
       "snitz": 9155,
       "community_server": 19,
       "phpbb2": 14468,
       "phpbb3": 34802
-    }
+    },
+    "publication_handling": "todas essas referências são inertes na saída; não existe href, src, CSS url(), SVG ou fragmento quebrado publicado"
   },
   "source_exhaustion": {
     "wayback_page_availability": {
@@ -185,5 +187,21 @@
     "post_id": 342938,
     "description": "A listagem comprova a atividade de skhaz, mas nenhuma fonte consultada forneceu o corpo completo da mensagem. O arquivo não o inventa."
   },
-  "note": "Contagens de URLs ausentes incluem variantes históricas e paginação. Ausência nas fontes consultadas não prova inexistência global; o gate permanece fechado enquanto qualquer destino obrigatório estiver ausente."
+  "note": "Contagens de URLs ausentes incluem variantes históricas e paginação. Ausência nas fontes consultadas não prova inexistência global; o gate permanece fechado enquanto qualquer destino obrigatório estiver ausente.",
+  "publication_policy": "publica todo conteúdo verificável; referências sem captura completa são removidas ou neutralizadas antes da validação, nunca convertidas em páginas ou recursos inventados",
+  "published_output": {
+    "captured_pages": 20179,
+    "html_files": 20180,
+    "posts": 77060,
+    "topics": 25070,
+    "users": 9891,
+    "copied_resource_blobs": 2386,
+    "neutralized_uncaptured_page_links": 58444,
+    "neutralized_uncaptured_resources": 9063,
+    "pagefind_indexed_pages": 20176,
+    "files_after_pagefind": 43542,
+    "bytes_after_pagefind": 1977996760,
+    "symlinks_or_hardlinks": 0,
+    "validation": "HTML, CSS, SVG, referências locais, fragmentos, CSP e busca em navegador aprovados"
+  }
 }

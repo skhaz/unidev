@@ -68,9 +68,14 @@ def _rewrite_css(
     def replacement(reference: CssReference) -> str:
         if not reference.value or reference.value.startswith("data:"):
             return value[reference.start : reference.end]
-        absolute = unwrap_wayback_url(urljoin(source_url, reference.value))
+        try:
+            absolute = unwrap_wayback_url(urljoin(source_url, reference.value))
+        except ValueError:
+            return "" if reference.is_import else 'url("data:,")'
         target = _resource_target(absolute, resources)
-        rewritten = f'url("{_relative(output_file, target)}")' if target else 'url("")'
+        if target is None:
+            return "" if reference.is_import else 'url("data:,")'
+        rewritten = f'url("{_relative(output_file, target)}")'
         return "@import " + rewritten if reference.is_import else rewritten
 
     return rewrite_css_references(value, replacement)
@@ -148,7 +153,10 @@ def _rewrite_resource(
             if candidate.url.startswith("data:"):
                 rewritten.append(candidate)
                 continue
-            absolute = unwrap_wayback_url(urljoin(source_url, candidate.url))
+            try:
+                absolute = unwrap_wayback_url(urljoin(source_url, candidate.url))
+            except ValueError:
+                continue
             target = _resource_target(absolute, resources)
             if target is not None:
                 rewritten.append(
@@ -164,7 +172,11 @@ def _rewrite_resource(
         return
     if reference.startswith("data:"):
         return
-    absolute = unwrap_wayback_url(urljoin(source_url, reference))
+    try:
+        absolute = unwrap_wayback_url(urljoin(source_url, reference))
+    except ValueError:
+        _mark_missing(element, attribute)
+        return
     target = _resource_target(absolute, resources)
     if target is None:
         _mark_missing(element, attribute)
@@ -258,17 +270,17 @@ def _remove_out_of_period_posts(
             if not tables or tables[0] in seen:
                 continue
             table = tables[0]
-            if not table.xpath(f'.//span[{_class_xpath("largetext")}]'):
+            if not table.xpath(f".//span[{_class_xpath('largetext')}]"):
                 continue
             seen.add(table)
             candidates.append((table, table.text_content()))
     elif era == "phpbb3":
         print_posts = document.xpath(
-            f'//div[{_class_xpath("post")} and .//div[{_class_xpath("content")}]]'
+            f"//div[{_class_xpath('post')} and .//div[{_class_xpath('content')}]]"
         )
         if print_posts:
             for post in print_posts:
-                dates = post.xpath(f'.//div[{_class_xpath("date")}]')
+                dates = post.xpath(f".//div[{_class_xpath('date')}]")
                 candidates.append((post, dates[0].text_content() if dates else None))
         else:
             seen_tables: set[HtmlElement] = set()
@@ -279,12 +291,12 @@ def _remove_out_of_period_posts(
                 if not tables or tables[0] in seen_tables:
                     continue
                 table = tables[0]
-                if not table.xpath(f'.//div[{_class_xpath("postbody")}]'):
+                if not table.xpath(f".//div[{_class_xpath('postbody')}]"):
                     continue
                 seen_tables.add(table)
                 rows = anchor.xpath("ancestor::tr[1]")
                 candidates.append((table, rows[0].text_content() if rows else None))
-            for table in document.xpath(f'//table[{_class_xpath("tablebg")}]'):
+            for table in document.xpath(f"//table[{_class_xpath('tablebg')}]"):
                 if table in seen_tables:
                     continue
                 if table.xpath(
@@ -294,18 +306,20 @@ def _remove_out_of_period_posts(
                 ):
                     candidates.append((table, table.text_content()))
     elif era == "community-server":
-        for post in document.xpath(f'//div[{_class_xpath("ForumPostArea")}]'):
+        for post in document.xpath(f"//div[{_class_xpath('ForumPostArea')}]"):
             anchors = post.xpath('.//a[@name and string(number(@name)) != "NaN"]')
             if not anchors:
                 continue
             cells = anchors[0].xpath("ancestor::td[1]")
-            headers = post.xpath(f'.//h4[{_class_xpath("ForumPostHeader")}]')
+            headers = post.xpath(f".//h4[{_class_xpath('ForumPostHeader')}]")
             candidates.append(
                 (
                     post,
                     cells[0].text_content()
                     if cells
-                    else headers[0].text_content() if headers else None,
+                    else headers[0].text_content()
+                    if headers
+                    else None,
                 )
             )
     for element, raw_date in candidates:
@@ -329,7 +343,8 @@ def preserve_document(
     """Return a UTF-8 historical document with only local, inert subresources."""
 
     decoded = decode_html(raw)
-    document = html.document_fromstring(decoded.text, base_url=source_url)
+    source = decoded.text if decoded.text.strip() else "<html><head></head><body></body></html>"
+    document = html.document_fromstring(source, base_url=source_url)
     if period_start is not None and period_end is not None:
         _remove_out_of_period_posts(document, source_url, period_start, period_end)
     head_nodes = document.xpath("//head")

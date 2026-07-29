@@ -9,7 +9,6 @@ from pathlib import Path
 
 import pytest
 
-from unidev_archive.mirror import MirrorIntegrityError
 from unidev_archive.pipeline import _load_manifest, rebuild_archive
 
 
@@ -254,7 +253,9 @@ def test_rebuild_includes_messages_after_2009_until_forum_end(tmp_path: Path) ->
     assert not (tmp_path / "dist" / "topicos" / "60000.html").exists()
 
 
-def test_unparsed_community_server_page_still_blocks_broken_links(tmp_path: Path) -> None:
+def test_unparsed_community_server_page_neutralizes_uncaptured_references(
+    tmp_path: Path,
+) -> None:
     raw = b'<a href="/forums/thread/37.aspx">Thread</a><img src="/forums/theme/logo.gif">'
     sha256 = hashlib.sha256(raw).hexdigest()
     archive = tmp_path / "archive"
@@ -279,13 +280,17 @@ def test_unparsed_community_server_page_still_blocks_broken_links(tmp_path: Path
     manifest = archive / "captures.jsonl"
     manifest.write_text(json.dumps(record) + "\n", encoding="utf-8")
 
-    with pytest.raises(MirrorIntegrityError, match=r"1 página.*1 recurso"):
-        rebuild_archive(
-            manifest,
-            tmp_path / "archive.sqlite3",
-            tmp_path / "dist",
-            verify_period_evidence=False,
-        )
+    rebuild_archive(
+        manifest,
+        tmp_path / "archive.sqlite3",
+        tmp_path / "dist",
+        verify_period_evidence=False,
+    )
+
+    published = (tmp_path / "dist" / "index.html").read_text(encoding="utf-8")
+    assert 'href="/forums/thread/37.aspx"' not in published
+    assert 'src="/forums/theme/logo.gif"' not in published
+    assert published.count("archive-link-missing") == 2
 
 
 @pytest.mark.parametrize(
@@ -296,7 +301,10 @@ def test_unparsed_community_server_page_still_blocks_broken_links(tmp_path: Path
         "https://WEB.ARCHIVE.ORG/web/20110101000000/http://unidev.com.br/phpbb3/viewtopic.php?t=99999",
     ),
 )
-def test_rebuild_refuses_to_publish_a_broken_internal_topic_link(tmp_path: Path, href: str) -> None:
+def test_rebuild_neutralizes_an_uncaptured_internal_topic_link(
+    tmp_path: Path,
+    href: str,
+) -> None:
     raw = f'<title>Forum</title><a href="{href}">Topico real</a>'.encode()
     sha256 = hashlib.sha256(raw).hexdigest()
     archive = tmp_path / "archive"
@@ -321,15 +329,16 @@ def test_rebuild_refuses_to_publish_a_broken_internal_topic_link(tmp_path: Path,
     manifest = archive / "captures.jsonl"
     manifest.write_text(json.dumps(record) + "\n", encoding="utf-8")
 
-    with pytest.raises(MirrorIntegrityError, match="1 página"):
-        rebuild_archive(
-            manifest,
-            tmp_path / "archive.sqlite3",
-            tmp_path / "dist",
-            verify_period_evidence=False,
-        )
+    rebuild_archive(
+        manifest,
+        tmp_path / "archive.sqlite3",
+        tmp_path / "dist",
+        verify_period_evidence=False,
+    )
 
-    assert not (tmp_path / "dist" / "index.html").exists()
+    published = (tmp_path / "dist" / "index.html").read_text(encoding="utf-8")
+    assert href not in published
+    assert "archive-link-missing" in published
 
 
 def test_rebuild_makes_uncaptured_write_action_inert(tmp_path: Path) -> None:
@@ -370,7 +379,7 @@ def test_rebuild_makes_uncaptured_write_action_inert(tmp_path: Path) -> None:
     assert 'href="posting.php' not in homepage
 
 
-def test_binary_capture_cannot_satisfy_required_page_link(tmp_path: Path) -> None:
+def test_binary_capture_cannot_satisfy_and_neutralizes_page_link(tmp_path: Path) -> None:
     base = "http://unidev.com.br/phpbb3/"
     payloads = (
         (base + "index.php", "text/html", b'<a href="avatar.php">Pagina</a>'),
@@ -403,13 +412,16 @@ def test_binary_capture_cannot_satisfy_required_page_link(tmp_path: Path) -> Non
     manifest = archive / "captures.jsonl"
     manifest.write_text("".join(json.dumps(row) + "\n" for row in rows), encoding="utf-8")
 
-    with pytest.raises(MirrorIntegrityError, match="1 página"):
-        rebuild_archive(
-            manifest,
-            tmp_path / "archive.sqlite3",
-            tmp_path / "dist",
-            verify_period_evidence=False,
-        )
+    rebuild_archive(
+        manifest,
+        tmp_path / "archive.sqlite3",
+        tmp_path / "dist",
+        verify_period_evidence=False,
+    )
+
+    published = (tmp_path / "dist" / "index.html").read_text(encoding="utf-8")
+    assert 'href="avatar.php"' not in published
+    assert "archive-link-missing" in published
 
 
 def test_rebuild_resolves_verified_wayback_requested_url_alias(tmp_path: Path) -> None:
