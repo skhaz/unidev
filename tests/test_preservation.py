@@ -77,6 +77,7 @@ def test_preserves_empty_capture_as_empty_inert_document() -> None:
     assert document.xpath("//body")[0].text_content() == ""
     assert document.xpath("//meta[@charset='utf-8']")
     assert document.xpath("//meta[@http-equiv='Content-Security-Policy']")
+    assert document.xpath("//link[@rel='icon' and @href='data:,']")
 
 
 def test_neutralizes_malformed_resource_urls() -> None:

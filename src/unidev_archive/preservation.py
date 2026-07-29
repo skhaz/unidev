@@ -437,6 +437,12 @@ def preserve_document(
                 resources,
             )
 
+    if not head.xpath(
+        ".//link[contains(concat(' ', normalize-space(translate(@rel, 'ICON', 'icon')), ' '), ' icon ')][@href]"
+    ):
+        icon = head.makeelement("link", rel="icon", href="data:,")
+        head.append(icon)
+
     charset = head.makeelement("meta", charset="utf-8")
     csp = head.makeelement("meta")
     csp.set("http-equiv", "Content-Security-Policy")
