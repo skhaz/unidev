@@ -2,11 +2,11 @@
   "measured_at": "2026-07-29",
   "publication_gate": "blocked",
   "captures": {
-    "total": 47315,
+    "total": 47322,
     "wayback_exact_verified": 44580,
     "wayback_nearest_resource": 2498,
-    "common_crawl_verified": 237,
-    "retrieved_bytes": 2973298853,
+    "common_crawl_verified": 244,
+    "retrieved_bytes": 2974936835,
     "excluded_cdx_mismatches": 343,
     "excluded_live_origin_fallbacks": 1079
   },
@@ -25,7 +25,7 @@
   },
   "unresolved_graph": {
     "page_urls": 58444,
-    "resource_urls": 9065,
+    "resource_urls": 9060,
     "page_urls_by_generation": {
       "snitz": 9155,
       "community_server": 19,
@@ -51,9 +51,28 @@
         "CC-MAIN-2009-2010",
         "CC-MAIN-2012",
         "CC-MAIN-2013-20",
-        "CC-MAIN-2013-48"
+        "CC-MAIN-2013-48",
+        "CC-MAIN-2014-10",
+        "CC-MAIN-2014-15",
+        "CC-MAIN-2014-23",
+        "CC-MAIN-2014-35",
+        "CC-MAIN-2014-41",
+        "CC-MAIN-2014-42",
+        "CC-MAIN-2014-49",
+        "CC-MAIN-2014-52",
+        "CC-MAIN-2015-06",
+        "CC-MAIN-2015-11",
+        "CC-MAIN-2015-14",
+        "CC-MAIN-2015-18",
+        "CC-MAIN-2015-22",
+        "CC-MAIN-2015-27",
+        "CC-MAIN-2015-32",
+        "CC-MAIN-2015-35",
+        "CC-MAIN-2015-40",
+        "CC-MAIN-2015-48",
+        "CC-MAIN-2026-30"
       ],
-      "method": "cluster.idx e blocos CDX gzip exatos, comparados por URL canônica"
+      "method": "cluster.idx e blocos CDX gzip exatos para 23 coleções até 2015 e CC-MAIN-2026-30, comparados por URL canônica"
     }
   },
   "known_gap": {
