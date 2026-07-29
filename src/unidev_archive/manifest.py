@@ -57,7 +57,11 @@ def validate_manifest_row(row: dict[str, object], path: Path, line_number: int) 
             )
         )
         or (source != "wayback-availability" and requested_url is not None)
-        or (source in {"wayback", "commoncrawl"} and digest_matches is not True)
+        or (source == "wayback" and digest_matches is not True)
+        or (
+            source == "commoncrawl"
+            and (digest_matches is not True or row.get("source_record_complete") is not True)
+        )
         or (
             source == "wayback-availability"
             and (

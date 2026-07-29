@@ -6,7 +6,7 @@ Restauração estática, pesquisável e somente leitura do fórum brasileiro **U
 - Repositório: <https://github.com/skhaz/unidev>
 - Fontes primárias: inventários CDX do Internet Archive e índices do Common Crawl
 
-> **Estado atual:** o acervo bruto verificado v4 está preservado em <https://github.com/skhaz/unidev/releases/tag/archive-data-v4>, mas a publicação do novo espelho continua bloqueada. A auditoria integral encontrou 58.444 variantes de páginas e 9.060 recursos referenciados sem captura ou origem válida; o arquivo não inventa seus conteúdos nem publica links quebrados. As métricas reproduzíveis estão em [`archive/coverage.json`](archive/coverage.json).
+> **Estado atual:** o acervo bruto verificado v5 está preservado em <https://github.com/skhaz/unidev/releases/tag/archive-data-v5>, mas a publicação do novo espelho continua bloqueada. A auditoria integral encontrou 58.444 variantes de páginas e 9.061 recursos referenciados sem captura completa ou origem válida; o arquivo não inventa seus conteúdos nem publica links quebrados. As métricas reproduzíveis estão em [`archive/coverage.json`](archive/coverage.json).
 
 ## Princípios
 
@@ -62,13 +62,13 @@ uv run ruff check .
 uv run pytest
 
 mkdir -p .build/acervo
-GH_REPO=skhaz/unidev gh release download archive-data-v4 \
-  --pattern 'unidev-archive-*-v4.tar.gz' --dir .build
+GH_REPO=skhaz/unidev gh release download archive-data-v5 \
+  --pattern 'unidev-archive-*-v5.tar.gz' --dir .build
 printf '%s  %s\n' \
-  efed9d453e4c2a66ebbc68ff14e09b0aee13a677f57a882384986a4f1a8147ea .build/unidev-archive-core-v4.tar.gz \
-  ffc81e45066c29bffb2a1b171ce5b3fed1cf8976b5f9d741a17fb80b26ec844d .build/unidev-archive-resources-v4.tar.gz | sha256sum -c -
-tar -xzf .build/unidev-archive-core-v4.tar.gz -C .build/acervo
-tar -xzf .build/unidev-archive-resources-v4.tar.gz -C .build/acervo
+  b0abbd6c043c09f0ccb67b37580811fbf1a483a056c15e53d02f51a834c33426 .build/unidev-archive-core-v5.tar.gz \
+  013be8af96901550ff1c67e967a63e7b1098d67a2cf2bba82620cc7f087035aa .build/unidev-archive-resources-v5.tar.gz | sha256sum -c -
+tar -xzf .build/unidev-archive-core-v5.tar.gz -C .build/acervo
+tar -xzf .build/unidev-archive-resources-v5.tar.gz -C .build/acervo
 
 uv run unidev-archive rebuild \
   --manifest .build/acervo/captures.jsonl \
@@ -90,10 +90,11 @@ Cada entrada do manifesto integral contém:
 - origem (`wayback`, `commoncrawl` ou `wayback-availability`);
 - status, MIME e digest fornecidos pela fonte quando disponíveis;
 - digest SHA-1 calculado do payload, indicação explícita de coincidência com o CDX;
+- para Common Crawl, confirmação de que o registro ARC/WARC e o corpo HTTP não estão truncados;
 - SHA-256 e tamanho dos bytes locais;
 - caminho content-addressed do blob.
 
-O release contém 47.322 registros e 2.974.936.835 bytes recuperados. Os dois arquivos publicados têm hashes e tamanhos fixados em [`archive/source.json`](archive/source.json).
+O release contém 47.317 registros e 2.971.537.678 bytes recuperados. Os dois arquivos publicados têm hashes e tamanhos fixados em [`archive/source.json`](archive/source.json).
 
 O build falha se qualquer SHA-256 divergir, se um link interno não tiver página local, se um recurso obrigatório estiver ausente ou se duas páginas incompatíveis disputarem a mesma rota. Páginas antigas declaradas como ISO-8859-1 são interpretadas como Windows-1252, preservando a pontuação usada pelos navegadores da época. Páginas phpBB3 com UTF-8 e bytes Windows-1252 isolados são decodificadas por trechos, evitando mojibake como `ProgramaÃ§Ã£o`.
 

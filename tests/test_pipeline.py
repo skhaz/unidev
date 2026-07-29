@@ -122,6 +122,36 @@ def test_manifest_rejects_unpublishable_capture_sources(
         _load_manifest(manifest)
 
 
+@pytest.mark.parametrize("source_record_complete", (None, False))
+def test_manifest_rejects_common_crawl_capture_without_complete_source_record(
+    tmp_path: Path,
+    source_record_complete: bool | None,
+) -> None:
+    raw = b"verified payload"
+    sha256 = hashlib.sha256(raw).hexdigest()
+    row = {
+        "timestamp": "20110111000000",
+        "original_url": "http://unidev.com.br/phpbb3/index.php",
+        "statuscode": 200,
+        "digest": _cdx_digest(raw),
+        "payload_digest": _cdx_digest(raw),
+        "cdx_digest_matches_payload": True,
+        "source": "commoncrawl",
+        "mimetype": "text/html",
+        "length": len(raw),
+        "retrieved_length": len(raw),
+        "sha256": sha256,
+        "path": f"blobs/{sha256[:2]}/{sha256}",
+    }
+    if source_record_complete is not None:
+        row["source_record_complete"] = source_record_complete
+    manifest = tmp_path / "captures.jsonl"
+    manifest.write_text(json.dumps(row) + "\n", encoding="utf-8")
+
+    with pytest.raises(ValueError, match="registro inválido"):
+        _load_manifest(manifest)
+
+
 def test_rebuild_rejects_false_cdx_digest_attestation(tmp_path: Path) -> None:
     raw = b"<title>UniDev</title>"
     sha256 = hashlib.sha256(raw).hexdigest()
