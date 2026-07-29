@@ -89,7 +89,7 @@ def rewrite_css_references(
     return "".join(output)
 
 
-def _outside_text(value: str) -> str:
+def css_syntax_text(value: str) -> str:
     output = list(value)
     quote: str | None = None
     escaped = False
@@ -134,7 +134,7 @@ def _decode_escape(match: re.Match[str]) -> str:
 
 
 def has_unsupported_network_syntax(value: str) -> bool:
-    outside = _outside_text(value)
+    outside = css_syntax_text(value)
     if _UNSUPPORTED_NETWORK_RE.search(outside):
         return True
     decoded = _CSS_ESCAPE_RE.sub(_decode_escape, outside)

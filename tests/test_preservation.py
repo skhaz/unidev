@@ -63,6 +63,19 @@ def test_rewrites_quoted_css_imports_and_urls_to_local_files() -> None:
     assert 'url("bg.gif")' in value
 
 
+def test_print_view_is_not_indexed_as_duplicate_search_result() -> None:
+    source = "http://unidev.com.br/phpbb3/viewtopic.php?t=42&view=print"
+    value = preserve_document(
+        b"<html><body><p>Mensagem</p></body></html>",
+        source,
+        PurePosixPath("phpbb3/topicos/42/visualizacao/print/index.html"),
+        RouteRegistry.from_urls((source,)),
+        {},
+    )
+
+    assert html.document_fromstring(value).xpath("//body/@data-pagefind-body") == []
+
+
 def test_preserves_empty_capture_as_empty_inert_document() -> None:
     source = "http://unidev.com.br/phpbb3/downloads.php"
     value = preserve_document(
@@ -97,7 +110,7 @@ def test_neutralizes_malformed_resource_urls() -> None:
 
 def test_neutralizes_uncaptured_css_references_without_network_requests() -> None:
     value = preserve_stylesheet(
-        b'@import "missing.css";body{background:url("missing.gif")}',
+        b'@import "missing.css";body{background:url("missing.gif")}i{background:url("")}',
         "http://unidev.com.br/phpbb3/styles/main.css",
         PurePosixPath("recursos/main.css"),
         {},
@@ -106,7 +119,7 @@ def test_neutralizes_uncaptured_css_references_without_network_requests() -> Non
     assert "@import" not in value
     assert "missing.css" not in value
     assert "missing.gif" not in value
-    assert 'url("data:,")' in value
+    assert value.count('url("data:,")') == 2
 
 
 def test_rewrites_import_without_whitespace_and_with_token_comment() -> None:
@@ -140,6 +153,20 @@ def test_preserves_css_comments_and_strings_that_mention_url_syntax() -> None:
     )
 
     assert value == source.decode()
+
+
+def test_removes_only_dangerous_css_declaration() -> None:
+    value = preserve_stylesheet(
+        b".legacy{color:#123;behavior:url(iepngfix.htc);background:#fff}",
+        "http://unidev.com.br/phpbb3/style.php",
+        PurePosixPath("recursos/style.css"),
+        {},
+    )
+
+    assert "behavior" not in value
+    assert "iepngfix" not in value
+    assert "color:#123" in value
+    assert "background:#fff" in value
 
 
 def test_drops_escaped_css_network_identifiers() -> None:

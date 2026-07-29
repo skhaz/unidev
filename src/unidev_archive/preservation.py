@@ -6,13 +6,14 @@ import posixpath
 import re
 from collections.abc import Mapping
 from pathlib import PurePosixPath
-from urllib.parse import urljoin, urlsplit
+from urllib.parse import parse_qsl, urljoin, urlsplit
 
 from lxml import html
 from lxml.html import HtmlElement
 
 from unidev_archive.css import (
     CssReference,
+    css_syntax_text,
     has_unsupported_network_syntax,
     rewrite_css_references,
 )
@@ -56,17 +57,48 @@ def _resource_target(
     return resources.get(canonical_url(url))
 
 
+def _remove_dangerous_css_declarations(value: str) -> str:
+    syntax = css_syntax_text(value)
+    if not _DANGEROUS_CSS_RE.search(syntax):
+        return value
+
+    output: list[str] = []
+    cursor = 0
+    declaration_start = 0
+    parentheses = 0
+    for index, character in enumerate(syntax):
+        if character == "(":
+            parentheses += 1
+        elif character == ")" and parentheses:
+            parentheses -= 1
+        elif not parentheses and character == "{":
+            declaration_start = index + 1
+        elif not parentheses and character in ";}":
+            if _DANGEROUS_CSS_RE.search(syntax[declaration_start:index]):
+                output.append(value[cursor:declaration_start])
+                cursor = index if character == "}" else index + 1
+            declaration_start = index + 1
+    if _DANGEROUS_CSS_RE.search(syntax[declaration_start:]):
+        output.append(value[cursor:declaration_start])
+        cursor = len(value)
+    output.append(value[cursor:])
+    return "".join(output)
+
+
 def _rewrite_css(
     value: str,
     source_url: str,
     output_file: PurePosixPath,
     resources: Mapping[str, PurePosixPath],
 ) -> str:
-    if _DANGEROUS_CSS_RE.search(value) or has_unsupported_network_syntax(value):
+    if has_unsupported_network_syntax(value):
         return ""
+    value = _remove_dangerous_css_declarations(value)
 
     def replacement(reference: CssReference) -> str:
-        if not reference.value or reference.value.startswith("data:"):
+        if not reference.value:
+            return "" if reference.is_import else 'url("data:,")'
+        if reference.value.startswith("data:"):
             return value[reference.start : reference.end]
         try:
             absolute = unwrap_wayback_url(urljoin(source_url, reference.value))
@@ -349,7 +381,11 @@ def preserve_document(
         _remove_out_of_period_posts(document, source_url, period_start, period_end)
     head_nodes = document.xpath("//head")
     body_nodes = document.xpath("//body")
-    if body_nodes:
+    is_print_view = any(
+        key.casefold() == "view" and value.casefold() == "print"
+        for key, value in parse_qsl(urlsplit(source_url).query, keep_blank_values=True)
+    )
+    if body_nodes and not is_print_view:
         body_nodes[0].set("data-pagefind-body", "")
     if head_nodes:
         head = head_nodes[0]
