@@ -18,12 +18,23 @@ from unidev_archive.mirror import (
 from unidev_archive.routing import RouteRegistry
 
 
+def test_search_asset_derives_deployment_base_from_its_own_url() -> None:
+    script = (
+        Path(__file__).parents[1] / "src/unidev_archive/static/search.js"
+    ).read_text(encoding="utf-8")
+
+    assert 'new URL("../", import.meta.url).pathname' in script
+    assert 'baseUrl: "/unidev/"' not in script
+
+
 def test_enables_pagefind_only_on_preserved_search_page() -> None:
     value = """<html><head><meta http-equiv="Content-Security-Policy" content="default-src 'none'"></head><body><p>Busca original</p></body></html>"""
 
     result = _enable_search_page(value, PurePosixPath("busca/index.html"))
 
     assert 'id="search-form"' in result
+    assert "Busca geral no acervo UniDev" in result
+    assert 'placeholder="Digite o que deseja encontrar"' in result
     assert 'src="../assets/search.js"' in result
     assert "script-src 'self' 'wasm-unsafe-eval'" in result
     assert "Busca original" in result

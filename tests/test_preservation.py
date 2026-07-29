@@ -63,6 +63,37 @@ def test_rewrites_quoted_css_imports_and_urls_to_local_files() -> None:
     assert 'url("bg.gif")' in value
 
 
+def test_adds_clear_general_search_to_top_of_historical_page() -> None:
+    source = "http://unidev.com.br/phpbb3/viewtopic.php?t=42&start=30"
+    value = preserve_document(
+        b"<html><head></head><body><p>Conteudo historico</p></body></html>",
+        source,
+        PurePosixPath("phpbb3/topicos/42/inicio/30/index.html"),
+        RouteRegistry.from_urls((source,)),
+        {},
+    )
+
+    assert value.index('id="unidev-archive-search"') < value.index("Conteudo historico")
+    assert 'action="../../../../../busca/index.html"' in value
+    assert 'href="../../../../../assets/archive-search.css"' in value
+    assert "Busca geral" in value
+    assert 'data-pagefind-ignore="all"' in value
+
+
+def test_search_page_uses_clear_panel_styles_without_duplicate_toolbar() -> None:
+    source = "http://unidev.com.br/phpbb3/search.php"
+    value = preserve_document(
+        b"<html><head></head><body><p>Busca historica</p></body></html>",
+        source,
+        PurePosixPath("busca/index.html"),
+        RouteRegistry.from_urls((source,)),
+        {},
+    )
+
+    assert 'id="unidev-archive-search"' not in value
+    assert 'href="../assets/archive-search.css"' in value
+
+
 def test_print_view_is_not_indexed_as_duplicate_search_result() -> None:
     source = "http://unidev.com.br/phpbb3/viewtopic.php?t=42&view=print"
     value = preserve_document(
@@ -87,9 +118,12 @@ def test_preserves_empty_capture_as_empty_inert_document() -> None:
     )
 
     document = html.document_fromstring(value)
+    toolbar = document.get_element_by_id("unidev-archive-search")
+    toolbar.getparent().remove(toolbar)
     assert document.xpath("//body")[0].text_content() == ""
     assert document.xpath("//meta[@charset='utf-8']")
-    assert document.xpath("//meta[@http-equiv='Content-Security-Policy']")
+    csp = document.xpath("//meta[@http-equiv='Content-Security-Policy']")[0]
+    assert "form-action 'self'" in csp.get("content")
     assert document.xpath("//link[@rel='icon' and @href='data:,']")
 
 
@@ -330,7 +364,7 @@ def test_preserves_historical_document_while_making_it_local_and_inert() -> None
     assert document.get_element_by_id("logo").get("src") == "../../../media/images/site_logo.gif"
     assert document.get_element_by_id("logo").get("onerror") is None
     assert document.get_element_by_id("missing-image").get("src") is None
-    form = document.xpath("//form")[0]
+    form = document.xpath("//form[@aria-disabled='true']")[0]
     assert form.get("action") is None
     assert form.get("aria-disabled") == "true"
     assert all(

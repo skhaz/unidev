@@ -26,7 +26,7 @@ from unidev_archive.urls import canonical_url, era_for_url, unwrap_wayback_url
 
 _CSP = (
     "default-src 'none'; img-src 'self' data:; media-src 'self'; font-src 'self'; "
-    "style-src 'self' 'unsafe-inline'; form-action 'none'; base-uri 'none'; "
+    "style-src 'self' 'unsafe-inline'; form-action 'self'; base-uri 'none'; "
     "frame-src 'none'; object-src 'none'"
 )
 _SNITZ_POST_DATE_RE = re.compile(
@@ -362,6 +362,49 @@ def _remove_out_of_period_posts(
                 parent.remove(element)
 
 
+def _add_general_search(
+    head: HtmlElement, body: HtmlElement | None, output_file: PurePosixPath
+) -> None:
+    stylesheet = head.makeelement("link")
+    stylesheet.set("rel", "stylesheet")
+    stylesheet.set("href", _relative(output_file, PurePosixPath("assets/archive-search.css")))
+    head.append(stylesheet)
+    if body is None or output_file == PurePosixPath("busca", "index.html"):
+        return
+
+    toolbar = body.makeelement("aside")
+    toolbar.set("id", "unidev-archive-search")
+    toolbar.set("aria-label", "Busca geral")
+    toolbar.set("data-pagefind-ignore", "all")
+
+    home = toolbar.makeelement("a")
+    home.set("class", "unidev-archive-home")
+    home.set("href", _relative(output_file, PurePosixPath("index.html")))
+    home.text = "Arquivo UniDev"
+    toolbar.append(home)
+
+    form = toolbar.makeelement("form", method="get", role="search")
+    form.set("action", _relative(output_file, PurePosixPath("busca/index.html")))
+    label = form.makeelement("label", **{"for": "unidev-general-search-input"})
+    label.text = "Busca geral"
+    form.append(label)
+    search_input = form.makeelement(
+        "input",
+        id="unidev-general-search-input",
+        name="q",
+        type="search",
+        autocomplete="off",
+        required="required",
+        placeholder="Tópicos, mensagens, código ou usuários",
+    )
+    form.append(search_input)
+    button = form.makeelement("button", type="submit")
+    button.text = "Buscar"
+    form.append(button)
+    toolbar.append(form)
+    body.insert(0, toolbar)
+
+
 def preserve_document(
     raw: bytes,
     source_url: str,
@@ -485,4 +528,5 @@ def preserve_document(
     csp.set("content", _CSP)
     head.insert(0, csp)
     head.insert(0, charset)
+    _add_general_search(head, body_nodes[0] if body_nodes else None, output_file)
     return "<!doctype html>\n" + _serialize(document, "html")

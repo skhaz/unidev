@@ -622,11 +622,11 @@ def _enable_search_page(value: str, output_file: PurePosixPath) -> str:
         raise MirrorIntegrityError("captura de busca sem body")
     body = body_nodes[0]
     panel = lxml_html.fragment_fromstring(
-        """<section id="archive-search-panel">
-<h1>Busca no fórum</h1>
-<form id="search-form" role="search">
-<label for="search-input">Termos, código ou nome de usuário</label>
-<input id="search-input" name="q" type="search" autocomplete="off">
+        """<section id="archive-search-panel" data-pagefind-ignore="all">
+<h1>Busca geral no acervo UniDev</h1>
+<form id="search-form" method="get" role="search">
+<label for="search-input">Pesquise tópicos, mensagens, trechos de código ou usuários</label>
+<input id="search-input" name="q" type="search" autocomplete="off" required placeholder="Digite o que deseja encontrar">
 <button type="submit">Buscar</button>
 </form>
 <p id="search-status" aria-live="polite"></p>
@@ -679,7 +679,7 @@ def _copy_search_assets(staging: Path) -> None:
     source = Path(__file__).with_name("static")
     target = staging / "assets"
     target.mkdir(parents=True, exist_ok=True)
-    for name in ("search.js", "site.css"):
+    for name in ("archive-search.css", "search.js", "site.css"):
         shutil.copyfile(source / name, target / name)
 
 

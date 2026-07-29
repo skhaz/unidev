@@ -12,7 +12,8 @@ async function engine() {
 	if (!pagefind) {
 		const moduleUrl = new URL("../pagefind/pagefind.js", import.meta.url);
 		pagefind = await import(moduleUrl);
-		await pagefind.options({ baseUrl: "/unidev/" });
+		const baseUrl = new URL("../", import.meta.url).pathname;
+		await pagefind.options({ baseUrl });
 		await pagefind.init();
 	}
 	return pagefind;

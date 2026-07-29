@@ -1,0 +1,184 @@
+#unidev-archive-search,
+#unidev-archive-search *,
+#archive-search-panel,
+#archive-search-panel * {
+	box-sizing: border-box !important;
+}
+
+#unidev-archive-search {
+	position: sticky !important;
+	top: 0 !important;
+	z-index: 2147483647 !important;
+	display: flex !important;
+	align-items: center !important;
+	gap: 1rem !important;
+	width: 100% !important;
+	max-width: none !important;
+	min-height: 4.5rem !important;
+	margin: 0 !important;
+	padding: 0.65rem max(1rem, calc((100% - 80rem) / 2)) !important;
+	border: 0 !important;
+	border-bottom: 3px solid #f5a623 !important;
+	color: #fff !important;
+	background: #101820 !important;
+	box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 45%) !important;
+	font: 16px/1.3 Arial, Helvetica, sans-serif !important;
+	text-align: left !important;
+}
+
+#unidev-archive-search .unidev-archive-home {
+	flex: 0 0 auto !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	color: #fff !important;
+	font-size: 1rem !important;
+	font-weight: 700 !important;
+	text-decoration: none !important;
+	white-space: nowrap !important;
+}
+
+#unidev-archive-search form {
+	display: flex !important;
+	flex: 1 1 auto !important;
+	align-items: center !important;
+	gap: 0.6rem !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	border: 0 !important;
+	background: transparent !important;
+}
+
+#unidev-archive-search label {
+	flex: 0 0 auto !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	color: #fff !important;
+	font: 700 1rem/1.3 Arial, Helvetica, sans-serif !important;
+	white-space: nowrap !important;
+}
+
+#unidev-archive-search input,
+#unidev-archive-search button,
+#archive-search-panel input,
+#archive-search-panel button {
+	min-height: 2.8rem !important;
+	margin: 0 !important;
+	border-radius: 0.3rem !important;
+	font: 16px/1.2 Arial, Helvetica, sans-serif !important;
+}
+
+#unidev-archive-search input {
+	flex: 1 1 20rem !important;
+	width: auto !important;
+	min-width: 8rem !important;
+	padding: 0.6rem 0.8rem !important;
+	border: 2px solid #fff !important;
+	color: #111 !important;
+	background: #fff !important;
+}
+
+#unidev-archive-search button,
+#archive-search-panel button {
+	padding: 0.6rem 1.25rem !important;
+	border: 2px solid #f5a623 !important;
+	color: #111 !important;
+	background: #f5a623 !important;
+	font-weight: 700 !important;
+	cursor: pointer !important;
+}
+
+#unidev-archive-search input:focus,
+#unidev-archive-search button:focus,
+#unidev-archive-search a:focus,
+#archive-search-panel input:focus,
+#archive-search-panel button:focus {
+	outline: 3px solid #69b9ff !important;
+	outline-offset: 2px !important;
+}
+
+#archive-search-panel {
+	position: relative !important;
+	z-index: 2147483646 !important;
+	width: min(76rem, calc(100% - 2rem)) !important;
+	max-width: none !important;
+	margin: 1rem auto 1.5rem !important;
+	padding: clamp(1rem, 3vw, 2rem) !important;
+	border: 3px solid #f5a623 !important;
+	border-radius: 0.4rem !important;
+	color: #fff !important;
+	background: #101820 !important;
+	box-shadow: 0 0.5rem 2rem rgb(0 0 0 / 40%) !important;
+	font: 16px/1.4 Arial, Helvetica, sans-serif !important;
+	text-align: left !important;
+}
+
+#archive-search-panel h1 {
+	margin: 0 0 1rem !important;
+	padding: 0 !important;
+	color: #fff !important;
+	font: 700 clamp(1.7rem, 4vw, 2.5rem)/1.1 Arial, Helvetica, sans-serif !important;
+	letter-spacing: normal !important;
+}
+
+#archive-search-panel form {
+	display: grid !important;
+	grid-template-columns: minmax(0, 1fr) auto !important;
+	gap: 0.5rem !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	border: 0 !important;
+	background: transparent !important;
+}
+
+#archive-search-panel label {
+	grid-column: 1 / -1 !important;
+	margin: 0 !important;
+	color: #fff !important;
+	font-weight: 700 !important;
+}
+
+#archive-search-panel input {
+	width: 100% !important;
+	padding: 0.7rem 0.85rem !important;
+	border: 2px solid #fff !important;
+	color: #111 !important;
+	background: #fff !important;
+}
+
+#archive-search-panel #search-status {
+	min-height: 1.5rem !important;
+	margin: 1rem 0 0 !important;
+	color: #dce8f2 !important;
+}
+
+#archive-search-panel #search-results {
+	margin: 1rem 0 0 !important;
+	padding-left: 2rem !important;
+	color: #fff !important;
+}
+
+#archive-search-panel #search-results a {
+	color: #8fd0ff !important;
+}
+
+@media (max-width: 44rem) {
+	#unidev-archive-search {
+		position: relative !important;
+		align-items: stretch !important;
+		flex-direction: column !important;
+		gap: 0.45rem !important;
+	}
+
+	#unidev-archive-search form {
+		display: grid !important;
+		grid-template-columns: minmax(0, 1fr) auto !important;
+	}
+
+	#unidev-archive-search label {
+		grid-column: 1 / -1 !important;
+	}
+
+	#archive-search-panel form {
+		grid-template-columns: 1fr !important;
+	}
+}
