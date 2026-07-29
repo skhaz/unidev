@@ -1,0 +1,65 @@
+{
+  "measured_at": "2026-07-29",
+  "publication_gate": "blocked",
+  "captures": {
+    "total": 47315,
+    "wayback_exact_verified": 44580,
+    "wayback_nearest_resource": 2498,
+    "common_crawl_verified": 237,
+    "retrieved_bytes": 2973298853,
+    "excluded_cdx_mismatches": 343,
+    "excluded_live_origin_fallbacks": 1079
+  },
+  "extracted": {
+    "posts": 77060,
+    "topics": 25070,
+    "users": 9891,
+    "post_source_links": 174999,
+    "community_server_posts": 12
+  },
+  "period": {
+    "start": "2000-01-01T00:00:00",
+    "last_proven_activity": "2013-03-30T11:18:00",
+    "terminal_post_id": 385810,
+    "terminal_topic_id": 55715
+  },
+  "unresolved_graph": {
+    "page_urls": 58444,
+    "resource_urls": 9065,
+    "page_urls_by_generation": {
+      "snitz": 9155,
+      "community_server": 19,
+      "phpbb2": 14468,
+      "phpbb3": 34802
+    }
+  },
+  "source_exhaustion": {
+    "wayback_page_availability": {
+      "checked_unresolved_urls": 58444,
+      "reported_available_http_200": 1,
+      "usable_verified_capture": 0,
+      "reason": "a única resposta disponível repete um payload cujo digest diverge do CDX"
+    },
+    "wayback_resource_availability": {
+      "checked_unresolved_urls": 9065,
+      "reported_available_but_unusable": 222,
+      "reason": "210 capturas devolvem HTML em vez do subrecurso; as 12 restantes são landing pages ou transferências arquivadas truncadas/inacessíveis"
+    },
+    "common_crawl_raw_indexes": {
+      "collections_checked": [
+        "CC-MAIN-2008-2009",
+        "CC-MAIN-2009-2010",
+        "CC-MAIN-2012",
+        "CC-MAIN-2013-20",
+        "CC-MAIN-2013-48"
+      ],
+      "method": "cluster.idx e blocos CDX gzip exatos, comparados por URL canônica"
+    }
+  },
+  "known_gap": {
+    "topic_id": 49617,
+    "post_id": 342938,
+    "description": "A listagem comprova a atividade de skhaz, mas nenhuma fonte consultada forneceu o corpo completo da mensagem. O arquivo não o inventa."
+  },
+  "note": "Contagens de URLs ausentes incluem variantes históricas e paginação. Ausência nas fontes consultadas não prova inexistência global; o gate permanece fechado enquanto qualquer destino obrigatório estiver ausente."
+}

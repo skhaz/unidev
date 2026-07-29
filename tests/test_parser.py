@@ -1,7 +1,85 @@
 # pyright: reportMissingImports=false
 from __future__ import annotations
 
-from unidev_archive.parser import parse_page
+from unidev_archive.parser import parse_css_references, parse_page
+
+
+def test_extracts_all_historical_css_reference_forms() -> None:
+    references = parse_css_references(
+        b"@import url(\"nested.css\");@import 'print.css';a{background:url(images/a.gif)}",
+        "http://unidev.com.br/phpbb3/styles/main.css",
+    )
+
+    assert set(references) == {
+        "http://unidev.com.br/phpbb3/styles/images/a.gif",
+        "http://unidev.com.br/phpbb3/styles/nested.css",
+        "http://unidev.com.br/phpbb3/styles/print.css",
+    }
+
+
+def test_ignores_network_references_from_elements_removed_during_preservation() -> None:
+    page = parse_page(
+        b"""
+        <iframe src="../banner.asp"></iframe>
+        <script src="legacy.js"></script>
+        <object data="movie.swf"><embed src="movie.swf"></embed></object>
+        <svg><image href="https://example.org/pixel.png"/></svg>
+        <link rel="alternate" href="feed/rss.php">
+        <img src="images/logo.gif">
+        """,
+        "http://unidev.com.br/phpbb3/index.php",
+    )
+
+    assert page.references == ("http://unidev.com.br/phpbb3/images/logo.gif",)
+    assert page.asset_references == page.references
+
+
+def test_srcset_data_url_comma_does_not_create_phantom_reference() -> None:
+    page = parse_page(
+        b'<img srcset="data:image/png;base64,AAAA 1x">',
+        "http://unidev.com.br/phpbb3/index.php",
+    )
+
+    assert page.references == ()
+
+
+def test_ignores_css_references_inside_comments_and_strings() -> None:
+    references = parse_css_references(
+        b'/* url(comment.gif) */a::before{content:"url(string.gif)"}',
+        "http://unidev.com.br/phpbb3/styles/main.css",
+    )
+
+    assert references == ()
+
+
+def test_unwraps_wayback_reference_before_internal_classification() -> None:
+    page = parse_page(
+        b'<a href="https://WEB.ARCHIVE.ORG/web/20110101000000/http://unidev.com.br/phpbb3/viewtopic.php?t=99999">T</a>',
+        "http://unidev.com.br/phpbb3/index.php",
+    )
+
+    assert page.references == ("http://unidev.com.br/phpbb3/viewtopic.php?t=99999",)
+
+
+def test_accepts_xml_declaration_in_decoded_html() -> None:
+    page = parse_page(
+        b'<?xml version="1.0" encoding="iso-8859-1"?><html><title>UniDev</title></html>',
+        "http://unidev.com.br/phpbb3/index.php",
+    )
+
+    assert page.era == "phpbb3"
+    assert page.posts == ()
+
+
+def test_accepts_archived_empty_forum_responses() -> None:
+    page = parse_page(
+        b"",
+        "http://unidev.com.br/phpbb3/portal/syndicate_downloads.php",
+    )
+
+    assert page.era == "phpbb3"
+    assert page.posts == ()
+    assert page.references == ()
 
 
 def test_extracts_snitz_post_and_relative_assets() -> None:
@@ -64,6 +142,100 @@ def test_extracts_phpbb2_post() -> None:
     assert page.posts[0].posted_at == "2007-03-28T18:23:00"
     assert page.posts[0].body_text == "Como usar DirectX no GCC?"
     assert "script" not in page.posts[0].body_html
+
+
+def test_uses_rendered_topic_identity_for_previous_and_next_views() -> None:
+    raw = """
+    <meta charset="iso-8859-1"><title>UniDev :: Exibir tópico - Real</title>
+    <link rel="up" href="viewforum.php?f=5" title="Geral">
+    <a href="viewtopic.php?t=7574&view=previous">Anterior</a>
+    <a href="viewtopic.php?t=7574&start=15">2</a>
+    <table><tr><td class="toprow"><b>Real</b></td></tr></table>
+    <table><tr>
+      <td><a name="31413"></a><b>autor</b></td>
+      <td><span class="largetext">Mensagem real.</span></td>
+    </tr></table>
+    """.encode()
+
+    page = parse_page(
+        raw,
+        "http://forum.unidev.com.br/phpbb2/viewtopic.php?t=35996&view=previous",
+    )
+
+    assert page.topic_id == 7574
+    assert page.forum_id == 5
+    assert page.posts[0].topic_id == 7574
+
+
+def test_parses_community_server_posts_and_ids() -> None:
+    page = parse_page(
+        b"""
+        <html><head><title>Forum Unidev - Manutencao do forum</title></head><body>
+        <div class="CommonBreadCrumbArea"><a href="/forums/5/ShowForum.aspx" title="Assuntos diversos">Assuntos diversos</a></div>
+        <div class="ForumPostArea">
+          <h4 class="ForumPostHeader"><a name="37"></a> 12-28-2006, 3:36 PM</h4>
+          <li class="ForumPostUserName"><a href="/members/rock.aspx">rock</a></li>
+          <img src="/users/avatar.aspx?userid=2107">
+          <div class="ForumPostContentText"><p>Primeira mensagem</p></div>
+        </div>
+        <div class="ForumPostArea">
+          <h4 class="ForumPostHeader"><a name="38"></a> 12-28-2006, 3:40 PM</h4>
+          <li class="ForumPostUserName"><a href="/members/admin.aspx">admin</a></li>
+          <a href="/search/SearchResults.aspx?u=1&o=DateDescending">Posts</a>
+          <div class="ForumPostContentText"><p>Resposta</p></div>
+        </div>
+        </body></html>
+        """,
+        "http://forum.unidev.com.br/forums/thread/37.aspx",
+        "community-server",
+    )
+
+    assert page.era == "community-server"
+    assert page.topic_id == 37
+    assert page.forum_id == 5
+    assert page.forum_name == "Assuntos diversos"
+    assert [post.post_id for post in page.posts] == [37, 38]
+    assert [post.author_id for post in page.posts] == [2107, 1]
+    assert page.posts[0].posted_at == "2006-12-28T15:36:00"
+    assert page.posts[1].body_text == "Resposta"
+    direct = parse_page(
+        b"<html><title>Forum</title></html>",
+        "http://forum.unidev.com.br/forums/37/ShowThread.aspx",
+        "community-server",
+    )
+    assert direct.topic_id == 37
+
+
+def test_classifies_dynamic_external_image_as_asset_by_html_context() -> None:
+    page = parse_page(
+        b'<img src="https://cdn.example/avatar.php?u=1">',
+        "http://unidev.com.br/phpbb3/viewtopic.php?t=1",
+    )
+
+    assert page.asset_references == ("http://cdn.example/avatar.php?u=1",)
+
+
+def test_extracts_phpbb3_portal_news_as_real_post() -> None:
+    raw = """
+    <table class="tablebg">
+      <tr><td class="cat"><h4><a href="viewtopic.php?p=385810#p385810"><strong>Unity e Nintendo</strong></a></h4></td></tr>
+      <tr><td class="row2"><a href="memberlist.php?mode=viewprofile&u=18927">mcunha98</a>
+        <a href="viewforum.php?f=81">Notícias</a><span>30 Mar 2013, 11:18</span></td></tr>
+      <tr><td class="row1"><table><tr><td class="genmed"><div style="margin:5px">Conteúdo completo da notícia.</div></td></tr></table></td></tr>
+      <tr><td><a href="posting.php?mode=reply&f=81&t=55715">Write comments</a></td></tr>
+    </table>
+    """.encode()
+
+    page = parse_page(raw, "http://unidev.com.br/phpbb3/portal.php")
+
+    post = page.posts[0]
+    assert post.topic_id == 55715
+    assert post.forum_id == 81
+    assert post.post_id == 385810
+    assert post.author_id == 18927
+    assert post.author_name == "mcunha98"
+    assert post.posted_at == "2013-03-30T11:18:00"
+    assert post.body_text == "Conteúdo completo da notícia."
 
 
 def test_extracts_phpbb3_normal_post() -> None:

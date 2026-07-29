@@ -50,22 +50,33 @@ function renderItem(data) {
 
 async function search() {
 	const query = input.value.trim();
-	const url = new URL(window.location.href);
+	let url;
+	try {
+		url = new URL(window.location.href);
+	} catch (error) {
+		console.error(error);
+		status.textContent = "A URL atual não pôde ser interpretada.";
+		return;
+	}
 	if (!query) {
 		results.replaceChildren();
 		status.textContent =
 			"Digite um termo, trecho de código ou nome de usuário.";
 		url.searchParams.delete("q");
-		history.replaceState(null, "", url);
+		try {
+			history.replaceState(null, "", url);
+		} catch (error) {
+			console.error(error);
+		}
 		return;
 	}
 
 	status.textContent = "Buscando…";
 	const filters = {};
-	if (typeFilter.value) filters.tipo = typeFilter.value;
-	if (forumFilter.value && typeFilter.value !== "usuario")
+	if (typeFilter?.value) filters.tipo = typeFilter.value;
+	if (forumFilter?.value && typeFilter?.value !== "usuario")
 		filters.forum = forumFilter.value;
-	if (yearFilter.value && typeFilter.value !== "usuario")
+	if (yearFilter?.value && typeFilter?.value !== "usuario")
 		filters.ano = yearFilter.value;
 
 	try {
@@ -95,7 +106,12 @@ for (const filter of [typeFilter, forumFilter, yearFilter]) {
 	filter?.addEventListener("change", () => void search());
 }
 
-const initial = new URL(window.location.href).searchParams.get("q");
+let initial = null;
+try {
+	initial = new URL(window.location.href).searchParams.get("q");
+} catch (error) {
+	console.error(error);
+}
 if (initial && input) {
 	input.value = initial;
 	void search();

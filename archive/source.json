@@ -1,0 +1,17 @@
+{
+  "release": "https://github.com/skhaz/unidev/releases/tag/archive-data-v3",
+  "captures": 47315,
+  "retrieved_bytes": 2973298853,
+  "assets": [
+    {
+      "url": "https://github.com/skhaz/unidev/releases/download/archive-data-v3/unidev-archive-core-v3.tar.gz",
+      "bytes": 342226897,
+      "sha256": "fd344a372599b582f2ead2c875e6f3255ad4dcf5c8e2bcbbc0a660fc3d6f29fa"
+    },
+    {
+      "url": "https://github.com/skhaz/unidev/releases/download/archive-data-v3/unidev-archive-resources-v3.tar.gz",
+      "bytes": 1070208425,
+      "sha256": "bedb6c2e4ea874d5e48cd4f670f10ddd404f5831afbc26ff189b61cd741459ea"
+    }
+  ]
+}

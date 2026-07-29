@@ -44,6 +44,11 @@ _NUMERIC_RE = re.compile(
     r"(?P<day>\d{1,2})/(?P<month>\d{1,2})/(?P<year>\d{2,4})\s*(?::|,)?\s*"
     r"(?P<hour>\d{1,2}):(?P<minute>\d{2})(?::(?P<second>\d{2}))?"
 )
+_US_NUMERIC_RE = re.compile(
+    r"(?P<month>\d{1,2})-(?P<day>\d{1,2})-(?P<year>\d{4})\s*,?\s*"
+    r"(?P<hour>\d{1,2}):(?P<minute>\d{2})(?::(?P<second>\d{2}))?\s*(?P<ampm>am|pm)",
+    re.I,
+)
 _MONTH_FIRST_RE = re.compile(
     r"(?P<month>[A-Za-zÀ-ÿ]+)\s+(?P<day>\d{1,2}),\s*(?P<year>\d{4})\s+"
     r"(?P<hour>\d{1,2}):(?P<minute>\d{2})(?::(?P<second>\d{2}))?\s*(?P<ampm>am|pm)?",
@@ -65,6 +70,25 @@ def parse_forum_date(value: str) -> str | None:
     """Return a timezone-free ISO timestamp because replay timezone varies."""
 
     normalized = " ".join(value.replace("\xa0", " ").split())
+    us_numeric = _US_NUMERIC_RE.search(normalized)
+    if us_numeric:
+        fields = us_numeric.groupdict(default="0")
+        hour = int(fields["hour"]) % 12
+        if fields["ampm"].casefold() == "pm":
+            hour += 12
+        try:
+            parsed = datetime(
+                int(fields["year"]),
+                int(fields["month"]),
+                int(fields["day"]),
+                hour,
+                int(fields["minute"]),
+                int(fields["second"]),
+            )
+        except ValueError:
+            return None
+        return parsed.isoformat(timespec="seconds")
+
     numeric = _NUMERIC_RE.search(normalized)
     if numeric:
         fields = numeric.groupdict(default="0")

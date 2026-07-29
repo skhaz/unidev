@@ -16,6 +16,8 @@ class ParsedPost:
     posted_at_raw: str | None
     body_html: str
     body_text: str
+    topic_title: str | None = None
+    forum_name: str | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -43,3 +45,4 @@ class ParsedPage:
     posts: tuple[ParsedPost, ...]
     references: tuple[str, ...]
     listings: tuple[ParsedTopicListing, ...] = ()
+    asset_references: tuple[str, ...] = ()
