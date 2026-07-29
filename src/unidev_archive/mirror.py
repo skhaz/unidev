@@ -524,8 +524,8 @@ def _validate_output(staging: Path) -> None:
                     raise MirrorIntegrityError(
                         f"candidato srcset quebrado em {source}: {reference}"
                     )
-        for element in document.xpath("//*[@href or @src or @background or @poster]"):
-            for attribute in ("href", "src", "background", "poster"):
+        for element in document.xpath("//*[@href or @src or @background or @poster or @action]"):
+            for attribute in ("href", "src", "background", "poster", "action"):
                 reference = element.get(attribute)
                 if not reference or reference.startswith(("data:", "mailto:", "tel:")):
                     continue
@@ -701,6 +701,9 @@ def build_mirror_site(
 
     pages, duplicates, page_aliases = _select_pages(database)
     homepage = _homepage_page(pages)
+    search_available = any(
+        page.route == PurePosixPath("busca", "index.html") for page in pages
+    )
     aliases_by_capture: dict[int, _PageAlias] = {}
     for alias in page_aliases:
         aliases_by_capture.setdefault(alias.capture_id, alias)
@@ -758,6 +761,7 @@ def build_mirror_site(
             capture_timestamp=page.timestamp,
             period_start=period_start,
             period_end=period_end,
+            general_search_available=search_available,
         )
         if page.route == PurePosixPath("busca", "index.html"):
             preserved = _enable_search_page(preserved, page.route)
@@ -777,6 +781,7 @@ def build_mirror_site(
             capture_timestamp=homepage.timestamp,
             period_start=period_start,
             period_end=period_end,
+            general_search_available=search_available,
         ),
         encoding="utf-8",
         newline="\n",

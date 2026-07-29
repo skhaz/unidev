@@ -414,6 +414,7 @@ def preserve_document(
     capture_timestamp: str | None = None,
     period_start: str | None = None,
     period_end: str | None = None,
+    general_search_available: bool = True,
 ) -> str:
     """Return a UTF-8 historical document with only local, inert subresources."""
 
@@ -528,5 +529,6 @@ def preserve_document(
     csp.set("content", _CSP)
     head.insert(0, csp)
     head.insert(0, charset)
-    _add_general_search(head, body_nodes[0] if body_nodes else None, output_file)
+    if general_search_available:
+        _add_general_search(head, body_nodes[0] if body_nodes else None, output_file)
     return "<!doctype html>\n" + _serialize(document, "html")

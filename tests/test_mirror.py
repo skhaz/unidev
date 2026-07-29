@@ -156,6 +156,16 @@ def test_validator_neutralizes_uncaptured_local_fragments(tmp_path: Path) -> Non
     assert "archive-link-missing" in published
 
 
+def test_validator_rejects_broken_active_search_action(tmp_path: Path) -> None:
+    (tmp_path / "index.html").write_text(
+        '<html><body><form action="busca/index.html"><input name="q"></form></body></html>',
+        encoding="utf-8",
+    )
+
+    with pytest.raises(MirrorIntegrityError, match="link local quebrado"):
+        _validate_output(tmp_path)
+
+
 def test_validator_rejects_active_external_anchor(tmp_path: Path) -> None:
     (tmp_path / "index.html").write_text(
         '<html><body><a href="https://example.org/">externo</a></body></html>',
