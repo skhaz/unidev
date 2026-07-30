@@ -2,12 +2,12 @@
   "measured_at": "2026-07-30",
   "publication_gate": "passed",
   "captures": {
-    "total": 47320,
-    "wayback_exact_verified": 44580,
-    "wayback_availability_verified": 2501,
+    "total": 47400,
+    "wayback_exact_verified": 44659,
+    "wayback_availability_verified": 2502,
     "common_crawl_verified": 239,
-    "retrieved_bytes": 2971713170,
-    "excluded_cdx_mismatches": 343,
+    "retrieved_bytes": 2975044877,
+    "excluded_cdx_mismatches": 346,
     "excluded_live_origin_fallbacks": 1079,
     "excluded_incomplete_common_crawl_records": 10,
     "excluded_zero_length_resource_payloads": 2
@@ -27,7 +27,7 @@
   },
   "unresolved_graph": {
     "page_urls": 58450,
-    "resource_urls": 9063,
+    "resource_urls": 9022,
     "page_urls_by_generation": {
       "snitz": 9161,
       "community_server": 20,
@@ -44,7 +44,7 @@
       "reason": "as duas páginas verificáveis encontradas pela varredura foram incorporadas; os oito destinos que elas expuseram também não possuem candidato completo nas fontes consultadas"
     },
     "wayback_resource_availability": {
-      "checked_fixed_point_internal_urls": 852,
+      "checked_fixed_point_internal_urls": 851,
       "remaining_usable_verified_capture": 0,
       "zero_length_payloads": 2,
       "reason": "a folha de estilo verificável foi incorporada; as referências internas restantes não possuem payload não vazio utilizável"
@@ -192,6 +192,18 @@
     "remaining_recoverable_candidates_at_fixed_point": 0,
     "fixed_point_ledger_sha256": "1aec2dffb4fc882a38d95608e0727bae56957f9e25bad9e9ff7b185f73317b06"
   },
+  "image_recovery_v7": {
+    "report": "archive/image-recovery-v7.json",
+    "release": "https://github.com/skhaz/unidev/releases/tag/archive-data-v7",
+    "post_image_urls_examined": 5332,
+    "restored_image_urls": 41,
+    "restored_post_image_references": 993,
+    "accepted_unique_image_blobs": 46,
+    "new_unique_image_blobs": 45,
+    "explicit_unavailable_placeholders_rejected": 1,
+    "remaining_missing_post_image_urls": 5291,
+    "evidence_sha256": "9f96dabc809960ffad5b4c799294e552a9888175d15701a515acd60a822d6286"
+  },
   "known_gap": {
     "topic_id": 49617,
     "post_id": 342938,
@@ -205,13 +217,13 @@
     "posts": 77092,
     "topics": 25072,
     "users": 9893,
-    "copied_resource_blobs": 2388,
+    "copied_resource_blobs": 2429,
     "neutralized_uncaptured_page_links": 58450,
-    "neutralized_uncaptured_resources": 9063,
+    "neutralized_uncaptured_resources": 9022,
     "pagefind_indexed_pages": 20047,
     "pagefind_indexed_words": 202482,
-    "files_after_pagefind": 43414,
-    "bytes_after_pagefind": 1989755074,
+    "files_after_pagefind": 43455,
+    "bytes_after_pagefind": 1992017142,
     "symlinks_or_hardlinks": 0,
     "validation": "HTML, CSS, SVG, referências locais, fragmentos, CSP e busca em navegador aprovados"
   }

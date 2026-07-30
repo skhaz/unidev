@@ -1,0 +1,92 @@
+{
+  "measured_at": "2026-07-30",
+  "release": "https://github.com/skhaz/unidev/releases/tag/archive-data-v7",
+  "scope": {
+    "posts_examined": 77092,
+    "missing_post_image_urls": 5332,
+    "post_image_references": 14567,
+    "internal_urls": 99,
+    "external_urls": 5233,
+    "method": "extração de img/src e img/srcset diretamente do body_html da melhor captura de cada post"
+  },
+  "sources": {
+    "wayback_availability": {
+      "checked_urls": 5332,
+      "reported_available": 39,
+      "usable_images": 0,
+      "reason": "os replays apontados devolviam HTML, vazio ou páginas de indisponibilidade"
+    },
+    "wayback_exact_cdx": {
+      "queried_urls": 995,
+      "complete_urls": 990,
+      "urls_with_records": 116,
+      "records": 1202,
+      "pacing": "uma requisição por vez; espera mínima de cinco segundos na rodada final; Retry-After e backoff exponencial com jitter em HTTP 429"
+    },
+    "arquivo_pt_exact_cdx": {
+      "completed_urls": 5305,
+      "matching_records": 0
+    },
+    "common_crawl_offline_indexes": {
+      "all_urls": {
+        "collections": [
+          "CC-MAIN-2008-2009",
+          "CC-MAIN-2009-2010",
+          "CC-MAIN-2012",
+          "CC-MAIN-2013-20",
+          "CC-MAIN-2013-48"
+        ],
+        "index_blocks": 2513,
+        "compressed_index_bytes": 504487162,
+        "matching_records": 0
+      },
+      "priority_urls": {
+        "urls": 500,
+        "collections": 126,
+        "index_blocks": 12974,
+        "compressed_index_bytes": 2532982770,
+        "matching_records": 0
+      },
+      "verified_cached_blocks": 14929,
+      "verified_cached_block_bytes": 2927386896
+    }
+  },
+  "accepted": {
+    "capture_rows": 80,
+    "target_urls": 41,
+    "post_image_references": 993,
+    "unique_blobs": 46,
+    "new_unique_blobs": 45,
+    "new_unique_blob_bytes": 2223103,
+    "manifest_retrieved_bytes": 3331707,
+    "formats": {
+      "JPEG": 30,
+      "GIF": 9,
+      "PNG": 7
+    },
+    "validation": "digest CDX exato, SHA-256, decodificação integral, formato, dimensões, frames e inspeção visual"
+  },
+  "rejected": {
+    "explicit_unavailable_placeholder": 1,
+    "cdx_digest_mismatch_rows": 3,
+    "unrecoverable_replay_rows": 1,
+    "placeholder_sha256": "cc5bbbec297076b9a7dc33acdae460a0f44ab4cf5b686537ad9f7094893b3a89"
+  },
+  "fixed_point": {
+    "missing_resources_before": 9063,
+    "missing_resources_after": 9022,
+    "restored_resource_urls": 41,
+    "new_missing_resource_urls": 0,
+    "remaining_missing_post_image_urls": 5291,
+    "remaining_post_image_references": 13574
+  },
+  "evidence": {
+    "url": "https://github.com/skhaz/unidev/releases/download/archive-data-v7/unidev-image-recovery-evidence-v7.tar.gz",
+    "bytes": 3448249,
+    "sha256": "9f96dabc809960ffad5b4c799294e552a9888175d15701a515acd60a822d6286",
+    "accepted_manifest_sha256": "40e65ff9d6ee3ecff219d65b5bfb58336c00334b6c34e7c02b2ee953da2a748f",
+    "image_validation_sha256": "425720653e7b167171efdc1a70b254330bb8eb9b2dd5dfc06da1e895fde6487c",
+    "common_crawl_block_inventory_sha256": "38677005dd84cba9c0c78f944fb7e6136c2817bc12ae97ab0a3e3eee0dc4b2e4"
+  },
+  "limitation": "Ausência nas fontes consultadas não prova inexistência universal. As referências restantes continuam inertes e não são substituídas por imagens atuais, aproximadas ou inventadas."
+}

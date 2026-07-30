@@ -40,13 +40,13 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p .build/acervo
-          gh release download archive-data-v6 \
-            --pattern 'unidev-archive-*-v6.tar.gz' --dir .build
+          gh release download archive-data-v7 \
+            --pattern 'unidev-archive-*-v7.tar.gz' --dir .build
           printf '%s  %s\n' \
-            962ef9b0a388e2e6efb3d0c8d70a9cf1e78176b4390c3476ce6a41b31c3cfe5f .build/unidev-archive-core-v6.tar.gz \
-            013be8af96901550ff1c67e967a63e7b1098d67a2cf2bba82620cc7f087035aa .build/unidev-archive-resources-v6.tar.gz | sha256sum -c -
-          tar -xzf .build/unidev-archive-core-v6.tar.gz -C .build/acervo
-          tar -xzf .build/unidev-archive-resources-v6.tar.gz -C .build/acervo
+            a21d6475887391cc765e175fe12206ca67655b6df9cc0bdc9b35216e0698211b .build/unidev-archive-core-v7.tar.gz \
+            cb9d979f23541ac52da7c6ca34ef73a6439ae1acc58541a4ab1e2d9e4a1d4eef .build/unidev-archive-resources-v7.tar.gz | sha256sum -c -
+          tar -xzf .build/unidev-archive-core-v7.tar.gz -C .build/acervo
+          tar -xzf .build/unidev-archive-resources-v7.tar.gz -C .build/acervo
 
       - name: Gerar site estático em UTF-8
         run: uv run unidev-archive rebuild --manifest .build/acervo/captures.jsonl --database .build/archive.sqlite3 --output dist

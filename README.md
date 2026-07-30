@@ -6,7 +6,7 @@ Restauração estática, pesquisável e somente leitura do fórum brasileiro **U
 - Repositório: <https://github.com/skhaz/unidev>
 - Fontes primárias: inventários CDX do Internet Archive e índices do Common Crawl
 
-> **Estado atual:** o acervo bruto verificado v6 está preservado em <https://github.com/skhaz/unidev/releases/tag/archive-data-v6>. O espelho publica todas as 20.181 páginas históricas verificáveis e neutraliza, sem criar placeholders, 58.450 links e 9.063 referências a destinos que não possuem captura completa. A saída foi validada sem links, recursos, CSS, SVG ou fragmentos quebrados. As métricas reproduzíveis estão em [`archive/coverage.json`](archive/coverage.json), e a varredura de recuperação está documentada em [`archive/recovery-v6.json`](archive/recovery-v6.json).
+> **Estado atual:** o acervo bruto verificado v7 está preservado em <https://github.com/skhaz/unidev/releases/tag/archive-data-v7>. O espelho publica todas as 20.181 páginas históricas verificáveis e neutraliza, sem criar placeholders, 58.450 links e 9.022 referências a destinos que não possuem captura completa. A saída foi validada sem links, recursos, CSS, SVG ou fragmentos quebrados. As métricas reproduzíveis estão em [`archive/coverage.json`](archive/coverage.json); as varreduras estão documentadas em [`archive/recovery-v6.json`](archive/recovery-v6.json) e [`archive/image-recovery-v7.json`](archive/image-recovery-v7.json).
 
 ## Princípios
 
@@ -62,13 +62,13 @@ uv run ruff check .
 uv run pytest
 
 mkdir -p .build/acervo
-GH_REPO=skhaz/unidev gh release download archive-data-v6 \
-  --pattern 'unidev-archive-*-v6.tar.gz' --dir .build
+GH_REPO=skhaz/unidev gh release download archive-data-v7 \
+  --pattern 'unidev-archive-*-v7.tar.gz' --dir .build
 printf '%s  %s\n' \
-  962ef9b0a388e2e6efb3d0c8d70a9cf1e78176b4390c3476ce6a41b31c3cfe5f .build/unidev-archive-core-v6.tar.gz \
-  013be8af96901550ff1c67e967a63e7b1098d67a2cf2bba82620cc7f087035aa .build/unidev-archive-resources-v6.tar.gz | sha256sum -c -
-tar -xzf .build/unidev-archive-core-v6.tar.gz -C .build/acervo
-tar -xzf .build/unidev-archive-resources-v6.tar.gz -C .build/acervo
+  a21d6475887391cc765e175fe12206ca67655b6df9cc0bdc9b35216e0698211b .build/unidev-archive-core-v7.tar.gz \
+  cb9d979f23541ac52da7c6ca34ef73a6439ae1acc58541a4ab1e2d9e4a1d4eef .build/unidev-archive-resources-v7.tar.gz | sha256sum -c -
+tar -xzf .build/unidev-archive-core-v7.tar.gz -C .build/acervo
+tar -xzf .build/unidev-archive-resources-v7.tar.gz -C .build/acervo
 
 uv run unidev-archive rebuild \
   --manifest .build/acervo/captures.jsonl \
@@ -94,7 +94,7 @@ Cada entrada do manifesto integral contém:
 - SHA-256 e tamanho dos bytes locais;
 - caminho content-addressed do blob.
 
-O release contém 47.320 registros e 2.971.713.170 bytes recuperados. Os dois arquivos do acervo e o pacote de evidências têm hashes e tamanhos fixados em [`archive/source.json`](archive/source.json).
+O release contém 47.400 registros e 2.975.044.877 bytes recuperados. Os dois arquivos do acervo e o pacote de evidências têm hashes e tamanhos fixados em [`archive/source.json`](archive/source.json).
 
 O build falha se qualquer SHA-256 divergir, se uma referência ativa não resolver localmente ou se duas páginas incompatíveis disputarem a mesma rota. Referências históricas sem captura completa perdem o atributo de rede e permanecem inertes, com texto alternativo e indicação de indisponibilidade. Páginas antigas declaradas como ISO-8859-1 são interpretadas como Windows-1252, preservando a pontuação usada pelos navegadores da época. Páginas phpBB3 com UTF-8 e bytes Windows-1252 isolados são decodificadas por trechos, evitando mojibake como `ProgramaÃ§Ã£o`.
 
@@ -102,7 +102,9 @@ O build falha se qualquer SHA-256 divergir, se uma referência ativa não resolv
 
 O inventário usa a [CDX API oficial](https://github.com/internetarchive/wayback/blob/master/wayback-cdx-server/README.md), e o conteúdo é recuperado com replay exato `id_`. Downloads são retomáveis, com cache, baixa concorrência, `Retry-After` e backoff conforme a orientação oficial do Internet Archive em <https://archive.org/developers/bots.html>.
 
-A varredura v6 cruzou todo o grafo interno com os inventários persistidos e a Availability API, restaurou duas páginas Snitz e uma folha de estilo phpBB3 e repetiu a análise até não restar candidato completo verificável. A evidência reproduzível está em <https://github.com/skhaz/unidev/releases/download/archive-data-v6/unidev-recovery-evidence-v6.tar.gz>. A Availability API não constitui prova universal de inexistência; destinos restantes continuam inertes.
+A varredura v6 cruzou todo o grafo interno com os inventários persistidos e a Availability API, restaurou duas páginas Snitz e uma folha de estilo phpBB3 e repetiu a análise até não restar candidato completo verificável. A evidência reproduzível está em <https://github.com/skhaz/unidev/releases/download/archive-data-v6/unidev-recovery-evidence-v6.tar.gz>.
+
+A varredura v7 isolou 5.332 URLs de imagem ausentes diretamente nos corpos dos posts. Ela recuperou 41 URLs com digest CDX confirmado e decodificação integral, restaurando 993 relações post/imagem. Também consultou Arquivo.pt e 2,9 GB de blocos verificados dos índices Common Crawl. Uma imagem explícita de indisponibilidade foi rejeitada. A evidência está em <https://github.com/skhaz/unidev/releases/download/archive-data-v7/unidev-image-recovery-evidence-v7.tar.gz>. Ausência nessas fontes não constitui prova universal; destinos restantes continuam inertes.
 
 A disponibilidade de uma página na Wayback Machine não garante direito irrestrito de republicação. O projeto mantém a publicação histórica, minimiza dados de perfil e aceita revisão ou retirada de conteúdo quando necessária.
 
