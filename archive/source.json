@@ -1,17 +1,22 @@
 {
-  "release": "https://github.com/skhaz/unidev/releases/tag/archive-data-v5",
-  "captures": 47317,
-  "retrieved_bytes": 2971537678,
+  "release": "https://github.com/skhaz/unidev/releases/tag/archive-data-v6",
+  "captures": 47320,
+  "retrieved_bytes": 2971713170,
   "assets": [
     {
-      "url": "https://github.com/skhaz/unidev/releases/download/archive-data-v5/unidev-archive-core-v5.tar.gz",
-      "bytes": 342227057,
-      "sha256": "b0abbd6c043c09f0ccb67b37580811fbf1a483a056c15e53d02f51a834c33426"
+      "url": "https://github.com/skhaz/unidev/releases/download/archive-data-v6/unidev-archive-core-v6.tar.gz",
+      "bytes": 342244087,
+      "sha256": "962ef9b0a388e2e6efb3d0c8d70a9cf1e78176b4390c3476ce6a41b31c3cfe5f"
     },
     {
-      "url": "https://github.com/skhaz/unidev/releases/download/archive-data-v5/unidev-archive-resources-v5.tar.gz",
+      "url": "https://github.com/skhaz/unidev/releases/download/archive-data-v6/unidev-archive-resources-v6.tar.gz",
       "bytes": 1068439454,
       "sha256": "013be8af96901550ff1c67e967a63e7b1098d67a2cf2bba82620cc7f087035aa"
+    },
+    {
+      "url": "https://github.com/skhaz/unidev/releases/download/archive-data-v6/unidev-recovery-evidence-v6.tar.gz",
+      "bytes": 5695924,
+      "sha256": "8448a0b568759dfe33b2c8cfb2506dc09a661f70d5ce6361c996f2ed9c591702"
     }
   ]
 }

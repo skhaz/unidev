@@ -19,9 +19,9 @@ from unidev_archive.routing import RouteRegistry
 
 
 def test_search_asset_derives_deployment_base_from_its_own_url() -> None:
-    script = (
-        Path(__file__).parents[1] / "src/unidev_archive/static/search.js"
-    ).read_text(encoding="utf-8")
+    script = (Path(__file__).parents[1] / "src/unidev_archive/static/search.js").read_text(
+        encoding="utf-8"
+    )
 
     assert 'new URL("../", import.meta.url).pathname' in script
     assert 'baseUrl: "/unidev/"' not in script

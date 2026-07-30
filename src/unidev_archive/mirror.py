@@ -701,9 +701,7 @@ def build_mirror_site(
 
     pages, duplicates, page_aliases = _select_pages(database)
     homepage = _homepage_page(pages)
-    search_available = any(
-        page.route == PurePosixPath("busca", "index.html") for page in pages
-    )
+    search_available = any(page.route == PurePosixPath("busca", "index.html") for page in pages)
     aliases_by_capture: dict[int, _PageAlias] = {}
     for alias in page_aliases:
         aliases_by_capture.setdefault(alias.capture_id, alias)
