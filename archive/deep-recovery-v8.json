@@ -1,0 +1,88 @@
+{
+  "measured_at": "2026-07-31",
+  "release": "https://github.com/skhaz/unidev/releases/tag/archive-data-v8",
+  "scope": {
+    "missing_post_image_urls": 5332,
+    "post_image_references": 14567,
+    "missing_page_urls_before_navigation": 58450
+  },
+  "wayback_cdx": {
+    "target_urls_attempted": 5332,
+    "complete_target_urls": 5329,
+    "hard_failures": 3,
+    "new_exact_target_urls_with_records": 118,
+    "broad_inventory_records_examined": 5427153,
+    "pacing": "uma requisição por vez; espera mínima de cinco segundos; Retry-After e backoff exponencial com jitter em HTTP 429"
+  },
+  "image_recovery_v8": {
+    "accepted_capture_rows": 87,
+    "restored_target_urls": 87,
+    "direct_exact_urls": 83,
+    "strongly_corroborated_alias_urls": 4,
+    "restored_post_image_references": 92,
+    "unique_blobs": 87,
+    "new_unique_blobs": 84,
+    "retrieved_bytes": 6175800,
+    "formats": {
+      "JPEG": 67,
+      "GIF": 9,
+      "PNG": 11
+    },
+    "validation": "digest, SHA-256, formato real, decodificação integral, dimensões, frames, contexto e inspeção visual"
+  },
+  "rejected_v8": {
+    "cdx_digest_mismatches": 6,
+    "non_image_payloads": 27,
+    "generic_unavailable_or_tracking_placeholders": 2
+  },
+  "cumulative_image_recovery": {
+    "restored_target_urls": 128,
+    "restored_post_image_references": 1085,
+    "remaining_missing_target_urls": 5204,
+    "remaining_post_image_references": 13482
+  },
+  "navigable_verified_entities": {
+    "generated_entity_pages": 27686,
+    "navigation_alias_rows": 58323,
+    "restored_missing_page_urls": 33479,
+    "remaining_unresolved_page_urls": 24971,
+    "remaining_by_era": {
+      "snitz": 6488,
+      "community-server": 18,
+      "phpbb2": 4057,
+      "phpbb3": 14408
+    },
+    "policy": "páginas consolidadas são claramente identificadas como geradas, contêm somente registros verificados, apontam para capturas-fonte quando disponíveis e não entram no Pagefind"
+  },
+  "fixed_point": {
+    "missing_resources_before": 9022,
+    "missing_resources_after": 8935,
+    "new_missing_resources": 0
+  },
+  "build": {
+    "captures": 47487,
+    "unique_blobs": 47066,
+    "retrieved_bytes": 2981220677,
+    "posts": 77092,
+    "topics": 25072,
+    "users": 9893,
+    "captured_pages": 20181,
+    "generated_entity_pages": 27686,
+    "html_files": 47868,
+    "pagefind_indexed_pages": 20047,
+    "files_after_pagefind": 71324,
+    "bytes_after_pagefind": 2252779520,
+    "symlinks": 0,
+    "hard_links": 0
+  },
+  "evidence": {
+    "url": "https://github.com/skhaz/unidev/releases/download/archive-data-v8/unidev-deep-recovery-evidence-v8.tar.gz",
+    "bytes": 239157055,
+    "sha256": "5933e25a96f8103cffdbece7a2f3f130ce40100bb3f327b275e235247238c519",
+    "accepted_manifest_sha256": "5561be023006efd1cd29cc4903677eea2584a313fdd43abba5478f8a14b7fd53",
+    "image_validation_sha256": "c037651f246f4f00a5c67956331cf6d23bd8b5b254b47e5ef2920331c717468b",
+    "navigation_aliases_sha256": "c98b425ee66bfc5bcd3ad193b1eb9208c3d192a2bc31cb952656297c518b80a8",
+    "navigation_entities_sha256": "51e32ca391c1eb1f9c3c01946ef9cb4292e540d76ca4d12a0b86945c59127430"
+  },
+  "limitation": "Destinos restantes não possuem captura completa nem entidade verificável suficiente. Eles permanecem inertes em vez de apontar para conteúdo inventado, externo ou quebrado."
+}

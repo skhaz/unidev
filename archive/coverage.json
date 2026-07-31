@@ -1,13 +1,13 @@
 {
-  "measured_at": "2026-07-30",
+  "measured_at": "2026-07-31",
   "publication_gate": "passed",
   "captures": {
-    "total": 47400,
-    "wayback_exact_verified": 44659,
-    "wayback_availability_verified": 2502,
+    "total": 47487,
+    "wayback_exact_verified": 44742,
+    "wayback_availability_verified": 2506,
     "common_crawl_verified": 239,
-    "retrieved_bytes": 2975044877,
-    "excluded_cdx_mismatches": 346,
+    "retrieved_bytes": 2981220677,
+    "excluded_cdx_mismatches": 352,
     "excluded_live_origin_fallbacks": 1079,
     "excluded_incomplete_common_crawl_records": 10,
     "excluded_zero_length_resource_payloads": 2
@@ -26,15 +26,16 @@
     "terminal_topic_id": 55715
   },
   "unresolved_graph": {
-    "page_urls": 58450,
-    "resource_urls": 9022,
+    "page_urls": 24971,
+    "resource_urls": 8935,
     "page_urls_by_generation": {
-      "snitz": 9161,
-      "community_server": 20,
-      "phpbb2": 14467,
-      "phpbb3": 34802
+      "snitz": 6488,
+      "community_server": 18,
+      "phpbb2": 4057,
+      "phpbb3": 14408
     },
-    "publication_handling": "todas essas referências são inertes na saída; não existe href, src, CSS url(), SVG ou fragmento quebrado publicado"
+    "restored_through_verified_entities": 33479,
+    "publication_handling": "destinos com entidade verificável resolvem para uma visão consolidada local e identificada como gerada; as referências restantes são inertes; não existe href, src, CSS url(), SVG ou fragmento quebrado publicado"
   },
   "source_exhaustion": {
     "wayback_page_availability": {
@@ -44,7 +45,7 @@
       "reason": "as duas páginas verificáveis encontradas pela varredura foram incorporadas; os oito destinos que elas expuseram também não possuem candidato completo nas fontes consultadas"
     },
     "wayback_resource_availability": {
-      "checked_fixed_point_internal_urls": 851,
+      "checked_fixed_point_internal_urls": 850,
       "remaining_usable_verified_capture": 0,
       "zero_length_payloads": 2,
       "reason": "a folha de estilo verificável foi incorporada; as referências internas restantes não possuem payload não vazio utilizável"
@@ -204,26 +205,41 @@
     "remaining_missing_post_image_urls": 5291,
     "evidence_sha256": "9f96dabc809960ffad5b4c799294e552a9888175d15701a515acd60a822d6286"
   },
+  "deep_recovery_v8": {
+    "report": "archive/deep-recovery-v8.json",
+    "release": "https://github.com/skhaz/unidev/releases/tag/archive-data-v8",
+    "wayback_exact_complete_urls": 5329,
+    "wayback_inventory_records_examined": 5427153,
+    "restored_image_urls": 87,
+    "restored_post_image_references": 92,
+    "new_unique_image_blobs": 84,
+    "generated_entity_pages": 27686,
+    "restored_missing_page_urls": 33479,
+    "remaining_missing_post_image_urls": 5204,
+    "evidence_sha256": "5933e25a96f8103cffdbece7a2f3f130ce40100bb3f327b275e235247238c519"
+  },
   "known_gap": {
     "topic_id": 49617,
     "post_id": 342938,
     "description": "A listagem comprova a atividade de skhaz, mas nenhuma fonte consultada forneceu o corpo completo da mensagem. O arquivo não o inventa."
   },
   "note": "Contagens de URLs ausentes incluem variantes históricas e paginação. Ausência nas fontes consultadas não prova inexistência global; o gate permanece fechado enquanto qualquer destino obrigatório estiver ausente.",
-  "publication_policy": "publica todo conteúdo verificável; referências sem captura completa são removidas ou neutralizadas antes da validação, nunca convertidas em páginas ou recursos inventados",
+  "publication_policy": "publica capturas históricas e visões consolidadas claramente identificadas, compostas somente de registros verificáveis; referências sem captura nem entidade suficiente são neutralizadas antes da validação, nunca convertidas em conteúdo inventado",
   "published_output": {
     "captured_pages": 20181,
-    "html_files": 20182,
+    "generated_entity_pages": 27686,
+    "html_files": 47868,
     "posts": 77092,
     "topics": 25072,
     "users": 9893,
-    "copied_resource_blobs": 2429,
-    "neutralized_uncaptured_page_links": 58450,
-    "neutralized_uncaptured_resources": 9022,
+    "copied_resource_blobs": 2513,
+    "restored_entity_links": 33479,
+    "neutralized_uncaptured_page_links": 24971,
+    "neutralized_uncaptured_resources": 8935,
     "pagefind_indexed_pages": 20047,
-    "pagefind_indexed_words": 202482,
-    "files_after_pagefind": 43455,
-    "bytes_after_pagefind": 1992017142,
+    "pagefind_indexed_words": 257514,
+    "files_after_pagefind": 71324,
+    "bytes_after_pagefind": 2252779520,
     "symlinks_or_hardlinks": 0,
     "validation": "HTML, CSS, SVG, referências locais, fragmentos, CSP e busca em navegador aprovados"
   }

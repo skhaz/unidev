@@ -10,21 +10,45 @@ import posixpath
 import re
 import shutil
 from collections import defaultdict
+from collections.abc import Iterable
 from dataclasses import asdict, dataclass
 from datetime import UTC, datetime
 from itertools import chain
 from pathlib import Path, PurePosixPath
+from typing import Protocol
 from urllib.parse import parse_qsl, unquote, urlencode, urlsplit, urlunsplit
 
 from lxml import html as lxml_html
 
 from unidev_archive.css import css_references, has_unsupported_network_syntax
 from unidev_archive.database import ArchiveDB
+from unidev_archive.entities import plan_entity_fallbacks, write_entity_pages
 from unidev_archive.markup import local_name
 from unidev_archive.preservation import preserve_document, preserve_stylesheet, preserve_svg
 from unidev_archive.routing import RouteRegistry, is_inert_action_url, static_route
 from unidev_archive.srcset import parse_srcset
 from unidev_archive.urls import canonical_url, era_for_url, is_forum_url
+
+
+class _Row(Protocol):
+    def __getitem__(self, key: str) -> object: ...
+
+
+def _row_int(row: _Row, key: str) -> int:
+    try:
+        return int(str(row[key]))
+    except (IndexError, KeyError, TypeError, ValueError) as error:
+        raise MirrorIntegrityError(f"valor inteiro inválido na coluna {key}") from error
+
+
+def _remove_tree(path: Path) -> None:
+    try:
+        shutil.rmtree(path)
+    except FileNotFoundError:
+        pass
+    except OSError as error:
+        raise MirrorIntegrityError(f"não foi possível remover {path}") from error
+
 
 _SAFE_NAME_RE = re.compile(r"[^A-Za-z0-9._-]+")
 _MIME_EXTENSIONS = {
@@ -158,7 +182,7 @@ def _select_pages(
         """,
         (),
     ):
-        capture_topics.setdefault(int(row["capture_id"]), int(row["topic_id"]))
+        capture_topics.setdefault(_row_int(row, "capture_id"), _row_int(row, "topic_id"))
     selected: dict[PurePosixPath, _PageCapture] = {}
     aliases: list[_PageAlias] = []
     duplicates = 0
@@ -178,14 +202,14 @@ def _select_pages(
         if not is_forum_url(str(row["original_url"]), str(row["timestamp"])):
             continue
         routed_url = _route_source_url(
-            str(row["original_url"]), capture_topics.get(int(row["capture_id"]))
+            str(row["original_url"]), capture_topics.get(_row_int(row, "capture_id"))
         )
         route = static_route(routed_url, row["timestamp"])
         if route is None:
             continue
         aliases.append(
             _PageAlias(
-                capture_id=int(row["capture_id"]),
+                capture_id=_row_int(row, "capture_id"),
                 original_url=str(row["original_url"]),
                 timestamp=str(row["timestamp"]),
                 route=route,
@@ -197,20 +221,20 @@ def _select_pages(
         ):
             aliases.append(
                 _PageAlias(
-                    capture_id=int(row["capture_id"]),
+                    capture_id=_row_int(row, "capture_id"),
                     original_url=requested_url,
                     timestamp=str(row["timestamp"]),
                     route=route,
                 )
             )
         candidate = _PageCapture(
-            capture_id=int(row["capture_id"]),
+            capture_id=_row_int(row, "capture_id"),
             sha256=str(row["raw_sha256"]),
             original_url=str(row["original_url"]),
             timestamp=str(row["timestamp"]),
             relative_path=str(row["relative_path"]),
             route=route,
-            topic_id=capture_topics.get(int(row["capture_id"])),
+            topic_id=capture_topics.get(_row_int(row, "capture_id")),
         )
         previous = selected.get(route)
         if previous is not None:
@@ -280,7 +304,7 @@ def _load_resources(
         unique = unique_blobs.setdefault(
             identity,
             _ResourceCapture(
-                capture_id=int(row["capture_id"]),
+                capture_id=_row_int(row, "capture_id"),
                 sha256=sha256,
                 canonical_url=canonical,
                 original_url=str(row["original_url"]),
@@ -291,7 +315,7 @@ def _load_resources(
             ),
         )
         capture = _ResourceCapture(
-            capture_id=int(row["capture_id"]),
+            capture_id=_row_int(row, "capture_id"),
             sha256=sha256,
             canonical_url=canonical,
             original_url=str(row["original_url"]),
@@ -318,15 +342,18 @@ def _load_resources(
         """,
         ("page", "asset", "attachment"),
     ):
-        references[int(row["referrer_capture_id"])].append(
+        references[_row_int(row, "referrer_capture_id")].append(
             (str(row["target_url"]), str(row["kind"]))
         )
     return candidates, {key: tuple(value) for key, value in references.items()}, unique_blobs
 
 
 def _timestamp_seconds(value: str) -> int:
-    parsed = datetime.strptime(value, "%Y%m%d%H%M%S").replace(tzinfo=UTC)
-    return int(parsed.timestamp())
+    try:
+        parsed = datetime.strptime(value, "%Y%m%d%H%M%S").replace(tzinfo=UTC)
+        return int(parsed.timestamp())
+    except (OverflowError, TypeError, ValueError) as error:
+        raise MirrorIntegrityError(f"timestamp inválido: {value}") from error
 
 
 def _nearest_candidate(
@@ -679,7 +706,7 @@ def _copy_search_assets(staging: Path) -> None:
     source = Path(__file__).with_name("static")
     target = staging / "assets"
     target.mkdir(parents=True, exist_ok=True)
-    for name in ("archive-search.css", "search.js", "site.css"):
+    for name in ("archive-entities.css", "archive-search.css", "search.js", "site.css"):
         shutil.copyfile(source / name, target / name)
 
 
@@ -691,12 +718,12 @@ def build_mirror_site(
     period_start: str | None = None,
     period_end: str | None = None,
 ) -> MirrorStats:
-    """Build real captured pages; never synthesize destinations from listing metadata."""
+    """Build captured pages and transparent navigation from verified records."""
 
     archive = Path(archive_root)
     destination = Path(output)
     staging = destination.with_name(destination.name + ".staging")
-    shutil.rmtree(staging, ignore_errors=True)
+    _remove_tree(staging)
     staging.mkdir(parents=True)
 
     pages, duplicates, page_aliases = _select_pages(database)
@@ -705,28 +732,8 @@ def build_mirror_site(
     aliases_by_capture: dict[int, _PageAlias] = {}
     for alias in page_aliases:
         aliases_by_capture.setdefault(alias.capture_id, alias)
-    post_rows = database.connection.execute(
-        """
-        SELECT ps.capture_id, p.historical_id
-        FROM post_sources AS ps
-        JOIN posts AS p ON p.post_pk=ps.post_pk
-        WHERE p.historical_id IS NOT NULL
-        ORDER BY ps.capture_id, p.historical_id
-        """,
-        (),
-    )
-    post_entries = (
-        (
-            alias.original_url,
-            alias.timestamp,
-            alias.route,
-            int(row["historical_id"]),
-        )
-        for row in post_rows
-        if (alias := aliases_by_capture.get(int(row["capture_id"]))) is not None
-    )
-    registry = RouteRegistry.from_mapped_entries(
-        chain(
+    def mapped_entries() -> Iterable[tuple[str, str, PurePosixPath]]:
+        return chain(
             ((alias.original_url, alias.timestamp, alias.route) for alias in page_aliases),
             (
                 (
@@ -735,10 +742,42 @@ def build_mirror_site(
                     PurePosixPath("index.html"),
                 ),
             ),
-        ),
-        post_entries,
-    )
+        )
+
+    def post_entries() -> Iterable[tuple[str, str, PurePosixPath, int]]:
+        post_rows = database.connection.execute(
+            """
+            SELECT ps.capture_id, p.historical_id
+            FROM post_sources AS ps
+            JOIN posts AS p ON p.post_pk=ps.post_pk
+            WHERE p.historical_id IS NOT NULL
+            ORDER BY ps.capture_id, p.historical_id
+            """,
+            (),
+        )
+        return (
+            (
+                alias.original_url,
+                alias.timestamp,
+                alias.route,
+                _row_int(row, "historical_id"),
+            )
+            for row in post_rows
+            if (alias := aliases_by_capture.get(_row_int(row, "capture_id"))) is not None
+        )
+
+    captured_registry = RouteRegistry.from_mapped_entries(mapped_entries(), post_entries())
     resource_candidates, references, _ = _load_resources(database)
+    entity_plan = plan_entity_fallbacks(
+        database,
+        captured_registry,
+        references,
+        {page.capture_id: page.timestamp for page in pages},
+    )
+    registry = RouteRegistry.from_mapped_entries(
+        chain(mapped_entries(), entity_plan.aliases),
+        post_entries(),
+    )
     graph = _resolve_complete_graph(pages, registry, references, resource_candidates)
     _copy_resources(
         archive,
@@ -785,6 +824,24 @@ def build_mirror_site(
         newline="\n",
     )
 
+    source_routes_by_capture = {
+        alias.capture_id: alias.route for alias in page_aliases
+    }
+    topic_source_routes_mutable: dict[tuple[str, int], set[PurePosixPath]] = defaultdict(set)
+    for page in pages:
+        era = era_for_url(page.original_url, page.timestamp)
+        if era is not None and page.topic_id is not None:
+            topic_source_routes_mutable[(era, page.topic_id)].add(page.route)
+    topic_source_routes = {
+        key: tuple(sorted(routes)) for key, routes in topic_source_routes_mutable.items()
+    }
+    generated_entities = write_entity_pages(
+        database,
+        staging,
+        entity_plan.entities,
+        source_routes_by_capture,
+        topic_source_routes,
+    )
     _copy_search_assets(staging)
     (staging / ".nojekyll").write_text("", encoding="utf-8")
     counts = database.counts()
@@ -800,6 +857,8 @@ def build_mirror_site(
         "captured_pages": len(pages),
         "discarded_duplicate_routes": duplicates,
         "copied_resource_blobs": len(graph.resources),
+        "generated_entity_pages": generated_entities,
+        "restored_entity_links": entity_plan.resolved_urls,
         "neutralized_uncaptured_page_links": len(graph.missing_pages),
         "neutralized_uncaptured_resources": len(graph.missing_resources),
         "encoding": "UTF-8",
@@ -810,7 +869,7 @@ def build_mirror_site(
         encoding="utf-8",
     )
     _validate_output(staging)
-    shutil.rmtree(destination, ignore_errors=True)
+    _remove_tree(destination)
     staging.replace(destination)
     return MirrorStats(
         posts=stats.posts,

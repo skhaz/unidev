@@ -1,0 +1,76 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 78rem;
+  padding: 1rem;
+  color: #202020;
+  background: #f6f6f3;
+}
+
+.entity-header {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #8d1717;
+}
+
+.entity-header a,
+a {
+  color: #7d1010;
+}
+
+.entity-notice {
+  padding: 0.75rem;
+  border: 1px solid #bf9d64;
+  background: #fff8dc;
+}
+
+.entity-details {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 0.25rem 1rem;
+}
+
+.entity-details dt {
+  font-weight: 700;
+}
+
+.entity-details dd {
+  margin: 0;
+}
+
+.entity-post,
+.entity-sources,
+.entity-list {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #c8c8c3;
+  background: #fff;
+}
+
+.entity-post h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.entity-post-body {
+  margin-top: 0.75rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.entity-list li {
+  margin: 0.35rem 0;
+}
+
+@media (max-width: 40rem) {
+  .entity-details {
+    grid-template-columns: 1fr;
+  }
+}

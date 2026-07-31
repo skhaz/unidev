@@ -6,7 +6,7 @@ Restauração estática, pesquisável e somente leitura do fórum brasileiro **U
 - Repositório: <https://github.com/skhaz/unidev>
 - Fontes primárias: inventários CDX do Internet Archive e índices do Common Crawl
 
-> **Estado atual:** o acervo bruto verificado v7 está preservado em <https://github.com/skhaz/unidev/releases/tag/archive-data-v7>. O espelho publica todas as 20.181 páginas históricas verificáveis e neutraliza, sem criar placeholders, 58.450 links e 9.022 referências a destinos que não possuem captura completa. A saída foi validada sem links, recursos, CSS, SVG ou fragmentos quebrados. As métricas reproduzíveis estão em [`archive/coverage.json`](archive/coverage.json); as varreduras estão documentadas em [`archive/recovery-v6.json`](archive/recovery-v6.json) e [`archive/image-recovery-v7.json`](archive/image-recovery-v7.json).
+> **Estado atual:** o acervo bruto verificado v8 está preservado em <https://github.com/skhaz/unidev/releases/tag/archive-data-v8>. O espelho publica 20.181 páginas históricas e 27.686 visões consolidadas de entidades verificadas, reativando 33.479 destinos antes inertes. Restam 24.971 referências de página e 8.935 recursos sem evidência suficiente; todos permanecem inertes. A saída foi validada sem links, recursos, CSS, SVG ou fragmentos quebrados. As métricas estão em [`archive/coverage.json`](archive/coverage.json), e a rodada profunda está em [`archive/deep-recovery-v8.json`](archive/deep-recovery-v8.json).
 
 ## Princípios
 
@@ -15,7 +15,7 @@ Restauração estática, pesquisável e somente leitura do fórum brasileiro **U
 - proveniência por URL original, captura, digest CDX e timestamp;
 - texto convertido corretamente de Windows-1252/ISO-8859-1 ou UTF-8 misto;
 - saída normalizada em Unicode NFC e publicada exclusivamente em UTF-8;
-- páginas completas e os temas originais preservados, sem reconstruir o fórum como um catálogo moderno;
+- páginas completas e temas originais preservados; visões consolidadas são identificadas como geradas e usam somente registros verificáveis;
 - imagens, CSS, avatares, emoticons e anexos servidos localmente;
 - todos os links internos apontam para páginas locais existentes; nenhum link aponta para a Wayback Machine;
 - nenhuma dependência do site atual e nenhum formulário de escrita histórico funcional;
@@ -36,8 +36,9 @@ src/unidev_archive/
   preservation.py      preservação do documento completo e neutralização ativa
   database.py          banco intermediário usado apenas no build
   mirror.py            espelho local fiel com resolução temporal de recursos
+  entities.py          navegação consolidada sobre entidades verificadas
   harvest.py           inventário e download retomável das capturas
-  static/              busca estática
+  static/              busca e estilos estáticos
 dist/                   saída reproduzível, não versionada
 ```
 
@@ -62,13 +63,13 @@ uv run ruff check .
 uv run pytest
 
 mkdir -p .build/acervo
-GH_REPO=skhaz/unidev gh release download archive-data-v7 \
-  --pattern 'unidev-archive-*-v7.tar.gz' --dir .build
+GH_REPO=skhaz/unidev gh release download archive-data-v8 \
+  --pattern 'unidev-archive-*-v8.tar.gz' --dir .build
 printf '%s  %s\n' \
-  a21d6475887391cc765e175fe12206ca67655b6df9cc0bdc9b35216e0698211b .build/unidev-archive-core-v7.tar.gz \
-  cb9d979f23541ac52da7c6ca34ef73a6439ae1acc58541a4ab1e2d9e4a1d4eef .build/unidev-archive-resources-v7.tar.gz | sha256sum -c -
-tar -xzf .build/unidev-archive-core-v7.tar.gz -C .build/acervo
-tar -xzf .build/unidev-archive-resources-v7.tar.gz -C .build/acervo
+  4fa88acdbe2ffabdc046fa8928dd78a33575141ee4f887b200dd951356494ae6 .build/unidev-archive-core-v8.tar.gz \
+  9aaa808bb0b701ab6812249044c606d3ff67e63e256ae6cd21cc3954c229e37d .build/unidev-archive-resources-v8.tar.gz | sha256sum -c -
+tar -xzf .build/unidev-archive-core-v8.tar.gz -C .build/acervo
+tar -xzf .build/unidev-archive-resources-v8.tar.gz -C .build/acervo
 
 uv run unidev-archive rebuild \
   --manifest .build/acervo/captures.jsonl \
@@ -76,7 +77,7 @@ uv run unidev-archive rebuild \
   --output dist
 ```
 
-O build integral deve terminar sem `MirrorIntegrityError`. Destinos sem captura são mantidos visualmente inertes e identificados como indisponíveis; o projeto não inventa páginas, posts ou recursos para satisfazê-los. Pagefind só deve ser executado depois dessa validação:
+O build integral deve terminar sem `MirrorIntegrityError`. Destinos sem captura, mas com entidade verificável, apontam para uma visão consolidada explicitamente identificada; destinos sem evidência suficiente permanecem inertes. O projeto não inventa posts nem recursos para satisfazê-los. Pagefind só deve ser executado depois dessa validação:
 
 ```bash
 npx --yes pagefind@1.5.2 --site dist --force-language pt
@@ -94,7 +95,7 @@ Cada entrada do manifesto integral contém:
 - SHA-256 e tamanho dos bytes locais;
 - caminho content-addressed do blob.
 
-O release contém 47.400 registros e 2.975.044.877 bytes recuperados. Os dois arquivos do acervo e o pacote de evidências têm hashes e tamanhos fixados em [`archive/source.json`](archive/source.json).
+O release contém 47.487 registros, 47.066 blobs únicos e 2.981.220.677 bytes recuperados. Os dois arquivos do acervo e o pacote de evidências têm hashes e tamanhos fixados em [`archive/source.json`](archive/source.json).
 
 O build falha se qualquer SHA-256 divergir, se uma referência ativa não resolver localmente ou se duas páginas incompatíveis disputarem a mesma rota. Referências históricas sem captura completa perdem o atributo de rede e permanecem inertes, com texto alternativo e indicação de indisponibilidade. Páginas antigas declaradas como ISO-8859-1 são interpretadas como Windows-1252, preservando a pontuação usada pelos navegadores da época. Páginas phpBB3 com UTF-8 e bytes Windows-1252 isolados são decodificadas por trechos, evitando mojibake como `ProgramaÃ§Ã£o`.
 
@@ -104,7 +105,9 @@ O inventário usa a [CDX API oficial](https://github.com/internetarchive/wayback
 
 A varredura v6 cruzou todo o grafo interno com os inventários persistidos e a Availability API, restaurou duas páginas Snitz e uma folha de estilo phpBB3 e repetiu a análise até não restar candidato completo verificável. A evidência reproduzível está em <https://github.com/skhaz/unidev/releases/download/archive-data-v6/unidev-recovery-evidence-v6.tar.gz>.
 
-A varredura v7 isolou 5.332 URLs de imagem ausentes diretamente nos corpos dos posts. Ela recuperou 41 URLs com digest CDX confirmado e decodificação integral, restaurando 993 relações post/imagem. Também consultou Arquivo.pt e 2,9 GB de blocos verificados dos índices Common Crawl. Uma imagem explícita de indisponibilidade foi rejeitada. A evidência está em <https://github.com/skhaz/unidev/releases/download/archive-data-v7/unidev-image-recovery-evidence-v7.tar.gz>. Ausência nessas fontes não constitui prova universal; destinos restantes continuam inertes.
+A varredura v7 isolou 5.332 URLs de imagem ausentes diretamente nos corpos dos posts. Ela recuperou 41 URLs com digest CDX confirmado e decodificação integral, restaurando 993 relações post/imagem. Também consultou Arquivo.pt e 2,9 GB de blocos verificados dos índices Common Crawl. Uma imagem explícita de indisponibilidade foi rejeitada. A evidência está em <https://github.com/skhaz/unidev/releases/download/archive-data-v7/unidev-image-recovery-evidence-v7.tar.gz>.
+
+A rodada v8 tentou as 5.332 URLs no CDX, completou 5.329 e examinou 5.427.153 registros de inventário. Ela restaurou outras 87 URLs e 92 relações post/imagem, rejeitando seis divergências de digest, 27 respostas não imagem e dois placeholders. A navegação consolidada reativou 33.479 destinos com conteúdo ou metadados já verificados, sem criar duplicatas na busca. A evidência integral está em <https://github.com/skhaz/unidev/releases/download/archive-data-v8/unidev-deep-recovery-evidence-v8.tar.gz>. Ausência nessas fontes não constitui prova universal; destinos restantes continuam inertes.
 
 A disponibilidade de uma página na Wayback Machine não garante direito irrestrito de republicação. O projeto mantém a publicação histórica, minimiza dados de perfil e aceita revisão ou retirada de conteúdo quando necessária.
 
