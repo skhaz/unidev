@@ -29,15 +29,19 @@
 	text-align: left !important;
 }
 
-#unidev-archive-search .unidev-archive-home {
+#unidev-archive-search .unidev-archive-home,
+#unidev-archive-search .unidev-archive-policy {
 	flex: 0 0 auto !important;
 	margin: 0 !important;
 	padding: 0 !important;
 	color: #fff !important;
 	font-size: 1rem !important;
-	font-weight: 700 !important;
 	text-decoration: none !important;
 	white-space: nowrap !important;
+}
+
+#unidev-archive-search .unidev-archive-home {
+	font-weight: 700 !important;
 }
 
 #unidev-archive-search form {

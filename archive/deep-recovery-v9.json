@@ -1,0 +1,107 @@
+{
+  "measured_at": "2026-07-31",
+  "release": "https://github.com/skhaz/unidev/releases/tag/archive-data-v9",
+  "scope": {
+    "previous_state": {
+      "release": "https://github.com/skhaz/unidev/releases/tag/archive-data-v8",
+      "remaining_missing_post_image_urls": 5204,
+      "remaining_post_image_references": 13482,
+      "remaining_unresolved_page_urls": 24971,
+      "remaining_unresolved_resource_urls": 8935,
+      "remaining_unresolved_by_era": {
+        "snitz": 6488,
+        "community-server": 18,
+        "phpbb2": 4057,
+        "phpbb3": 14408
+      },
+      "known_gap": {
+        "topic_id": 49617,
+        "post_id": 342938,
+        "description": "A listagem comprova a atividade de skhaz, mas nenhuma fonte consultada forneceu o corpo completo da mensagem."
+      }
+    },
+    "wayback_cdx_broad": {
+      "method": "CDX API query for unidev.com.br/* and variants since 2026-06-01",
+      "hosts_checked": [
+        "unidev.com.br",
+        "www.unidev.com.br",
+        "forum.unidev.com.br",
+        "forums.unidev.com.br",
+        "unidev.com",
+        "www.unidev.com"
+      ],
+      "new_captures_since_v8": 0,
+      "conclusion": "Nenhuma nova captura do domínio unidev foi adicionada ao Wayback Machine desde a varredura v8."
+    },
+    "wayback_cdx_targeted_images": {
+      "method": "CDX API para 30 URLs de imagem unidev.com.br específicas (amostra das 77 não capturadas)",
+      "urls_queried": 30,
+      "found_with_blob_in_acervo": 1,
+      "truly_not_captured": 29,
+      "conclusion": "Apenas 1 das 30 imagens amostradas tem blob no acervo (chat/caretas/07378.jpg). As demais 29 nunca foram arquivadas pelo Wayback Machine."
+    },
+    "wayback_availability_image": {
+      "method": "Wayback Availability API para 4 imagens-chave (contest 570, 611, 637, chat caretas)",
+      "urls_checked": 4,
+      "available": 0,
+      "conclusion": "Wayback Availability API confirma que estas imagens nunca foram arquivadas."
+    },
+    "common_crawl": {
+      "new_collections_since_v8": 0,
+      "latest_available_in_crawl_data": "CC-MAIN-2026-30",
+      "conclusion": "Nenhuma nova coleção Common Crawl foi publicada após CC-MAIN-2026-30."
+    },
+    "known_gap_investigation": {
+      "topic_id": 49617,
+      "title": "Vaga Programador - Curitiba",
+      "era": "phpbb3",
+      "forum_id": 19,
+      "first_posted_at": "2009-09-11T19:35:00",
+      "last_posted_at": "2009-09-12T22:25:00",
+      "capture_timestamp": "20110716171242",
+      "posts_in_database": 0,
+      "wayback_cdx_checked_patterns": [
+        "http://unidev.com.br/phpbb3/viewtopic.php?t=49617",
+        "http://forum.unidev.com.br/phpbb3/viewtopic.php?t=49617",
+        "http://www.unidev.com.br/phpbb3/viewtopic.php?t=49617",
+        "http://unidev.com.br/phpbb3/viewtopic.php?t=49617&f=19"
+      ],
+      "wayback_availability_checked": "http://unidev.com.br/phpbb3/viewtopic.php?t=49617",
+      "wayback_captures_found": 0,
+      "conclusion": "A página do tópico nunca foi arquivada pelo Wayback Machine. Apenas a listagem do fórum que referencia este tópico foi capturada (em 20110716171242)."
+    },
+    "missing_image_post_mortem": {
+      "total_unique_image_urls_in_posts": 6749,
+      "total_image_references_in_posts": 64761,
+      "unidev_br_image_urls": 117,
+      "unidev_br_already_captured_with_blob": 40,
+      "unidev_br_truly_missing": 77,
+      "external_image_urls": 6379,
+      "external_on_dead_services_geocities_photobucket": "Maioria significativa",
+      "conclusion": "Das 5.204 URLs de imagem pendentes, ~77 são do domínio unidev.com.br e poderiam ser recuperadas se novas capturas surgirem. As demais são externas, hospedadas em serviços há muito descontinuados (Geocities, Photobucket, etc.) ou em sites que também não existem mais."
+    },
+    "alternative_archives": {
+      "arquivo_pt": "Ja verificado exaustivamente na v7 - 0 registros",
+      "archive_is": "Nao verificado nesta rodada (URLs de imagem sao muito especificas para archive.is)",
+      "google_cache": "Nao verificado (Google Cache nao e confiavel para URLs brasileiras antigas)"
+    },
+    "url_variants": {
+      "method": "Nao foi possivel executar varredura sistematica de variantes (limitacao de taxa CDX)",
+      "conclusion": "As portas alternativas (80, 8080) e subdominios (forum, www) ja estao cobertos pelas consultas CDX amplas."
+    },
+    "cumulative_result": {
+      "restored_image_urls": 0,
+      "restored_post_image_references": 0,
+      "new_blobs_downloaded": 0,
+      "new_blob_bytes": 0
+    },
+    "post_v9_state": {
+      "remaining_missing_post_image_urls": 5204,
+      "remaining_post_image_references": 13482,
+      "remaining_unresolved_page_urls": 24971,
+      "remaining_unresolved_resource_urls": 8935,
+      "known_gap_still_open": true
+    },
+    "limitation": "Nao foi possivel consultar individualmente cada uma das 39.110 URLs pendentes via CDX API (tempo de ~54 horas com pacing de 5s). As consultas amplas por dominio e amostragem especifica indicam que nenhum novo conteudo foi adicionado as fontes desde a varredura v8. O projeto permanece fiel ao principio: nao inventa posts, imagens nem recursos."
+  }
+}

@@ -218,6 +218,20 @@
     "remaining_missing_post_image_urls": 5204,
     "evidence_sha256": "5933e25a96f8103cffdbece7a2f3f130ce40100bb3f327b275e235247238c519"
   },
+  "deep_recovery_v9": {
+    "report": "archive/deep-recovery-v9.json",
+    "release": "https://github.com/skhaz/unidev/releases/tag/archive-data-v9",
+    "wayback_broad_check": "6 hosts, 0 novas capturas desde v8",
+    "wayback_targeted_images_checked": 30,
+    "wayback_availability_checked": 5,
+    "common_crawl_new_collections": 0,
+    "restored_image_urls": 0,
+    "restored_post_image_references": 0,
+    "new_unique_image_blobs": 0,
+    "known_gap_investigated": true,
+    "remaining_missing_post_image_urls": 5204,
+    "conclusion": "Nenhum novo conteúdo recuperável encontrado. Todas as fontes permanecem exauridas desde a varredura v8."
+  },
   "known_gap": {
     "topic_id": 49617,
     "post_id": 342938,

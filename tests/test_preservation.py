@@ -80,6 +80,48 @@ def test_adds_clear_general_search_to_top_of_historical_page() -> None:
     assert 'data-pagefind-ignore="all"' in value
 
 
+def test_homepage_toolbar_links_privacy_and_removal_policy() -> None:
+    source = "http://unidev.com.br/phpbb3/index.php"
+    value = preserve_document(
+        b"<html><head></head><body><p>Forum</p></body></html>",
+        source,
+        PurePosixPath("index.html"),
+        RouteRegistry.from_urls((source,)),
+        {},
+    )
+
+    assert 'href="politica/index.html"' in value
+    assert "Privacidade e remoção" in value
+
+
+def test_profile_and_member_list_pages_are_not_search_indexed() -> None:
+    for source, route in (
+        (
+            "http://unidev.com.br/phpbb3/memberlist.php?mode=viewprofile&u=16263",
+            PurePosixPath("phpbb3/usuarios/16263/index.html"),
+        ),
+        (
+            "http://unidev.com.br/phpbb2/memberlist.php",
+            PurePosixPath("phpbb2/paginas/memberlist/index.html"),
+        ),
+        (
+            "http://unidev.com.br/forum/members.asp",
+            PurePosixPath("forum/paginas/members/index.html"),
+        ),
+    ):
+        value = preserve_document(
+            b"<html><head></head><body><p>Perfil historico</p></body></html>",
+            source,
+            route,
+            RouteRegistry.from_urls((source,)),
+            {},
+        )
+        document = html.document_fromstring(value)
+
+        assert document.xpath("//body/@data-pagefind-body") == []
+        assert document.xpath("//meta[@name='robots' and @content='noindex,follow']")
+
+
 def test_search_page_uses_clear_panel_styles_without_duplicate_toolbar() -> None:
     source = "http://unidev.com.br/phpbb3/search.php"
     value = preserve_document(

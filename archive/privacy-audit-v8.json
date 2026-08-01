@@ -1,0 +1,68 @@
+{
+  "audit_date": "2026-07-31",
+  "scope": {
+    "database": "/tmp/unidev-full-v8.sqlite3",
+    "historical_period_end": "2013-03-30T11:18:00",
+    "historical_period_start": "2000-01-01",
+    "html_pages_scanned": 47868,
+    "site": "https://skhaz.github.io/unidev/"
+  },
+  "method": {
+    "contact_link_validation": "DOM-aware final-artifact validation",
+    "content_detection": "case-insensitive heuristic patterns; aggregate counts only",
+    "personal_directories": [
+      "captured profile routes under usuarios",
+      "captured memberlist and members routes"
+    ],
+    "values_exported": false
+  },
+  "findings": {
+    "captured_memberlist_pages": 48,
+    "captured_memberlist_pages_with_email_like_text": 4,
+    "captured_profile_pages": 3114,
+    "captured_profile_pages_with_email_like_text": 328,
+    "generated_profile_pages_already_excluded_from_search": 5695,
+    "post_bodies_with_address_label": 545,
+    "post_bodies_with_cpf_label": 18,
+    "post_bodies_with_email_like_text": 3128,
+    "post_bodies_with_phone_like_text": 1248,
+    "risk_notes": [
+      "Pattern matches indicate review surface, not confirmed identity or sensitivity.",
+      "Historical profiles can contain email, ICQ, MSN, occupation, location and similar public-at-the-time fields.",
+      "Messages may contain personal or sensitive information supplied by their authors.",
+      "Images, attachments and text can remain protected by third-party copyright.",
+      "The age of the material does not extinguish privacy or copyright rights."
+    ]
+  },
+  "mitigations": {
+    "active_external_contact_links": 0,
+    "captured_personal_directory_pages_excluded_from_pagefind": 3162,
+    "captured_personal_directory_pages_with_noindex_follow": 3162,
+    "forms_and_historical_scripts": "inert",
+    "policy_route": "/politica/",
+    "public_request_template": "https://github.com/skhaz/unidev/issues/new?template=privacy-removal.yml",
+    "search": "local Pagefind without analytics or backend",
+    "third_party_runtime_requests": 0
+  },
+  "search_impact": {
+    "pagefind_pages_after": 16885,
+    "pagefind_pages_before": 20047,
+    "pagefind_pages_removed": 3162,
+    "pagefind_warm_run_seconds_after": 11.990,
+    "pagefind_warm_run_seconds_before": 12.689,
+    "pagefind_words_after": 200837,
+    "pagefind_words_before": 202482
+  },
+  "residual_risks": [
+    "Personal data can still occur in preserved discussion text when it is part of the historical message.",
+    "No automated detector can determine authorship, consent, age, identity or legal sensitivity conclusively.",
+    "Search engines and third parties may retain caches outside the project's control.",
+    "Accepted removal requests must also be applied to public release assets under project control.",
+    "This technical audit is not legal advice."
+  ],
+  "official_references": [
+    "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm",
+    "https://docs.github.com/en/site-policy/content-removal-policies/dmca-takedown-policy",
+    "https://docs.github.com/en/site-policy/content-removal-policies/github-private-information-removal-policy"
+  ]
+}

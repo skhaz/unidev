@@ -1,0 +1,42 @@
+name: Privacidade, opt-out ou remoção
+description: Solicite revisão de dados pessoais ou conteúdo protegido no acervo UniDev.
+title: "[Remoção] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Não publique documentos de identidade, endereço, telefone, e-mail privado ou outras provas sensíveis. Esta issue é pública. Informe apenas o mínimo necessário; se houver necessidade de verificação, o mantenedor combinará um canal privado.
+  - type: dropdown
+    id: category
+    attributes:
+      label: Categoria
+      options:
+        - Privacidade ou dado pessoal
+        - Opt-out ou desindexação
+        - Direito autoral
+        - Credencial ou exposição de alto risco
+        - Outro
+    validations:
+      required: true
+  - type: textarea
+    id: urls
+    attributes:
+      label: URLs afetadas
+      description: Uma URL por linha.
+      placeholder: https://skhaz.github.io/unidev/...
+    validations:
+      required: true
+  - type: textarea
+    id: request
+    attributes:
+      label: Solicitação
+      description: Descreva objetivamente o conteúdo e a medida pretendida, sem incluir dados privados adicionais.
+    validations:
+      required: true
+  - type: checkboxes
+    id: public
+    attributes:
+      label: Confirmação
+      options:
+        - label: Entendo que esta solicitação é pública e não inclui documentos ou dados privados adicionais.
+          required: true

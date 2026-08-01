@@ -37,6 +37,7 @@ _DANGEROUS_CSS_RE = re.compile(
     r"(?:expression\s*\(|behavior\s*:|-moz-binding\s*:|javascript\s*:)", re.I
 )
 _REMOTE_SCHEMES = {"http", "https"}
+_PERSONAL_DIRECTORY_PARTS = {"usuarios", "membros", "memberlist", "members"}
 _RESOURCE_ATTRIBUTES = {
     "audio": ("src",),
     "img": ("src", "srcset"),
@@ -282,6 +283,10 @@ def _class_xpath(name: str) -> str:
     return f'contains(concat(" ", normalize-space(@class), " "), " {name} ")'
 
 
+def _is_personal_directory(output_file: PurePosixPath) -> bool:
+    return not _PERSONAL_DIRECTORY_PARTS.isdisjoint(output_file.parts)
+
+
 def _remove_out_of_period_posts(
     document: HtmlElement,
     source_url: str,
@@ -383,6 +388,13 @@ def _add_general_search(
     home.text = "Arquivo UniDev"
     toolbar.append(home)
 
+    if output_file == PurePosixPath("index.html"):
+        policy = toolbar.makeelement("a")
+        policy.set("class", "unidev-archive-policy")
+        policy.set("href", "politica/index.html")
+        policy.text = "Privacidade e remoção"
+        toolbar.append(policy)
+
     form = toolbar.makeelement("form", method="get", role="search")
     form.set("action", _relative(output_file, PurePosixPath("busca/index.html")))
     label = form.makeelement("label", **{"for": "unidev-general-search-input"})
@@ -429,7 +441,8 @@ def preserve_document(
         key.casefold() == "view" and value.casefold() == "print"
         for key, value in parse_qsl(urlsplit(source_url).query, keep_blank_values=True)
     )
-    if body_nodes and not is_print_view:
+    is_personal_directory = _is_personal_directory(output_file)
+    if body_nodes and not is_print_view and not is_personal_directory:
         body_nodes[0].set("data-pagefind-body", "")
     if head_nodes:
         head = head_nodes[0]
@@ -452,6 +465,11 @@ def preserve_document(
             continue
         if tag == "meta":
             http_equiv = element.get("http-equiv", "").casefold()
+            if is_personal_directory and element.get("name", "").casefold() == "robots":
+                parent = element.getparent()
+                if parent is not None:
+                    parent.remove(element)
+                continue
             if element.get("charset") is not None or http_equiv in {
                 "content-type",
                 "content-security-policy",
@@ -522,6 +540,9 @@ def preserve_document(
     ):
         icon = head.makeelement("link", rel="icon", href="data:,")
         head.append(icon)
+
+    if is_personal_directory:
+        head.insert(0, head.makeelement("meta", name="robots", content="noindex,follow"))
 
     charset = head.makeelement("meta", charset="utf-8")
     csp = head.makeelement("meta")

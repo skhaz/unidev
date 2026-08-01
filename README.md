@@ -4,9 +4,10 @@ Restauração estática, pesquisável e somente leitura do fórum brasileiro **U
 
 - Site: <https://skhaz.github.io/unidev/>
 - Repositório: <https://github.com/skhaz/unidev>
+- Privacidade e remoção: <https://skhaz.github.io/unidev/politica/>
 - Fontes primárias: inventários CDX do Internet Archive e índices do Common Crawl
 
-> **Estado atual:** o acervo bruto verificado v8 está preservado em <https://github.com/skhaz/unidev/releases/tag/archive-data-v8>. O espelho publica 20.181 páginas históricas e 27.686 visões consolidadas de entidades verificadas, reativando 33.479 destinos antes inertes. Restam 24.971 referências de página e 8.935 recursos sem evidência suficiente; todos permanecem inertes. A saída foi validada sem links, recursos, CSS, SVG ou fragmentos quebrados. As métricas estão em [`archive/coverage.json`](archive/coverage.json), e a rodada profunda está em [`archive/deep-recovery-v8.json`](archive/deep-recovery-v8.json).
+> **Estado atual:** o acervo bruto verificado v8 está preservado em <https://github.com/skhaz/unidev/releases/tag/archive-data-v8>. O espelho publica 20.181 páginas históricas e 27.686 visões consolidadas de entidades verificadas, reativando 33.479 destinos antes inertes. Restam 24.971 referências de página, 8.935 recursos e 5.204 imagens sem evidência suficiente; todos permanecem inertes. A saída foi validada sem links, recursos, CSS, SVG ou fragmentos quebrados. As métricas estão em [`archive/coverage.json`](archive/coverage.json). A rodada profunda v8 está em [`archive/deep-recovery-v8.json`](archive/deep-recovery-v8.json) e a v9 em [`archive/deep-recovery-v9.json`](archive/deep-recovery-v9.json).
 
 ## Princípios
 
@@ -107,10 +108,18 @@ A varredura v6 cruzou todo o grafo interno com os inventários persistidos e a A
 
 A varredura v7 isolou 5.332 URLs de imagem ausentes diretamente nos corpos dos posts. Ela recuperou 41 URLs com digest CDX confirmado e decodificação integral, restaurando 993 relações post/imagem. Também consultou Arquivo.pt e 2,9 GB de blocos verificados dos índices Common Crawl. Uma imagem explícita de indisponibilidade foi rejeitada. A evidência está em <https://github.com/skhaz/unidev/releases/download/archive-data-v7/unidev-image-recovery-evidence-v7.tar.gz>.
 
-A rodada v8 tentou as 5.332 URLs no CDX, completou 5.329 e examinou 5.427.153 registros de inventário. Ela restaurou outras 87 URLs e 92 relações post/imagem, rejeitando seis divergências de digest, 27 respostas não imagem e dois placeholders. A navegação consolidada reativou 33.479 destinos com conteúdo ou metadados já verificados, sem criar duplicatas na busca. A evidência integral está em <https://github.com/skhaz/unidev/releases/download/archive-data-v8/unidev-deep-recovery-evidence-v8.tar.gz>. Ausência nessas fontes não constitui prova universal; destinos restantes continuam inertes.
+A rodada v8 tentou as 5.332 URLs no CDX, completou 5.329 e examinou 5.427.153 registros de inventário. Ela restaurou outras 87 URLs e 92 relações post/imagem, rejeitando seis divergências de digest, 27 respostas não imagem e dois placeholders. A navegação consolidada reativou 33.479 destinos com conteúdo ou metadados já verificados, sem criar duplicatas na busca. A evidência integral está em <https://github.com/skhaz/unidev/releases/download/archive-data-v8/unidev-deep-recovery-evidence-v8.tar.gz>.
+
+A rodada v9 reconsultou o Wayback Machine CDX (6 hosts, 0 novas capturas desde v8), o Common Crawl (0 novas coleções desde CC-MAIN-2026-30) e realizou investigação dedicada do gap conhecido (tópico 49617). Nenhum novo conteúdo foi recuperado. O relatório completo está em [`archive/deep-recovery-v9.json`](archive/deep-recovery-v9.json). A saída do baseline v9 foi validada sem links, recursos, CSS, SVG ou fragmentos quebrados.
+
+Ausência nessas fontes não constitui prova universal; destinos restantes continuam inertes.
 
 A disponibilidade de uma página na Wayback Machine não garante direito irrestrito de republicação. O projeto mantém a publicação histórica, minimiza dados de perfil e aceita revisão ou retirada de conteúdo quando necessária.
 
-## Direitos
+## Privacidade, opt-out e direitos
 
 O conteúdo arquivado, nomes, mensagens, imagens e anexos permanecem sujeitos aos direitos de seus respectivos autores. A publicação neste repositório não concede uma nova licença sobre esse material.
+
+Perfis e listas de membros são preservados para fidelidade histórica, mas não entram no Pagefind e recebem `noindex,follow`. O site não usa analytics, contas, cookies próprios ou rastreamento. Links históricos de e-mail e telefone permanecem inertes.
+
+A política pública descreve solicitações de acesso, correção contextual, desindexação, anonimização, opt-out e remoção: <https://skhaz.github.io/unidev/politica/>. Solicitações devem usar <https://github.com/skhaz/unidev/issues/new?template=privacy-removal.yml> sem publicar documentos ou dados privados adicionais. A auditoria técnica agregada, sem exportar valores pessoais, está em [`archive/privacy-audit-v8.json`](archive/privacy-audit-v8.json).

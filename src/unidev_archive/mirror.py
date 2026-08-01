@@ -15,7 +15,7 @@ from dataclasses import asdict, dataclass
 from datetime import UTC, datetime
 from itertools import chain
 from pathlib import Path, PurePosixPath
-from typing import Protocol
+from typing import Protocol, cast
 from urllib.parse import parse_qsl, unquote, urlencode, urlsplit, urlunsplit
 
 from lxml import html as lxml_html
@@ -554,7 +554,7 @@ def _validate_output(staging: Path) -> None:
         for element in document.xpath("//*[@href or @src or @background or @poster or @action]"):
             for attribute in ("href", "src", "background", "poster", "action"):
                 reference = element.get(attribute)
-                if not reference or reference.startswith(("data:", "mailto:", "tel:")):
+                if not reference or reference.startswith("data:"):
                     continue
                 parts = urlsplit(reference)
                 if parts.scheme or parts.netloc:
@@ -586,7 +586,7 @@ def _validate_output(staging: Path) -> None:
         if changed:
             source.write_text(
                 "<!doctype html>\n"
-                + lxml_html.tostring(document, encoding="unicode", method="html"),
+                + cast(str, lxml_html.tostring(document, encoding="unicode", method="html")),
                 encoding="utf-8",
                 newline="\n",
             )
@@ -708,6 +708,9 @@ def _copy_search_assets(staging: Path) -> None:
     target.mkdir(parents=True, exist_ok=True)
     for name in ("archive-entities.css", "archive-search.css", "search.js", "site.css"):
         shutil.copyfile(source / name, target / name)
+    policy = staging / "politica" / "index.html"
+    policy.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(source / "privacy-policy.html", policy)
 
 
 def build_mirror_site(

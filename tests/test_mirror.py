@@ -7,6 +7,7 @@ import pytest
 
 from unidev_archive.mirror import (
     MirrorIntegrityError,
+    _copy_search_assets,
     _enable_search_page,
     _load_resources,
     _nearest_candidate,
@@ -16,6 +17,22 @@ from unidev_archive.mirror import (
     _validate_output,
 )
 from unidev_archive.routing import RouteRegistry
+
+
+def test_copies_local_privacy_and_removal_policy(tmp_path: Path) -> None:
+    _copy_search_assets(tmp_path)
+
+    policy = (tmp_path / "politica" / "index.html").read_text(encoding="utf-8")
+    assert "Privacidade, direitos autorais e remoção" in policy
+    assert "issues/new?template=privacy-removal.yml" in policy
+    assert "<script" not in policy
+    assert "<form" not in policy
+    (tmp_path / "index.html").write_text("<html><body></body></html>", encoding="utf-8")
+    (tmp_path / "busca").mkdir()
+    (tmp_path / "busca" / "index.html").write_text(
+        "<html><body></body></html>", encoding="utf-8"
+    )
+    _validate_output(tmp_path)
 
 
 def test_search_asset_derives_deployment_base_from_its_own_url() -> None:
@@ -169,6 +186,17 @@ def test_validator_rejects_broken_active_search_action(tmp_path: Path) -> None:
 def test_validator_rejects_active_external_anchor(tmp_path: Path) -> None:
     (tmp_path / "index.html").write_text(
         '<html><body><a href="https://example.org/">externo</a></body></html>',
+        encoding="utf-8",
+    )
+
+    with pytest.raises(MirrorIntegrityError, match="link externo ativo"):
+        _validate_output(tmp_path)
+
+
+@pytest.mark.parametrize("reference", ("mailto:user@example.org", "tel:+5511999999999"))
+def test_validator_rejects_active_contact_links(tmp_path: Path, reference: str) -> None:
+    (tmp_path / "index.html").write_text(
+        f'<html><body><a href="{reference}">contato</a></body></html>',
         encoding="utf-8",
     )
 
