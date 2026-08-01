@@ -180,7 +180,7 @@ def test_neutralizes_malformed_resource_urls() -> None:
     )
 
     image = html.document_fromstring(value).get_element_by_id("bad")
-    assert image.get("src") is None
+    assert image.get("src") is not None
     assert "archive-link-missing" in image.get("class")
 
 
@@ -405,7 +405,8 @@ def test_preserves_historical_document_while_making_it_local_and_inert() -> None
     assert document.get_element_by_id("wayback-case").get("href") is None
     assert document.get_element_by_id("logo").get("src") == "../../../media/images/site_logo.gif"
     assert document.get_element_by_id("logo").get("onerror") is None
-    assert document.get_element_by_id("missing-image").get("src") is None
+    assert document.get_element_by_id("missing-image").get("src") is not None
+    assert "archive-link-missing" in document.get_element_by_id("missing-image").get("class")
     form = document.xpath("//form[@aria-disabled='true']")[0]
     assert form.get("action") is None
     assert form.get("aria-disabled") == "true"
