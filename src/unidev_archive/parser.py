@@ -13,6 +13,10 @@ from lxml.html import HtmlElement
 
 from unidev_archive.css import css_reference_values
 from unidev_archive.dates import parse_forum_date
+
+# Mapa de tradução para caracteres de controle XML-inválidos
+_CONTROL_CHARS = "".join(chr(c) for c in range(32) if c not in (9, 10, 13))
+_CONTROL_CHAR_MAP = str.maketrans({c: None for c in _CONTROL_CHARS})
 from unidev_archive.encoding import decode_html
 from unidev_archive.markup import REMOVED_ELEMENT_NAMES, local_name
 from unidev_archive.models import ParsedPage, ParsedPost, ParsedTopicListing
@@ -60,9 +64,11 @@ def _clean_text(value: str) -> str:
 def _element_text(element: HtmlElement) -> str:
     clone = copy.deepcopy(element)
     for br in clone.xpath(".//br"):
-        br.tail = "\n" + (br.tail or "")
+        tail = (br.tail or "")
+        br.tail = "\n" + tail.translate(_CONTROL_CHAR_MAP)
     for block in clone.xpath(".//p|.//div|.//li|.//pre|.//blockquote"):
-        block.tail = "\n" + (block.tail or "")
+        tail = (block.tail or "")
+        block.tail = "\n" + tail.translate(_CONTROL_CHAR_MAP)
     return _clean_text("".join(clone.itertext()))
 
 
