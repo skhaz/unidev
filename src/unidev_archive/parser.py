@@ -64,10 +64,10 @@ def _clean_text(value: str) -> str:
 def _element_text(element: HtmlElement) -> str:
     clone = copy.deepcopy(element)
     for br in clone.xpath(".//br"):
-        tail = (br.tail or "")
+        tail = br.tail or ""
         br.tail = "\n" + tail.translate(_CONTROL_CHAR_MAP)
     for block in clone.xpath(".//p|.//div|.//li|.//pre|.//blockquote"):
-        tail = (block.tail or "")
+        tail = block.tail or ""
         block.tail = "\n" + tail.translate(_CONTROL_CHAR_MAP)
     return _clean_text("".join(clone.itertext()))
 

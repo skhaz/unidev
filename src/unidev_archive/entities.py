@@ -249,7 +249,7 @@ def write_entity_pages(
         if (str(row["era"]), _row_int(row, "forum_id")) in forum_entities
     }
     written: set[EntityRoute] = set()
-    current_key: tuple[str, int] | None = None
+    current_tid: int | None = None
     current_entity: EntityRoute | None = None
     handle: IO[str] | None = None
     post_rows = database.connection.execute(
@@ -260,35 +260,58 @@ def write_entity_pages(
         FROM posts AS p
         LEFT JOIN users AS u ON u.user_pk=p.user_pk
         WHERE p.topic_id IS NOT NULL
-        ORDER BY p.era, p.topic_id, p.posted_at, p.post_pk
+        ORDER BY p.topic_id, p.posted_at, p.post_pk
         """
     )
+    # Mapa de topic_id para a primeira entidade que o representa
+    topic_by_id: dict[int, EntityRoute] = {}
+    for (era, tid), entity in topic_entities.items():
+        if tid not in topic_by_id:
+            topic_by_id[tid] = entity
     for row in post_rows:
-        key = str(row["era"]), _row_int(row, "topic_id")
-        entity = topic_entities.get(key)
+        tid = _row_int(row, "topic_id")
+        entity = topic_by_id.get(tid)
         if entity is None:
             continue
-        if key != current_key:
+        if tid != current_tid:
             if handle is not None:
                 handle.write("</section>")
                 _end_page(handle)
-            current_key = key
+            current_tid = tid
             current_entity = entity
             handle = _open_page(output, entity)
-            topic = topics[key]
+            topic = topics.get((entity.era, tid))
+            if topic is None:
+                for era in ("phpbb3", "phpbb2", "snitz", "forum", "comunidade"):
+                    topic = topics.get((era, tid))
+                    if topic:
+                        break
             _begin_page(
                 handle,
                 entity.route,
-                str(topic["title"] or f"Tópico {entity.historical_id}"),
-                str(topic["title"] or f"Tópico {entity.historical_id}"),
+                str(topic["title"] or f"Tópico {entity.historical_id}") if topic else f"Tópico {tid}",
+                str(topic["title"] or f"Tópico {entity.historical_id}") if topic else f"Tópico {tid}",
                 (
                     ("Geração", entity.era),
                     ("ID histórico", entity.historical_id),
-                    ("Primeira mensagem", topic["first_posted_at"]),
-                    ("Última mensagem", topic["last_posted_at"]),
+                    ("Primeira mensagem", topic["first_posted_at"] if topic else "—"),
+                    ("Última mensagem", topic["last_posted_at"] if topic else "—"),
                 ),
             )
-            sources = topic_source_routes.get(key, ())
+            sources = topic_source_routes.get((entity.era, tid), ())
+            _begin_page(
+                handle,
+                entity.route,
+                str(topic["title"] or f"Tópico {entity.historical_id}") if topic else f"Tópico {tid}",
+                str(topic["title"] or f"Tópico {entity.historical_id}") if topic else f"Tópico {tid}",
+                (
+                    ("Geração", entity.era),
+                    ("ID histórico", entity.historical_id),
+                    ("Primeira mensagem", topic["first_posted_at"] if topic else "—"),
+                    ("Última mensagem", topic["last_posted_at"] if topic else "—"),
+                ),
+            )
+            sources = topic_source_routes.get((entity.era, tid), ())
             if sources:
                 handle.write(
                     '<nav class="entity-sources"><strong>Capturas históricas:</strong><ul>'
@@ -348,6 +371,17 @@ def write_entity_pages(
                 ("Última evidência", topic["last_posted_at"]),
             ),
         )
+        # Se há posts da primeira entidade para este topic_id, copiar o arquivo
+        tid = entity.historical_id
+        first = topic_by_id.get(tid)
+        if first is not None and first in written and first != entity:
+            first_path = output / first.route
+            if first_path.is_file():
+                first_handle = None
+                import shutil
+                shutil.copy2(first_path, output / entity.route)
+                written.add(entity)
+                continue
         handle.write("<p>Nenhuma mensagem completa deste tópico foi recuperada.</p>")
         _end_page(handle)
         written.add(entity)
