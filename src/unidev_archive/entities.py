@@ -250,8 +250,7 @@ def write_entity_pages(
     }
     written: set[EntityRoute] = set()
     current_tid: int | None = None
-    current_entity: EntityRoute | None = None
-    handle: IO[str] | None = None
+    current_handles: dict[EntityRoute, IO[str]] = {}
     post_rows = database.connection.execute(
         """
         SELECT p.post_pk, p.era, p.topic_id, p.historical_id, p.author_name,
@@ -263,101 +262,90 @@ def write_entity_pages(
         ORDER BY p.topic_id, p.posted_at, p.post_pk
         """
     )
-    # Mapa de topic_id para a primeira entidade que o representa
-    topic_by_id: dict[int, EntityRoute] = {}
-    for (era, tid), entity in topic_entities.items():
-        if tid not in topic_by_id:
-            topic_by_id[tid] = entity
-    for row in post_rows:
-        tid = _row_int(row, "topic_id")
-        entity = topic_by_id.get(tid)
-        if entity is None:
-            continue
-        if tid != current_tid:
-            if handle is not None:
-                handle.write("</section>")
-                _end_page(handle)
-            current_tid = tid
-            current_entity = entity
-            handle = _open_page(output, entity)
-            topic = topics.get((entity.era, tid))
-            if topic is None:
-                for era in ("phpbb3", "phpbb2", "snitz", "forum", "comunidade"):
-                    topic = topics.get((era, tid))
-                    if topic:
+    def _open_topic_handles(tid: int) -> dict[EntityRoute, IO[str]]:
+        """Abrir handles para TODAS as entidades que representam este topic_id."""
+        handles: dict[EntityRoute, IO[str]] = {}
+        for (era, eid), entity in topic_entities.items():
+            if eid != tid:
+                continue
+            h = _open_page(output, entity)
+            t = topics.get((entity.era, tid))
+            if t is None:
+                for era2 in ("phpbb3", "phpbb2", "snitz", "forum", "comunidade"):
+                    t = topics.get((era2, tid))
+                    if t:
                         break
             _begin_page(
-                handle,
+                h,
                 entity.route,
-                str(topic["title"] or f"Tópico {entity.historical_id}") if topic else f"Tópico {tid}",
-                str(topic["title"] or f"Tópico {entity.historical_id}") if topic else f"Tópico {tid}",
+                str(t["title"] or f"Tópico {entity.historical_id}") if t else f"Tópico {tid}",
+                str(t["title"] or f"Tópico {entity.historical_id}") if t else f"Tópico {tid}",
                 (
                     ("Geração", entity.era),
                     ("ID histórico", entity.historical_id),
-                    ("Primeira mensagem", topic["first_posted_at"] if topic else "—"),
-                    ("Última mensagem", topic["last_posted_at"] if topic else "—"),
+                    ("Primeira mensagem", t["first_posted_at"] if t else "—"),
+                    ("Última mensagem", t["last_posted_at"] if t else "—"),
                 ),
             )
-            sources = topic_source_routes.get((entity.era, tid), ())
-            _begin_page(
-                handle,
-                entity.route,
-                str(topic["title"] or f"Tópico {entity.historical_id}") if topic else f"Tópico {tid}",
-                str(topic["title"] or f"Tópico {entity.historical_id}") if topic else f"Tópico {tid}",
-                (
-                    ("Geração", entity.era),
-                    ("ID histórico", entity.historical_id),
-                    ("Primeira mensagem", topic["first_posted_at"] if topic else "—"),
-                    ("Última mensagem", topic["last_posted_at"] if topic else "—"),
-                ),
-            )
-            sources = topic_source_routes.get((entity.era, tid), ())
-            if sources:
-                handle.write(
-                    '<nav class="entity-sources"><strong>Capturas históricas:</strong><ul>'
-                )
-                for source in sources:
-                    handle.write(
-                        f'<li><a href="{_href(entity.route, source)}">{_clean(source.as_posix())}</a></li>'
-                    )
-                handle.write("</ul></nav>")
-            handle.write('<section class="entity-posts">')
+            srcs = topic_source_routes.get((entity.era, tid), ())
+            if srcs:
+                h.write('<nav class="entity-sources"><strong>Capturas históricas:</strong><ul>')
+                for src in srcs:
+                    h.write(f'<li><a href="{_href(entity.route, src)}">{_clean(src.as_posix())}</a></li>')
+                h.write("</ul></nav>")
+            h.write('<section class="entity-posts">')
+            handles[entity] = h
+        return handles
+    def _close_topic_handles(handles: dict[EntityRoute, IO[str]]) -> None:
+        for entity, h in handles.items():
+            h.write("</section>")
+            _end_page(h)
             written.add(entity)
-        if handle is None or current_entity is None:
+    for row in post_rows:
+        tid = _row_int(row, "topic_id")
+        if tid != current_tid:
+            if current_handles:
+                _close_topic_handles(current_handles)
+            current_tid = tid
+            current_handles = _open_topic_handles(tid)
+        if not current_handles:
             continue
         post_id = (
             _row_int(row, "historical_id")
             if row["historical_id"] is not None
             else _row_int(row, "post_pk")
         )
-        handle.write(
-            f'<article class="entity-post" id="p{post_id}"><span id="post{post_id}"></span><span id="{post_id}"></span><h2>'
-        )
         author_key = None
         if row["author_historical_id"] is not None:
             author_key = str(row["era"]), _row_int(row, "author_historical_id")
         author_entity = user_entities.get(author_key) if author_key else None
-        if author_entity is not None:
-            handle.write(
-                f'<a href="{_href(current_entity.route, author_entity.route)}">{_clean(row["author_name"])}</a>'
+        for entity, h in current_handles.items():
+            h.write(
+                f'<article class="entity-post" id="p{post_id}"><span id="post{post_id}"></span><span id="{post_id}"></span><h2>'
             )
-        else:
-            handle.write(_clean(row["author_name"]))
-        handle.write(f"</h2><time>{_clean(row['posted_at'] or row['posted_at_raw'])}</time>")
-        handle.write(f'<div class="entity-post-body">{_clean(row["body_text"])}</div>')
-        source = source_routes_by_capture.get(_row_int(row, "best_capture_id"))
-        if source is not None:
-            handle.write(
-                f'<p><a href="{_href(current_entity.route, source)}">Ver na captura histórica</a></p>'
-            )
-        handle.write("</article>")
-    if handle is not None:
-        handle.write("</section>")
-        _end_page(handle)
-    for key, entity in topic_entities.items():
+            if author_entity is not None:
+                h.write(
+                    f'<a href="{_href(entity.route, author_entity.route)}">{_clean(row["author_name"])}</a>'
+                )
+            else:
+                h.write(_clean(row["author_name"]))
+            h.write(f"</h2><time>{_clean(row['posted_at'] or row['posted_at_raw'])}</time>")
+            h.write(f'<div class="entity-post-body">{_clean(row["body_text"])}</div>')
+            source = source_routes_by_capture.get(_row_int(row, "best_capture_id"))
+            if source is not None:
+                h.write(
+                    f'<p><a href="{_href(entity.route, source)}">Ver na captura histórica</a></p>'
+                )
+            h.write("</article>")
+    if current_handles:
+        _close_topic_handles(current_handles)
+    # Fallback: páginas de tópicos sem posts em nenhuma era
+    for (era, tid), entity in topic_entities.items():
         if entity in written:
             continue
-        topic = topics[key]
+        topic = topics.get((era, tid))
+        if topic is None:
+            continue
         handle = _open_page(output, entity)
         _begin_page(
             handle,
@@ -371,17 +359,6 @@ def write_entity_pages(
                 ("Última evidência", topic["last_posted_at"]),
             ),
         )
-        # Se há posts da primeira entidade para este topic_id, copiar o arquivo
-        tid = entity.historical_id
-        first = topic_by_id.get(tid)
-        if first is not None and first in written and first != entity:
-            first_path = output / first.route
-            if first_path.is_file():
-                first_handle = None
-                import shutil
-                shutil.copy2(first_path, output / entity.route)
-                written.add(entity)
-                continue
         handle.write("<p>Nenhuma mensagem completa deste tópico foi recuperada.</p>")
         _end_page(handle)
         written.add(entity)
