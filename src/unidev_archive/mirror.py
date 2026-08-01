@@ -706,7 +706,13 @@ def _copy_search_assets(staging: Path) -> None:
     source = Path(__file__).with_name("static")
     target = staging / "assets"
     target.mkdir(parents=True, exist_ok=True)
-    for name in ("archive-entities.css", "archive-search.css", "search.js", "site.css", "img-not-found.svg"):
+    for name in (
+        "archive-entities.css",
+        "archive-search.css",
+        "search.js",
+        "site.css",
+        "img-not-found.svg",
+    ):
         shutil.copyfile(source / name, target / name)
     policy = staging / "politica" / "index.html"
     policy.parent.mkdir(parents=True, exist_ok=True)
