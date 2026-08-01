@@ -8,6 +8,8 @@ from collections.abc import Mapping
 from pathlib import PurePosixPath
 from urllib.parse import parse_qsl, urljoin, urlsplit
 
+_IMG_MISSING_PLACEHOLDER = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128' viewBox='0 0 128 128'%3E%3Crect width='128' height='128' fill='%23f0f0f0' rx='8'/%3E%3Cpath d='M32 96 V48 L64 28 L96 48 V96 Z' fill='%23d0d0d0' stroke='%23b0b0b0' stroke-width='2'/%3E%3Ccircle cx='56' cy='62' r='8' fill='%23b0b0b0'/%3E%3Cpath d='M48 82 Q56 74 64 82 Q72 74 80 82' fill='none' stroke='%23b0b0b0' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"
+
 from lxml import html
 from lxml.html import HtmlElement
 
@@ -115,7 +117,10 @@ def _rewrite_css(
 
 
 def _mark_missing(element: HtmlElement, attribute: str) -> None:
-    element.attrib.pop(attribute, None)
+    if attribute == "src":
+        element.set("src", _IMG_MISSING_PLACEHOLDER)
+    else:
+        element.attrib.pop(attribute, None)
     classes = element.get("class", "").split()
     if "archive-link-missing" not in classes:
         classes.append("archive-link-missing")

@@ -706,11 +706,13 @@ def _copy_search_assets(staging: Path) -> None:
     source = Path(__file__).with_name("static")
     target = staging / "assets"
     target.mkdir(parents=True, exist_ok=True)
-    for name in ("archive-entities.css", "archive-search.css", "search.js", "site.css"):
+    for name in ("archive-entities.css", "archive-search.css", "search.js", "site.css", "img-not-found.svg"):
         shutil.copyfile(source / name, target / name)
     policy = staging / "politica" / "index.html"
     policy.parent.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(source / "privacy-policy.html", policy)
+    not_found = staging / "404.html"
+    shutil.copyfile(source / "404.html", not_found)
 
 
 def build_mirror_site(
@@ -735,6 +737,7 @@ def build_mirror_site(
     aliases_by_capture: dict[int, _PageAlias] = {}
     for alias in page_aliases:
         aliases_by_capture.setdefault(alias.capture_id, alias)
+
     def mapped_entries() -> Iterable[tuple[str, str, PurePosixPath]]:
         return chain(
             ((alias.original_url, alias.timestamp, alias.route) for alias in page_aliases),
@@ -827,9 +830,7 @@ def build_mirror_site(
         newline="\n",
     )
 
-    source_routes_by_capture = {
-        alias.capture_id: alias.route for alias in page_aliases
-    }
+    source_routes_by_capture = {alias.capture_id: alias.route for alias in page_aliases}
     topic_source_routes_mutable: dict[tuple[str, int], set[PurePosixPath]] = defaultdict(set)
     for page in pages:
         era = era_for_url(page.original_url, page.timestamp)
