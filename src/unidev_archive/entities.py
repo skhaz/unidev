@@ -23,10 +23,10 @@ _CONTROL_TRANSLATION = {value: None for value in (*range(9), 11, 12, *range(14, 
 
 
 class _Row(Protocol):
-    def __getitem__(self, key: str) -> object: ...
+    def __getitem__(self, key: int | str) -> object: ...
 
 
-def _row_int(row: _Row, key: str) -> int:
+def _row_int(row: _Row, key: int | str) -> int:
     try:
         return int(str(row[key]))
     except (IndexError, KeyError, TypeError, ValueError) as error:
@@ -93,6 +93,16 @@ def plan_entity_fallbacks(
     aliases: set[tuple[str, str, PurePosixPath]] = set()
     entities: set[EntityRoute] = set()
     resolved_urls: set[str] = set()
+    # Todas as entidades conhecidas do banco ganham página consolidada,
+    # para o fórum ser integralmente navegável, mesmo sem captura.
+    for row in database.connection.execute("SELECT era, topic_id FROM topics"):
+        entities.add(_entity_route(str(row["era"]), "topicos", _row_int(row, "topic_id")))
+    for row in database.connection.execute("SELECT era, forum_id FROM forums"):
+        entities.add(_entity_route(str(row["era"]), "foruns", _row_int(row, "forum_id")))
+    for row in database.connection.execute(
+        "SELECT era, historical_id FROM users WHERE historical_id IS NOT NULL"
+    ):
+        entities.add(_entity_route(str(row["era"]), "usuarios", _row_int(row, "historical_id")))
     for capture_id, captured_references in references.items():
         timestamp = capture_timestamps.get(capture_id)
         if timestamp is None:
@@ -123,23 +133,17 @@ def plan_entity_fallbacks(
             "SELECT user_pk, era, historical_id FROM users WHERE historical_id IS NOT NULL"
         )
     }
-    selected_user_pks = {
-        user_keys[key] for key in selected_users if key in user_keys
-    }
+    selected_user_pks = {user_keys[key] for key in selected_users if key in user_keys}
     for row in database.connection.execute(
         "SELECT era, topic_id, forum_id FROM topics WHERE forum_id IS NOT NULL"
     ):
         if (str(row["era"]), _row_int(row, "forum_id")) in selected_forums:
-            entities.add(
-                _entity_route(str(row["era"]), "topicos", _row_int(row, "topic_id"))
-            )
+            entities.add(_entity_route(str(row["era"]), "topicos", _row_int(row, "topic_id")))
     for row in database.connection.execute(
         "SELECT DISTINCT era, topic_id, user_pk FROM posts WHERE topic_id IS NOT NULL"
     ):
         if row["user_pk"] is not None and _row_int(row, "user_pk") in selected_user_pks:
-            entities.add(
-                _entity_route(str(row["era"]), "topicos", _row_int(row, "topic_id"))
-            )
+            entities.add(_entity_route(str(row["era"]), "topicos", _row_int(row, "topic_id")))
     return EntityFallbackPlan(
         aliases=tuple(sorted(aliases, key=lambda item: (item[0], item[1], item[2].as_posix()))),
         entities=tuple(sorted(entities)),
@@ -168,21 +172,21 @@ def _begin_page(
     home = _href(route, PurePosixPath("index.html"))
     search = _href(route, PurePosixPath("busca", "index.html"))
     handle.write(
-        "<!doctype html><html lang=\"pt-BR\"><head><meta charset=\"utf-8\">"
-        "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">"
-        "<meta name=\"robots\" content=\"noindex,follow\">"
-        "<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; "
+        '<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">'
+        '<meta name="viewport" content="width=device-width,initial-scale=1">'
+        '<meta name="robots" content="noindex,follow">'
+        '<meta http-equiv="Content-Security-Policy" content="default-src \'none\'; '
         "style-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'\">"
-        "<link rel=\"icon\" href=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' "
+        '<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' '
         "viewBox='0 0 32 32'%3E%3Cpath fill='%238d1717' d='M3 3h26v26H3z'/%3E%3C/svg%3E\">"
         f"<title>{_clean(title)} — Acervo UniDev</title>"
-        f"<link rel=\"stylesheet\" href=\"{stylesheet}\"></head><body>"
-        f"<header class=\"entity-header\"><a href=\"{home}\">UniDev</a>"
-        f"<a href=\"{search}\">Busca geral</a></header><main>"
-        "<aside class=\"entity-notice\"><strong>Visão consolidada do acervo.</strong> "
+        f'<link rel="stylesheet" href="{stylesheet}"></head><body>'
+        f'<header class="entity-header"><a href="{home}">UniDev</a>'
+        f'<a href="{search}">Busca geral</a></header><main>'
+        '<aside class="entity-notice"><strong>Visão consolidada do acervo.</strong> '
         "Esta página foi gerada somente com registros verificáveis extraídos das capturas; "
         "não é uma página histórica original e pode estar incompleta.</aside>"
-        f"<h1>{_clean(heading)}</h1><dl class=\"entity-details\">"
+        f'<h1>{_clean(heading)}</h1><dl class="entity-details">'
     )
     for label, value in details:
         handle.write(f"<dt>{_clean(label)}</dt><dd>{_clean(value) or '—'}</dd>")
@@ -207,9 +211,7 @@ def write_entity_pages(
     source_routes_by_capture: Mapping[int, PurePosixPath],
     topic_source_routes: Mapping[tuple[str, int], tuple[PurePosixPath, ...]],
 ) -> int:
-    entity_by_key = {
-        (entity.kind, entity.era, entity.historical_id): entity for entity in entities
-    }
+    entity_by_key = {(entity.kind, entity.era, entity.historical_id): entity for entity in entities}
     topic_entities = {
         (entity.era, entity.historical_id): entity
         for entity in entities
@@ -221,15 +223,12 @@ def write_entity_pages(
         if entity.kind == "usuarios"
     }
     forum_entities = {
-        (entity.era, entity.historical_id): entity
-        for entity in entities
-        if entity.kind == "foruns"
+        (entity.era, entity.historical_id): entity for entity in entities if entity.kind == "foruns"
     }
     topics = {
         (str(row["era"]), _row_int(row, "topic_id")): row
         for row in database.connection.execute(
-            "SELECT era, topic_id, forum_id, title, first_posted_at, last_posted_at "
-            "FROM topics"
+            "SELECT era, topic_id, forum_id, title, first_posted_at, last_posted_at FROM topics"
         )
         if (str(row["era"]), _row_int(row, "topic_id")) in topic_entities
     }
@@ -291,13 +290,15 @@ def write_entity_pages(
             )
             sources = topic_source_routes.get(key, ())
             if sources:
-                handle.write("<nav class=\"entity-sources\"><strong>Capturas históricas:</strong><ul>")
+                handle.write(
+                    '<nav class="entity-sources"><strong>Capturas históricas:</strong><ul>'
+                )
                 for source in sources:
                     handle.write(
-                        f"<li><a href=\"{_href(entity.route, source)}\">{_clean(source.as_posix())}</a></li>"
+                        f'<li><a href="{_href(entity.route, source)}">{_clean(source.as_posix())}</a></li>'
                     )
                 handle.write("</ul></nav>")
-            handle.write("<section class=\"entity-posts\">")
+            handle.write('<section class="entity-posts">')
             written.add(entity)
         if handle is None or current_entity is None:
             continue
@@ -306,23 +307,25 @@ def write_entity_pages(
             if row["historical_id"] is not None
             else _row_int(row, "post_pk")
         )
-        handle.write(f"<article class=\"entity-post\" id=\"p{post_id}\"><span id=\"post{post_id}\"></span><span id=\"{post_id}\"></span><h2>")
+        handle.write(
+            f'<article class="entity-post" id="p{post_id}"><span id="post{post_id}"></span><span id="{post_id}"></span><h2>'
+        )
         author_key = None
         if row["author_historical_id"] is not None:
             author_key = str(row["era"]), _row_int(row, "author_historical_id")
         author_entity = user_entities.get(author_key) if author_key else None
         if author_entity is not None:
             handle.write(
-                f"<a href=\"{_href(current_entity.route, author_entity.route)}\">{_clean(row['author_name'])}</a>"
+                f'<a href="{_href(current_entity.route, author_entity.route)}">{_clean(row["author_name"])}</a>'
             )
         else:
             handle.write(_clean(row["author_name"]))
         handle.write(f"</h2><time>{_clean(row['posted_at'] or row['posted_at_raw'])}</time>")
-        handle.write(f"<div class=\"entity-post-body\">{_clean(row['body_text'])}</div>")
+        handle.write(f'<div class="entity-post-body">{_clean(row["body_text"])}</div>')
         source = source_routes_by_capture.get(_row_int(row, "best_capture_id"))
         if source is not None:
             handle.write(
-                f"<p><a href=\"{_href(current_entity.route, source)}\">Ver na captura histórica</a></p>"
+                f'<p><a href="{_href(current_entity.route, source)}">Ver na captura histórica</a></p>'
             )
         handle.write("</article>")
     if handle is not None:
@@ -387,15 +390,13 @@ def write_entity_pages(
                     ("Mensagens verificadas", user["post_count"]),
                 ),
             )
-            handle.write("<ol class=\"entity-list\">")
+            handle.write('<ol class="entity-list">')
             written.add(entity)
         if handle is None or current_entity is None:
             continue
         topic_entity = None
         if row["topic_id"] is not None:
-            topic_entity = topic_entities.get(
-                (str(row["era"]), _row_int(row, "topic_id"))
-            )
+            topic_entity = topic_entities.get((str(row["era"]), _row_int(row, "topic_id")))
         label = row["topic_title"] or f"Mensagem {row['historical_id'] or row['post_pk']}"
         handle.write("<li>")
         if topic_entity is not None:
@@ -405,7 +406,7 @@ def write_entity_pages(
                 else _row_int(row, "post_pk")
             )
             handle.write(
-                f"<a href=\"{_href(current_entity.route, topic_entity.route, f'p{post_id}')}\">{_clean(label)}</a>"
+                f'<a href="{_href(current_entity.route, topic_entity.route, f"p{post_id}")}">{_clean(label)}</a>'
             )
         else:
             handle.write(_clean(label))
@@ -469,21 +470,21 @@ def write_entity_pages(
                     ("Última evidência", forum["last_seen"]),
                 ),
             )
-            handle.write("<ol class=\"entity-list\">")
+            handle.write('<ol class="entity-list">')
             written.add(entity)
         if handle is None or current_entity is None:
             continue
-        topic_entity = topic_entities.get(
-            (str(row["era"]), _row_int(row, "topic_id"))
-        )
+        topic_entity = topic_entities.get((str(row["era"]), _row_int(row, "topic_id")))
         handle.write("<li>")
         if topic_entity is not None:
             handle.write(
-                f"<a href=\"{_href(current_entity.route, topic_entity.route)}\">{_clean(row['title'] or f'Tópico {row["topic_id"]}')}</a>"
+                f'<a href="{_href(current_entity.route, topic_entity.route)}">{_clean(row["title"] or f"Tópico {row['topic_id']}")}</a>'
             )
         else:
             handle.write(_clean(row["title"] or f"Tópico {row['topic_id']}"))
-        handle.write(f" <time>{_clean(row['last_posted_at'] or row['first_posted_at'])}</time></li>")
+        handle.write(
+            f" <time>{_clean(row['last_posted_at'] or row['first_posted_at'])}</time></li>"
+        )
     if handle is not None:
         handle.write("</ol>")
         _end_page(handle)
