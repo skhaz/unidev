@@ -29,9 +29,7 @@ def test_copies_local_privacy_and_removal_policy(tmp_path: Path) -> None:
     assert "<form" not in policy
     (tmp_path / "index.html").write_text("<html><body></body></html>", encoding="utf-8")
     (tmp_path / "busca").mkdir()
-    (tmp_path / "busca" / "index.html").write_text(
-        "<html><body></body></html>", encoding="utf-8"
-    )
+    (tmp_path / "busca" / "index.html").write_text("<html><body></body></html>", encoding="utf-8")
     _validate_output(tmp_path)
 
 
