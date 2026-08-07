@@ -851,6 +851,7 @@ def build_mirror_site(
         entity_plan.entities,
         source_routes_by_capture,
         topic_source_routes,
+        search_available=search_available,
     )
     _copy_search_assets(staging)
     (staging / ".nojekyll").write_text("", encoding="utf-8")

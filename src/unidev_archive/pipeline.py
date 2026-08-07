@@ -82,7 +82,7 @@ def _load_period(archive: Path) -> ArchivePeriod:
             original_url=str(evidence["original_url"]),
             digest=str(evidence["digest"]),
         )
-    except (OSError, json.JSONDecodeError, KeyError, TypeError) as error:
+    except (OSError, ValueError, json.JSONDecodeError, KeyError, TypeError) as error:
         raise ValueError(f"período histórico inválido ou ausente: {path}") from error
     if (
         len(start) != 19
@@ -101,9 +101,12 @@ def _load_period(archive: Path) -> ArchivePeriod:
 def _optional_int(value: object) -> int | None:
     if value is None:
         return None
-    if isinstance(value, (int, str)) and not isinstance(value, bool):
+    if not isinstance(value, (int, str)) or isinstance(value, bool):
+        raise ValueError(f"inteiro inválido no manifesto: {value!r}")
+    try:
         return int(value)
-    raise ValueError(f"inteiro inválido no manifesto: {value!r}")
+    except ValueError as error:
+        raise ValueError(f"inteiro inválido no manifesto: {value!r}") from error
 
 
 def _capture_record(row: dict[str, object]) -> CaptureRecord:
@@ -138,7 +141,7 @@ def rebuild_archive(
         str(row.get("timestamp")) == period.capture_timestamp
         and str(row.get("original_url")) == period.original_url
         and str(row.get("digest")) == period.digest
-        and row.get("cdx_digest_matches_payload") is True
+        and row.get("cdx_digest_matches_payload")
         for row in rows
     ):
         raise ValueError("captura que comprova o fim do período não está no manifesto")

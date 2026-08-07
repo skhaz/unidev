@@ -13,15 +13,14 @@ from lxml.html import HtmlElement
 
 from unidev_archive.css import css_reference_values
 from unidev_archive.dates import parse_forum_date
-
-# Mapa de tradução para caracteres de controle XML-inválidos
-_CONTROL_CHARS = "".join(chr(c) for c in range(32) if c not in (9, 10, 13))
-_CONTROL_CHAR_MAP = str.maketrans({c: None for c in _CONTROL_CHARS})
 from unidev_archive.encoding import decode_html
 from unidev_archive.markup import REMOVED_ELEMENT_NAMES, local_name
 from unidev_archive.models import ParsedPage, ParsedPost, ParsedTopicListing
 from unidev_archive.srcset import parse_srcset
 from unidev_archive.urls import era_for_url, resolve_reference_sets, resolve_references
+
+_CONTROL_CHARS = "".join(chr(c) for c in range(32) if c not in (9, 10, 13))
+_CONTROL_CHAR_MAP = str.maketrans({c: None for c in _CONTROL_CHARS})
 
 _SPACE_RE = re.compile(r"[\t\f\v ]+")
 _XML_DECL_RE = re.compile(r"^\s*<\?xml[^>]*\?>", re.I)
@@ -51,9 +50,16 @@ def _class_xpath(name: str) -> str:
     return f'contains(concat(" ", normalize-space(@class), " "), " {name} ")'
 
 
+def _int_or_none(value: str) -> int | None:
+    try:
+        return int(value)
+    except ValueError:
+        return None
+
+
 def _id_from_url(pattern: re.Pattern[str], url: str) -> int | None:
     match = pattern.search(url.replace("&amp;", "&").replace("\\075", "="))
-    return int(match.group(1)) if match else None
+    return _int_or_none(match.group(1)) if match else None
 
 
 def _clean_text(value: str) -> str:
@@ -247,6 +253,43 @@ def _parse_phpbb_listings(document: HtmlElement, forum_id: int | None) -> list[P
     return listings
 
 
+def _parse_snitz_listings(
+    document: HtmlElement,
+    forum_id: int | None,
+) -> list[ParsedTopicListing]:
+    listings: list[ParsedTopicListing] = []
+    for row in document.xpath(
+        '//tr[count(./td) >= 6 and ./td[2]//a[contains(@href,"topic.asp?TOPIC_ID=")]]'
+    ):
+        cells = row.xpath("./td")
+        topic_link = cells[1].xpath('.//a[contains(@href,"topic.asp?TOPIC_ID=")]')[0]
+        topic_id = _id_from_url(_TOPIC_ID_RE, topic_link.get("href", ""))
+        if topic_id is None:
+            continue
+        author_name = _clean_text(cells[2].text_content()) or None
+        last_cell = cells[-1]
+        last_profile = last_cell.xpath('.//a[contains(@href,"pop_profile.asp")]')
+        last_author_name = _first_text(last_profile)
+        last_author_id = (
+            _id_from_url(_USER_ID_RE, last_profile[0].get("href", "")) if last_profile else None
+        )
+        listings.append(
+            ParsedTopicListing(
+                topic_id=topic_id,
+                forum_id=forum_id,
+                title=_clean_text(topic_link.text_content()),
+                author_id=None,
+                author_name=author_name,
+                created_at=None,
+                last_post_id=None,
+                last_author_id=last_author_id,
+                last_author_name=last_author_name,
+                last_posted_at=parse_forum_date(_clean_text(last_cell.text_content())),
+            )
+        )
+    return listings
+
+
 def _snitz_body(content_cell: HtmlElement) -> HtmlElement:
     horizontal_rules = content_cell.xpath("./hr|.//hr")
     if not horizontal_rules:
@@ -261,6 +304,18 @@ def _parse_snitz(document: HtmlElement, url: str, source_encoding: str) -> Parse
     forum_name = _first_text(
         document.xpath('//a[contains(translate(@href,"forum","FORUM"),"FORUM.asp?FORUM_ID=")]')
     )
+    if urlsplit(url).path.casefold().endswith("/forum.asp"):
+        return ParsedPage(
+            era="snitz",
+            topic_id=topic_id,
+            forum_id=forum_id,
+            topic_title=None,
+            forum_name=forum_name,
+            source_encoding=source_encoding,
+            posts=(),
+            references=(),
+            listings=tuple(_parse_snitz_listings(document, forum_id)),
+        )
     topic_title = None
     for href in document.xpath('//a[contains(@href,"Topic_Title=")]/@href'):
         values = parse_qs(urlsplit(href.replace("&amp;", "&")).query).get("Topic_Title")
@@ -283,7 +338,7 @@ def _parse_snitz(document: HtmlElement, url: str, source_encoding: str) -> Parse
             _id_from_url(_USER_ID_RE, author_link[0].get("href", "")) if author_link else None
         )
         anchors = cells[1].xpath('.//a[@name and string(number(@name)) != "NaN"]/@name')
-        post_id = int(anchors[0]) if anchors else None
+        post_id = _int_or_none(anchors[0]) if anchors else None
         body_html, body_text = _body(_snitz_body(cells[1]))
         raw_date = date_match.group(1).replace(" : ", " ").replace(": ", " ")
         posts.append(
@@ -360,7 +415,7 @@ def _parse_phpbb2(document: HtmlElement, url: str, source_encoding: str) -> Pars
             ParsedPost(
                 topic_id=topic_id,
                 forum_id=forum_id,
-                post_id=int(anchor.get("name")),
+                post_id=_int_or_none(anchor.get("name", "")),
                 author_id=author_id,
                 author_name=author_name,
                 posted_at=parse_forum_date(raw_date) if raw_date else None,
@@ -481,7 +536,7 @@ def _parse_community_server(
         if topic_match
         else None
     )
-    topic_id = int(topic_value) if topic_value is not None else None
+    topic_id = _int_or_none(topic_value) if topic_value is not None else None
     forum_links = document.xpath(
         '//a[contains(translate(@href, "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "abcdefghijklmnopqrstuvwxyz"), "showforum.aspx")]'
     )
@@ -490,7 +545,7 @@ def _parse_community_server(
     for link in forum_links:
         match = _COMMUNITY_FORUM_RE.search(link.get("href", ""))
         if match:
-            forum_id = int(match.group(1))
+            forum_id = _int_or_none(match.group(1))
             forum_name = _clean_text(link.get("title", "")) or _clean_text(link.text_content())
             break
     title = _first_text(document.xpath("//title"))
@@ -529,7 +584,7 @@ def _parse_community_server(
             ParsedPost(
                 topic_id=topic_id,
                 forum_id=forum_id,
-                post_id=int(anchor.get("name", "")),
+                post_id=_int_or_none(anchor.get("name", "")),
                 author_id=author_id,
                 author_name=author_name,
                 posted_at=parse_forum_date(raw_date) if raw_date else None,
@@ -599,7 +654,7 @@ def _parse_phpbb3(document: HtmlElement, url: str, source_encoding: str) -> Pars
             ParsedPost(
                 topic_id=topic_id,
                 forum_id=forum_id,
-                post_id=int(anchor.get("name", "")[1:]),
+                post_id=_int_or_none(anchor.get("name", "")[1:]),
                 author_id=author_id,
                 author_name=author_name,
                 posted_at=parse_forum_date(raw_date) if raw_date else None,

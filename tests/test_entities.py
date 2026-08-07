@@ -58,7 +58,14 @@ def test_plans_navigable_fallback_only_for_verified_entity(tmp_path) -> None:
         output = tmp_path / "dist"
         (output / "assets").mkdir(parents=True)
         (output / "assets" / "archive-entities.css").write_text("", encoding="utf-8")
-        written = write_entity_pages(database, output, plan.entities, {}, {})
+        written = write_entity_pages(
+            database,
+            output,
+            plan.entities,
+            {},
+            {},
+            search_available=True,
+        )
 
     page = output / "acervo" / "phpbb3" / "topicos" / "42" / "index.html"
     published = page.read_text(encoding="utf-8")

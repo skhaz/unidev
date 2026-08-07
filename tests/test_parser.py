@@ -115,6 +115,31 @@ def test_extracts_snitz_post_and_relative_assets() -> None:
     assert "http://unidev.com.br/forum/imagens/c.gif" in page.references
 
 
+def test_extracts_snitz_forum_listing() -> None:
+    raw = """
+    <table><tr>
+      <td><a href="topic.asp?TOPIC_ID=34060"><img></a></td>
+      <td><a href="topic.asp?TOPIC_ID=34060">Duelo: Black.Lord x SKHAZ</a></td>
+      <td>Black.Lord</td><td>44</td><td>943</td>
+      <td>16/12/2006 20:08:15<br>por:
+        <a href="pop_profile.asp?mode=display&id=16263">skhaz</a>
+      </td>
+    </tr></table>
+    """.encode("cp1252")
+
+    page = parse_page(raw, "http://www.unidev.com.br/forum/forum.asp?FORUM_ID=12")
+
+    assert len(page.listings) == 1
+    listing = page.listings[0]
+    assert listing.topic_id == 34060
+    assert listing.forum_id == 12
+    assert listing.title == "Duelo: Black.Lord x SKHAZ"
+    assert listing.author_name == "Black.Lord"
+    assert listing.last_author_id == 16263
+    assert listing.last_author_name == "skhaz"
+    assert listing.last_posted_at == "2006-12-16T20:08:15"
+
+
 def test_extracts_phpbb2_post() -> None:
     raw = """
     <meta charset="iso-8859-1"><title>UniDev :: Exibir tópico - DirectX no GCC</title>

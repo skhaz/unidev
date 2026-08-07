@@ -167,10 +167,15 @@ def _begin_page(
     title: str,
     heading: str,
     details: tuple[tuple[str, object | None], ...],
+    *,
+    search_available: bool,
 ) -> None:
     stylesheet = _href(route, PurePosixPath("assets", "archive-entities.css"))
     home = _href(route, PurePosixPath("index.html"))
-    search = _href(route, PurePosixPath("busca", "index.html"))
+    search_link = ""
+    if search_available:
+        search = _href(route, PurePosixPath("busca", "index.html"))
+        search_link = f'<a href="{search}">Busca geral</a>'
     handle.write(
         '<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width,initial-scale=1">'
@@ -181,8 +186,7 @@ def _begin_page(
         "viewBox='0 0 32 32'%3E%3Cpath fill='%238d1717' d='M3 3h26v26H3z'/%3E%3C/svg%3E\">"
         f"<title>{_clean(title)} — Acervo UniDev</title>"
         f'<link rel="stylesheet" href="{stylesheet}"></head><body>'
-        f'<header class="entity-header"><a href="{home}">UniDev</a>'
-        f'<a href="{search}">Busca geral</a></header><main>'
+        f'<header class="entity-header"><a href="{home}">UniDev</a>{search_link}</header><main>'
         '<aside class="entity-notice"><strong>Visão consolidada do acervo.</strong> '
         "Esta página foi gerada somente com registros verificáveis extraídos das capturas; "
         "não é uma página histórica original e pode estar incompleta.</aside>"
@@ -210,6 +214,8 @@ def write_entity_pages(
     entities: tuple[EntityRoute, ...],
     source_routes_by_capture: Mapping[int, PurePosixPath],
     topic_source_routes: Mapping[tuple[str, int], tuple[PurePosixPath, ...]],
+    *,
+    search_available: bool,
 ) -> int:
     entity_by_key = {(entity.kind, entity.era, entity.historical_id): entity for entity in entities}
     topic_entities = {
@@ -249,6 +255,23 @@ def write_entity_pages(
         if (str(row["era"]), _row_int(row, "forum_id")) in forum_entities
     }
     written: set[EntityRoute] = set()
+
+    def begin_page(
+        handle: IO[str],
+        route: PurePosixPath,
+        title: str,
+        heading: str,
+        details: tuple[tuple[str, object | None], ...],
+    ) -> None:
+        _begin_page(
+            handle,
+            route,
+            title,
+            heading,
+            details,
+            search_available=search_available,
+        )
+
     current_tid: int | None = None
     current_handles: dict[EntityRoute, IO[str]] = {}
     post_rows = database.connection.execute(
@@ -262,10 +285,11 @@ def write_entity_pages(
         ORDER BY p.topic_id, p.posted_at, p.post_pk
         """
     )
+
     def _open_topic_handles(tid: int) -> dict[EntityRoute, IO[str]]:
         """Abrir handles para TODAS as entidades que representam este topic_id."""
         handles: dict[EntityRoute, IO[str]] = {}
-        for (era, eid), entity in topic_entities.items():
+        for (_era, eid), entity in topic_entities.items():
             if eid != tid:
                 continue
             h = _open_page(output, entity)
@@ -275,7 +299,7 @@ def write_entity_pages(
                     t = topics.get((era2, tid))
                     if t:
                         break
-            _begin_page(
+            begin_page(
                 h,
                 entity.route,
                 str(t["title"] or f"Tópico {entity.historical_id}") if t else f"Tópico {tid}",
@@ -291,16 +315,20 @@ def write_entity_pages(
             if srcs:
                 h.write('<nav class="entity-sources"><strong>Capturas históricas:</strong><ul>')
                 for src in srcs:
-                    h.write(f'<li><a href="{_href(entity.route, src)}">{_clean(src.as_posix())}</a></li>')
+                    h.write(
+                        f'<li><a href="{_href(entity.route, src)}">{_clean(src.as_posix())}</a></li>'
+                    )
                 h.write("</ul></nav>")
             h.write('<section class="entity-posts">')
             handles[entity] = h
         return handles
+
     def _close_topic_handles(handles: dict[EntityRoute, IO[str]]) -> None:
         for entity, h in handles.items():
             h.write("</section>")
             _end_page(h)
             written.add(entity)
+
     for row in post_rows:
         tid = _row_int(row, "topic_id")
         if tid != current_tid:
@@ -347,7 +375,7 @@ def write_entity_pages(
         if topic is None:
             continue
         handle = _open_page(output, entity)
-        _begin_page(
+        begin_page(
             handle,
             entity.route,
             str(topic["title"] or f"Tópico {entity.historical_id}"),
@@ -388,7 +416,7 @@ def write_entity_pages(
             current_entity = entity
             handle = _open_page(output, entity)
             user = users[key]
-            _begin_page(
+            begin_page(
                 handle,
                 entity.route,
                 str(user["username"]),
@@ -430,7 +458,7 @@ def write_entity_pages(
             continue
         user = users[key]
         handle = _open_page(output, entity)
-        _begin_page(
+        begin_page(
             handle,
             entity.route,
             str(user["username"]),
@@ -469,7 +497,7 @@ def write_entity_pages(
             current_entity = entity
             handle = _open_page(output, entity)
             forum = forums[key]
-            _begin_page(
+            begin_page(
                 handle,
                 entity.route,
                 str(forum["name"] or f"Fórum {entity.historical_id}"),
@@ -504,7 +532,7 @@ def write_entity_pages(
             continue
         forum = forums[key]
         handle = _open_page(output, entity)
-        _begin_page(
+        begin_page(
             handle,
             entity.route,
             str(forum["name"] or f"Fórum {entity.historical_id}"),
